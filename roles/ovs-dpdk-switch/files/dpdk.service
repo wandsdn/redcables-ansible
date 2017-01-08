@@ -1,0 +1,13 @@
+[Unit]
+Description=DPDK Interface Mapping
+Before=openvswitch-nonetwork.service
+After=local-fs.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/remap-dpdk-interfaces igb vfio-pci
+ExecStop=/usr/local/bin/remap-dpdk-interfaces vfio-pci igb
+
+[Install]
+WantedBy=multi-user.target

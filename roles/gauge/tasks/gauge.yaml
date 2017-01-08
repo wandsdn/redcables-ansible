@@ -1,0 +1,61 @@
+---
+- name: Install gauge dependencies
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - python-pip
+    - python-dev
+
+- name: Create faucet group
+  group:
+    name: faucet
+    system: yes
+    state: present
+
+- name: Create faucet user
+  user:
+    name: faucet
+    group: faucet
+    createhome: no
+    system: yes
+    state: present
+
+- name: Install gauge
+  pip:
+    name: ryu-faucet
+
+- name: Add gauge defaults file
+  copy:
+    src: default
+    dest: /etc/default/gauge
+
+- name: Configure ryu
+  copy:
+    src: ryu.conf
+    dest: /etc/ryu/
+
+- name: Create gauge log directory
+  file:
+    path: /var/log/ryu/faucet/
+    owner: faucet
+    group: faucet
+    state: directory
+
+- name: Add gauge systemd unit
+  copy:
+    src: gauge.service
+    dest: /etc/systemd/system/
+
+- name: Enable gauge systemd unit
+  systemd:
+    name: gauge
+    daemon_reload: yes
+    masked: no
+    state: started
+
+- name: Configure gauge
+  template:
+    src: gauge.yaml.j2
+    dest: /etc/ryu/faucet/
+  notify: restart gauge

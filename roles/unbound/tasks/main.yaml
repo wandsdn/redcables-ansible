@@ -1,0 +1,17 @@
+---
+- name: Disable systemd-resolved
+  systemd:
+    name: systemd-resolved
+    masked: yes
+    state: stopped
+
+- name: Install unbound
+  apt:
+    name: unbound
+    state: present
+
+- name: Configure unbound
+  copy:
+    src: "{{ inventory_hostname }}/"
+    dest: /etc/unbound/unbound.conf.d/
+  notify: restart unbound

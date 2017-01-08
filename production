@@ -1,0 +1,6 @@
+[servers]
+allbirds
+
+[vms]
+faucet
+nat64

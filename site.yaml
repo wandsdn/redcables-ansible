@@ -1,0 +1,23 @@
+---
+- hosts: allbirds
+  roles:
+    - role: common
+    - role: libvirt
+    - role: ovs-dpdk-switch
+- hosts: faucet
+  roles:
+    - role: common
+    - role: bird
+    - role: dhcp
+    - role: dhcpv6
+    - role: unbound
+    - role: faucet
+    - role: gauge
+- hosts: nat64
+  roles:
+    - role: common
+    - role: bird
+    - role: dhcpv6
+    - role: unbound
+    - role: jool
+    - role: routing

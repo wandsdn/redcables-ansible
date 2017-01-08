@@ -1,0 +1,18 @@
+---
+
+- name: Install isc-dhcp-server
+  apt:
+    name: isc-dhcp-server
+    state: present
+
+- name: Enable isc-dhcp-server6
+  systemd:
+    name: isc-dhcp-server6
+    masked: no
+    state: started
+
+- name: Configure isc-dhcp-server6
+  copy:
+    src: "{{ inventory_hostname }}/dhcpd6.conf"
+    dest: /etc/dhcp/
+  notify: restart isc-dhcp-server6

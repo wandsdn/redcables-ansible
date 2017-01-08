@@ -1,0 +1,62 @@
+---
+- name: Install openvswitch-dpdk
+  apt:
+    name: openvswitch-switch-dpdk
+    state: installed
+
+- name: Disable irqbalance
+  systemd:
+    name: irqbalance
+    masked: yes
+    state: stopped
+
+- name: Switch to userspace DPDK openvswitch
+  alternatives:
+    name: ovs-vswitchd
+    path: /usr/lib/openvswitch-switch-dpdk/ovs-vswitchd-dpdk
+  notify: restart openvswitch
+
+- name: Make /dev/vfio executable to all
+  file:
+    path: /dev/vfio
+    mode: a+x
+
+- name: Set hugepages and iommu kernel settings
+  lineinfile:
+    dest: /etc/default/grub
+    regexp: "^GRUB_CMDLINE_LINUX_DEFAULT="
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="default_hugepagesz=1G hugepagesz=1G hugepages=12 iommu=pt intel_iommu=on"'
+    state: present
+  notify: update grub
+
+- name: Add hugepages mount point
+  mount:
+    name: /dev/hugepages
+    src: nodev
+    fstype: hugetlbfs
+    opts: pagesize=1GB
+    state: present
+
+- name: Install dpdk mapping script
+  copy:
+    src: remap-dpdk-interfaces
+    dest: /usr/local/bin/
+    mode: a+x
+
+- name: Add openvswitch systemd overrides
+  copy:
+    src: openvswitch-nonetwork.service.d/10-depend_on_dpdk.conf
+    dest: /etc/systemd/system/openvswitch-nonetwork.service.d/
+  notify: restart openvswitch with daemon-reload
+
+- name: Add dpdk systemd unit
+  copy:
+    src: dpdk.service
+    dest: /etc/systemd/system/
+
+- name: Enable dpdk systemd unit
+  systemd:
+    name: dpdk
+    daemon_reload: yes
+    masked: no
+    state: started

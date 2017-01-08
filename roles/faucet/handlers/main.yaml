@@ -1,0 +1,5 @@
+---
+- name: reload faucet
+  service:
+    name: faucet
+    state: reloaded

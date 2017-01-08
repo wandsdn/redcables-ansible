@@ -1,0 +1,254 @@
+---
+version: 2
+
+vlans:
+    nznog-v6-l2:
+        name: "nznog-v6-l2"
+        description: "nznog ipv6-only vlan"
+        vid: 10
+    nznog-v4v6-l2:
+        name: "nznog-v4v6-l2"
+        description: "nznog ipv4/ipv6 vlan"
+        vid: 20
+    nznog-v4v6-l3:
+        name: "nznog-v4v6-l3"
+        description: "nznog ipv4/ipv6 routed vlan"
+        vid: 20
+        controller_ips: ['202.74.195.254/22', '172.16.0.3/24', '2401:7000:69:4000::ffff/64', '2401:7000:69:43e8::f/124', 'fe80::20d:88ff:fe00:aa/64']
+        bgp_port: 9179
+        bgp_as: 9727
+        bgp_routerid: '127.0.0.2'
+        bgp_neighbor_addresses: ['127.0.0.1', '::1']
+        bgp_neighbor_as: 9727
+        routes:
+            - route:
+                ip_dst: '2401:7000:69:4000::fffe/128'
+                ip_gw: '2401:7000:69:4000::fffe'
+            - route:
+                ip_dst: '2401:7000:69::/64'
+                ip_gw: '2401:7000:69:43e8::3'
+    control:
+        name: "control"
+        description: "openflow control vlan"
+        vid: 99
+
+dps:
+    ovs-nznog:
+        dp_id: 0xa0369f5d0a20
+        hardware: "Open vSwitch"
+        ignore_learn_ins: 50
+        interfaces:
+            1:
+                native_vlan: nznog-v4v6-l3
+                name: 'vhost-nat64-nznog'
+                description: "nat64 vm"
+                acl_in: protect_from_access
+            2:
+                native_vlan: nznog-v4v6-l3
+                name: 'vhost-faucet-nznog'
+                description: "faucet vm"
+                acl_in: protect_from_core
+            3:
+                native_vlan: nznog-v4v6-l3
+                name: 'dpdk3'
+                description: "vibe peering"
+                acl_in: protect_from_edge
+            4:
+                tagged_vlans: [nznog-v4v6-l3]
+                name: 'dpdk4'
+                description: "at-x930-1 nznog trunk"
+                acl_in: protect_from_access
+            5:
+                tagged_vlans: [nznog-v4v6-l3]
+                name: 'dpdk5'
+                description: "at-x930-2 nznog trunk"
+                acl_in: protect_from_access
+            6:
+                native_vlan: nznog-v4v6-l3
+                name: 'vhost-host-nznog'
+                description: "host-nznog vm"
+                acl_in: protect_from_access
+            7:
+                native_vlan: nznog-v4v6-l3
+                name: 'vhost-vibe-router'
+                description: "fake vibe router"
+                acl_in: protect_from_edge
+            8:
+                native_vlan: nznog-v4v6-l3
+                name: 'vhost-speedtest'
+                description: "speedtest"
+                acl_in: protect_from_access
+    ovs-nznog6:
+        dp_id: 0xa0369f5d0a22
+        hardware: "Open vSwitch"
+        ignore_learn_ins: 50
+        interfaces:
+            1:
+                native_vlan: nznog-v6-l2
+                name: 'vhost-nat64-nznog6'
+                description: "nat64 vm"
+                acl_in: protect_from_core
+            2:
+                native_vlan: nznog-v6-l2
+                name: 'vhost-host-nznog6'
+                description: "host-nznog6 vm"
+                acl_in: protect_from_access
+            6:
+                tagged_vlans: [nznog-v6-l2]
+                name: 'dpdk6'
+                description: "at-x930-1 nznog6 trunk"
+                acl_in: protect_from_access
+            7:
+                tagged_vlans: [nznog-v6-l2]
+                name: 'dpdk7'
+                description: "at-x930-2 nznog6 trunk"
+                acl_in: protect_from_access
+    ovs-control:
+        dp_id: 0xa0369f5d0a2c
+        hardware: "Open vSwitch"
+        interfaces:
+            1:
+                native_vlan: control
+                name: "dpdk0"
+                description: "at-x930-1 openflow channel"
+                acl_in: protect_from_control
+            2:
+                native_vlan: control
+                name: "dpdk1"
+                description: "at-x930-2 openflow channel"
+                acl_in: protect_from_control
+            3:
+                native_vlan: control
+                name: "vhost-faucet-control"
+                description: "faucet vm openflow channel"
+                acl_in: protect_from_control
+    at-x930-1:
+        dp_id: 0xeccd6df7d4aa
+        description: "at-x930-1"
+        hardware: "Allied-Telesis"
+        interfaces:
+            1:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.1"
+            23:
+                tagged_vlans: [nznog-v6-l2]
+                name: "port1.0.23"
+                description: "at-x930-1 nznog6 trunk"
+            24:
+                tagged_vlans: [nznog-v4v6-l2]
+                name: "port1.0.24"
+                description: "at-x930-1 nznog trunk"
+            25:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.25"
+                description: "internet"
+            26:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.26"
+                description: "to redcables-core-sw 1/xg2"
+    at-x930-2:
+        dp_id: 0xeccd6def54ff
+        description: "at-x930-2"
+        hardware: "Allied-Telesis"
+        interfaces:
+            1:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.1"
+            23:
+                tagged_vlans: [nznog-v6-l2]
+                name: "port1.0.23"
+                description: "at-x930-2 nznog6 trunk"
+            24:
+                tagged_vlans: [nznog-v4v6-l2]
+                name: "port1.0.24"
+                description: "at-x930-2 nznog trunk"
+
+acls:
+    protect_from_edge:
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
+            tcp_dst: 25      # smtp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 25      # smtp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            udp_dst: 161     # snmp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            udp_dst: 161     # snmp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            udp_dst: 123     # ntp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            udp_dst: 123     # ntp
+            actions:
+                allow: 0     # drop
+        - rule:
+            actions:
+                allow: 1
+    protect_from_access:
+        - rule:
+            dl_src: 0e:00:00:00:00:01 # FAUCET_MAC
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
+            tcp_dst: 25      # smtp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 25      # smtp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            udp_src: 67      # bootps
+            udp_dst: 68      # bootpc
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            udp_src: 547     # dhcpv6-server
+            udp_dst: 546     # dhcpv6-client
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 58     # icmpv6
+            icmpv6_type: 134 # router advertisement
+            actions:
+                allow: 0     # drop
+        - rule:
+            actions:
+                allow: 1
+    protect_from_core:
+        - rule:
+            actions:
+                allow: 1
+    protect_from_control:
+        - rule:
+            actions:
+                allow: 1

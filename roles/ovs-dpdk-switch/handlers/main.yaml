@@ -1,0 +1,14 @@
+---
+- name: restart openvswitch
+  service:
+    name: openvswitch-switch
+    state: restarted
+
+- name: restart openvswitch with daemon-reload
+  systemd:
+    name: openvswitch-switch
+    daemon_reload: yes
+    state: restarted
+
+- name: update grub
+  command: "update-grub"

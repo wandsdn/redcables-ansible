@@ -1,0 +1,35 @@
+---
+- name: Install jool dependencies
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - dkms
+    - unzip
+
+- name: Download jool source
+  unarchive:
+    src: https://github.com/NICMx/releases/raw/master/Jool/Jool-{{jool_version}}.zip
+    dest: /usr/local/src/
+    creates: /usr/local/src/Jool-{{jool_version}}/
+    remote_src: True
+  register: unarchive_result
+
+- name: Build jool kernel module
+  command: dkms install /usr/local/src/Jool-{{jool_version}}
+  when: unarchive_result.changed
+
+- name: Persist jool module on boot
+  lineinfile:
+    dest: /etc/modules
+    line: "jool"
+
+- name: Configure jool
+  copy:
+    src: "jool.conf"
+    dest: /etc/modprobe.d/jool.conf
+
+- name: Modprobe jool
+  modprobe:
+    name: jool
+    state: present

@@ -1,0 +1,67 @@
+---
+- name: Install faucet dependencies
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - python-pip
+    - python-dev
+
+- name: Create faucet group
+  group:
+    name: faucet
+    system: yes
+    state: present
+
+- name: Create faucet user
+  user:
+    name: faucet
+    group: faucet
+    createhome: no
+    system: yes
+    state: present
+
+- name: Install faucet
+  pip:
+    name: ryu-faucet
+
+- name: Add faucet defaults file
+  copy:
+    src: default
+    dest: /etc/default/faucet
+
+- name: Configure ryu
+  copy:
+    src: ryu.conf
+    dest: /etc/ryu/
+
+- name: Create faucet log directory
+  file:
+    path: /var/log/ryu/faucet/
+    owner: faucet
+    group: faucet
+    state: directory
+
+- name: Patch valve.py to remove FAUCET_MAC antispoof drop rule
+  replace:
+    dest: /usr/local/lib/python2.7/dist-packages/ryu_faucet/org/onfsdn/faucet/valve.py
+    regexp: '(?s)^[\s]+# antispoof for FAUCET''s MAC address.*priority=self.dp.high_priority\)\)\n'
+    replace: ""
+
+- name: Add faucet systemd unit
+  copy:
+    src: faucet.service
+    dest: /etc/systemd/system/
+
+- name: Enable faucet systemd unit
+  systemd:
+    name: faucet
+    daemon_reload: yes
+    masked: no
+    state: started
+
+- name: Configure faucet
+  copy:
+    src: faucet.yaml
+    dest: /etc/ryu/faucet/
+  notify: reload faucet

@@ -1,0 +1,12 @@
+---
+
+- name: Install isc-dhcp-server
+  apt:
+    name: isc-dhcp-server
+    state: present
+
+- name: Configure isc-dhcp-server
+  copy:
+    src: "{{ inventory_hostname }}/dhcpd.conf"
+    dest: /etc/dhcp/
+  notify: restart isc-dhcp-server

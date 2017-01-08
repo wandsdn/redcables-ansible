@@ -1,0 +1,14 @@
+[Unit]
+Description="Gauge OpenFlow statistics controller"
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/gauge
+User=faucet
+Group=faucet
+ExecStart=/usr/local/bin/ryu-manager --config-file=${GAUGE_RYU_CONF} --ofp-tcp-listen-port=${GAUGE_LISTEN_PORT} ${GAUGE_APP_DIR}/gauge.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+---
+- name: restart networking
+  service:
+    name: networking.service
+    state: restarted
+
+- name: restart ssh
+  service:
+    name: ssh
+    state: restarted

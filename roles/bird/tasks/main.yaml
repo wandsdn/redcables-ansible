@@ -1,0 +1,17 @@
+---
+- name: Install bird
+  apt:
+    name: bird
+    state: present
+
+- name: Configure bird.conf
+  copy:
+    src: "{{ inventory_hostname }}/bird.conf"
+    dest: /etc/bird/bird.conf
+  notify: restart bird
+
+- name: Configure bird6.conf
+  copy:
+    src: "{{ inventory_hostname }}/bird6.conf"
+    dest: /etc/bird/bird6.conf
+  notify: restart bird6

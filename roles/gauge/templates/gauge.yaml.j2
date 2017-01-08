@@ -1,0 +1,19 @@
+---
+version: 2
+faucet_configs:
+    - '/etc/ryu/faucet/faucet.yaml'
+watchers:
+    port_stats_poller:
+        type: 'port_stats'
+        dps: ['ovs-nznog', 'ovs-nznog6', 'at-x930-1', 'at-x930-2']
+        interval: 10
+        db: 'influx'
+dbs:
+    influx:
+        type: 'influx'
+        influx_db: '{{influx_database}}'
+        influx_host: 'localhost'
+        influx_port: 8086
+        influx_user: '{{influx_username}}'
+        influx_pwd: '{{influx_password}}'
+        influx_timeout: 10

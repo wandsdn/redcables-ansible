@@ -1,0 +1,36 @@
+---
+- name: Import influxdb GPG signing key
+  apt_key:
+    url: https://repos.influxdata.com/influxdb.key
+    state: present
+
+- name: Add influxdb repository
+  apt_repository:
+    repo: "deb https://repos.influxdata.com/{{ansible_distribution|lower}} {{ansible_distribution_release}} stable"
+    state: present
+
+- name: Install influxdb
+  apt:
+    name: influxdb
+    state: present
+  register: influxdb_install_result
+
+- name: Start influxdb
+  service:
+    name: influxdb
+    state: started
+  when: influxdb_install_result.changed
+
+- name: Create faucet influxdb user
+  command: influx -execute "CREATE USER {{influx_username}} WITH PASSWORD '{{influx_password}}' WITH ALL PRIVILEGES"
+  when: influxdb_install_result.changed
+
+- name: Create faucet influxdb database
+  command: influx -execute "CREATE DATABASE {{influx_database}}"
+  when: influxdb_install_result.changed
+
+- name: Configure influxdb
+  copy:
+    src: influxdb.conf
+    dest:  /etc/influxdb/
+  notify: restart influxdb

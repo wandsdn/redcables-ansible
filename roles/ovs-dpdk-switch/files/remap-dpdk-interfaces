@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 [old driver] [new driver]" >&2
+  exit 99
+fi
+
+OLD_DRIVER="$1"
+NEW_DRIVER="$2"
+PORTS=("0000:04:00.0" "0000:04:00.1" "0000:04:00.2" "0000:06:00.0" "0000:06:00.1" "0000:06:00.2" "0000:06:00.3")
+
+modprobe "$NEW_DRIVER" 2>/dev/null
+
+ints=$(/sbin/dpdk-devbind --status | grep -v "Active" | grep "drv=$OLD_DRIVER" | grep "unused=$NEW_DRIVER" | awk '{print $1}')
+
+for int in $ints; do
+  if [[ " ${PORTS[@]} " =~ " ${int} " ]]; then
+    /sbin/dpdk-devbind --bind=$NEW_DRIVER $int
+  fi
+done

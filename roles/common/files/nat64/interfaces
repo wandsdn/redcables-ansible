@@ -1,0 +1,28 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto ens3
+iface ens3 inet dhcp
+  up ethtool --offload ens3 gro off
+
+auto ens4
+iface ens4 inet static
+  address 202.74.195.252
+  netmask 255.255.252.0
+  up ethtool --offload ens4 gro off
+iface ens4 inet6 static
+  address 2401:7000:69:43e8::3
+  netmask 124
+
+auto ens5
+iface ens5 inet6 static
+  address 2401:7000:69::ffff
+  netmask 64
+  up ethtool --offload ens5 gro off
