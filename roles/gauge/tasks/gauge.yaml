@@ -40,6 +40,7 @@
     path: /var/log/ryu/faucet/
     owner: faucet
     group: faucet
+    recurse: yes
     state: directory
 
 - name: Add gauge systemd unit
