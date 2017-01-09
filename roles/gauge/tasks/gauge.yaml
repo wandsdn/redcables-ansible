@@ -58,5 +58,5 @@
 - name: Configure gauge
   template:
     src: gauge.yaml.j2
-    dest: /etc/ryu/faucet/
+    dest: /etc/ryu/faucet/gauge.yaml
   notify: restart gauge
