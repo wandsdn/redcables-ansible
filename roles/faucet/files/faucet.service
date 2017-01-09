@@ -8,6 +8,7 @@ EnvironmentFile=/etc/default/faucet
 User=faucet
 Group=faucet
 ExecStart=/usr/local/bin/ryu-manager --config-file=${FAUCET_RYU_CONF} --ofp-tcp-listen-port=${FAUCET_LISTEN_PORT} ${FAUCET_APP_DIR}/faucet.py
+ExecReload=/bin/kill -HUP $MAINPID
 Restart=always
 
 [Install]
