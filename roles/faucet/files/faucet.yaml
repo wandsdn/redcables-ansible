@@ -14,19 +14,19 @@ vlans:
         name: "nznog-v4v6-l3"
         description: "nznog ipv4/ipv6 routed vlan"
         vid: 20
-        controller_ips: ['202.74.195.254/22', '172.16.0.3/24', '2401:7000:69:4000::ffff/64', '2401:7000:69:43e8::f/124', 'fe80::20d:88ff:fe00:aa/64']
+        controller_ips: ['163.7.175.254/22', '172.16.0.3/24', '2404:138:8069:4000::ffff/64', '2404:138:8069:43e8::f/124', 'fe80::20d:88ff:fe00:aa/64']
         bgp_port: 9179
-        bgp_as: 9727
+        bgp_as: 38300
         bgp_routerid: '127.0.0.2'
         bgp_neighbor_addresses: ['127.0.0.1', '::1']
-        bgp_neighbor_as: 9727
+        bgp_neighbor_as: 38300
         routes:
             - route:
-                ip_dst: '2401:7000:69:4000::fffe/128'
-                ip_gw: '2401:7000:69:4000::fffe'
+                ip_dst: '2404:138:8069:4000::fffe/128'
+                ip_gw: '2404:138:8069:4000::fffe'
             - route:
-                ip_dst: '2401:7000:69::/64'
-                ip_gw: '2401:7000:69:43e8::3'
+                ip_dst: '2404:138:8069::/64'
+                ip_gw: '2404:138:8069:43e8::3'
     control:
         name: "control"
         description: "openflow control vlan"
