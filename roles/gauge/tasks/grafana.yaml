@@ -16,13 +16,13 @@
 
 - name: Grant CAP_NET_BIND_SERVICE to grafana
   capabilities:
-    path: /usr/sbin/grafana
+    path: /usr/sbin/grafana-server
     capability: cap_net_bind_service+ep
     state: present
 
 - name: Enable grafana systemd unit
   systemd:
-    name: grafana
+    name: grafana-server
     daemon_reload: yes
     masked: no
     state: started
