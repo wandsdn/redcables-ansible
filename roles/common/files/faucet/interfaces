@@ -18,7 +18,7 @@ iface ens4 inet static
 
 auto ens5
 iface ens5 inet static
-  address 172.16.0.2
+  address 163.7.146.2
   netmask 255.255.255.0
   up ip address add 163.7.175.253/22 dev ens5
   down ip address del 163.7.175.253/22 dev ens5 || true
