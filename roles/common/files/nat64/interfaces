@@ -9,8 +9,9 @@ iface lo inet loopback
 
 # The primary network interface
 auto ens3
-iface ens3 inet dhcp
-  up ethtool --offload ens3 gro off
+iface ens3 inet static
+  address 192.168.122.3
+  netmask 255.255.255.0
 
 auto ens4
 iface ens4 inet static
