@@ -78,6 +78,11 @@ dps:
                 name: 'vhost-speedtest'
                 description: "speedtest"
                 acl_in: protect_from_access
+            10:
+                native_vlan: nznog-v4v6-l3
+                name: 'awdy'
+                description: "awdy vm"
+                acl_in: protect_from_access
     ovs-nznog6:
         dp_id: 0xa0369f5d0a22
         hardware: "Open vSwitch"
@@ -126,10 +131,14 @@ dps:
         dp_id: 0xeccd6df7d4aa
         description: "at-x930-1"
         hardware: "Allied-Telesis"
+        ignore_learn_ins: 50
         interfaces:
             1:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.1"
+            2:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.2"
             23:
                 tagged_vlans: [nznog-v6-l2]
                 name: "port1.0.23"
@@ -139,7 +148,7 @@ dps:
                 name: "port1.0.24"
                 description: "at-x930-1 nznog trunk"
             25:
-                native_vlan: nznog-v4v6-l2
+                tagged_vlans: [nznog-v4v6-l2]
                 name: "port1.0.25"
                 description: "internet"
             26:
@@ -150,10 +159,14 @@ dps:
         dp_id: 0xeccd6def54ff
         description: "at-x930-2"
         hardware: "Allied-Telesis"
+        ignore_learn_ins: 50
         interfaces:
             1:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.1"
+            2:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.2"
             23:
                 tagged_vlans: [nznog-v6-l2]
                 name: "port1.0.23"
@@ -162,6 +175,10 @@ dps:
                 tagged_vlans: [nznog-v4v6-l2]
                 name: "port1.0.24"
                 description: "at-x930-2 nznog trunk"
+            25:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.26"
+                description: "to redcables-core-sw 1/xg2"
 
 acls:
     protect_from_edge:
