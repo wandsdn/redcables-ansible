@@ -21,11 +21,16 @@ iface ens4 inet static
 auto ens5
 iface ens5 inet static
   address 163.7.146.2
-  netmask 255.255.255.0
+  netmask 255.255.255.248
   up ip address add 163.7.175.253/22 dev ens5
   down ip address del 163.7.175.253/22 dev ens5 || true
+  up ip route add default via 163.7.175.254
+  down ip route del default via 163.7.175.254 || true
 iface ens5 inet6 static
   address 2404:138:8069:43e8::2
   netmask 124
+  gateway 2404:138:8069:43e8::1
   up ip -6 address add 2404:138:8069:4000::fffe/64 dev ens5
   down ip -6 address del 2404:138:8069:4000::fffe/64 dev ens5 || true
+  up ip -6 route add default via 2404:138:8069:4000::ffff
+  down ip -6 route del default via 2404:138:8069:4000::ffff || true
