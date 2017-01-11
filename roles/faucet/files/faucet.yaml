@@ -127,9 +127,11 @@ dps:
             1:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.1"
+                acl_in: protect_from_access
             2:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.2"
+                acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
                 name: "port1.0.23"
@@ -142,6 +144,7 @@ dps:
                 tagged_vlans: [nznog-v4v6-l2]
                 name: "port1.0.25"
                 description: "internet"
+                acl_in: protect_from_edge
     at-x930-2:
         dp_id: 0xeccd6def54ff
         description: "at-x930-2"
@@ -151,9 +154,15 @@ dps:
             1:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.1"
+                acl_in: protect_from_access
             2:
-                native_vlan: nznog-v4v6-l2
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2,control]
                 name: "port1.0.2"
+                acl_in: protect_from_access
+            3:
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2,control]
+                name: "port1.0.3"
+                acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
                 name: "port1.0.23"
