@@ -177,6 +177,7 @@ dps:
                 description: "to redcables-core-sw 1/xg2"
 
 acls:
+    # ACL zone for incoming packets at the edge of our network
     protect_from_edge:
         - rule:
             dl_type: 0x800   # ipv4
@@ -217,23 +218,29 @@ acls:
         - rule:
             actions:
                 allow: 1
+
+    # ACL zone for incoming packets from clients
     protect_from_access:
+        # Faucet antispoof protection
         - rule:
             dl_src: 0e:00:00:00:00:01 # FAUCET_MAC
             actions:
                 allow: 0     # drop
+        # Drop plain ipv4 smtp
         - rule:
             dl_type: 0x800   # ipv4
             nw_proto: 6      # tcp
             tcp_dst: 25      # smtp
             actions:
                 allow: 0     # drop
+        # Drop plain ipv6 smtp
         - rule:
             dl_type: 0x86dd  # ipv6
             nw_proto: 6      # tcp
             tcp_dst: 25      # smtp
             actions:
                 allow: 0     # drop
+        # Drop dhcp server traffic
         - rule:
             dl_type: 0x800   # ipv4
             nw_proto: 17     # udp
@@ -241,6 +248,7 @@ acls:
             udp_dst: 68      # bootpc
             actions:
                 allow: 0     # drop
+        # Drop dhcpv6 server traffic
         - rule:
             dl_type: 0x86dd  # ipv6
             nw_proto: 17     # udp
@@ -248,19 +256,64 @@ acls:
             udp_dst: 546     # dhcpv6-client
             actions:
                 allow: 0     # drop
+        # Drop icmpv6 router advertisements
         - rule:
             dl_type: 0x86dd  # ipv6
             nw_proto: 58     # icmpv6
             icmpv6_type: 134 # router advertisement
             actions:
                 allow: 0     # drop
+        # Allow broadcast/multicast traffic
+        - rule:
+            eth_dst: 01:00:00:00:00:00/01:00:00:00:00:00 # broadcast & multicast
+            actions:
+                allow: 1                 # allow
+        # Allow unicast ipv4 from 169.254.0.0/16
+        - rule:
+            dl_type: 0x800               # ipv4
+            ipv4_src: 169.254.0.0/16     # link local
+            actions:
+                allow: 1                 # allow
+        # Allow unicast ipv6 from fe80::/64
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            ipv6_src: fe80::/64          # link local
+            actions:
+                allow: 1                 # allow
+        # Allow unicast ipv4 from 163.7.172.0/22
+        - rule:
+            dl_type: 0x800               # ipv4
+            ipv4_src: 163.7.172.0/22     # assigned netblock
+            actions:
+                allow: 1                 # allow
+        # Allow unicast ipv6 from 2404:138:8069::/48
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            ipv6_src: 2404:138:8069::/48 # assigned netblock
+            actions:
+                allow: 1                 # allow
+        # Drop other IP traffic
+        - rule:
+            dl_type: 0x800               # ipv4
+            actions:
+                allow: 0                 # drop
+        # Drop other IPv6 traffic
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            actions:
+                allow: 0                 # drop
+        # Allow other protocols
         - rule:
             actions:
                 allow: 1
+
+    # ACL zone for incoming packets from core devices
     protect_from_core:
         - rule:
             actions:
                 allow: 1
+
+    # ACL zone for incoming packets from control/management devices
     protect_from_control:
         - rule:
             actions:
