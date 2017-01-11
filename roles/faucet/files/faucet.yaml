@@ -68,11 +68,6 @@ dps:
                 name: 'vhost-host-nznog'
                 description: "host-nznog vm"
                 acl_in: protect_from_access
-            7:
-                native_vlan: nznog-v4v6-l3
-                name: 'vhost-vibe-router'
-                description: "fake vibe router"
-                acl_in: protect_from_edge
             8:
                 native_vlan: nznog-v4v6-l3
                 name: 'vhost-speedtest'
@@ -151,10 +146,6 @@ dps:
                 tagged_vlans: [nznog-v4v6-l2]
                 name: "port1.0.25"
                 description: "internet"
-            26:
-                native_vlan: nznog-v4v6-l2
-                name: "port1.0.26"
-                description: "to redcables-core-sw 1/xg2"
     at-x930-2:
         dp_id: 0xeccd6def54ff
         description: "at-x930-2"
