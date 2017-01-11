@@ -17,6 +17,7 @@ auto ens4
 iface ens4 inet static
   address 163.7.175.252
   netmask 255.255.252.0
+  gateway 163.7.175.254
   up ethtool --offload ens4 gro off
 iface ens4 inet6 static
   address 2404:138:8069:43e8::3
