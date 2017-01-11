@@ -57,12 +57,10 @@ dps:
                 tagged_vlans: [nznog-v4v6-l3]
                 name: 'dpdk4'
                 description: "at-x930-1 nznog trunk"
-                acl_in: protect_from_access
             5:
                 tagged_vlans: [nznog-v4v6-l3]
                 name: 'dpdk5'
                 description: "at-x930-2 nznog trunk"
-                acl_in: protect_from_access
             6:
                 native_vlan: nznog-v4v6-l3
                 name: 'vhost-host-nznog'
@@ -97,12 +95,10 @@ dps:
                 tagged_vlans: [nznog-v6-l2]
                 name: 'dpdk6'
                 description: "at-x930-1 nznog6 trunk"
-                acl_in: protect_from_access
             7:
                 tagged_vlans: [nznog-v6-l2]
                 name: 'dpdk7'
                 description: "at-x930-2 nznog6 trunk"
-                acl_in: protect_from_access
     ovs-control:
         dp_id: 0xa0369f5d0a2c
         hardware: "Open vSwitch"
