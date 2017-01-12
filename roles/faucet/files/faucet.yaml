@@ -37,6 +37,7 @@ dps:
         dp_id: 0xa0369f5d0a20
         hardware: "Open vSwitch"
         ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
         interfaces:
             1:
                 native_vlan: nznog-v4v6-l3
@@ -54,11 +55,11 @@ dps:
                 description: "vibe peering"
                 acl_in: protect_from_edge
             4:
-                tagged_vlans: [nznog-v4v6-l3]
+                tagged_vlans: [nznog-v4v6-l3,control]
                 name: 'dpdk4'
                 description: "at-x930-1 nznog trunk"
             5:
-                tagged_vlans: [nznog-v4v6-l3]
+                tagged_vlans: [nznog-v4v6-l3,control]
                 name: 'dpdk5'
                 description: "at-x930-2 nznog trunk"
             6:
@@ -66,20 +67,46 @@ dps:
                 name: 'vhost-host-nznog'
                 description: "host-nznog vm"
                 acl_in: protect_from_access
-            8:
+            7:
                 native_vlan: nznog-v4v6-l3
                 name: 'vhost-speedtest'
                 description: "speedtest"
+                acl_in: protect_from_access
+            8:
+                native_vlan: nznog-v4v6-l3
+                name: 'unifi'
+                description: "unifi controller vm"
                 acl_in: protect_from_access
             10:
                 native_vlan: nznog-v4v6-l3
                 name: 'awdy'
                 description: "awdy vm"
                 acl_in: protect_from_access
+            20:
+                native_vlan: control
+                name: "vhost-faucet-control"
+                description: "faucet vm openflow channel"
+                acl_in: protect_from_control
+            21:
+                native_vlan: control
+                name: "dpdk0"
+                description: "at-x930-1 openflow channel"
+                acl_in: protect_from_control
+            22:
+                native_vlan: control
+                name: "dpdk1"
+                description: "at-x930-2 openflow channel"
+                acl_in: protect_from_control
+            23:
+                native_vlan: control
+                name: "unifi"
+                description: "unifi controller vm"
+                acl_in: protect_from_control
     ovs-nznog6:
         dp_id: 0xa0369f5d0a22
         hardware: "Open vSwitch"
         ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
         interfaces:
             1:
                 native_vlan: nznog-v6-l2
@@ -99,30 +126,12 @@ dps:
                 tagged_vlans: [nznog-v6-l2]
                 name: 'dpdk7'
                 description: "at-x930-2 nznog6 trunk"
-    ovs-control:
-        dp_id: 0xa0369f5d0a2c
-        hardware: "Open vSwitch"
-        interfaces:
-            1:
-                native_vlan: control
-                name: "dpdk0"
-                description: "at-x930-1 openflow channel"
-                acl_in: protect_from_control
-            2:
-                native_vlan: control
-                name: "dpdk1"
-                description: "at-x930-2 openflow channel"
-                acl_in: protect_from_control
-            3:
-                native_vlan: control
-                name: "vhost-faucet-control"
-                description: "faucet vm openflow channel"
-                acl_in: protect_from_control
     at-x930-1:
         dp_id: 0xeccd6df7d4aa
         description: "at-x930-1"
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
         interfaces:
             1:
                 native_vlan: nznog-v4v6-l2
@@ -137,7 +146,7 @@ dps:
                 name: "port1.0.23"
                 description: "at-x930-1 nznog6 trunk"
             24:
-                tagged_vlans: [nznog-v4v6-l2]
+                tagged_vlans: [nznog-v4v6-l2,control]
                 name: "port1.0.24"
                 description: "at-x930-1 nznog trunk"
             25:
@@ -150,17 +159,20 @@ dps:
         description: "at-x930-2"
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
         interfaces:
             1:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.1"
                 acl_in: protect_from_access
             2:
-                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2,control]
+                tagged_vlans: [control,nznog-v4v6-l2]
                 name: "port1.0.2"
+                description: "link022 wifi ap"
                 acl_in: protect_from_access
             3:
-                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2,control]
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.3"
                 acl_in: protect_from_access
             23:
@@ -168,7 +180,7 @@ dps:
                 name: "port1.0.23"
                 description: "at-x930-2 nznog6 trunk"
             24:
-                tagged_vlans: [nznog-v4v6-l2]
+                tagged_vlans: [nznog-v4v6-l2,control]
                 name: "port1.0.24"
                 description: "at-x930-2 nznog trunk"
             25:
@@ -268,6 +280,13 @@ acls:
             eth_dst: 01:00:00:00:00:00/01:00:00:00:00:00 # broadcast & multicast
             actions:
                 allow: 1                 # allow
+        # Allow control traffic to pass
+        - rule:
+            dl_type: 0x800               # ipv4
+            ipv4_src: 172.30.99.0/24     # management network
+            ipv4_dst: 172.30.99.0/24     # management network
+            actions:
+                allow: 1
         # Allow unicast ipv4 from 169.254.0.0/16
         - rule:
             dl_type: 0x800               # ipv4

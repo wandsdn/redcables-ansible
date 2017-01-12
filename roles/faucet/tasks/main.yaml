@@ -43,12 +43,6 @@
     recurse: yes
     state: directory
 
-- name: Patch valve.py to remove FAUCET_MAC antispoof drop rule
-  replace:
-    dest: /usr/local/lib/python2.7/dist-packages/ryu_faucet/org/onfsdn/faucet/valve.py
-    regexp: '(?s)^[\s]+# antispoof for FAUCET''s MAC address.*priority=self.dp.high_priority\)\)\n'
-    replace: ""
-
 - name: Add faucet systemd unit
   copy:
     src: faucet.service
