@@ -19,6 +19,8 @@ iface ens4 inet static
   netmask 255.255.252.0
   gateway 163.7.175.254
   up ethtool --offload ens4 gro off
+  dns-search testing.nznog.cloud
+  dns-nameserver 163.7.175.253
 iface ens4 inet6 static
   address 2404:138:8069:43e8::3
   netmask 124
