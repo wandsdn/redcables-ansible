@@ -15,6 +15,18 @@
     name: python-libvirt
     state: installed
 
+- name: Install libvirt OVS ifup script
+  copy:
+    src: qemu-ifup-nznog
+    dest: /etc/qemu-ifup-nznog
+    mode: a+x
+
+- name: Configure apparmor
+  copy:
+    src: usr.sbin.libvirtd
+    dest: /etc/apparmor.d/
+  notify: restart apparmor
+
 - name: Define faucet VM
   virt:
     name: faucet
