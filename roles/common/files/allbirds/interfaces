@@ -23,3 +23,12 @@ iface eno1 inet6 static
   gateway 2001:df0:4:800::5
   dns-nameserver 2404:138:4211::1
   dns-nameserver 2404:138:4222::1
+
+allow-hotplug eno2
+iface eno2 inet dhcp
+iface eno2 inet6 auto
+
+auto eno3
+iface eno3 inet static
+  address 192.168.0.1
+  netmask 255.255.255.0
