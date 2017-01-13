@@ -43,6 +43,18 @@
     dest: /usr/local/bin/
     mode: a+x
 
+- name: Install dpdk start script
+  copy:
+    src: start-dpdk
+    dest: /usr/local/bin/
+    mode: a+x
+
+- name: Install dpdk stop script
+  copy:
+    src: stop-dpdk
+    dest: /usr/local/bin/
+    mode: a+x
+
 - name: Add openvswitch systemd overrides
   copy:
     src: openvswitch-nonetwork.service.d/10-depend_on_dpdk.conf
