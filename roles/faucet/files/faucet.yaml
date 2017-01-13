@@ -34,7 +34,7 @@ vlans:
 
 dps:
     ovs-nznog:
-        dp_id: 0xa0369f5d0a20
+        dp_id: 0xa0369f4b02e8
         hardware: "Open vSwitch"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
@@ -68,10 +68,10 @@ dps:
                 description: "host-nznog vm"
                 acl_in: protect_from_access
             7:
-                native_vlan: nznog-v4v6-l3
-                name: 'vhost-speedtest'
-                description: "speedtest"
-                acl_in: protect_from_access
+                tagged_vlans: [nznog-v4v6-l3]
+                name: 'internet'
+                description: "internet uplink"
+                acl_in: protect_from_edge
             8:
                 native_vlan: nznog-v4v6-l3
                 name: 'unifi'
@@ -140,6 +140,10 @@ dps:
             2:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.2"
+                acl_in: protect_from_access
+            3:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.3"
                 acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
