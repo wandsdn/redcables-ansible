@@ -6,8 +6,8 @@ After=local-fs.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/local/bin/remap-dpdk-interfaces igb vfio-pci
-ExecStop=/usr/local/bin/remap-dpdk-interfaces vfio-pci igb
+ExecStart=/usr/local/bin/start-dpdk
+ExecStop=/usr/local/bin/stop-dpdk
 
 [Install]
 WantedBy=multi-user.target

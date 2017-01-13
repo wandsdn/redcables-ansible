@@ -1,0 +1,3 @@
+#!/bin/bash
+/usr/local/bin/remap-dpdk-interfaces igb vfio-pci
+/usr/local/bin/remap-dpdk-interfaces ixgbe vfio-pci
