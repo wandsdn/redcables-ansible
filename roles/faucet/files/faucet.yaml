@@ -40,6 +40,7 @@ dps:
         dp_id: 0xa0369f4b02e8
         hardware: "Open vSwitch"
         ignore_learn_ins: 50
+        arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
@@ -109,6 +110,7 @@ dps:
         dp_id: 0xa0369f5d0a22
         hardware: "Open vSwitch"
         ignore_learn_ins: 50
+        arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
