@@ -30,6 +30,11 @@
     src: default
     dest: /etc/default/faucet
 
+- name: Add faucet-at defaults file
+  copy:
+    src: default-at
+    dest: /etc/default/faucet-at
+
 - name: Configure ryu
   copy:
     src: ryu.conf
@@ -48,9 +53,21 @@
     src: faucet.service
     dest: /etc/systemd/system/
 
+- name: Add faucet-at systemd unit
+  copy:
+    src: faucet-at.service
+    dest: /etc/systemd/system/
+
 - name: Enable faucet systemd unit
   systemd:
     name: faucet
+    daemon_reload: yes
+    masked: no
+    state: started
+
+- name: Enable faucet-at systemd unit
+  systemd:
+    name: faucet-at
     daemon_reload: yes
     masked: no
     state: started
@@ -60,3 +77,9 @@
     src: faucet.yaml
     dest: /etc/ryu/faucet/
   notify: reload faucet
+
+- name: Configure faucet-at
+  copy:
+    src: faucet-at.yaml
+    dest: /etc/ryu/faucet/
+  notify: reload faucet-at
