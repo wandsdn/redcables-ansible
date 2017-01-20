@@ -1,13 +1,12 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit nznog-faucet
+  virsh edit faucet
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>nznog-faucet</name>
-  <uuid>8c38771e-a16d-4bfa-acb1-8eed46e83775</uuid>
+  <name>faucet</name>
   <memory unit='KiB'>4194304</memory>
   <currentMemory unit='KiB'>4194304</currentMemory>
   <memoryBacking>
@@ -54,7 +53,7 @@ or other application using the libvirt API.
     </interface>
     <interface type='vhostuser'>
       <mac address='00:0d:88:00:99:01'/>
-      <source type='unix' path='/var/run/openvswitch/vhost-faucet' mode='client'/>
+      <source type='unix' path='/var/run/openvswitch/vhost-faucet-control' mode='client'/>
       <model type='virtio'/>
       <driver>
         <host mrg_rxbuf='off'/>
@@ -63,7 +62,7 @@ or other application using the libvirt API.
     </interface>
     <interface type='vhostuser'>
       <mac address='00:0d:88:00:00:aa'/>
-      <source type='unix' path='/var/run/openvswitch/vhost-router' mode='client'/>
+      <source type='unix' path='/var/run/openvswitch/vhost-faucet-nznog' mode='client'/>
       <model type='virtio'/>
       <driver>
         <host mrg_rxbuf='off'/>
