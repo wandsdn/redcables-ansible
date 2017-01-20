@@ -27,6 +27,9 @@ vlans:
             - route:
                 ip_dst: '2404:138:8069::/64'
                 ip_gw: '2404:138:8069:43e8::3'
+            - route:
+                ip_dst: '163.7.175.0/25'
+                ip_gw: '163.7.175.252'
     control:
         name: "control"
         description: "openflow control vlan"
