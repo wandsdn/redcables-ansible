@@ -31,7 +31,6 @@ iface ens5 inet static
 iface ens5 inet6 static
   address 2404:138:8069:43e8::2
   netmask 124
-  gateway 2404:138:8069:43e8::1
   up ip -6 address add 2404:138:8069:4000::fffe/64 dev ens5
   down ip -6 address del 2404:138:8069:4000::fffe/64 dev ens5 || true
   up ip -6 route add default via 2404:138:8069:4000::ffff
