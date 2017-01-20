@@ -150,6 +150,11 @@ dps:
                 native_vlan: nznog-v4v6-l2
                 name: "port1.0.3"
                 acl_in: protect_from_access
+            4:
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
+                name: "port1.0.4"
+                acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
                 name: "port1.0.23"
@@ -183,6 +188,11 @@ dps:
                 native_vlan: control
                 tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.3"
+                acl_in: protect_from_access
+            4:
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
+                name: "port1.0.4"
                 acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
