@@ -10,6 +10,7 @@
     - role: bird
     - role: dhcp
     - role: dhcpv6
+    - role: freeradius
     - role: unbound
     - role: faucet
     - role: gauge

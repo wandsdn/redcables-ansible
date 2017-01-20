@@ -1,0 +1,5 @@
+---
+- name: Install freeradius
+  apt:
+    name: freeradius
+    state: present
