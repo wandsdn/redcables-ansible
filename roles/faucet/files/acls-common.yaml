@@ -29,18 +29,6 @@ acls:
             actions:
                 allow: 0     # drop
         - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 17     # udp
-            udp_dst: 123     # ntp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 17     # udp
-            udp_dst: 123     # ntp
-            actions:
-                allow: 0     # drop
-        - rule:
             actions:
                 allow: 1
 
