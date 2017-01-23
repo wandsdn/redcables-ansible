@@ -30,6 +30,11 @@
     src: default
     dest: /etc/default/faucet
 
+- name: Add faucet-at defaults file
+  copy:
+    src: default-at
+    dest: /etc/default/faucet-at
+
 - name: Configure ryu
   copy:
     src: ryu.conf
@@ -43,15 +48,14 @@
     recurse: yes
     state: directory
 
-- name: Patch valve.py to remove FAUCET_MAC antispoof drop rule
-  replace:
-    dest: /usr/local/lib/python2.7/dist-packages/ryu_faucet/org/onfsdn/faucet/valve.py
-    regexp: '(?s)^[\s]+# antispoof for FAUCET''s MAC address.*priority=self.dp.high_priority\)\)\n'
-    replace: ""
-
 - name: Add faucet systemd unit
   copy:
     src: faucet.service
+    dest: /etc/systemd/system/
+
+- name: Add faucet-at systemd unit
+  copy:
+    src: faucet-at.service
     dest: /etc/systemd/system/
 
 - name: Enable faucet systemd unit
@@ -61,8 +65,34 @@
     masked: no
     state: started
 
-- name: Configure faucet
+- name: Enable faucet-at systemd unit
+  systemd:
+    name: faucet-at
+    daemon_reload: yes
+    masked: no
+    state: started
+
+- name: Add acls-common.yaml
+  copy:
+    src: acls-common.yaml
+    dest: /etc/ryu/faucet/
+  notify: reload faucet
+
+- name: Add vlans-common.yaml
+  copy:
+    src: vlans-common.yaml
+    dest: /etc/ryu/faucet/
+  notify: reload faucet
+
+- name: Add faucet.yaml
   copy:
     src: faucet.yaml
     dest: /etc/ryu/faucet/
   notify: reload faucet
+
+
+- name: Add faucet-at.yaml
+  copy:
+    src: faucet-at.yaml
+    dest: /etc/ryu/faucet/
+  notify: reload faucet-at

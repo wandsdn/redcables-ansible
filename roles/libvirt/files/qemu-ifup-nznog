@@ -1,0 +1,21 @@
+#! /bin/sh
+# Script to bring a network (tap) device for qemu up.
+# Will plug tap device into an OVS bridge
+# while maintaining the same ofport each VM boot.
+
+PATH=$PATH:/sbin:/usr/sbin
+ip=$(which ip)
+ofport=$(ovs-vsctl get Interface "$1" ofport)
+
+# Set link up
+if [ -n "$ip" ]; then
+   ip link set "$1" up
+else
+   ifconfig "$1" 0.0.0.0 up
+fi
+
+# Delete/re-add interface in OVS
+if [ ! -z "$ofport" ]; then
+  ovs-vsctl del-port "$1"
+  ovs-vsctl add-port br-nznog "$1" -- set Interface "$1" ofport_request="$ofport"
+fi

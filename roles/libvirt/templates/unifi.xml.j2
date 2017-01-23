@@ -1,20 +1,15 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit faucet
+  virsh edit unifi
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>faucet</name>
-  <memory unit='KiB'>4194304</memory>
-  <currentMemory unit='KiB'>4194304</currentMemory>
-  <memoryBacking>
-    <hugepages>
-      <page size='1048576' unit='KiB' nodeset='0'/>
-    </hugepages>
-  </memoryBacking>
-  <vcpu placement='static'>4</vcpu>
+  <name>unifi</name>
+  <memory unit='KiB'>2097152</memory>
+  <currentMemory unit='KiB'>2097152</currentMemory>
+  <vcpu placement='static'>2</vcpu>
   <os>
     <type arch='x86_64' machine='pc-i440fx-2.6'>hvm</type>
     <boot dev='hd'/>
@@ -24,10 +19,7 @@ or other application using the libvirt API.
     <apic/>
   </features>
   <cpu mode='host-passthrough'>
-    <topology sockets='2' cores='1' threads='2'/>
-    <numa>
-      <cell id='0' cpus='0-3' memory='4194304' unit='KiB' memAccess='shared'/>
-    </numa>
+    <topology sockets='2' cores='1' threads='1'/>
   </cpu>
   <clock offset='utc'/>
   <on_poweroff>destroy</on_poweroff>
@@ -37,7 +29,7 @@ or other application using the libvirt API.
     <emulator>/usr/bin/kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='none'/>
-      <source file='/var/lib/libvirt/images/faucet.qcow2'/>
+      <source file='/var/lib/libvirt/images/unifi.qcow2'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
     </disk>
@@ -46,27 +38,23 @@ or other application using the libvirt API.
     </controller>
     <controller type='pci' index='0' model='pci-root'/>
     <interface type='network'>
-      <mac address='52:54:00:b4:41:df'/>
+      <mac address='52:54:00:6b:6e:ca'/>
       <source network='default'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
-    <interface type='vhostuser'>
-      <mac address='00:0d:88:00:99:01'/>
-      <source type='unix' path='/var/run/openvswitch/vhost-faucet-control' mode='client'/>
+    <interface type='ethernet'>
+      <mac address='52:54:00:40:20:85'/>
+      <script path='/etc/qemu-ifup-nznog'/>
+      <target dev='unifi-control'/>
       <model type='virtio'/>
-      <driver>
-        <host mrg_rxbuf='off'/>
-      </driver>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </interface>
-    <interface type='vhostuser'>
-      <mac address='00:0d:88:00:00:aa'/>
-      <source type='unix' path='/var/run/openvswitch/vhost-faucet-nznog' mode='client'/>
+    <interface type='ethernet'>
+      <mac address='52:54:00:24:43:fe'/>
+      <script path='/etc/qemu-ifup-nznog'/>
+      <target dev='unifi-nznog'/>
       <model type='virtio'/>
-      <driver>
-        <host mrg_rxbuf='off'/>
-      </driver>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </interface>
     <serial type='pty'>
@@ -82,10 +70,10 @@ or other application using the libvirt API.
     </graphics>
     <video>
       <model type='cirrus' vram='16384' heads='1' primary='yes'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </video>
     <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
     </memballoon>
   </devices>
 </domain>
