@@ -73,6 +73,11 @@ dps:
                 name: 'unifi'
                 description: "unifi controller vm"
                 acl_in: protect_from_access
+            9:
+                native_vlan: nznog-v4v6-l3
+                name: 'smokeping'
+                description: "smokeping controller vm"
+                acl_in: protect_from_access
             10:
                 native_vlan: nznog-v4v6-l3
                 name: 'awdy'
