@@ -14,7 +14,8 @@ dps:
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
-                native_vlan: nznog-v4v6-l2
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.1"
                 acl_in: protect_from_access
             2:
@@ -22,13 +23,35 @@ dps:
                 name: "port1.0.2"
                 acl_in: protect_from_access
             3:
-                native_vlan: nznog-v4v6-l2
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.3"
                 acl_in: protect_from_access
             4:
                 native_vlan: control
                 tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.4"
+                acl_in: protect_from_access
+            5:
+                native_vlan: nznog-v6-l2
+                name: "port1.0.5"
+                acl_in: protect_from_access
+            6:
+                native_vlan: nznog-v6-l2
+                name: "port1.0.6"
+                acl_in: protect_from_access
+            7:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.7"
+                acl_in: protect_from_access
+            8:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.8"
+                acl_in: protect_from_access
+            20:
+                tagged_vlans: [control,nznog-v4v6-l2]
+                name: "port1.0.20"
+                description: "link022 wifi ap"
                 acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
@@ -51,13 +74,14 @@ dps:
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
-                native_vlan: nznog-v4v6-l2
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.1"
                 acl_in: protect_from_access
             2:
-                tagged_vlans: [control,nznog-v4v6-l2]
+                native_vlan: control
+                tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.2"
-                description: "link022 wifi ap"
                 acl_in: protect_from_access
             3:
                 native_vlan: control
@@ -68,6 +92,27 @@ dps:
                 native_vlan: control
                 tagged_vlans: [nznog-v6-l2,nznog-v4v6-l2]
                 name: "port1.0.4"
+                acl_in: protect_from_access
+            5:
+                native_vlan: nznog-v6-l2
+                name: "port1.0.5"
+                acl_in: protect_from_access
+            6:
+                native_vlan: nznog-v6-l2
+                name: "port1.0.6"
+                acl_in: protect_from_access
+            7:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.7"
+                acl_in: protect_from_access
+            8:
+                native_vlan: nznog-v4v6-l2
+                name: "port1.0.8"
+                acl_in: protect_from_access
+            20:
+                tagged_vlans: [control,nznog-v4v6-l2]
+                name: "port1.0.20"
+                description: "link022 wifi ap"
                 acl_in: protect_from_access
             23:
                 tagged_vlans: [nznog-v6-l2]
