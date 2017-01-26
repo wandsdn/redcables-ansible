@@ -31,7 +31,7 @@ dps:
     ovs-nznog:
         dp_id: 0xa0369f4b02e8
         hardware: "Open vSwitch"
-        ignore_learn_ins: 50
+        ignore_learn_ins: 10
         arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
@@ -47,9 +47,9 @@ dps:
                 acl_in: protect_from_core
             3:
                 native_vlan: nznog-v4v6-l3
-                name: 'dpdk3'
-                description: "vibe peering"
-                acl_in: protect_from_edge
+                name: 'dpdk2'
+                description: "test port"
+                acl_in: protect_from_access
             4:
                 tagged_vlans: [nznog-v4v6-l3,control]
                 name: 'dpdk4'
@@ -106,7 +106,7 @@ dps:
     ovs-nznog6:
         dp_id: 0xa0369f5d0a22
         hardware: "Open vSwitch"
-        ignore_learn_ins: 50
+        ignore_learn_ins: 10
         arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
