@@ -21,7 +21,7 @@ iface ens4 inet static
 
 auto ens5
 iface ens5 inet static
-  address 163.7.146.2
+  address 14.1.63.154
   netmask 255.255.255.248
   up ip address add 202.74.195.253/22 dev ens5
   down ip address del 202.74.195.253/22 dev ens5 || true
@@ -29,7 +29,7 @@ iface ens5 inet static
   down ip route del default via 202.74.195.254 || true
   dns-search nznog.cloud
 iface ens5 inet6 static
-  address 2401:7000:69:43e8::2
+  address 2401:7000:0:ab::2
   netmask 124
   up ip -6 address add 2401:7000:69:4000::fffe/64 dev ens5
   down ip -6 address del 2401:7000:69:4000::fffe/64 dev ens5 || true

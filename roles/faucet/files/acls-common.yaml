@@ -106,6 +106,12 @@ acls:
             ipv4_src: 202.74.192.0/22    # assigned netblock
             actions:
                 allow: 1                 # allow
+        # Allow unicast ipv6 from 2401:7000:0:ab::/124
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            ipv6_src: 2401:7000:0:ab::/124  # assigned link-net
+            actions:
+                allow: 1                 # allow
         # Allow unicast ipv6 from 2401:7000:69::/48
         - rule:
             dl_type: 0x86dd              # ipv6

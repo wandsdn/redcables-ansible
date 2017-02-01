@@ -22,7 +22,7 @@ iface ens4 inet static
   dns-search nznog.cloud
   dns-nameserver 202.74.195.253
 iface ens4 inet6 static
-  address 2401:7000:69:43e8::3
+  address 2401:7000:0:ab::3
   netmask 124
 
 auto ens5

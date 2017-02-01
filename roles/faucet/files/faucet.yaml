@@ -10,7 +10,7 @@ vlans:
         name: "nznog-v4v6-l3"
         description: "nznog ipv4/ipv6 routed vlan"
         vid: 20
-        controller_ips: ['202.74.195.254/22', '163.7.146.3/29', '2401:7000:69:4000::ffff/64', '2401:7000:69:43e8::f/124', 'fe80::20d:88ff:fe00:aa/64']
+        controller_ips: ['202.74.195.254/22', '14.1.63.155/29', '2401:7000:69:4000::ffff/64', '2401:7000:0:ab::f/124', 'fe80::20d:88ff:fe00:aa/64']
         bgp_port: 9179
         bgp_as: 9727
         bgp_routerid: '127.0.0.2'
@@ -18,11 +18,8 @@ vlans:
         bgp_neighbor_as: 9727
         routes:
             - route:
-                ip_dst: '2401:7000:69:4000::fffe/128'
-                ip_gw: '2401:7000:69:4000::fffe'
-            - route:
                 ip_dst: '2401:7000:69::/64'
-                ip_gw: '2401:7000:69:43e8::3'
+                ip_gw: '2401:7000:0:ab::3'
             - route:
                 ip_dst: '202.74.195.0/25'
                 ip_gw: '202.74.195.252'
