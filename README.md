@@ -28,6 +28,9 @@ them so that ansible can work its magic.
 
 ### Deploying
 
+These playbooks make use of features only available in Ansible 2.2 so make sure
+you are using an up to date version installed from pip.
+
 Run this command to deploy all the various network roles:
 
 ```bash
