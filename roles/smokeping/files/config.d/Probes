@@ -1,0 +1,48 @@
+*** Probes ***
+
++ FPing
+
+binary = /usr/bin/fping
+blazemode = true
+step = 60
+
+++ FPing
+
+++ FPingGentle
+pings = 5
+
++ FPing6
+
+binary = /usr/bin/fping6
+blazemode = true
+step = 60
+
+++ FPing6
+
+++ FPing6Gentle
+pings = 5
+
++ DNS
+
+binary = /usr/bin/dig
+forks = 5
+pings = 5
+step = 60
+timeout = 15
+server = 202.74.195.253
+
++ Curl
+
+binary = /usr/bin/curl
+forks = 5
+offset = 50%
+step = 120
+extraargs = --head
+
+++ CurlHTTP
+
+urlformat = http://%host%/
+
+++ CurlHTTPS
+
+urlformat = https://%host%/

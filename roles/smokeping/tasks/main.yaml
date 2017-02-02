@@ -1,0 +1,29 @@
+---
+- name: Install smokeping
+  apt:
+    name: smokeping
+    state: present
+
+- name: Configure smokeping
+  copy:
+    src: config.d/
+    dest: /etc/smokeping/config.d/
+  notify: restart smokeping
+
+- name: Remove default apache smokeping config
+  file:
+    path: /etc/apache2/conf-enabled/smokeping.conf
+    state: absent
+  notify: restart apache
+
+- name: Enable mod_rewrite apache module
+  apache2_module:
+    name: rewrite
+    state: present
+
+- name: Configure apache
+  file:
+    src: 000-default.conf
+    dest: /etc/apache2/sites-available/000-default.conf
+    state: file
+  notify: restart apache

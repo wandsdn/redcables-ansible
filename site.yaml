@@ -22,3 +22,7 @@
     - role: unbound
     - role: jool
     - role: routing
+- hosts: smokeping
+  roles:
+    - role: common
+    - role: smokeping

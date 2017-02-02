@@ -1,0 +1,1161 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = NZNOG17
+remark = Welcome to the SmokePing website of NZNOG17. \
+         Here you will learn all about the latency of our SDN network.
+
++ Core
+
+menu = Core
+title = Core Faucet Services
+
+++ faucet-vip
+
+menu = faucet-vip
+title = Faucet Gateway IPs
+host = /Core/IPv4/faucet-vip-v4 /Core/IPv6/faucet-vip-v6
+
+++ faucet-vm
+
+menu = faucet-vm
+title = faucet vm
+host = /Core/IPv4/faucet-vm /Core/IPv6/faucet-vm
+
+++ nat64-vm
+
+menu = nat64-vm
+title = nat64 vm
+host = /Core/IPv4/nat64-vm /Core/IPv6/nat64-vm
+
+++ unifi-vm
+
+menu = unifi-vm
+title = unifi vm
+host = /Core/IPv4/unifi-vm /Core/IPv6/unifi-vm
+
+++ smokeping-vm
+
+menu = smokeping-vm
+title = smokeping vm
+host = /Core/IPv4/smokeping-vm /Core/IPv6/smokeping-vm
+
+++ awdy-vm
+
+menu = awdy-vm
+title = awdy vm
+host = /Core/IPv4/awdy-vm /Core/IPv6/awdy-vm
+
+++ IPv4
+
+menu = IPv4
+title = Internet Protocol Version 4
+
++++ faucet-vip-v4
+
+probe = FPingGentle
+menu = faucet-vip-v4
+title = Faucet IPv4 Default Gateway
+host = faucet-vip-v4.nznog.cloud
+
++++ faucet-vm
+
+menu = faucet-vm.v4
+title = faucet.nznog.cloud
+host = faucet.nznog.cloud
+
++++ nat64-vm
+
+menu = nat64-vm.v4
+title = nat64.nznog.cloud
+host = 163.7.175.252
+
++++ unifi-vm
+
+menu = unifi-vm.v4
+title = unifi.nznog.cloud
+host = unifi.nznog.cloud
+
++++ smokeping-vm
+
+menu = smokeping-vm.v4
+title = smokeping.nznog.cloud
+host = smokeping.nznog.cloud
+
++++ awdy-vm
+
+menu = awdy-vm.v4
+title = awdy.nznog.cloud
+host = awdy.nznog.cloud
+
+++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Internet Protocol Version 6
+
++++ faucet-vip-v6
+
+probe = FPing6Gentle
+menu = faucet-vip-v6
+title = Faucet IPv6 Default Gateway
+host = faucet-vip-v6.nznog.cloud
+
++++ faucet-vm
+
+menu = faucet-vm.v6
+title = faucet.nznog.cloud
+host = faucet.nznog.cloud
+
++++ nat64-vm
+
+menu = nat64-vm.v6
+title = nat64.nznog.cloud
+host = nat64.nznog.cloud
+
++++ unifi-vm
+
+menu = unifi-vm.v6
+title = unifi.nznog.cloud
+host = unifi.nznog.cloud
+
++++ smokeping-vm
+
+menu = smokeping-vm.v6
+title = smokeping.nznog.cloud
+host = smokeping.nznog.cloud
+
++++ awdy-vm
+
+menu = awdy-vm.v6
+title = awdy.nznog.cloud
+host = awdy.nznog.cloud
+
++ REANNZ
+
+menu = REANNZ
+title = REANNZ
+
+++ ps01-akl
+
+menu = ps01-akl
+title = ps01-akl.reannz.co.nz
+host = /REANNZ/IPv4/ps01-akl /REANNZ/IPv6/ps01-akl
+
+++ ps02-wlg
+
+menu = ps02-wlg
+title = ps02-wlg.reannz.co.nz
+host = /REANNZ/IPv4/ps02-wlg /REANNZ/IPv6/ps02-wlg
+
+++ ps03-chc
+
+menu = ps03-chc
+title = ps03-chc.reannz.co.nz
+host = /REANNZ/IPv4/ps03-chc /REANNZ/IPv6/ps03-chc
+
+++ ps04-dud
+
+menu = ps04-dud
+title = ps04-dud.reannz.co.nz
+host = /REANNZ/IPv4/ps04-dud /REANNZ/IPv6/ps04-dud
+
+++ ps14-hlz
+
+menu = ps14-hlz
+title = ps14-hlz.reannz.co.nz
+host = /REANNZ/IPv4/ps14-hlz /REANNZ/IPv6/ps14-hlz
+
+++ ps16-mup
+
+menu = ps16-mup
+title = ps16-mup.reannz.co.nz
+host = /REANNZ/IPv4/ps16-mup /REANNZ/IPv6/ps16-mup
+
+++ ps17-avl
+
+menu = ps17-avl
+title = ps17-avl.reannz.co.nz
+host = /REANNZ/IPv4/ps17-avl /REANNZ/IPv6/ps17-avl
+
+++ IPv4
+
+menu = IPv4
+title = Internet Protocol Version 4
+
++++ ps01-akl
+
+menu = ps01-akl.v4
+title = ps01-akl.reannz.co.nz
+host = ps01-akl.reannz.co.nz
+
++++ ps02-wlg
+
+menu = ps02-wlg.v4
+title = ps02-wlg.reannz.co.nz
+host = ps02-wlg.reannz.co.nz
+
++++ ps03-chc
+
+menu = ps03-chc.v4
+title = ps03-chc.reannz.co.nz
+host = ps03-chc.reannz.co.nz
+
++++ ps04-dud
+
+menu = ps04-dud.v4
+title = ps04-dud.reannz.co.nz
+host = ps04-dud.reannz.co.nz
+
++++ ps14-hlz
+
+menu = ps14-hlz.v4
+title = ps14-hlz.reannz.co.nz
+host = ps14-hlz.reannz.co.nz
+
++++ ps16-mup
+
+menu = ps16-mup.v4
+title = ps16-mup.reannz.co.nz
+host = ps16-mup.reannz.co.nz
+
++++ ps17-avl
+
+menu = ps17-avl.v4
+title = ps17-avl.reannz.co.nz
+host = ps17-avl.reannz.co.nz
+
+++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Internet Protocol Version 6
+
++++ ps01-akl
+
+menu = ps01-akl.v6
+title = ps01-akl.reannz.co.nz
+host = ps01-akl.reannz.co.nz
+
++++ ps02-wlg
+
+menu = ps02-wlg.v6
+title = ps02-wlg.reannz.co.nz
+host = ps02-wlg.reannz.co.nz
+
++++ ps03-chc
+
+menu = ps03-chc.v6
+title = ps03-chc.reannz.co.nz
+host = ps03-chc.reannz.co.nz
+
++++ ps04-dud
+
+menu = ps04-dud.v6
+title = ps04-dud.reannz.co.nz
+host = ps04-dud.reannz.co.nz
+
++++ ps14-hlz
+
+menu = ps14-hlz.v6
+title = ps14-hlz.reannz.co.nz
+host = ps14-hlz.reannz.co.nz
+
++++ ps16-mup
+
+menu = ps16-mup.v6
+title = ps16-mup.reannz.co.nz
+host = ps16-mup.reannz.co.nz
+
++++ ps17-avl
+
+menu = ps17-avl.v6
+title = ps17-avl.reannz.co.nz
+host = ps17-avl.reannz.co.nz
+
++ nzdns
+
+menu = NZ DNS
+title = NZ DNS Servers
+
+++ ns1dnsnz
+
+menu = ns1.dns.net.nz
+title = ns1.dns.net.nz
+host = /nzdns/IPv4/ns1dnsnz /nzdns/IPv6/ns1dnsnz
+
+++ ns2dnsnz
+
+menu = ns2.dns.net.nz
+title = ns2.dns.net.nz
+host = /nzdns/IPv4/ns2dnsnz /nzdns/IPv6/ns2dnsnz
+
+++ ns3dnsnz
+
+menu = ns3.dns.net.nz
+title = ns3.dns.net.nz
+host = /nzdns/IPv4/ns3dnsnz /nzdns/IPv6/ns3dnsnz
+
+++ ns4dnsnz
+
+menu = ns4.dns.net.nz
+title = ns4.dns.net.nz
+host = /nzdns/IPv4/ns4dnsnz /nzdns/IPv6/ns4dnsnz
+
+++ ns5dnsnz
+
+menu = ns5.dns.net.nz
+title = ns5.dns.net.nz
+host = /nzdns/IPv4/ns5dnsnz /nzdns/IPv6/ns5dnsnz
+
+++ ns6dnsnz
+
+menu = ns6.dns.net.nz
+title = ns6.dns.net.nz
+host = /nzdns/IPv4/ns6dnsnz /nzdns/IPv6/ns6dnsnz
+
+++ IPv4
+
+menu = IPv4
+title = Internet Protocol Version 4
+
++++ ns1dnsnz
+
+menu = ns1.dns.net.nz.v4
+title = ns1.dns.net.nz
+host = ns1.dns.net.nz
+
++++ ns2dnsnz
+
+menu = ns2.dns.net.nz.v4
+title = ns2.dns.net.nz
+host = ns2.dns.net.nz
+
++++ ns3dnsnz
+
+menu = ns3.dns.net.nz.v4
+title = ns3.dns.net.nz
+host = ns3.dns.net.nz
+
++++ ns4dnsnz
+
+menu = ns4.dns.net.nz.v4
+title = ns4.dns.net.nz
+host = ns4.dns.net.nz
+
++++ ns5dnsnz
+
+menu = ns5.dns.net.nz.v4
+title = ns5.dns.net.nz
+host = ns5.dns.net.nz
+
++++ ns6dnsnz
+
+menu = ns6.dns.net.nz.v4
+title = ns6.dns.net.nz
+host = ns6.dns.net.nz
+
+++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Internet Protocol Version 6
+
++++ ns1dnsnz
+
+menu = ns1.dns.net.nz.v6
+title = ns1.dns.net.nz
+host = ns1.dns.net.nz
+
++++ ns2dnsnz
+
+menu = ns2.dns.net.nz.v6
+title = ns2.dns.net.nz
+host = ns2.dns.net.nz
+
++++ ns3dnsnz
+
+menu = ns3.dns.net.nz.v6
+title = ns3.dns.net.nz
+host = ns3.dns.net.nz
+
++++ ns4dnsnz
+
+menu = ns4.dns.net.nz.v6
+title = ns4.dns.net.nz
+host = ns4.dns.net.nz
+
++++ ns5dnsnz
+
+menu = ns5.dns.net.nz.v6
+title = ns5.dns.net.nz
+host = ns5.dns.net.nz
+
++++ ns6dnsnz
+
+menu = ns6.dns.net.nz.v6
+title = ns6.dns.net.nz
+host = ns6.dns.net.nz
+
++ RIR
+
+menu = Regional Internet Registries
+title = Regional Internet Registries
+
+++ arin
+
+menu = arin
+title = arin.net
+host = /RIR/IPv4/arin /RIR/IPv6/arin
+
+++ afrinic
+
+menu = afrinic
+title = afrinic.net
+host = /RIR/IPv4/afrinic /RIR/IPv6/afrinic
+
+++ apnic
+
+menu = apnic
+title = apnic.net
+host = /RIR/IPv4/apnic /RIR/IPv6/apnic
+
+++ lacnic
+
+menu = lacnic
+title = lacnic.net
+host = /RIR/IPv4/lacnic /RIR/IPv6/lacnic
+
+++ ripe
+
+menu = ripe
+title = ripe.net
+host = /RIR/IPv4/ripe /RIR/IPv6/ripe
+
+++ IPv4
+
+menu = IPv4
+title = Internet Protocol Version 4
+
++++ arin
+
+menu = ARIN.v4
+title = arin.net
+host = arin.net
+
++++ afrinic
+
+menu = AFRINIC.v4
+title = afrinic.net
+host = afrinic.net
+
++++ apnic
+
+menu = APNIC.v4
+title = apnic.net
+host = apnic.net
+
++++ lacnic
+
+menu = LACNIC.v4
+title = lacnic.net
+host = lacnic.net
+
++++ ripe
+
+menu = RIPE.v4
+title = pri.authdns.ripe.net
+host = pri.authdns.ripe.net
+
+++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Internet Protocol Version 6
+
++++ arin
+
+menu = ARIN.v6
+title = arin.net
+host = arin.net
+
++++ afrinic
+
+menu = AFRINIC.v6
+title = afrinic.net
+host = afrinic.net
+
++++ apnic
+
+menu = APNIC.v6
+title = apnic.net
+host = apnic.net
+
++++ lacnic
+
+menu = LACNIC.v6
+title = lacnic.net
+host = lacnic.net
+
++++ ripe
+
+menu = RIPE.v6
+title = pri.authdns.ripe.net
+host = pri.authdns.ripe.net
+
++ CDN
+
+menu = CDNs
+title = Content Delivery Networks
+
+++ microsoftdownload
+
+menu = download.microsoft.com
+title = download.microsoft.com
+host = /CDN/IPv4/microsoftdownload /CDN/IPv6/microsoftdownload
+
+++ itunes
+
+menu = itunes.apple.com
+title = itunes.apple.com
+host = /CDN/IPv4/itunes /CDN/IPv6/itunes
+
+++ cachefly
+
+menu = cachefly.cachefly.net
+title = cachefly.cachefly.net
+host = /CDN/IPv4/cachefly /CDN/IPv6/cachefly
+
+++ dropbox
+
+menu = client.dropbox.com
+title = client.dropbox.com
+host = /CDN/IPv4/dropbox /CDN/IPv6/dropbox
+
+++ gcm
+
+menu = gcm.googleapis.com
+title = gcm.googleapis.com
+host = /CDN/IPv4/gcm /CDN/IPv6/gcm
+
+++ akamai
+
+menu = a248.e.akamai.net
+title = a248.e.akamai.net
+host = /CDN/IPv4/akamai /CDN/IPv6/akamai
+
+++ googlecloud
+
+menu = cloud.google.com
+title = cloud.google.com
+host = /CDN/IPv4/googlecloud /CDN/IPv6/googlecloud
+
+++ googleapis
+
+menu = googleapis.com
+title = googleapis.com
+host = /CDN/IPv4/googleapis /CDN/IPv6/googleapis
+
+++ googleanalytics
+
+menu = google-analytics.com
+title = google-analytics.com
+host = /CDN/IPv4/googleanalytics /CDN/IPv6/googleanalytics
+
+++ appldnld
+
+menu = appldnld.apple.com
+title = appldnld.apple.com
+host = /CDN/IPv4/appldnld /CDN/IPv6/appldnld
+
+++ secure-appldnld
+
+menu = secure-appldnld.apple.com
+title = secure-appldnld.apple.com
+host = /CDN/IPv4/secure-appldnld /CDN/IPv6/secure-appldnld
+
+++ IPv4
+
+menu = IPv4
+title = Internet Protocol Version 4
+
++++ microsoftdownload
+
+menu = download.microsoft.com.v4
+title = download.microsoft.com
+host = download.microsoft.com
+
++++ itunes
+
+menu = itunes.apple.com.v4
+title = itunes.apple.com
+host = itunes.apple.com
+
++++ cachefly
+
+menu = cachefly.cachefly.net.v4
+title = cachefly.cachefly.net
+host = cachefly.cachefly.net
+
++++ dropbox
+
+menu = client.dropbox.com.v4
+title = client.dropbox.com
+host = client.dropbox.com
+
++++ gcm
+
+menu = gcm.googleapis.com.v4
+title = gcm.googleapis.com
+host = gcm.googleapis.com
+
++++ akamai
+
+menu = a248.e.akamai.net.v4
+title = a248.e.akamai.net
+host = a248.e.akamai.net
+
++++ googlecloud
+
+menu = cloud.google.com.v4
+title = cloud.google.com
+host = cloud.google.com
+
++++ googleapis
+
+menu = googleapis.com.v4
+title = googleapis.com
+host = www.googleapis.com
+
++++ googleanalytics
+
+menu = google-analytics.com.v4
+title = google-analytics.com
+host = www.google-analytics.com
+
++++ appldnld
+
+menu = appldnld.apple.com.v4
+title = appldnld.apple.com
+host = appldnld.apple.com
+
++++ secure-appldnld
+
+menu = secure-appldnld.apple.com.v4
+title = secure-appldnld.apple.com
+host = secure-appldnld.apple.com
+
+++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Internet Protocol Version 6
+
++++ microsoftdownload
+
+menu = download.microsoft.com.v6
+title = download.microsoft.com
+host = download.microsoft.com
+
++++ itunes
+
+menu = itunes.apple.com.v6
+title = itunes.apple.com
+host = itunes.apple.com
+
++++ cachefly
+
+menu = cachefly.cachefly.net.v6
+title = cachefly.cachefly.net
+host = cachefly.cachefly.net
+
++++ dropbox
+
+menu = client.dropbox.com.v6
+title = client.dropbox.com
+host = client.dropbox.com
+
++++ gcm
+
+menu = gcm.googleapis.com.v6
+title = gcm.googleapis.com
+host = gcm.googleapis.com
+
++++ akamai
+
+menu = a248.e.akamai.net.v6
+title = a248.e.akamai.net
+host = a248.e.akamai.net
+
++++ googlecloud
+
+menu = cloud.google.com.v6
+title = cloud.google.com
+host = cloud.google.com
+
++++ googleapis
+
+menu = googleapis.com.v6
+title = googleapis.com
+host = www.googleapis.com
+
++++ googleanalytics
+
+menu = google-analytics.com.v6
+title = google-analytics.com
+host = www.google-analytics.com
+
++++ appldnld
+
+menu = appldnld.apple.com.v6
+title = appldnld.apple.com
+host = appldnld.apple.com
+
++++ secure-appldnld
+
+menu = secure-appldnld.apple.com.v6
+title = secure-appldnld.apple.com
+host = secure-appldnld.apple.com
+
++ Off-net
+
+menu = Off Network
+title = Off Network
+
+++ trademe
+
+menu = Trademe
+title = trademe.co.nz
+host = /Off-net/IPv4/trademe /Off-net/IPv6/trademe
+
+++ fx
+
+menu = FX
+title = fx.net.nz
+host = /Off-net/IPv4/fx /Off-net/IPv6/fx
+
+++ monash
+
+menu = Monash University
+title = ftp.monash.edu.au
+host = /Off-net/IPv4/monash /Off-net/IPv6/monash
+
+++ vocus
+
+menu = Vocus
+title = vocus.com.au
+host = /Off-net/IPv4/vocus /Off-net/IPv6/vocus
+
+++ wikipedia
+
+menu = Wikipedia
+title = wikipedia.org
+host = /Off-net/IPv4/wikipedia /Off-net/IPv6/wikipedia
+
+++ google
+
+menu = Google
+title = google.com
+host = /Off-net/IPv4/google /Off-net/IPv6/google
+
+++ googleimap
+
+menu = Google IMAP
+title = imap.google.com
+host = /Off-net/IPv4/googleimap /Off-net/IPv6/googleimap
+
+++ youtube
+
+menu = Youtube
+title = youtube.com
+host = /Off-net/IPv4/youtube /Off-net/IPv6/youtube
+
+++ youtubecontent
+
+menu = Youtube Content
+title = v1.lscache1.c.youtube.com
+host = /Off-net/IPv4/youtubecontent /Off-net/IPv6/youtubecontent
+
+++ netflix
+
+menu = Netflix
+title = netflix.com
+host = /Off-net/IPv4/netflix /Off-net/IPv6/netflix
+
+++ he
+
+menu = Hurricane Electric
+title = he.net
+host = /Off-net/IPv4/he /Off-net/IPv6/he
+
+++ facebook
+
+menu = Facebook
+title = facebook.com
+host = /Off-net/IPv4/facebook /Off-net/IPv6/facebook
+
+++ twitter
+
+menu = Twitter
+title = twitter.com
+host = /Off-net/IPv4/twitter /Off-net/IPv6/twitter
+
+++ cloudflare
+
+menu = Cloudflare
+title = cloudflare.com
+host = /Off-net/IPv4/cloudflare /Off-net/IPv6/cloudflare
+
+++ googlednsa
+
+menu = Google Public DNS A
+title = Google Public DNS A
+host = /Off-net/IPv4/googlednsa /Off-net/IPv6/googlednsa
+
+++ googlednsb
+
+menu = Google Public DNS B
+title = Google Public DNS B
+host = /Off-net/IPv4/googlednsb /Off-net/IPv6/googlednsb
+
+++ comcastdns
+
+menu = Comcast
+title = Comcast Anycast DNS
+host = /Off-net/IPv4/comcastdns /Off-net/IPv6/comcastdns
+
+++ IPv4
+
+menu = IPv4
+title = Internet Protocol Version 4
+
++++ trademe
+
+menu = Trademe.v4
+title = trademe.co.nz
+host = trademe.co.nz
+
++++ fx
+
+menu = FX.v4
+title = fx.net.nz
+host = fx.net.nz
+
++++ monash
+
+menu = Monash University.v4
+title = ftp.monash.edu.au
+host = ftp.monash.edu.au
+
++++ vocus
+
+menu = Vocus.v4
+title = vocus.com.au
+host = www.vocus.com.au
+
++++ wikipedia
+
+menu = Wikipedia.v4
+title = wikipedia.org
+host = wikipedia.org
+
++++ google
+
+menu = Google.v4
+title = google.com
+host = google.com
+
++++ googleimap
+
+menu = Google IMAP.v4
+title = imap.google.com
+host = imap.google.com
+
++++ youtube
+
+menu = Youtube.v4
+title = youtube.com
+host = youtube.com
+
++++ youtubecontent
+
+menu = Youtube Content.v4
+title = v1.lscache1.c.youtube.com
+host = v1.lscache1.c.youtube.com
+
++++ netflix
+
+menu = Netflix.v4
+title = netflix.com
+host = netflix.com
+
++++ he
+
+menu = HE.v4
+title = he.net
+host = he.net
+
++++ facebook
+
+menu = Facebook.v4
+title = facebook.com
+host = facebook.com
+
++++ twitter
+
+menu = Twitter.v4
+title = twitter.com
+host = twitter.com
+
++++ cloudflare
+
+menu = Cloudflare.v4
+title = cloudflare.com
+host = cloudflare.com
+
++++ googlednsa
+
+menu = Google Public DNS A.v4
+title = Google Public DNS - 8.8.8.8
+host = 8.8.8.8
+
++++ googlednsb
+
+menu = Google Public DNS B.v4
+title = Google Public DNS - 8.8.4.4
+host = 8.8.4.4
+
++++ comcastdns
+
+menu = Comcast.v4
+title = Comcast Anycast DNS - 75.75.75.75
+host = 75.75.75.75
+
+++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Internet Protocol Version 6
+
++++ trademe
+
+menu = Trademe.v6
+title = trademe.co.nz
+host = trademe.co.nz
+
++++ fx
+
+menu = FX.v6
+title = fx.net.nz
+host = fx.net.nz
+
++++ monash
+
+menu = Monash University.v6
+title = ftp.monash.edu.au
+host = ftp.monash.edu.au
+
++++ vocus
+
+menu = Vocus.v6
+title = vocus.com.au
+#host = www.vocus.com.au
+host = 2402:7800:0:1302::2
+
++++ wikipedia
+
+menu = Wikipedia.v6
+title = wikipedia.org.v6
+host = wikipedia.org
+
++++ google
+
+menu = Google.v6
+title = google.com
+host = google.com
+
++++ googleimap
+
+menu = Google IMAP.v6
+title = imap.google.com
+host = imap.google.com
+
++++ youtube
+
+menu = Youtube.v6
+title = youtube.com
+host = youtube.com
+
++++ youtubecontent
+
+menu = Youtube Content.v6
+title = v1.lscache1.c.youtube.com
+host = v1.lscache1.c.youtube.com
+
++++ netflix
+
+menu = Netflix.v6
+title = netflix.com
+host = netflix.com
+
++++ he
+
+menu = HE.v6
+title = he.net
+host = he.net
+
++++ facebook
+
+menu = Facebook.v6
+title = facebook.com
+host = facebook.com
+
++++ twitter
+
+menu = Twitter.v6
+title = twitter.com
+host = twitter.com
+
++++ cloudflare
+
+menu = Cloudflare.v6
+title = cloudflare.com
+host = cloudflare.com
+
++++ googlednsa
+
+menu = Google Public DNS A.v6
+title = Google Public DNS - 2001:4860:4860::8844
+host = 2001:4860:4860::8844
+
++++ googlednsb
+
+menu = Google Public DNS B.v6
+title = Google Public DNS - 2001:4860:4860::8844
+host = 2001:4860:4860::8844
+
++++ comcastdns
+
+menu = Comcast.v6
+title = Comcast Anycast DNS - 2001:558:FEED::1
+host = 2001:558:FEED::1
+
++ DNS
+
+probe = DNS
+menu = DNS Latency
+title = DNS Latency
+
+++ nznog
+
+host = nznog.cloud
+
+++ amazon
+
+host = amazon.com
+
+++ google
+
+host = google.com
+
+++ gmail
+
+host = gmail.com
+
+++ youtube
+
+host = youtube.com
+
+++ bing
+
+host = bing.com
+
+++ outlook
+
+host = outlook.com
+
+++ facebook
+
+host = facebook.com
+
+++ twitter
+
+host = twitter.com
+
+++ netflix
+
+host = netflix.com
+
+++ reddit
+
+host = reddit.com
+
+++ radionz
+
+host = radionz.co.nz
+
+++ metservice
+
+host = metservice.com
+
++ Curl
+
+probe = CurlHTTPS
+menu = TCP Latency
+title = TCP Latency
+
+++ nznog
+
+host = nznog.cloud
+
+++ amazon
+
+host = amazon.com
+
+++ google
+
+host = google.com
+
+++ gmail
+
+host = gmail.com
+
+++ youtube
+
+host = youtube.com
+
+++ bing
+
+host = bing.com
+
+++ outlook
+
+host = outlook.com
+
+++ facebook
+
+host = facebook.com
+
+++ twitter
+
+host = twitter.com
+
+++ netflix
+
+host = netflix.com
+
+++ reddit
+
+host = reddit.com
+
+++ radionz
+
+probe = CurlHTTP
+host = radionz.co.nz
+
+++ metservice
+
+probe = CurlHTTP
+host = metservice.com
