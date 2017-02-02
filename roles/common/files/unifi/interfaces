@@ -1,0 +1,26 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto ens3
+iface ens3 inet static
+  address 192.168.122.5
+  netmask 255.255.255.0
+
+auto ens4
+iface ens4 inet static
+  address 172.30.99.2
+  netmask 255.255.255.0
+  up ethtool -K ens4 tx off
+  dns-search management.nznog.cloud
+  dns-nameserver 172.30.99.1
+
+allow-hotplug ens5
+iface ens5 inet dhcp
+  up ethtool -K ens5 tx off

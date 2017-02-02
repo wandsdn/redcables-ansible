@@ -26,3 +26,7 @@
   roles:
     - role: common
     - role: smokeping
+- hosts: unifi
+  roles:
+    - role: common
+    - role: unifi
