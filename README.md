@@ -7,6 +7,11 @@ wifi for the [NZNOG17](http://www.nznog.org/) conference.
 For a high level overview of the architecture of this network and a set of
 hardware requirements see our [conference-sdn-nfv-network](https://github.com/wandsdn/conference-sdn-nfv-network) repo.
 
+### Playbook structure
+
+The structure of this repo is based on the [Ansible Best Practices](https://docs.ansible.com/ansible/playbooks_best_practices.html)
+documentation, they explain how each file is used and how inventory and roles work.
+
 ### Customisation
 
 To customise how the network is deployed you can modify the roles assigned to
@@ -15,7 +20,6 @@ each VM in the **site.yaml** file, or modify the configs individually in the var
 
 The **production** file is your inventory file that tells ansible how to login
 to each machine via SSH for deploys.
-
 
 ### Machine setup
 
