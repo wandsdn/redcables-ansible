@@ -7,6 +7,9 @@ wifi for the [NZNOG17](http://www.nznog.org/) conference.
 For a high level overview of the architecture of this network and a set of
 hardware requirements see our [conference-sdn-nfv-network](https://github.com/wandsdn/conference-sdn-nfv-network) repo.
 
+To learn how ansible works the [Ansible Getting Started](https://docs.ansible.com/ansible/intro_getting_started.html)
+guide is a good place to start.
+
 ### Playbook structure
 
 The structure of this repo is based on the [Ansible Best Practices](https://docs.ansible.com/ansible/playbooks_best_practices.html)
