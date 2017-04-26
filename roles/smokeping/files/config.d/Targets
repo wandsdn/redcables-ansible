@@ -58,37 +58,37 @@ title = Internet Protocol Version 4
 probe = FPingGentle
 menu = faucet-vip-v4
 title = Faucet IPv4 Default Gateway
-host = faucet-vip-v4.nznog.cloud
+host = faucet-vip-v4.testing.redcables.wand.nz
 
 +++ faucet-vm
 
 menu = faucet-vm.v4
-title = faucet.nznog.cloud
-host = faucet.nznog.cloud
+title = faucet.testing.redcables.wand.nz
+host = faucet.testing.redcables.wand.nz
 
 +++ nat64-vm
 
 menu = nat64-vm.v4
-title = nat64.nznog.cloud
+title = nat64.testing.redcables.wand.nz
 host = 163.7.175.252
 
 +++ unifi-vm
 
 menu = unifi-vm.v4
-title = unifi.nznog.cloud
-host = unifi.nznog.cloud
+title = unifi.testing.redcables.wand.nz
+host = unifi.testing.redcables.wand.nz
 
 +++ smokeping-vm
 
 menu = smokeping-vm.v4
-title = smokeping.nznog.cloud
-host = smokeping.nznog.cloud
+title = smokeping.testing.redcables.wand.nz
+host = smokeping.testing.redcables.wand.nz
 
 +++ awdy-vm
 
 menu = awdy-vm.v4
-title = awdy.nznog.cloud
-host = awdy.nznog.cloud
+title = awdy.testing.redcables.wand.nz
+host = awdy.testing.redcables.wand.nz
 
 ++ IPv6
 
@@ -101,37 +101,37 @@ title = Internet Protocol Version 6
 probe = FPing6Gentle
 menu = faucet-vip-v6
 title = Faucet IPv6 Default Gateway
-host = faucet-vip-v6.nznog.cloud
+host = faucet-vip-v6.testing.redcables.wand.nz
 
 +++ faucet-vm
 
 menu = faucet-vm.v6
-title = faucet.nznog.cloud
-host = faucet.nznog.cloud
+title = faucet.testing.redcables.wand.nz
+host = faucet.testing.redcables.wand.nz
 
 +++ nat64-vm
 
 menu = nat64-vm.v6
-title = nat64.nznog.cloud
-host = nat64.nznog.cloud
+title = nat64.testing.redcables.wand.nz
+host = nat64.testing.redcables.wand.nz
 
 +++ unifi-vm
 
 menu = unifi-vm.v6
-title = unifi.nznog.cloud
-host = unifi.nznog.cloud
+title = unifi.testing.redcables.wand.nz
+host = unifi.testing.redcables.wand.nz
 
 +++ smokeping-vm
 
 menu = smokeping-vm.v6
-title = smokeping.nznog.cloud
-host = smokeping.nznog.cloud
+title = smokeping.testing.redcables.wand.nz
+host = smokeping.testing.redcables.wand.nz
 
 +++ awdy-vm
 
 menu = awdy-vm.v6
-title = awdy.nznog.cloud
-host = awdy.nznog.cloud
+title = awdy.testing.redcables.wand.nz
+host = awdy.testing.redcables.wand.nz
 
 + REANNZ
 
@@ -1050,7 +1050,7 @@ title = DNS Latency
 
 ++ nznog
 
-host = nznog.cloud
+host = testing.redcables.wand.nz
 
 ++ amazon
 
@@ -1108,7 +1108,7 @@ title = TCP Latency
 
 ++ nznog
 
-host = nznog.cloud
+host = testing.redcables.wand.nz
 
 ++ amazon
 

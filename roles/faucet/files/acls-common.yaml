@@ -100,22 +100,22 @@ acls:
             ipv6_src: fe80::/64          # link local
             actions:
                 allow: 1                 # allow
-        # Allow unicast ipv4 from 202.74.192.0/22
+        # Allow unicast ipv4 from 163.7.136.0/22
         - rule:
             dl_type: 0x800               # ipv4
-            ipv4_src: 202.74.192.0/22    # assigned netblock
+            ipv4_src: 163.7.136.0/22    # assigned netblock
             actions:
                 allow: 1                 # allow
-        # Allow unicast ipv6 from 2401:7000:0:ab::/124
+        # Allow unicast ipv6 from 2404:138:39:120::/112
         - rule:
             dl_type: 0x86dd              # ipv6
-            ipv6_src: 2401:7000:0:ab::/124  # assigned link-net
+            ipv6_src: 2404:138:39:120::/112  # assigned link-net
             actions:
                 allow: 1                 # allow
-        # Allow unicast ipv6 from 2401:7000:69::/48
+        # Allow unicast ipv6 from 2404:138:4011::/48
         - rule:
             dl_type: 0x86dd              # ipv6
-            ipv6_src: 2401:7000:69::/48  # assigned netblock
+            ipv6_src: 2404:138:4011::/48  # assigned netblock
             actions:
                 allow: 1                 # allow
         # Drop other IP traffic

@@ -17,21 +17,21 @@ auto ens4
 iface ens4 inet static
   address 172.30.99.1
   netmask 255.255.255.0
-  dns-search management.nznog.cloud
+  dns-search management.testing.redcables.wand.nz
 
 auto ens5
 iface ens5 inet static
-  address 14.1.63.154
+  address 210.7.39.122
   netmask 255.255.255.248
-  up ip address add 202.74.195.253/22 dev ens5
-  down ip address del 202.74.195.253/22 dev ens5 || true
-  up ip route add default via 202.74.195.254
-  down ip route del default via 202.74.195.254 || true
-  dns-search nznog.cloud
+  up ip address add 163.7.139.253/22 dev ens5
+  down ip address del 163.7.139.253/22 dev ens5 || true
+  up ip route add default via 163.7.139.254
+  down ip route del default via 163.7.139.254 || true
+  dns-search testing.redcables.wand.nz
 iface ens5 inet6 static
-  address 2401:7000:0:ab::2
+  address 2404:138:39:120::2
   netmask 124
-  up ip -6 address add 2401:7000:69:4000::fffe/64 dev ens5
-  down ip -6 address del 2401:7000:69:4000::fffe/64 dev ens5 || true
-  up ip -6 route add default via 2401:7000:69:4000::ffff
-  down ip -6 route del default via 2401:7000:69:4000::ffff || true
+  up ip -6 address add 2404:138:4011:4000::fffe/64 dev ens5
+  down ip -6 address del 2404:138:4011:4000::fffe/64 dev ens5 || true
+  up ip -6 route add default via 2404:138:4011:4000::ffff
+  down ip -6 route del default via 2404:138:4011:4000::ffff || true
