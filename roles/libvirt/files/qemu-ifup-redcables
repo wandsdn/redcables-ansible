@@ -17,5 +17,5 @@ fi
 # Delete/re-add interface in OVS
 if [ ! -z "$ofport" ]; then
   ovs-vsctl del-port "$1"
-  ovs-vsctl add-port br-nznog "$1" -- set Interface "$1" ofport_request="$ofport"
+  ovs-vsctl add-port br-redcables "$1" -- set Interface "$1" ofport_request="$ofport"
 fi

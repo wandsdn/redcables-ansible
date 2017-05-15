@@ -45,15 +45,15 @@ or other application using the libvirt API.
     </interface>
     <interface type='ethernet'>
       <mac address='52:54:00:40:20:85'/>
-      <script path='/etc/qemu-ifup-nznog'/>
+      <script path='/etc/qemu-ifup-redcables'/>
       <target dev='unifi-control'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </interface>
     <interface type='ethernet'>
       <mac address='52:54:00:24:43:fe'/>
-      <script path='/etc/qemu-ifup-nznog'/>
-      <target dev='unifi-nznog'/>
+      <script path='/etc/qemu-ifup-redcables'/>
+      <target dev='unifi-redcables'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </interface>
