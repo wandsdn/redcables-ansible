@@ -1,0 +1,18 @@
+#!/bin/bash
+
+virsh net-start default
+
+qemu-img create -f qcow2 -o preallocation=metadata /var/lib/libvirt/images/debian9.qcow2 20G
+
+virt-install \
+    --name debian9 \
+    --ram 1024 \
+    --disk path=/var/lib/libvirt/images/debian9.qcow2,format=qcow2,bus=virtio,cache=none \
+    --vcpus 4 \
+    --os-type linux \
+    --os-variant generic \
+    --network bridge=virbr0,model=virtio \
+    --graphics none \
+    --console pty,target_type=serial \
+    --location 'http://ftp.nz.debian.org/debian/dists/stretch/main/installer-amd64/' \
+    --extra-args 'console=tty0 console=ttyS0,115200n8 serial'

@@ -6,9 +6,17 @@
 
 - name: Install libvirt
   apt:
-    name: libvirt-bin
+    name: "{{ item }}"
     state: installed
+  with_items:
+    - libvirt-daemon-system
+    - libvirt-clients
   register: libvirt_install_result
+
+- name: Install virt-install
+  apt:
+    name: virtinst
+    state: installed
 
 - name: Install libvirt python bindings
   apt:
@@ -17,15 +25,15 @@
 
 - name: Install libvirt OVS ifup script
   copy:
-    src: qemu-ifup-nznog
-    dest: /etc/qemu-ifup-nznog
+    src: qemu-ifup-redcables
+    dest: /etc/qemu-ifup-redcables
     mode: a+x
 
-- name: Configure apparmor
+- name: Install libvirt debian bootstrap script
   copy:
-    src: usr.sbin.libvirtd
-    dest: /etc/apparmor.d/
-  notify: restart apparmor
+    src: bootstrap-debian-vm
+    dest: /usr/local/bin/bootstrap-debian-vm
+    mode: a+x
 
 - name: Define faucet VM
   virt:
