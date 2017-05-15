@@ -6,13 +6,13 @@ faucet_configs:
 watchers:
     port_stats_poller:
         type: 'port_stats'
-        dps: ['ovs-nznog', 'ovs-nznog6', 'at-x930-1', 'at-x930-2']
+        dps: ['ovs-redcables', 'ovs-redcables6', 'at-x930-1', 'at-x930-2', 'cisco-3850']
         interval: 10
         db: 'influx'
     flow_table_poller:
         type: 'flow_table'
         interval: 240
-        dps: ['ovs-nznog', 'ovs-nznog6', 'at-x930-1', 'at-x930-2']
+        dps: ['ovs-redcables', 'ovs-redcables6', 'at-x930-1', 'at-x930-2', 'cisco-3850']
         db: 'ft_file'
 dbs:
     influx:
