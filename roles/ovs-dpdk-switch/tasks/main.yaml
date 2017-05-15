@@ -1,4 +1,14 @@
 ---
+- name: Import wand packaging GPG signing key
+  apt_key:
+    url: https://packages.wand.net.nz/keyring.gpg
+    state: present
+
+- name: Add wand repository
+  apt_repository:
+    repo: "deb https://packages.wand.net.nz {{ansible_distribution_release}} main"
+    state: present
+
 - name: Install openvswitch-dpdk
   apt:
     name: openvswitch-switch-dpdk
