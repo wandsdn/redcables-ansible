@@ -15,13 +15,13 @@ iface ens3 inet static
 
 auto ens4
 iface ens4 inet static
-  address 172.30.99.1
+  address 172.16.0.200
   netmask 255.255.255.0
   dns-search management.testing.redcables.wand.nz
 
 auto ens5
 iface ens5 inet static
-  address 210.7.39.122
+  address 210.7.38.90
   netmask 255.255.255.248
   up ip address add 163.7.139.253/22 dev ens5
   down ip address del 163.7.139.253/22 dev ens5 || true
