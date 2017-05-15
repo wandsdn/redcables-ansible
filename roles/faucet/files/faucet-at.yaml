@@ -53,6 +53,10 @@ dps:
                 name: "port1.0.20"
                 description: "link022 wifi ap"
                 acl_in: protect_from_access
+            22:
+                tagged_vlans: [redcables]
+                name: "port1.0.22"
+                description: "redcables-core-sw trunk"
             23:
                 tagged_vlans: [redcables6]
                 name: "port1.0.23"
