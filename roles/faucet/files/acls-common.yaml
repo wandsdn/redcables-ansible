@@ -29,6 +29,54 @@ acls:
             actions:
                 allow: 0     # drop
         - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
+            tcp_dst: 445     # microsoft-ds
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 445     # microsoft-ds
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            tcp_dst: 137     # netbios-ns
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            tcp_dst: 137     # netbios-ns
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            tcp_dst: 138     # netbios-dgm
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            tcp_dst: 138     # netbios-dgm
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
+            tcp_dst: 139     # netbios-ssn
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 139     # netbios-ssn
+            actions:
+                allow: 0     # drop
+        - rule:
             actions:
                 allow: 1
 
