@@ -22,10 +22,11 @@
     - role: unbound
     - role: jool
     - role: routing
-- hosts: smokeping
+- hosts: monitoring
   roles:
     - role: common
     - role: smokeping
+    - role: prometheus
 - hosts: unifi
   roles:
     - role: common

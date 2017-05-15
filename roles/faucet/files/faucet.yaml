@@ -75,8 +75,8 @@ dps:
                 acl_in: protect_from_access
             9:
                 native_vlan: redcables-l3
-                name: 'smokeping'
-                description: "smokeping controller vm"
+                name: 'monitoring'
+                description: "monitoring vm"
                 acl_in: protect_from_access
             10:
                 native_vlan: redcables-l3

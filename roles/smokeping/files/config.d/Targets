@@ -1048,7 +1048,7 @@ probe = DNS
 menu = DNS Latency
 title = DNS Latency
 
-++ nznog
+++ redcables
 
 host = testing.redcables.wand.nz
 
@@ -1106,7 +1106,7 @@ probe = CurlHTTPS
 menu = TCP Latency
 title = TCP Latency
 
-++ nznog
+++ redcables
 
 host = testing.redcables.wand.nz
 

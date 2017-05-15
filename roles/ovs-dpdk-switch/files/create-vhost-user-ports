@@ -2,6 +2,10 @@ ovs-vsctl add-port br-redcables vhost-faucet-redcables -- \
   set Interface vhost-faucet-redcables type=dpdkvhostuser -- \
   set Interface vhost-faucet-redcables ofport_request=2
 
+ovs-vsctl add-port br-redcables vhost-mon-redcables -- \
+  set Interface vhost-mon-redcables type=dpdkvhostuser -- \
+  set Interface vhost-mon-redcables ofport_request=9
+
 ovs-vsctl add-port br-redcables vhost-faucet-control -- \
   set Interface vhost-faucet-control type=dpdkvhostuser -- \
   set Interface vhost-faucet-control ofport_request=20

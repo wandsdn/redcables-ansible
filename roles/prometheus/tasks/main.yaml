@@ -1,0 +1,11 @@
+---
+- name: Install prometheus
+  apt:
+    name: prometheus
+    state: present
+
+- name: Configure prometheus
+  copy:
+    src: prometheus.yml
+    dest: /etc/prometheus/
+  notify: restart prometheus

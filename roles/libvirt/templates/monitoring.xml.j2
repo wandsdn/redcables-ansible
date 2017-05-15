@@ -1,12 +1,12 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit smokeping
+  virsh edit monitoring
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>smokeping</name>
+  <name>monitoring</name>
   <memory unit='KiB'>2097152</memory>
   <currentMemory unit='KiB'>2097152</currentMemory>
   <vcpu placement='static'>2</vcpu>
@@ -29,7 +29,7 @@ or other application using the libvirt API.
     <emulator>/usr/bin/kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='none'/>
-      <source file='/var/lib/libvirt/images/smokeping.qcow2'/>
+      <source file='/var/lib/libvirt/images/monitoring.qcow2'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
     </disk>
@@ -46,7 +46,7 @@ or other application using the libvirt API.
     <interface type='ethernet'>
       <mac address='52:54:00:11:61:f0'/>
       <script path='/etc/qemu-ifup-redcables'/>
-      <target dev='smokeping-redcables'/>
+      <target dev='mon-redcables'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </interface>
