@@ -6,11 +6,14 @@ include:
     - vlans-common.yaml
 
 vlans:
-    nznog-v4v6-l3:
-        name: "nznog-v4v6-l3"
-        description: "nznog ipv4/ipv6 routed vlan"
-        vid: 20
-        controller_ips: ['163.7.139.254/22', '2404:138:4011:4000::ffff/64', '2404:138:39:120::f/112', 'fe80::20d:88ff:fe00:aa/64']
+    redcables-l3:
+        name: "redcables-l3"
+        description: "redcables ipv4/ipv6 vlan"
+        vid: 250
+        faucet_vips: [
+            '163.7.139.254/22', '2404:138:4011:4000::ffff/64',
+            '210.7.38.91/29', '2404:138:39:120::f/112'
+            ]
         bgp_port: 9179
         bgp_as: 38711
         bgp_routerid: '127.0.0.2'
@@ -25,58 +28,58 @@ vlans:
                 ip_gw: '163.7.139.252'
 
 dps:
-    ovs-nznog:
-        dp_id: 0xa0369f4b02e8
+    ovs-redcables:
+        dp_id: 0x46
         hardware: "Open vSwitch"
         ignore_learn_ins: 10
         arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
-                native_vlan: nznog-v4v6-l3
-                name: 'vhost-nat64-nznog'
+                native_vlan: redcables-l3
+                name: 'vhost-nat64-redcables'
                 description: "nat64 vm"
                 acl_in: protect_from_access
             2:
-                native_vlan: nznog-v4v6-l3
-                name: 'vhost-faucet-nznog'
+                native_vlan: redcables-l3
+                name: 'vhost-faucet-redcables'
                 description: "faucet vm"
                 acl_in: protect_from_core
             3:
-                native_vlan: nznog-v4v6-l3
+                native_vlan: redcables-l3
                 name: 'dpdk2'
                 description: "test port"
                 acl_in: protect_from_access
             4:
-                tagged_vlans: [nznog-v4v6-l3,control]
+                tagged_vlans: [redcables-l3,control]
                 name: 'dpdk4'
-                description: "at-x930-1 nznog trunk"
+                description: "at-x930-1 redcables trunk"
             5:
-                tagged_vlans: [nznog-v4v6-l3,control]
+                tagged_vlans: [redcables-l3,control]
                 name: 'dpdk5'
-                description: "at-x930-2 nznog trunk"
+                description: "at-x930-2 redcables trunk"
             6:
-                native_vlan: nznog-v4v6-l3
-                name: 'vhost-host-nznog'
-                description: "host-nznog vm"
+                native_vlan: redcables-l3
+                name: 'vhost-host-redcables'
+                description: "host-redcables vm"
                 acl_in: protect_from_access
             7:
-                tagged_vlans: [nznog-v4v6-l3]
+                native_vlan: redcables-l3
                 name: 'internet'
                 description: "internet uplink"
                 acl_in: protect_from_edge
             8:
-                native_vlan: nznog-v4v6-l3
+                native_vlan: redcables-l3
                 name: 'unifi'
                 description: "unifi controller vm"
                 acl_in: protect_from_access
             9:
-                native_vlan: nznog-v4v6-l3
+                native_vlan: redcables-l3
                 name: 'smokeping'
                 description: "smokeping controller vm"
                 acl_in: protect_from_access
             10:
-                native_vlan: nznog-v4v6-l3
+                native_vlan: redcables-l3
                 name: 'awdy'
                 description: "awdy vm"
                 acl_in: protect_from_access
@@ -100,28 +103,28 @@ dps:
                 name: "unifi"
                 description: "unifi controller vm"
                 acl_in: protect_from_control
-    ovs-nznog6:
-        dp_id: 0xa0369f5d0a22
+    ovs-redcables6:
+        dp_id: 0x6
         hardware: "Open vSwitch"
         ignore_learn_ins: 10
         arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
-                native_vlan: nznog-v6-l2
-                name: 'vhost-nat64-nznog6'
+                native_vlan: redcables6
+                name: 'vhost-nat64-redcables6'
                 description: "nat64 vm"
                 acl_in: protect_from_core
             2:
-                native_vlan: nznog-v6-l2
-                name: 'vhost-host-nznog6'
-                description: "host-nznog6 vm"
+                native_vlan: redcables6
+                name: 'vhost-host-redcables6'
+                description: "host-redcables6 vm"
                 acl_in: protect_from_access
             6:
-                tagged_vlans: [nznog-v6-l2]
+                tagged_vlans: [redcables6]
                 name: 'dpdk6'
-                description: "at-x930-1 nznog6 trunk"
+                description: "at-x930-1 redcables6 trunk"
             7:
-                tagged_vlans: [nznog-v6-l2]
+                tagged_vlans: [redcables6]
                 name: 'dpdk7'
-                description: "at-x930-2 nznog6 trunk"
+                description: "at-x930-2 redcables6 trunk"

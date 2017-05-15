@@ -2,14 +2,14 @@
 version: 2
 
 vlans:
-    nznog-v6-l2:
-        name: "nznog-v6-l2"
-        description: "nznog ipv6-only vlan"
-        vid: 10
-    nznog-v4v6-l2:
-        name: "nznog-v4v6-l2"
-        description: "nznog ipv4/ipv6 vlan"
-        vid: 20
+    redcables:
+        name: "redcables"
+        description: "redcables ipv4/ipv6 vlan"
+        vid: 250
+    redcables6:
+        name: "redcables6"
+        description: "redcables ipv6 vlan"
+        vid: 251
     control:
         name: "control"
         description: "openflow control vlan"
