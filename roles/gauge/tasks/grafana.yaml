@@ -14,6 +14,11 @@
     name: grafana
     state: present
 
+- name: Install libcap2-bin
+  apt:
+    name: libcap2-bin
+    state: present
+
 - name: Grant CAP_NET_BIND_SERVICE to grafana
   capabilities:
     path: /usr/sbin/grafana-server

@@ -1,4 +1,3 @@
-GAUGE_APP_DIR=/usr/local/lib/python2.7/dist-packages/ryu_faucet/org/onfsdn/faucet/
 GAUGE_RYU_CONF=/etc/ryu/ryu.conf
 GAUGE_LISTEN_PORT=6654
 GAUGE_CONFIG=/etc/ryu/faucet/gauge.yaml

@@ -6,6 +6,8 @@
   with_items:
     - python-pip
     - python-dev
+    - python-pbr
+    - git
 
 - name: Create faucet group
   group:
@@ -21,9 +23,13 @@
     system: yes
     state: present
 
+- name: Install ryu
+  pip:
+    name: git+https://github.com/osrg/ryu#egg=ryu
+
 - name: Install faucet
   pip:
-    name: ryu-faucet
+    name: git+https://github.com/reannz/faucet#egg=faucet
 
 - name: Add faucet defaults file
   copy:

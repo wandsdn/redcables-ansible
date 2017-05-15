@@ -1,4 +1,3 @@
-FAUCET_APP_DIR=/usr/local/lib/python2.7/dist-packages/ryu_faucet/org/onfsdn/faucet/
 FAUCET_RYU_CONF=/etc/ryu/ryu.conf
 FAUCET_LISTEN_PORT=6652
 FAUCET_CONFIG=/etc/ryu/faucet/faucet-at.yaml

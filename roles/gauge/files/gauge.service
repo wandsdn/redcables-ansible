@@ -7,7 +7,7 @@ Wants=network-online.target
 EnvironmentFile=/etc/default/gauge
 User=faucet
 Group=faucet
-ExecStart=/usr/local/bin/ryu-manager --config-file=${GAUGE_RYU_CONF} --ofp-tcp-listen-port=${GAUGE_LISTEN_PORT} ${GAUGE_APP_DIR}/gauge.py
+ExecStart=/usr/local/bin/ryu-manager --config-file=${GAUGE_RYU_CONF} --ofp-tcp-listen-port=${GAUGE_LISTEN_PORT} faucet.gauge
 Restart=always
 
 [Install]
