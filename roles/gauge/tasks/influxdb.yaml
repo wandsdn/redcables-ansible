@@ -1,18 +1,11 @@
 ---
-- name: Import influxdb GPG signing key
-  apt_key:
-    url: https://repos.influxdata.com/influxdb.key
-    state: present
-
-- name: Add influxdb repository
-  apt_repository:
-    repo: "deb https://repos.influxdata.com/{{ansible_distribution|lower}} {{ansible_distribution_release}} stable"
-    state: present
-
 - name: Install influxdb
   apt:
-    name: influxdb
-    state: present
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - influxdb
+    - influxdb-client
   register: influxdb_install_result
 
 - name: Start influxdb
