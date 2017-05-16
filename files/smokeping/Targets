@@ -3,8 +3,8 @@
 probe = FPing
 
 menu = Top
-title = NZNOG17
-remark = Welcome to the SmokePing website of NZNOG17. \
+title = WAND Redcables
+remark = Welcome to the SmokePing website of the WAND redcables network. \
          Here you will learn all about the latency of our SDN network.
 
 + Core
@@ -36,11 +36,11 @@ menu = unifi-vm
 title = unifi vm
 host = /Core/IPv4/unifi-vm /Core/IPv6/unifi-vm
 
-++ smokeping-vm
+++ monitoring-vm
 
-menu = smokeping-vm
-title = smokeping vm
-host = /Core/IPv4/smokeping-vm /Core/IPv6/smokeping-vm
+menu = monitoring-vm
+title = monitoring vm
+host = /Core/IPv4/monitoring-vm /Core/IPv6/monitoring-vm
 
 ++ awdy-vm
 
@@ -78,11 +78,11 @@ menu = unifi-vm.v4
 title = unifi.testing.redcables.wand.nz
 host = unifi.testing.redcables.wand.nz
 
-+++ smokeping-vm
++++ monitoring-vm
 
-menu = smokeping-vm.v4
-title = smokeping.testing.redcables.wand.nz
-host = smokeping.testing.redcables.wand.nz
+menu = monitoring-vm.v4
+title = monitoring.testing.redcables.wand.nz
+host = monitoring.testing.redcables.wand.nz
 
 +++ awdy-vm
 
@@ -121,11 +121,11 @@ menu = unifi-vm.v6
 title = unifi.testing.redcables.wand.nz
 host = unifi.testing.redcables.wand.nz
 
-+++ smokeping-vm
++++ monitoring-vm
 
-menu = smokeping-vm.v6
-title = smokeping.testing.redcables.wand.nz
-host = smokeping.testing.redcables.wand.nz
+menu = monitoring-vm.v6
+title = monitoring.testing.redcables.wand.nz
+host = monitoring.testing.redcables.wand.nz
 
 +++ awdy-vm
 
@@ -133,803 +133,2247 @@ menu = awdy-vm.v6
 title = awdy.testing.redcables.wand.nz
 host = awdy.testing.redcables.wand.nz
 
++ Waikato
+
+menu = Waikato
+title = Waikato University Network
+
+++ WAND
+
+menu = WAND
+title = WAND Network
+
++++ voodoo
+
+menu = voodoo
+title = voodoo.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/voodoo /Waikato/WAND/IPv6/voodoo
+
++++ coven
+
+menu = coven
+title = coven.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/coven /Waikato/WAND/IPv6/coven
+
++++ relic
+
+menu = relic
+title = relic.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/relic /Waikato/WAND/IPv6/relic
+
++++ skeptic
+
+menu = skeptic
+title = skeptic.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/skeptic /Waikato/WAND/IPv6/skeptic
+
++++ spectre
+
+menu = spectre
+title = spectre.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/spectre /Waikato/WAND/IPv6/spectre
+
++++ spring
+
+menu = spring
+title = spring.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/spring /Waikato/WAND/IPv6/spring
+
++++ of14-hlz
+
+menu = of14-hlz
+title = of14-hlz.wand.net.nz
+host = /Waikato/WAND/IPv4/of14-hlz /Waikato/WAND/IPv6/of14-hlz
+
++++ warlock
+
+menu = warlock
+title = warlock.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/warlock /Waikato/WAND/IPv6/warlock
+
++++ wand-gtw
+
+menu = wand-gtw.cms
+title = wand-gtw.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/wand-gtw /Waikato/WAND/IPv6/wand-gtw
+
++++ wraith
+
+menu = wraith
+title = wraith.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/wraith /Waikato/WAND/IPv6/wraith
+
++++ wits
+
+menu = wits
+title = wits.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/wits /Waikato/WAND/IPv6/wits
+
++++ ns1
+
+menu = ns1
+title = ns1.wand.net.nz
+host = /Waikato/WAND/IPv4/ns1 /Waikato/WAND/IPv6/ns1
+
++++ ns2
+
+menu = ns2
+title = ns2.wand.net.nz
+host = /Waikato/WAND/IPv4/ns2 /Waikato/WAND/IPv6/ns2
+
++++ ns3
+
+menu = ns3
+title = ns3.wand.net.nz
+host = /Waikato/WAND/IPv4/ns3 /Waikato/WAND/IPv6/ns3
+
++++ george
+
+menu = george
+title = george.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/george /Waikato/WAND/IPv6/george
+
++++ prophet
+
+menu = prophet
+title = prophet.cms.waikato.ac.nz
+host = /Waikato/WAND/IPv4/prophet /Waikato/WAND/IPv6/prophet
+
++++ lamp
+
+menu = lamp
+title = lamp.wand.net.nz
+host = /Waikato/WAND/IPv4/lamp /Waikato/WAND/IPv6/lamp
+
++++ atlas-anchor
+
+menu = atlas-anchor
+title = nz-hlz-as681.anchors.atlas.ripe.net
+host = /Waikato/WAND/IPv4/atlas-anchor /Waikato/WAND/IPv6/atlas-anchor
+
++++ IPv4
+
+menu = IPv4
+title = WAND Network - IPv4
+
+++++ voodoo
+
+menu = voodoo.v4
+host = voodoo.cms.waikato.ac.nz
+
+++++ coven
+
+menu = coven.v4
+host = coven.cms.waikato.ac.nz
+
+++++ relic
+
+menu = relic.v4
+host = relic.cms.waikato.ac.nz
+
+++++ skeptic
+
+menu = skeptic.v4
+host = skeptic.cms.waikato.ac.nz
+
+++++ spectre
+
+menu = spectre.v4
+host = spectre.cms.waikato.ac.nz
+
+++++ spring
+
+menu = spring.v4
+host = spring.cms.waikato.ac.nz
+
+++++ of14-hlz
+
+menu = of14-hlz.v4
+host = of14-hlz.wand.net.nz
+
+++++ warlock
+
+menu = warlock.v4
+host = warlock.cms.waikato.ac.nz
+
+++++ wand-gtw
+
+menu = wand-gtw.cms.v4
+host = wand-gtw.cms.waikato.ac.nz
+
+++++ wraith
+
+menu = wraith.v4
+host = wraith.cms.waikato.ac.nz
+
+++++ wits
+
+menu = wits.v4
+host = wits.cms.waikato.ac.nz
+
+++++ ns1
+
+menu = ns1.v4
+host = ns1.wand.net.nz
+
+++++ ns2
+
+menu = ns2.v4
+host = ns2.wand.net.nz
+
+++++ ns3
+
+menu = ns3.v4
+host = ns3.wand.net.nz
+
+++++ george
+
+menu = george.v4
+host = george.cms.waikato.ac.nz
+
+++++ prophet
+
+menu = prophet.v4
+host = prophet.cms.waikato.ac.nz
+
+++++ lamp
+
+menu = lamp.v4
+host = lamp.wand.net.nz
+
+++++ atlas-anchor
+
+menu = atlas-anchor.v4
+host = nz-hlz-as681.anchors.atlas.ripe.net
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = WAND Network - IPv6
+
+++++ voodoo
+
+menu = voodoo.v6
+host = voodoo.cms.waikato.ac.nz
+
+++++ coven
+
+menu = coven.v6
+host = coven.cms.waikato.ac.nz
+
+++++ relic
+
+menu = relic.v6
+host = relic.cms.waikato.ac.nz
+
+++++ skeptic
+
+menu = skeptic.v6
+host = skeptic.cms.waikato.ac.nz
+
+++++ spectre
+
+menu = spectre.v6
+host = spectre.cms.waikato.ac.nz
+
+++++ spring
+
+menu = spring.v6
+host = spring.cms.waikato.ac.nz
+
+++++ of14-hlz
+
+menu = of14-hlz.v6
+host = of14-hlz.wand.net.nz
+
+++++ warlock
+
+menu = warlock.v6
+host = warlock.cms.waikato.ac.nz
+
+++++ wand-gtw
+
+menu = wand-gtw.cms.v6
+host = wand-gtw.cms.waikato.ac.nz
+
+++++ wraith
+
+menu = wraith.v6
+host = wraith.cms.waikato.ac.nz
+
+++++ wits
+
+menu = wits.v6
+host = wits.cms.waikato.ac.nz
+
+++++ ns1
+
+menu = ns1.v6
+host = ns1.wand.net.nz
+
+++++ ns2
+
+menu = ns2.v6
+host = ns2.wand.net.nz
+
+++++ ns3
+
+menu = ns3.v6
+host = ns3.wand.net.nz
+
+++++ george
+
+menu = george.v6
+host = george.cms.waikato.ac.nz
+
+++++ prophet
+
+menu = prophet.v6
+host = prophet.cms.waikato.ac.nz
+
+++++ lamp
+
+menu = lamp.v6
+host = lamp.wand.net.nz
+
+++++ atlas-anchor
+
+menu = atlas-anchor.v6
+host = nz-hlz-as681.anchors.atlas.ripe.net
+
+++ DNS
+
+menu = DNS
+title = Waikato University DNS Servers
+
++++ alpha
+
+menu = alpha.waikato.ac.nz
+title = alpha.waikato.ac.nz
+host = /Waikato/DNS/IPv4/alpha /Waikato/DNS/IPv6/alpha
+
++++ beta
+
+menu = beta.waikato.ac.nz
+title = beta.waikato.ac.nz
+host = /Waikato/DNS/IPv4/beta /Waikato/DNS/IPv6/beta
+
++++ troll
+
+menu = troll.cms.waikato.ac.nz
+title = troll.cms.waikato.ac.nz
+host = /Waikato/DNS/IPv4/troll /Waikato/DNS/IPv6/troll
+
++++ ogre
+
+menu = ogre.cms.waikato.ac.nz
+title = ogre.cms.waikato.ac.nz
+host = /Waikato/DNS/IPv4/ogre /Waikato/DNS/IPv6/ogre
+
++++ a
+
+menu = a.ns.waikato.ac.nz
+title = a.ns.waikato.ac.nz
+host = /Waikato/DNS/IPv4/a /Waikato/DNS/IPv6/a
+
++++ b
+
+menu = b.ns.waikato.ac.nz
+title = b.ns.waikato.ac.nz
+host = /Waikato/DNS/IPv4/b /Waikato/DNS/IPv6/b
+
++++ IPv4
+
+menu = IPv4
+title = Waikato University DNS Servers - IPv4
+
+++++ alpha
+
+menu = alpha.waikato.ac.nz.v4
+host = alpha.waikato.ac.nz
+
+++++ beta
+
+menu = beta.waikato.ac.nz.v4
+host = beta.waikato.ac.nz
+
+++++ troll
+
+menu = troll.cms.waikato.ac.nz.v4
+host = troll.cms.waikato.ac.nz
+
+++++ ogre
+
+menu = ogre.cms.waikato.ac.nz.v4
+host = ogre.cms.waikato.ac.nz
+
+++++ a
+
+menu = a.ns.waikato.ac.nz.v4
+host = a.ns.waikato.ac.nz
+
+++++ b
+
+menu = b.ns.waikato.ac.nz.v4
+host = b.ns.waikato.ac.nz
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Waikato University DNS Servers - IPv6
+
+++++ alpha
+
+menu = alpha.waikato.ac.nz.v6
+host = alpha.waikato.ac.nz
+
+++++ beta
+
+menu = beta.waikato.ac.nz.v6
+host = beta.waikato.ac.nz
+
+++++ troll
+
+menu = troll.cms.waikato.ac.nz.v6
+host = troll.cms.waikato.ac.nz
+
+++++ ogre
+
+menu = ogre.cms.waikato.ac.nz.v6
+host = ogre.cms.waikato.ac.nz
+
+++++ a
+
+menu = a.ns.waikato.ac.nz.v6
+host = a.ns.waikato.ac.nz
+
+++++ b
+
+menu = b.ns.waikato.ac.nz.v6
+host = b.ns.waikato.ac.nz
+
+++ Routers
+
+menu = Routers
+title = Waikato University Routers
+
++++ 250-gw
+
+menu = 250-gw.cms
+title = 250-gw.cms.waikato.ac.nz
+host = /Waikato/Routers/IPv4/250-gw /Waikato/Routers/IPv6/250-gw
+
++++ gemini-64net-gw
+
+menu = gemini-64net-gw
+title = gemini-64net-gw.network.waikato.ac.nz
+host = /Waikato/Routers/IPv4/gemini-64net-gw /Waikato/Routers/IPv6/gemini-64net-gw
+
++++ fortinet
+
+menu = fortinet
+title = fortinet.network.waikato.ac.nz
+host = /Waikato/Routers/IPv4/fortinet /Waikato/Routers/IPv6/fortinet
+
++++ scorpio
+
+menu = scorpio
+title = scorpio.network.waikato.ac.nz
+host = /Waikato/Routers/IPv4/scorpio /Waikato/Routers/IPv6/scorpio
+
++++ IPv4
+
+menu = IPv4
+title = Waikato University Routers - IPv4
+
+++++ 250-gw
+
+menu = 250-gw.cms.waikato.ac.nz.v4
+host = 250-gw.cms.waikato.ac.nz
+
+++++ gemini-64net-gw
+
+menu = gemini-64net-gw.network.waikato.ac.nz.v4
+host = gemini-64net-gw.network.waikato.ac.nz
+
+++++ fortinet
+
+menu = fortinet.network.waikato.ac.nz.v4
+title = fortinet.network.waikato.ac.nz
+host = 10.5.5.1
+
+++++ scorpio
+
+menu = scorpio.network.waikato.ac.nz.v4
+title = scorpio.network.waikato.ac.nz
+host = 130.217.2.4
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Waikato University Routers - IPv6
+
+++++ 250-gw
+
+menu = 250-gw.cms.waikato.ac.nz.v6
+host = 2001:df0:4:4000:fe00::
+
+++++ gemini-64net-gw
+
+menu = gemini-64net-gw.network.waikato.ac.nz.v6
+host = gemini-64net-gw.network.waikato.ac.nz
+
+++++ fortinet
+
+menu = fortinet.network.waikato.ac.nz.v6
+title = fortinet.network.waikato.ac.nz
+host = 2001:df0:4:2::81
+
+++++ scorpio
+
+menu = scorpio.network.waikato.ac.nz.v6
+title = scorpio.network.waikato.ac.nz
+host = 2001:df0:4:2::4
+
+++ Switches
+
+menu = Switches
+title = Waikato University Switches
+
++++ g1-cat2950t-1
+
+menu = g1-cat2950t-1
+host = g1-cat2950t-1.network.waikato.ac.nz
+
++++ g1-cat2960-3
+
+menu = g1-cat2960-3
+host = g1-cat2960-3.network.waikato.ac.nz
+
++++ g1-cat2960g-1
+
+menu = g1-cat2960g-1
+host = g1-cat2960g-1.network.waikato.ac.nz
+
++++ g1-cat2960g-2
+
+menu = g1-cat2960g-2
+host = g1-cat2960g-2.network.waikato.ac.nz
+
+++ OpenStack
+
+menu = OpenStack
+title = OpenStack Hypervisors
+
++++ blitzen
+
+menu = blitzen
+host = blitzen.cms.waikato.ac.nz
+
++++ comet
+
+menu = comet
+host = comet.cms.waikato.ac.nz
+
++++ cupid
+
+menu = cupid
+host = cupid.cms.waikato.ac.nz
+
++++ donner
+
+menu = donner
+host = donner.cms.waikato.ac.nz
+
+++ ScienceDMZ
+
+menu = ScienceDMZ
+title = SDN DMZ
+
++++ wand-gtw
+
+menu = wand-gtw.dmz
+title = wand-gtw.dmz.wand.net.nz
+host = /Waikato/ScienceDMZ/IPv4/wand-gtw /Waikato/ScienceDMZ/IPv6/wand-gtw
+
++++ caida-ark
+
+menu = caida-ark
+title = hlz-nz.ark.caida.org
+host = /Waikato/ScienceDMZ/IPv4/caida-ark /Waikato/ScienceDMZ/IPv6/caida-ark
+
++++ caida-ark-pi
+
+menu = caida-ark-pi
+title = p212-cc.wand.net.nz
+host = /Waikato/ScienceDMZ/IPv4/caida-ark-pi /Waikato/ScienceDMZ/IPv6/caida-ark-pi
+
++++ planetlab-n1
+
+menu = planetlab-n1
+title = planetlab-n1.wand.net.nz
+host = /Waikato/ScienceDMZ/IPv4/planetlab-n1 /Waikato/ScienceDMZ/IPv6/planetlab-n1
+
++++ planetlab-n2
+
+menu = planetlab-n2
+title = planetlab-n2.wand.net.nz
+host = /Waikato/ScienceDMZ/IPv4/planetlab-n2 /Waikato/ScienceDMZ/IPv6/planetlab-n2
+
++++ ripe-atlas
+
+menu = ripe-atlas
+title = p93.probes.atlas.ripe.net
+host = /Waikato/ScienceDMZ/IPv4/ripe-atlas /Waikato/ScienceDMZ/IPv6/ripe-atlas
+
++++ yoyo
+
+menu = yoyo
+title = yoyo.wand.net.nz
+host = /Waikato/ScienceDMZ/IPv4/yoyo /Waikato/ScienceDMZ/IPv6/yoyo
+
++++ IPv4
+
+menu = IPv4
+title = SDN DMZ - IPv4
+
+++++ wand-gtw
+
+menu = wand-gtw.dmz.v4
+host = wand-gtw.dmz.wand.net.nz
+
+++++ caida-ark
+
+menu = caida-ark.v4
+host = hlz-nz.ark.caida.org
+
+++++ caida-ark-pi
+
+menu = caida-ark-pi.v4
+host = p212-cc.wand.net.nz
+
+++++ planetlab-n1
+
+menu = planetlab-n1.v4
+host = planetlab-n1.wand.net.nz
+
+++++ planetlab-n2
+
+menu = planetlab-n2.v4
+host = planetlab-n2.wand.net.nz
+
+++++ ripe-atlas
+
+menu = ripe-atlas.v4
+host = p93.probes.atlas.ripe.net
+
+++++ yoyo
+
+menu = yoyo.v4
+host = yoyo.wand.net.nz
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = SDN DMZ - IPv6
+
+++++ wand-gtw
+
+menu = wand-gtw.dmz.v6
+host = wand-gtw.dmz.wand.net.nz
+
+++++ caida-ark
+
+menu = caida-ark.v6
+host = hlz-nz.ark.caida.org
+
+++++ caida-ark-pi
+
+menu = caida-ark-pi.v6
+host = p212-cc.wand.net.nz
+
+++++ planetlab-n1
+
+menu = planetlab-n1.v6
+host = planetlab-n1.wand.net.nz
+
+++++ planetlab-n2
+
+menu = planetlab-n2.v6
+host = planetlab-n2.wand.net.nz
+
+++++ ripe-atlas
+
+menu = ripe-atlas.v6
+host = p93.probes.atlas.ripe.net
+
+++++ yoyo
+
+menu = yoyo.v6
+host = yoyo.wand.net.nz
+
++ Lightwire
+
+menu = Lightwire
+title = Lightwire Network
+
+++ DNS
+
+menu = DNS
+title = Lightwire DNS Servers
+
++++ rns1
+
+menu = rns1.lightwire.co.nz
+title = rns1.lightwire.co.nz
+host = /Lightwire/DNS/IPv4/rns1 /Lightwire/DNS/IPv6/rns1
+
++++ rns2
+
+menu = rns2.lightwire.co.nz
+title = rns2.lightwire.co.nz
+host = /Lightwire/DNS/IPv4/rns2 /Lightwire/DNS/IPv6/rns2
+
++++ ns1
+
+menu = ns1.lightwire.co.nz
+title = ns1.lightwire.co.nz
+host = /Lightwire/DNS/IPv4/ns1 /Lightwire/DNS/IPv6/ns1
+
++++ IPv4
+
+menu = IPv4
+title = Lightwire DNS Servers - IPv4
+
+++++ rns1
+
+menu = rns1.lightwire.co.nz.v4
+host = rns1.rurallink.co.nz
+
+++++ rns2
+
+menu = rns2.lightwire.co.nz.v4
+host = rns2.rurallink.co.nz
+
+++++ ns1
+
+menu = ns1.lightwire.co.nz.v4
+host = ns1.lightwire.co.nz
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Lightwire DNS Servers - IPv6
+
+++++ rns1
+
+menu = rns1.lightwire.co.nz.v6
+host = rns1.rurallink.co.nz
+
+++++ rns2
+
+menu = rns2.lightwire.co.nz.v6
+host = rns2.rurallink.co.nz
+
+++++ ns1
+
+menu = ns1.lightwire.co.nz.v6
+host = ns1.lightwire.co.nz
+
+++ Routers
+
+menu = Routers
+title = Lightwire Routers
+
++++ rt-bdr-hme
+
+menu = rt-bdr-hme
+title = rt-bdr-hme.lightwire.co.nz
+host = /Lightwire/Routers/IPv4/rt-bdr-hme /Lightwire/Routers/IPv6/rt-bdr-hme
+
++++ wand-gtw
+
+menu = wand-gtw.redcables
+title = wand-gtw.redcables.wand.net.nz
+host = /Lightwire/Routers/IPv4/wand-gtw /Lightwire/Routers/IPv6/wand-gtw
+
++++ IPv4
+
+menu = IPv4
+title = Lightwire Routers - IPv4
+
+++++ rt-bdr-hme
+
+menu = rt-bdr-hme.lightwire.co.nz.v4
+title = rt-bdr-hme.lightwire.co.nz
+host = 114.134.15.62
+
+++++ wand-gtw
+
+menu = wand-gtw.redcables.wand.net.nz.v4
+host = wand-gtw.redcables.wand.net.nz
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Lightwire Routers - IPv6
+
+++++ rt-bdr-hme
+
+menu = rt-bdr-hme.lightwire.co.nz.v6
+title = rt-bdr-hme.lightwire.co.nz
+host = 2400:bd00:8000:1::1
+
+++++ wand-gtw
+
+menu = wand-gtw.redcables.wand.net.nz.v6
+host = wand-gtw.redcables.wand.net.nz
+
+++ arnie
+
+menu = arnie.lightwire.co.nz
+title = arnie.lightwire.co.nz
+host = 114.134.15.254
+
+++ htb
+
+host = htb-gtw.rurallink.co.nz
+
+++ rt-bdr-hn
+
+menu = rt-bdr-hn.lightwire.co.nz
+title = rt-bdr-hn.lightwire.co.nz
+host = 114.134.15.177
+
+++ rt-bdr-hme
+
+menu = rt-bdr-hme.lightwire.co.nz
+title = rt-bdr-hme.lightwire.co.nz
+host = 114.134.15.178
+
+++ rt-bdr-hmev6
+
+probe = FPing6
+title = rt-bdr-hme.lightwire.co.nz IPv6
+host = 2400:bd00:8000:1::1
+
+++ mirror
+
+host = mirror.byte.net.nz
+
 + REANNZ
 
 menu = REANNZ
 title = REANNZ
 
-++ ps01-akl
+++ DNS
+
+menu = DNS
+title = REANNZ DNS Servers
+
++++ ns1
+
+menu = ns1.reannz.co.nz
+title = ns1.reannz.co.nz
+host = /REANNZ/DNS/IPv4/ns1 /REANNZ/DNS/IPv6/ns1
+
++++ ns2
+
+menu = ns2.reannz.co.nz
+title = ns2.reannz.co.nz
+host = /REANNZ/DNS/IPv4/ns2 /REANNZ/DNS/IPv6/ns2
+
++++ ns3
+
+menu = ns3.reannz.co.nz
+title = ns3.reannz.co.nz
+host = /REANNZ/DNS/IPv4/ns3 /REANNZ/DNS/IPv6/ns3
+
++++ rns-primary
+
+menu = rns-primary.reannz.co.nz
+title = rns-primary.reannz.co.nz
+host = /REANNZ/DNS/IPv4/rns-primary /REANNZ/DNS/IPv6/rns-primary
+
++++ rns-secondary
+
+menu = rns-secondary.reannz.co.nz
+title = rns-secondary.reannz.co.nz
+host = /REANNZ/DNS/IPv4/rns-secondary /REANNZ/DNS/IPv6/rns-secondary
+
++++ IPv4
+
+menu = IPv4
+title = REANNZ DNS Servers - IPv4
+
+++++ ns1
+
+menu = ns1.reannz.co.nz.v4
+host = ns1.reannz.co.nz
+
+++++ ns2
+
+menu = ns2.reannz.co.nz.v4
+host = ns2.reannz.co.nz
+
+++++ ns3
+
+menu = ns3.reannz.co.nz.v4
+host = ns3.reannz.co.nz
+
+++++ rns-primary
+
+menu = rns-primary.reannz.co.nz.v4
+host = rns-primary.reannz.co.nz
+
+++++ rns-secondary
+
+menu = rns-secondary.reannz.co.nz.v4
+host = rns-secondary.reannz.co.nz
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = REANNZ DNS Servers - IPv6
+
+++++ ns1
+
+menu = ns1.reannz.co.nz.v6
+host = ns1.reannz.co.nz
+
+++++ ns2
+
+menu = ns2.reannz.co.nz.v6
+host = ns2.reannz.co.nz
+
+++++ ns3
+
+menu = ns3.reannz.co.nz.v6
+host = ns3.reannz.co.nz
+
+++++ rns-primary
+
+menu = rns-primary.reannz.co.nz.v6
+host = rns-primary.reannz.co.nz
+
+++++ rns-secondary
+
+menu = rns-secondary.reannz.co.nz.v6
+host = rns-secondary.reannz.co.nz
+
+++ Routers
+
+menu = Routers
+title = REANNZ Routers
+
++++ and14
+
+menu = and14
+title = and14
+host = /REANNZ/Routers/IPv4/and14 /REANNZ/Routers/IPv6/and14
+
++++ IPv4
+
+menu = IPv4
+title = REANNZ Routers - IPv4
+
+++++ and14
+
+menu = and14.v4
+title = and14
+host = 210.7.39.9
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = REANNZ Routers - IPv6
+
+++++ and14
+
+menu = and14.v6
+title = and14
+host = 2404:138:39:8::1
+
+++ perfSONAR
+
+menu = perfSONAR
+title = REANNZ perfSONAR Nodes
+
++++ ps01-akl
 
 menu = ps01-akl
 title = ps01-akl.reannz.co.nz
-host = /REANNZ/IPv4/ps01-akl /REANNZ/IPv6/ps01-akl
+host = /REANNZ/perfSONAR/IPv4/ps01-akl /REANNZ/perfSONAR/IPv6/ps01-akl
 
-++ ps02-wlg
++++ ps02-wlg
 
 menu = ps02-wlg
 title = ps02-wlg.reannz.co.nz
-host = /REANNZ/IPv4/ps02-wlg /REANNZ/IPv6/ps02-wlg
+host = /REANNZ/perfSONAR/IPv4/ps02-wlg /REANNZ/perfSONAR/IPv6/ps02-wlg
 
-++ ps03-chc
++++ ps03-chc
 
 menu = ps03-chc
 title = ps03-chc.reannz.co.nz
-host = /REANNZ/IPv4/ps03-chc /REANNZ/IPv6/ps03-chc
+host = /REANNZ/perfSONAR/IPv4/ps03-chc /REANNZ/perfSONAR/IPv6/ps03-chc
 
-++ ps04-dud
++++ ps04-dud
 
 menu = ps04-dud
 title = ps04-dud.reannz.co.nz
-host = /REANNZ/IPv4/ps04-dud /REANNZ/IPv6/ps04-dud
+host = /REANNZ/perfSONAR/IPv4/ps04-dud /REANNZ/perfSONAR/IPv6/ps04-dud
 
-++ ps14-hlz
++++ ps11-mta
+
+menu = ps11-mta
+title = ps11-mta.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps11-mta /REANNZ/perfSONAR/IPv6/ps11-mta
+
++++ ps12-nsh
+
+menu = ps12-nsh
+title = ps12-nsh.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps12-nsh /REANNZ/perfSONAR/IPv6/ps12-nsh
+
++++ ps13-rot
+
+menu = ps13-rot
+title = ps13-rot.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps13-rot /REANNZ/perfSONAR/IPv6/ps13-rot
+
++++ ps14-hlz
 
 menu = ps14-hlz
 title = ps14-hlz.reannz.co.nz
-host = /REANNZ/IPv4/ps14-hlz /REANNZ/IPv6/ps14-hlz
+host = /REANNZ/perfSONAR/IPv4/ps14-hlz /REANNZ/perfSONAR/IPv6/ps14-hlz
 
-++ ps16-mup
++++ ps16-mup
 
 menu = ps16-mup
 title = ps16-mup.reannz.co.nz
-host = /REANNZ/IPv4/ps16-mup /REANNZ/IPv6/ps16-mup
+host = /REANNZ/perfSONAR/IPv4/ps16-mup /REANNZ/perfSONAR/IPv6/ps16-mup
 
-++ ps17-avl
++++ ps17-avl
 
 menu = ps17-avl
 title = ps17-avl.reannz.co.nz
-host = /REANNZ/IPv4/ps17-avl /REANNZ/IPv6/ps17-avl
+host = /REANNZ/perfSONAR/IPv4/ps17-avl /REANNZ/perfSONAR/IPv6/ps17-avl
 
-++ IPv4
++++ ps18-nsn
+
+menu = ps18-nsn
+title = ps18-nsn.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps18-nsn /REANNZ/perfSONAR/IPv6/ps18-nsn
+
++++ ps19-tod
+
+menu = ps19-tod
+title = ps19-tod.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps19-tod /REANNZ/perfSONAR/IPv6/ps19-tod
+
++++ ps20-lcn
+
+menu = ps20-lcn
+title = ps20-lcn.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps20-lcn /REANNZ/perfSONAR/IPv6/ps20-lcn
+
++++ ps21-ivm
+
+menu = ps21-ivm
+title = ps21-ivm.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps21-ivm /REANNZ/perfSONAR/IPv6/ps21-ivm
+
++++ ps23-bhe
+
+menu = ps23-bhe
+title = ps23-bhe.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps23-bhe /REANNZ/perfSONAR/IPv6/ps23-bhe
+
++++ ps25-trg
+
+menu = ps25-trg
+title = ps25-trg.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps25-trg /REANNZ/perfSONAR/IPv6/ps25-trg
+
++++ ps26-npl
+
+menu = ps26-npl
+title = ps26-npl.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps26-npl /REANNZ/perfSONAR/IPv6/ps26-npl
+
++++ ps27-wag
+
+menu = ps27-wag
+title = ps27-wag.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps27-wag /REANNZ/perfSONAR/IPv6/ps27-wag
+
++++ ps28-ivc
+
+menu = ps28-ivc
+title = ps28-ivc.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps28-ivc /REANNZ/perfSONAR/IPv6/ps28-ivc
+
++++ ps30-prl
+
+menu = ps30-prl
+title = ps30-prl.reannz.co.nz
+host = /REANNZ/perfSONAR/IPv4/ps30-prl /REANNZ/perfSONAR/IPv6/ps30-prl
+
++++ IPv4
 
 menu = IPv4
-title = Internet Protocol Version 4
+title = REANNZ - IPv4
 
-+++ ps01-akl
+++++ ps01-akl
 
 menu = ps01-akl.v4
-title = ps01-akl.reannz.co.nz
 host = ps01-akl.reannz.co.nz
 
-+++ ps02-wlg
+++++ ps02-wlg
 
 menu = ps02-wlg.v4
-title = ps02-wlg.reannz.co.nz
 host = ps02-wlg.reannz.co.nz
 
-+++ ps03-chc
+++++ ps03-chc
 
 menu = ps03-chc.v4
-title = ps03-chc.reannz.co.nz
 host = ps03-chc.reannz.co.nz
 
-+++ ps04-dud
+++++ ps04-dud
 
 menu = ps04-dud.v4
-title = ps04-dud.reannz.co.nz
 host = ps04-dud.reannz.co.nz
 
-+++ ps14-hlz
+++++ ps11-mta
+
+menu = ps11-mta.v4
+host = ps11-mta.reannz.co.nz
+
+++++ ps12-nsh
+
+menu = ps12-nsh.v4
+host = ps12-nsh.reannz.co.nz
+
+++++ ps13-rot
+
+menu = ps13-rot.v4
+host = ps13-rot.reannz.co.nz
+
+++++ ps14-hlz
 
 menu = ps14-hlz.v4
-title = ps14-hlz.reannz.co.nz
 host = ps14-hlz.reannz.co.nz
 
-+++ ps16-mup
+++++ ps16-mup
 
 menu = ps16-mup.v4
-title = ps16-mup.reannz.co.nz
 host = ps16-mup.reannz.co.nz
 
-+++ ps17-avl
+++++ ps17-avl
 
 menu = ps17-avl.v4
-title = ps17-avl.reannz.co.nz
 host = ps17-avl.reannz.co.nz
 
-++ IPv6
+++++ ps18-nsn
+
+menu = ps18-nsn.v4
+host = ps18-nsn.reannz.co.nz
+
+++++ ps19-tod
+
+menu = ps19-tod.v4
+host = ps19-tod.reannz.co.nz
+
+++++ ps20-lcn
+
+menu = ps20-lcn.v4
+host = ps20-lcn.reannz.co.nz
+
+++++ ps21-ivm
+
+menu = ps21-ivm.v4
+host = ps21-ivm.reannz.co.nz
+
+++++ ps23-bhe
+
+menu = ps23-bhe.v4
+host = ps23-bhe.reannz.co.nz
+
+++++ ps25-trg
+
+menu = ps25-trg.v4
+host = ps25-trg.reannz.co.nz
+
+++++ ps26-npl
+
+menu = ps26-npl.v4
+host = ps26-npl.reannz.co.nz
+
+++++ ps27-wag
+
+menu = ps27-wag.v4
+host = ps27-wag.reannz.co.nz
+
+++++ ps28-ivc
+
+menu = ps28-ivc.v4
+host = ps28-ivc.reannz.co.nz
+
+++++ ps30-prl
+
+menu = ps30-prl.v4
+host = ps30-prl.reannz.co.nz
+
++++ IPv6
 
 probe = FPing6
 menu = IPv6
-title = Internet Protocol Version 6
+title = REANNZ - IPv6
 
-+++ ps01-akl
+++++ ps01-akl
 
 menu = ps01-akl.v6
-title = ps01-akl.reannz.co.nz
 host = ps01-akl.reannz.co.nz
 
-+++ ps02-wlg
+++++ ps02-wlg
 
 menu = ps02-wlg.v6
-title = ps02-wlg.reannz.co.nz
 host = ps02-wlg.reannz.co.nz
 
-+++ ps03-chc
+++++ ps03-chc
 
 menu = ps03-chc.v6
-title = ps03-chc.reannz.co.nz
 host = ps03-chc.reannz.co.nz
 
-+++ ps04-dud
+++++ ps04-dud
 
 menu = ps04-dud.v6
-title = ps04-dud.reannz.co.nz
 host = ps04-dud.reannz.co.nz
 
-+++ ps14-hlz
+++++ ps11-mta
+
+menu = ps11-mta.v6
+host = ps11-mta.reannz.co.nz
+
+++++ ps12-nsh
+
+menu = ps12-nsh.v6
+host = ps12-nsh.reannz.co.nz
+
+++++ ps13-rot
+
+menu = ps13-rot.v6
+host = ps13-rot.reannz.co.nz
+
+++++ ps14-hlz
 
 menu = ps14-hlz.v6
-title = ps14-hlz.reannz.co.nz
 host = ps14-hlz.reannz.co.nz
 
-+++ ps16-mup
+++++ ps16-mup
 
 menu = ps16-mup.v6
-title = ps16-mup.reannz.co.nz
 host = ps16-mup.reannz.co.nz
 
-+++ ps17-avl
+++++ ps17-avl
 
 menu = ps17-avl.v6
-title = ps17-avl.reannz.co.nz
 host = ps17-avl.reannz.co.nz
 
-+ nzdns
+++++ ps18-nsn
 
-menu = NZ DNS
-title = NZ DNS Servers
+menu = ps18-nsn.v6
+host = ps18-nsn.reannz.co.nz
 
-++ ns1dnsnz
+++++ ps19-tod
 
-menu = ns1.dns.net.nz
-title = ns1.dns.net.nz
-host = /nzdns/IPv4/ns1dnsnz /nzdns/IPv6/ns1dnsnz
+menu = ps19-tod.v6
+host = ps19-tod.reannz.co.nz
 
-++ ns2dnsnz
+++++ ps20-lcn
 
-menu = ns2.dns.net.nz
-title = ns2.dns.net.nz
-host = /nzdns/IPv4/ns2dnsnz /nzdns/IPv6/ns2dnsnz
+menu = ps20-lcn.v6
+host = ps20-lcn.reannz.co.nz
 
-++ ns3dnsnz
+++++ ps21-ivm
 
-menu = ns3.dns.net.nz
-title = ns3.dns.net.nz
-host = /nzdns/IPv4/ns3dnsnz /nzdns/IPv6/ns3dnsnz
+menu = ps21-ivm.v6
+host = ps21-ivm.reannz.co.nz
 
-++ ns4dnsnz
+++++ ps23-bhe
 
-menu = ns4.dns.net.nz
-title = ns4.dns.net.nz
-host = /nzdns/IPv4/ns4dnsnz /nzdns/IPv6/ns4dnsnz
+menu = ps23-bhe.v6
+host = ps23-bhe.reannz.co.nz
 
-++ ns5dnsnz
+++++ ps25-trg
 
-menu = ns5.dns.net.nz
-title = ns5.dns.net.nz
-host = /nzdns/IPv4/ns5dnsnz /nzdns/IPv6/ns5dnsnz
+menu = ps25-trg.v6
+host = ps25-trg.reannz.co.nz
 
-++ ns6dnsnz
+++++ ps26-npl
 
-menu = ns6.dns.net.nz
-title = ns6.dns.net.nz
-host = /nzdns/IPv4/ns6dnsnz /nzdns/IPv6/ns6dnsnz
+menu = ps26-npl.v6
+host = ps26-npl.reannz.co.nz
 
-++ IPv4
+++++ ps27-wag
 
-menu = IPv4
-title = Internet Protocol Version 4
+menu = ps27-wag.v6
+host = ps27-wag.reannz.co.nz
 
-+++ ns1dnsnz
+++++ ps28-ivc
 
-menu = ns1.dns.net.nz.v4
-title = ns1.dns.net.nz
-host = ns1.dns.net.nz
+menu = ps28-ivc.v6
+host = ps28-ivc.reannz.co.nz
 
-+++ ns2dnsnz
+++++ ps30-prl
 
-menu = ns2.dns.net.nz.v4
-title = ns2.dns.net.nz
-host = ns2.dns.net.nz
-
-+++ ns3dnsnz
-
-menu = ns3.dns.net.nz.v4
-title = ns3.dns.net.nz
-host = ns3.dns.net.nz
-
-+++ ns4dnsnz
-
-menu = ns4.dns.net.nz.v4
-title = ns4.dns.net.nz
-host = ns4.dns.net.nz
-
-+++ ns5dnsnz
-
-menu = ns5.dns.net.nz.v4
-title = ns5.dns.net.nz
-host = ns5.dns.net.nz
-
-+++ ns6dnsnz
-
-menu = ns6.dns.net.nz.v4
-title = ns6.dns.net.nz
-host = ns6.dns.net.nz
-
-++ IPv6
-
-probe = FPing6
-menu = IPv6
-title = Internet Protocol Version 6
-
-+++ ns1dnsnz
-
-menu = ns1.dns.net.nz.v6
-title = ns1.dns.net.nz
-host = ns1.dns.net.nz
-
-+++ ns2dnsnz
-
-menu = ns2.dns.net.nz.v6
-title = ns2.dns.net.nz
-host = ns2.dns.net.nz
-
-+++ ns3dnsnz
-
-menu = ns3.dns.net.nz.v6
-title = ns3.dns.net.nz
-host = ns3.dns.net.nz
-
-+++ ns4dnsnz
-
-menu = ns4.dns.net.nz.v6
-title = ns4.dns.net.nz
-host = ns4.dns.net.nz
-
-+++ ns5dnsnz
-
-menu = ns5.dns.net.nz.v6
-title = ns5.dns.net.nz
-host = ns5.dns.net.nz
-
-+++ ns6dnsnz
-
-menu = ns6.dns.net.nz.v6
-title = ns6.dns.net.nz
-host = ns6.dns.net.nz
-
-+ RIR
-
-menu = Regional Internet Registries
-title = Regional Internet Registries
-
-++ arin
-
-menu = arin
-title = arin.net
-host = /RIR/IPv4/arin /RIR/IPv6/arin
-
-++ afrinic
-
-menu = afrinic
-title = afrinic.net
-host = /RIR/IPv4/afrinic /RIR/IPv6/afrinic
-
-++ apnic
-
-menu = apnic
-title = apnic.net
-host = /RIR/IPv4/apnic /RIR/IPv6/apnic
-
-++ lacnic
-
-menu = lacnic
-title = lacnic.net
-host = /RIR/IPv4/lacnic /RIR/IPv6/lacnic
-
-++ ripe
-
-menu = ripe
-title = ripe.net
-host = /RIR/IPv4/ripe /RIR/IPv6/ripe
-
-++ IPv4
-
-menu = IPv4
-title = Internet Protocol Version 4
-
-+++ arin
-
-menu = ARIN.v4
-title = arin.net
-host = arin.net
-
-+++ afrinic
-
-menu = AFRINIC.v4
-title = afrinic.net
-host = afrinic.net
-
-+++ apnic
-
-menu = APNIC.v4
-title = apnic.net
-host = apnic.net
-
-+++ lacnic
-
-menu = LACNIC.v4
-title = lacnic.net
-host = lacnic.net
-
-+++ ripe
-
-menu = RIPE.v4
-title = pri.authdns.ripe.net
-host = pri.authdns.ripe.net
-
-++ IPv6
-
-probe = FPing6
-menu = IPv6
-title = Internet Protocol Version 6
-
-+++ arin
-
-menu = ARIN.v6
-title = arin.net
-host = arin.net
-
-+++ afrinic
-
-menu = AFRINIC.v6
-title = afrinic.net
-host = afrinic.net
-
-+++ apnic
-
-menu = APNIC.v6
-title = apnic.net
-host = apnic.net
-
-+++ lacnic
-
-menu = LACNIC.v6
-title = lacnic.net
-host = lacnic.net
-
-+++ ripe
-
-menu = RIPE.v6
-title = pri.authdns.ripe.net
-host = pri.authdns.ripe.net
-
-+ CDN
-
-menu = CDNs
-title = Content Delivery Networks
-
-++ microsoftdownload
-
-menu = download.microsoft.com
-title = download.microsoft.com
-host = /CDN/IPv4/microsoftdownload /CDN/IPv6/microsoftdownload
-
-++ itunes
-
-menu = itunes.apple.com
-title = itunes.apple.com
-host = /CDN/IPv4/itunes /CDN/IPv6/itunes
-
-++ cachefly
-
-menu = cachefly.cachefly.net
-title = cachefly.cachefly.net
-host = /CDN/IPv4/cachefly /CDN/IPv6/cachefly
-
-++ dropbox
-
-menu = client.dropbox.com
-title = client.dropbox.com
-host = /CDN/IPv4/dropbox /CDN/IPv6/dropbox
-
-++ gcm
-
-menu = gcm.googleapis.com
-title = gcm.googleapis.com
-host = /CDN/IPv4/gcm /CDN/IPv6/gcm
-
-++ akamai
-
-menu = a248.e.akamai.net
-title = a248.e.akamai.net
-host = /CDN/IPv4/akamai /CDN/IPv6/akamai
-
-++ googlecloud
-
-menu = cloud.google.com
-title = cloud.google.com
-host = /CDN/IPv4/googlecloud /CDN/IPv6/googlecloud
-
-++ googleapis
-
-menu = googleapis.com
-title = googleapis.com
-host = /CDN/IPv4/googleapis /CDN/IPv6/googleapis
-
-++ googleanalytics
-
-menu = google-analytics.com
-title = google-analytics.com
-host = /CDN/IPv4/googleanalytics /CDN/IPv6/googleanalytics
-
-++ appldnld
-
-menu = appldnld.apple.com
-title = appldnld.apple.com
-host = /CDN/IPv4/appldnld /CDN/IPv6/appldnld
-
-++ secure-appldnld
-
-menu = secure-appldnld.apple.com
-title = secure-appldnld.apple.com
-host = /CDN/IPv4/secure-appldnld /CDN/IPv6/secure-appldnld
-
-++ IPv4
-
-menu = IPv4
-title = Internet Protocol Version 4
-
-+++ microsoftdownload
-
-menu = download.microsoft.com.v4
-title = download.microsoft.com
-host = download.microsoft.com
-
-+++ itunes
-
-menu = itunes.apple.com.v4
-title = itunes.apple.com
-host = itunes.apple.com
-
-+++ cachefly
-
-menu = cachefly.cachefly.net.v4
-title = cachefly.cachefly.net
-host = cachefly.cachefly.net
-
-+++ dropbox
-
-menu = client.dropbox.com.v4
-title = client.dropbox.com
-host = client.dropbox.com
-
-+++ gcm
-
-menu = gcm.googleapis.com.v4
-title = gcm.googleapis.com
-host = gcm.googleapis.com
-
-+++ akamai
-
-menu = a248.e.akamai.net.v4
-title = a248.e.akamai.net
-host = a248.e.akamai.net
-
-+++ googlecloud
-
-menu = cloud.google.com.v4
-title = cloud.google.com
-host = cloud.google.com
-
-+++ googleapis
-
-menu = googleapis.com.v4
-title = googleapis.com
-host = www.googleapis.com
-
-+++ googleanalytics
-
-menu = google-analytics.com.v4
-title = google-analytics.com
-host = www.google-analytics.com
-
-+++ appldnld
-
-menu = appldnld.apple.com.v4
-title = appldnld.apple.com
-host = appldnld.apple.com
-
-+++ secure-appldnld
-
-menu = secure-appldnld.apple.com.v4
-title = secure-appldnld.apple.com
-host = secure-appldnld.apple.com
-
-++ IPv6
-
-probe = FPing6
-menu = IPv6
-title = Internet Protocol Version 6
-
-+++ microsoftdownload
-
-menu = download.microsoft.com.v6
-title = download.microsoft.com
-host = download.microsoft.com
-
-+++ itunes
-
-menu = itunes.apple.com.v6
-title = itunes.apple.com
-host = itunes.apple.com
-
-+++ cachefly
-
-menu = cachefly.cachefly.net.v6
-title = cachefly.cachefly.net
-host = cachefly.cachefly.net
-
-+++ dropbox
-
-menu = client.dropbox.com.v6
-title = client.dropbox.com
-host = client.dropbox.com
-
-+++ gcm
-
-menu = gcm.googleapis.com.v6
-title = gcm.googleapis.com
-host = gcm.googleapis.com
-
-+++ akamai
-
-menu = a248.e.akamai.net.v6
-title = a248.e.akamai.net
-host = a248.e.akamai.net
-
-+++ googlecloud
-
-menu = cloud.google.com.v6
-title = cloud.google.com
-host = cloud.google.com
-
-+++ googleapis
-
-menu = googleapis.com.v6
-title = googleapis.com
-host = www.googleapis.com
-
-+++ googleanalytics
-
-menu = google-analytics.com.v6
-title = google-analytics.com
-host = www.google-analytics.com
-
-+++ appldnld
-
-menu = appldnld.apple.com.v6
-title = appldnld.apple.com
-host = appldnld.apple.com
-
-+++ secure-appldnld
-
-menu = secure-appldnld.apple.com.v6
-title = secure-appldnld.apple.com
-host = secure-appldnld.apple.com
+menu = ps30-prl.v6
+host = ps30-prl.reannz.co.nz
 
 + Off-net
 
 menu = Off Network
 title = Off Network
 
+++ AWS
+
+menu = AWS
+title = AWS
+
++++ us-east-1
+
+menu = us-east-1
+title = us-east-1
+host = /Off-net/AWS/IPv4/us-east-1 /Off-net/AWS/IPv6/us-east-1
+
++++ us-east-2
+
+menu = us-east-2
+title = us-east-2
+host = /Off-net/AWS/IPv4/us-east-2 /Off-net/AWS/IPv6/us-east-2
+
++++ us-west-1
+
+menu = us-west-1
+title = us-west-1
+host = /Off-net/AWS/IPv4/us-west-1 /Off-net/AWS/IPv6/us-west-1
+
++++ us-west-2
+
+menu = us-west-2
+title = us-west-2
+host = /Off-net/AWS/IPv4/us-west-2 /Off-net/AWS/IPv6/us-west-2
+
++++ ca-central-1
+
+menu = ca-central-1
+title = ca-central-1
+host = /Off-net/AWS/IPv4/ca-central-1 /Off-net/AWS/IPv6/ca-central-1
+
++++ eu-west-1
+
+menu = eu-west-1
+title = eu-west-1
+host = /Off-net/AWS/IPv4/eu-west-1 /Off-net/AWS/IPv6/eu-west-1
+
++++ eu-central-1
+
+menu = eu-central-1
+title = eu-central-1
+host = /Off-net/AWS/IPv4/eu-central-1 /Off-net/AWS/IPv6/eu-central-1
+
++++ eu-west-2
+
+menu = eu-west-2
+title = eu-west-2
+host = /Off-net/AWS/IPv4/eu-west-2 /Off-net/AWS/IPv6/eu-west-2
+
++++ ap-northeast-1
+
+menu = ap-northeast-1
+title = ap-northeast-1
+host = /Off-net/AWS/IPv4/ap-northeast-1 /Off-net/AWS/IPv6/ap-northeast-1
+
++++ ap-northeast-2
+
+menu = ap-northeast-2
+title = ap-northeast-2
+host = /Off-net/AWS/IPv4/ap-northeast-2 /Off-net/AWS/IPv6/ap-northeast-2
+
++++ ap-southeast-1
+
+menu = ap-southeast-1
+title = ap-southeast-1
+host = /Off-net/AWS/IPv4/ap-southeast-1 /Off-net/AWS/IPv6/ap-southeast-1
+
++++ ap-southeast-2
+
+menu = ap-southeast-2
+title = ap-southeast-2
+host = /Off-net/AWS/IPv4/ap-southeast-2 /Off-net/AWS/IPv6/ap-southeast-2
+
++++ ap-south-1
+
+menu = ap-south-1
+title = ap-south-1
+host = /Off-net/AWS/IPv4/ap-south-1 /Off-net/AWS/IPv6/ap-south-1
+
++++ sa-east-1
+
+menu = sa-east-1
+title = sa-east-1
+host = /Off-net/AWS/IPv4/sa-east-1 /Off-net/AWS/IPv6/sa-east-1
+
++++ IPv4
+
+menu = IPv4
+title = AWS - IPv4
+
+++++ us-east-1
+
+menu = us-east-1.v4
+title = us-east-1
+host = 23.23.255.255
+
+++++ us-east-2
+
+menu = us-east-2.v4
+title = us-east-2
+host = 52.14.64.0
+
+++++ us-west-1
+
+menu = us-west-1.v4
+title = us-west-1
+host = 50.18.56.1
+
+++++ us-west-2
+
+menu = us-west-2.v4
+title = us-west-2
+host = 35.160.63.253
+
+++++ ca-central-1
+
+menu = ca-central-1.v4
+title = ca-central-1
+host = 52.60.50.0
+
+++++ eu-west-1
+
+menu = eu-west-1.v4
+title = eu-west-1
+host = 34.248.60.213
+
+++++ eu-central-1
+
+menu = eu-central-1.v4
+title = eu-central-1
+host = 35.156.63.252
+
+++++ eu-west-2
+
+menu = eu-west-2.v4
+title = eu-west-2
+host = 52.56.34.0
+
+++++ ap-northeast-1
+
+menu = ap-northeast-1.v4
+title = ap-northeast-1
+host = 13.112.63.251
+
+++++ ap-northeast-2
+
+menu = ap-northeast-2.v4
+title = ap-northeast-2
+host = 52.78.63.252
+
+++++ ap-southeast-1
+
+menu = ap-southeast-1.v4
+title = ap-southeast-1
+host = 46.51.216.14
+
+++++ ap-southeast-2
+
+menu = ap-southeast-2.v4
+title = ap-southeast-2
+host = 13.54.63.252
+
+++++ ap-south-1
+
+menu = ap-south-1.v4
+title = ap-south-1
+host = 35.154.63.252
+
+++++ sa-east-1
+
+menu = sa-east-1.v4
+title = sa-east-1
+host = 52.67.255.254
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = AWS - IPv6
+
+++++ us-east-1
+
+menu = us-east-1.v6
+title = us-east-1
+host = 2600:1f18:2fe:900::ec2
+
+++++ us-east-2
+
+menu = us-east-2.v6
+title = us-east-2
+host = 2600:1f16:c01:4000::ec2
+
+++++ us-west-1
+
+menu = us-west-1.v6
+title = us-west-1
+host = 2600:1f1c:f64:3200::ec2
+
+++++ us-west-2
+
+menu = us-west-2.v6
+title = us-west-2
+host = 2600:1f14:84a:b000::ec2
+
+++++ ca-central-1
+
+menu = ca-central-1.v6
+title = ca-central-1
+host = 2600:1f11:b15:2000::ec2
+
+++++ eu-west-1
+
+menu = eu-west-1.v6
+title = eu-west-1
+host = 2a05:d018:3c:6000::ec2
+
+++++ eu-central-1
+
+menu = eu-central-1.v6
+title = eu-central-1
+host = 2a05:d014:4e3:5000::ec2
+
+++++ eu-west-2
+
+menu = eu-west-2.v6
+title = eu-west-2
+host = 2a05:d01c:810:8100::ec2
+
+++++ ap-northeast-1
+
+menu = ap-northeast-1.v6
+title = ap-northeast-1
+host = 2406:da14:295:300::ec2
+
+++++ ap-northeast-2
+
+menu = ap-northeast-2.v6
+title = ap-northeast-2
+host = 2406:da12:128:d200::ec2
+
+++++ ap-southeast-1
+
+menu = ap-southeast-1.v6
+title = ap-southeast-1
+host = 2406:da18:ec6:6400::ec2
+
+++++ ap-southeast-2
+
+menu = ap-southeast-2.v6
+title = ap-southeast-2
+host = 2406:da1c:16:9000::ec2
+
+++++ ap-south-1
+
+menu = ap-south-1.v6
+title = ap-south-1
+host = 2406:da1a:ddd:7400::ec2
+
+++++ sa-east-1
+
+menu = sa-east-1.v6
+title = sa-east-1
+host = 2600:1f1e:99e:9f00::ec2
+
+++ CDN
+
+menu = CDNs
+title = Content Delivery Networks
+
++++ microsoft-download
+
+menu = download.microsoft.com
+title = download.microsoft.com
+host = /Off-net/CDN/IPv4/microsoft-download /Off-net/CDN/IPv6/microsoft-download
+
++++ itunes
+
+menu = itunes.apple.com
+title = itunes.apple.com
+host = /Off-net/CDN/IPv4/itunes /Off-net/CDN/IPv6/itunes
+
++++ cachefly
+
+menu = cachefly.cachefly.net
+title = cachefly.cachefly.net
+host = /Off-net/CDN/IPv4/cachefly /Off-net/CDN/IPv6/cachefly
+
++++ dropbox
+
+menu = client.dropbox.com
+title = client.dropbox.com
+host = /Off-net/CDN/IPv4/dropbox /Off-net/CDN/IPv6/dropbox
+
++++ gcm
+
+menu = gcm.googleapis.com
+title = gcm.googleapis.com
+host = /Off-net/CDN/IPv4/gcm /Off-net/CDN/IPv6/gcm
+
++++ akamai
+
+menu = a248.e.akamai.net
+title = a248.e.akamai.net
+host = /Off-net/CDN/IPv4/akamai /Off-net/CDN/IPv6/akamai
+
++++ akamai-netpartner
+
+menu = netpartner.akamai.com
+title = netpartner.akamai.com
+host = /Off-net/CDN/IPv4/akamai-netpartner /Off-net/CDN/IPv6/akamai-netpartner
+
++++ google-cloud
+
+menu = cloud.google.com
+title = cloud.google.com
+host = /Off-net/CDN/IPv4/google-cloud /Off-net/CDN/IPv6/google-cloud
+
++++ google-apis
+
+menu = googleapis.com
+title = googleapis.com
+host = /Off-net/CDN/IPv4/google-apis /Off-net/CDN/IPv6/google-apis
+
++++ google-analytics
+
+menu = google-analytics.com
+title = google-analytics.com
+host = /Off-net/CDN/IPv4/google-analytics /Off-net/CDN/IPv6/google-analytics
+
++++ appldnld
+
+menu = appldnld.apple.com
+title = appldnld.apple.com
+host = /Off-net/CDN/IPv4/appldnld /Off-net/CDN/IPv6/appldnld
+
++++ secure-appldnld
+
+menu = secure-appldnld.apple.com
+title = secure-appldnld.apple.com
+host = /Off-net/CDN/IPv4/secure-appldnld /Off-net/CDN/IPv6/secure-appldnld
+
++++ IPv4
+
+menu = IPv4
+title = Content Delivery Networks - IPv4
+
+++++ microsoft-download
+
+menu = download.microsoft.com.v4
+host = download.microsoft.com
+
+++++ itunes
+
+menu = itunes.apple.com.v4
+host = itunes.apple.com
+
+++++ cachefly
+
+menu = cachefly.cachefly.net.v4
+host = cachefly.cachefly.net
+
+++++ dropbox
+
+menu = client.dropbox.com.v4
+host = client.dropbox.com
+
+++++ gcm
+
+menu = gcm.googleapis.com.v4
+host = gcm.googleapis.com
+
+++++ akamai
+
+menu = a248.e.akamai.net.v4
+host = a248.e.akamai.net
+
+++++ akamai-netpartner
+
+menu = netpartner.akamai.com.v4
+host = netpartner.akamai.com
+
+++++ google-cloud
+
+menu = cloud.google.com.v4
+host = cloud.google.com
+
+++++ google-apis
+
+menu = googleapis.com.v4
+host = www.googleapis.com
+
+++++ google-analytics
+
+menu = google-analytics.com.v4
+host = www.google-analytics.com
+
+++++ appldnld
+
+menu = appldnld.apple.com.v4
+host = appldnld.apple.com
+
+++++ secure-appldnld
+
+menu = secure-appldnld.apple.com.v4
+host = secure-appldnld.apple.com
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Content Delivery Networks - IPv6
+
+++++ microsoft-download
+
+menu = download.microsoft.com.v6
+host = download.microsoft.com
+
+++++ itunes
+
+menu = itunes.apple.com.v6
+host = itunes.apple.com
+
+++++ cachefly
+
+menu = cachefly.cachefly.net.v6
+host = cachefly.cachefly.net
+
+++++ dropbox
+
+menu = client.dropbox.com.v6
+host = client.dropbox.com
+
+++++ gcm
+
+menu = gcm.googleapis.com.v6
+host = gcm.googleapis.com
+
+++++ akamai
+
+menu = a248.e.akamai.net.v6
+host = a248.e.akamai.net
+
+++++ akamai-netpartner
+
+menu = netpartner.akamai.com.v6
+host = netpartner.akamai.com
+
+++++ google-cloud
+
+menu = cloud.google.com.v6
+host = cloud.google.com
+
+++++ google-apis
+
+menu = googleapis.com.v6
+host = www.googleapis.com
+
+++++ google-analytics
+
+menu = google-analytics.com.v6
+host = www.google-analytics.com
+
+++++ appldnld
+
+menu = appldnld.apple.com.v6
+host = appldnld.apple.com
+
+++++ secure-appldnld
+
+menu = secure-appldnld.apple.com.v6
+host = secure-appldnld.apple.com
+
+++ nzdns
+
+menu = NZ DNS
+title = NZ DNS Servers
+
++++ ns1
+
+menu = ns1.dns.net.nz
+title = ns1.dns.net.nz
+host = /Off-net/nzdns/IPv4/ns1 /Off-net/nzdns/IPv6/ns1
+
++++ ns2
+
+menu = ns2.dns.net.nz
+title = ns2.dns.net.nz
+host = /Off-net/nzdns/IPv4/ns2 /Off-net/nzdns/IPv6/ns2
+
++++ ns3
+
+menu = ns3.dns.net.nz
+title = ns3.dns.net.nz
+host = /Off-net/nzdns/IPv4/ns3 /Off-net/nzdns/IPv6/ns3
+
++++ ns4
+
+menu = ns4.dns.net.nz
+title = ns4.dns.net.nz
+host = /Off-net/nzdns/IPv4/ns4 /Off-net/nzdns/IPv6/ns4
+
++++ ns5
+
+menu = ns5.dns.net.nz
+title = ns5.dns.net.nz
+host = /Off-net/nzdns/IPv4/ns5 /Off-net/nzdns/IPv6/ns5
+
++++ ns6
+
+menu = ns6.dns.net.nz
+title = ns6.dns.net.nz
+host = /Off-net/nzdns/IPv4/ns6 /Off-net/nzdns/IPv6/ns6
+
++++ IPv4
+
+menu = IPv4
+title = NZ DNS Servers - IPv4
+
+++++ ns1
+
+menu = ns1.dns.net.nz.v4
+host = ns1.dns.net.nz
+
+++++ ns2
+
+menu = ns2.dns.net.nz.v4
+host = ns2.dns.net.nz
+
+++++ ns3
+
+menu = ns3.dns.net.nz.v4
+host = ns3.dns.net.nz
+
+++++ ns4
+
+menu = ns4.dns.net.nz.v4
+host = ns4.dns.net.nz
+
+++++ ns5
+
+menu = ns5.dns.net.nz.v4
+host = ns5.dns.net.nz
+
+++++ ns6
+
+menu = ns6.dns.net.nz.v4
+host = ns6.dns.net.nz
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = NZ DNS Servers - IPv6
+
+++++ ns1
+
+menu = ns1.dns.net.nz.v6
+host = ns1.dns.net.nz
+
+++++ ns2
+
+menu = ns2.dns.net.nz.v6
+host = ns2.dns.net.nz
+
+++++ ns3
+
+menu = ns3.dns.net.nz.v6
+host = ns3.dns.net.nz
+
+++++ ns4
+
+menu = ns4.dns.net.nz.v6
+host = ns4.dns.net.nz
+
+++++ ns5
+
+menu = ns5.dns.net.nz.v6
+host = ns5.dns.net.nz
+
+++++ ns6
+
+menu = ns6.dns.net.nz.v6
+host = ns6.dns.net.nz
+
+++ RIR
+
+menu = RIRs
+title = Regional Internet Registries
+
++++ arin
+
+menu = arin
+title = arin.net
+host = /Off-net/RIR/IPv4/arin /Off-net/RIR/IPv6/arin
+
++++ afrinic
+
+menu = afrinic
+title = afrinic.net
+host = /Off-net/RIR/IPv4/afrinic /Off-net/RIR/IPv6/afrinic
+
++++ apnic
+
+menu = apnic
+title = apnic.net
+host = /Off-net/RIR/IPv4/apnic /Off-net/RIR/IPv6/apnic
+
++++ lacnic
+
+menu = lacnic
+title = lacnic.net
+host = /Off-net/RIR/IPv4/lacnic /Off-net/RIR/IPv6/lacnic
+
++++ ripe
+
+menu = ripe
+title = ripe.net
+host = /Off-net/RIR/IPv4/ripe /Off-net/RIR/IPv6/ripe
+
++++ IPv4
+
+menu = IPv4
+title = Regional Internet Registries - IPv4
+
+++++ arin
+
+menu = ARIN.v4
+host = arin.net
+
+++++ afrinic
+
+menu = AFRINIC.v4
+host = afrinic.net
+
+++++ apnic
+
+menu = APNIC.v4
+host = apnic.net
+
+++++ lacnic
+
+menu = LACNIC.v4
+host = lacnic.net
+
+++++ ripe
+
+menu = RIPE.v4
+host = pri.authdns.ripe.net
+
++++ IPv6
+
+probe = FPing6
+menu = IPv6
+title = Regional Internet Registries - IPv6
+
+++++ arin
+
+menu = ARIN.v6
+host = arin.net
+
+++++ afrinic
+
+menu = AFRINIC.v6
+host = afrinic.net
+
+++++ apnic
+
+menu = APNIC.v6
+host = apnic.net
+
+++++ lacnic
+
+menu = LACNIC.v6
+host = lacnic.net
+
+++++ ripe
+
+menu = RIPE.v6
+host = pri.authdns.ripe.net
+
+++ fx-ns1
+
+menu = ns1.fx.net.nz
+title = ns1.fx.net.nz
+host = /Off-net/IPv4/fx-ns1 /Off-net/IPv6/fx-ns1
+
+++ fx-ns2
+
+menu = ns2.fx.net.nz
+title = ns2.fx.net.nz
+host = /Off-net/IPv4/fx-ns2 /Off-net/IPv6/fx-ns2
+
+++ vocus-ns1
+
+menu = ns01.vocus.com.au
+title = ns01.vocus.com.au
+host = /Off-net/IPv4/vocus-ns1 /Off-net/IPv6/vocus-ns1
+
+++ vocus-ns2
+
+menu = ns02.vocus.com.au
+title = ns02.vocus.com.au
+host = /Off-net/IPv4/vocus-ns2 /Off-net/IPv6/vocus-ns2
+
+++ vocus-ns3
+
+menu = ns03.vocus.com.au
+title = ns03.vocus.com.au
+host = /Off-net/IPv4/vocus-ns3 /Off-net/IPv6/vocus-ns3
+
 ++ trademe
 
-menu = Trademe
+menu = trademe.co.nz
 title = trademe.co.nz
 host = /Off-net/IPv4/trademe /Off-net/IPv6/trademe
 
-++ fx
+++ monash-ftp
 
-menu = FX
-title = fx.net.nz
-host = /Off-net/IPv4/fx /Off-net/IPv6/fx
-
-++ monash
-
-menu = Monash University
+menu = ftp.monash.edu.au
 title = ftp.monash.edu.au
-host = /Off-net/IPv4/monash /Off-net/IPv6/monash
+host = /Off-net/IPv4/monash-ftp /Off-net/IPv6/monash-ftp
 
-++ vocus
+++ aarnet-mirror
 
-menu = Vocus
-title = vocus.com.au
-host = /Off-net/IPv4/vocus /Off-net/IPv6/vocus
+menu = mirror.aarnet.edu.au
+title = mirror.aarnet.edu.au
+host = /Off-net/IPv4/aarnet-mirror /Off-net/IPv6/aarnet-mirror
 
 ++ wikipedia
 
-menu = Wikipedia
+menu = wikipedia.org
 title = wikipedia.org
 host = /Off-net/IPv4/wikipedia /Off-net/IPv6/wikipedia
 
 ++ google
 
-menu = Google
+menu = google.com
 title = google.com
 host = /Off-net/IPv4/google /Off-net/IPv6/google
 
-++ googleimap
+++ gmail-imap
 
-menu = Google IMAP
-title = imap.google.com
-host = /Off-net/IPv4/googleimap /Off-net/IPv6/googleimap
+menu = imap.gmail.com
+title = imap.gmail.com
+host = /Off-net/IPv4/gmail-imap /Off-net/IPv6/gmail-imap
 
 ++ youtube
 
-menu = Youtube
+menu = youtube.com
 title = youtube.com
 host = /Off-net/IPv4/youtube /Off-net/IPv6/youtube
 
-++ youtubecontent
+++ youtube-content
 
-menu = Youtube Content
+menu = v1.lscache1.c.youtube.com
 title = v1.lscache1.c.youtube.com
-host = /Off-net/IPv4/youtubecontent /Off-net/IPv6/youtubecontent
+host = /Off-net/IPv4/youtube-content /Off-net/IPv6/youtube-content
+
+++ github
+
+menu = github.com
+title = github.com
+host = /Off-net/IPv4/github /Off-net/IPv6/github
 
 ++ netflix
 
-menu = Netflix
+menu = netflix.com
 title = netflix.com
 host = /Off-net/IPv4/netflix /Off-net/IPv6/netflix
 
 ++ he
 
-menu = Hurricane Electric
+menu = he.net
 title = he.net
 host = /Off-net/IPv4/he /Off-net/IPv6/he
 
 ++ facebook
 
-menu = Facebook
+menu = facebook.com
 title = facebook.com
 host = /Off-net/IPv4/facebook /Off-net/IPv6/facebook
 
 ++ twitter
 
-menu = Twitter
+menu = twitter.com
 title = twitter.com
 host = /Off-net/IPv4/twitter /Off-net/IPv6/twitter
 
 ++ cloudflare
 
-menu = Cloudflare
+menu = cloudflare.com
 title = cloudflare.com
 host = /Off-net/IPv4/cloudflare /Off-net/IPv6/cloudflare
 
-++ googlednsa
+++ google-dns-a
 
 menu = Google Public DNS A
 title = Google Public DNS A
-host = /Off-net/IPv4/googlednsa /Off-net/IPv6/googlednsa
+host = /Off-net/IPv4/google-dns-a /Off-net/IPv6/google-dns-a
 
-++ googlednsb
+++ google-dns-b
 
 menu = Google Public DNS B
 title = Google Public DNS B
-host = /Off-net/IPv4/googlednsb /Off-net/IPv6/googlednsb
+host = /Off-net/IPv4/google-dns-b /Off-net/IPv6/google-dns-b
 
-++ comcastdns
+++ comcast-dns
 
-menu = Comcast
+menu = Comcast DNS
 title = Comcast Anycast DNS
-host = /Off-net/IPv4/comcastdns /Off-net/IPv6/comcastdns
+host = /Off-net/IPv4/comcast-dns /Off-net/IPv6/comcast-dns
 
 ++ IPv4
 
 menu = IPv4
-title = Internet Protocol Version 4
+title = Off Network - IPv4
+
++++ fx-ns1
+
+menu = ns1.fx.net.nz.v4
+host = ns1.fx.net.nz
+
++++ fx-ns2
+
+menu = ns2.fx.net.nz.v4
+host = ns2.fx.net.nz
+
++++ vocus-ns1
+
+menu = ns01.vocus.com.au.v4
+host = ns01.vocus.com.au
+
++++ vocus-ns2
+
+menu = ns02.vocus.com.au.v4
+host = ns02.vocus.com.au
+
++++ vocus-ns3
+
+menu = ns03.vocus.com.au.v4
+host = ns03.vocus.com.au
 
 +++ trademe
 
-menu = Trademe.v4
-title = trademe.co.nz
+menu = trademe.co.nz.v4
 host = trademe.co.nz
 
-+++ fx
++++ monash-ftp
 
-menu = FX.v4
-title = fx.net.nz
-host = fx.net.nz
-
-+++ monash
-
-menu = Monash University.v4
-title = ftp.monash.edu.au
+menu = ftp.monash.edu.au.v4
 host = ftp.monash.edu.au
 
-+++ vocus
++++ aarnet-mirror
 
-menu = Vocus.v4
-title = vocus.com.au
-host = www.vocus.com.au
+menu = mirror.aarnet.edu.au.v4
+host = mirror.aarnet.edu.au
 
 +++ wikipedia
 
-menu = Wikipedia.v4
-title = wikipedia.org
+menu = wikipedia.org.v4
 host = wikipedia.org
 
 +++ google
 
-menu = Google.v4
-title = google.com
+menu = google.com.v4
 host = google.com
 
-+++ googleimap
++++ gmail-imap
 
-menu = Google IMAP.v4
-title = imap.google.com
-host = imap.google.com
+menu = imap.gmail.com.v4
+host = imap.gmail.com
 
 +++ youtube
 
-menu = Youtube.v4
-title = youtube.com
+menu = youtube.com.v4
 host = youtube.com
 
-+++ youtubecontent
++++ youtube-content
 
-menu = Youtube Content.v4
-title = v1.lscache1.c.youtube.com
+menu = v1.lscache1.c.youtube.com.v4
 host = v1.lscache1.c.youtube.com
+
++++ github
+
+menu = github.com.v4
+host = github.com
 
 +++ netflix
 
-menu = Netflix.v4
-title = netflix.com
+menu = netflix.com.v4
 host = netflix.com
 
 +++ he
 
-menu = HE.v4
-title = he.net
+menu = he.net.v4
 host = he.net
 
 +++ facebook
 
-menu = Facebook.v4
-title = facebook.com
+menu = facebook.com.v4
 host = facebook.com
 
 +++ twitter
 
-menu = Twitter.v4
-title = twitter.com
+menu = twitter.com.v4
 host = twitter.com
 
 +++ cloudflare
 
-menu = Cloudflare.v4
-title = cloudflare.com
+menu = cloudflare.com.v4
 host = cloudflare.com
 
-+++ googlednsa
++++ google-dns-a
 
 menu = Google Public DNS A.v4
 title = Google Public DNS - 8.8.8.8
 host = 8.8.8.8
 
-+++ googlednsb
++++ google-dns-b
 
 menu = Google Public DNS B.v4
 title = Google Public DNS - 8.8.4.4
 host = 8.8.4.4
 
-+++ comcastdns
++++ comcast-dns
 
-menu = Comcast.v4
+menu = Comcast DNS.v4
 title = Comcast Anycast DNS - 75.75.75.75
 host = 75.75.75.75
 
@@ -937,166 +2381,318 @@ host = 75.75.75.75
 
 probe = FPing6
 menu = IPv6
-title = Internet Protocol Version 6
+title = Off Network - IPv6
+
++++ fx-ns1
+
+menu = ns1.fx.net.nz.v6
+host = ns1.fx.net.nz
+
++++ fx-ns2
+
+menu = ns2.fx.net.nz.v6
+host = ns2.fx.net.nz
+
++++ vocus-ns1
+
+menu = ns01.vocus.com.au.v6
+host = ns01.vocus.com.au
+
++++ vocus-ns2
+
+menu = ns02.vocus.com.au.v6
+host = ns02.vocus.com.au
+
++++ vocus-ns3
+
+menu = ns03.vocus.com.au.v6
+host = ns03.vocus.com.au
 
 +++ trademe
 
-menu = Trademe.v6
-title = trademe.co.nz
+menu = trademe.co.nz.v6
 host = trademe.co.nz
 
-+++ fx
++++ monash-ftp
 
-menu = FX.v6
-title = fx.net.nz
-host = fx.net.nz
-
-+++ monash
-
-menu = Monash University.v6
-title = ftp.monash.edu.au
+menu = ftp.monash.edu.au.v6
 host = ftp.monash.edu.au
 
-+++ vocus
++++ aarnet-mirror
 
-menu = Vocus.v6
-title = vocus.com.au
-#host = www.vocus.com.au
-host = 2402:7800:0:1302::2
+menu = mirror.aarnet.edu.au.v4
+host = mirror.aarnet.edu.au
 
 +++ wikipedia
 
-menu = Wikipedia.v6
-title = wikipedia.org.v6
+menu = wikipedia.org.v6
 host = wikipedia.org
 
 +++ google
 
-menu = Google.v6
-title = google.com
+menu = google.com.v6
 host = google.com
 
-+++ googleimap
++++ gmail-imap
 
-menu = Google IMAP.v6
-title = imap.google.com
-host = imap.google.com
+menu = imap.gmail.com.v6
+host = imap.gmail.com
 
 +++ youtube
 
-menu = Youtube.v6
-title = youtube.com
+menu = youtube.com.v6
 host = youtube.com
 
-+++ youtubecontent
++++ youtube-content
 
-menu = Youtube Content.v6
-title = v1.lscache1.c.youtube.com
+menu = v1.lscache1.c.youtube.com.v6
 host = v1.lscache1.c.youtube.com
+
++++ github
+
+menu = github.com.v6
+host = github.com
 
 +++ netflix
 
-menu = Netflix.v6
-title = netflix.com
+menu = netflix.com.v6
 host = netflix.com
 
 +++ he
 
-menu = HE.v6
-title = he.net
+menu = he.net.v6
 host = he.net
 
 +++ facebook
 
-menu = Facebook.v6
-title = facebook.com
+menu = facebook.com.v6
 host = facebook.com
 
 +++ twitter
 
-menu = Twitter.v6
-title = twitter.com
+menu = twitter.com.v6
 host = twitter.com
 
 +++ cloudflare
 
-menu = Cloudflare.v6
-title = cloudflare.com
+menu = cloudflare.com.v6
 host = cloudflare.com
 
-+++ googlednsa
++++ google-dns-a
 
 menu = Google Public DNS A.v6
 title = Google Public DNS - 2001:4860:4860::8844
 host = 2001:4860:4860::8844
 
-+++ googlednsb
++++ google-dns-b
 
 menu = Google Public DNS B.v6
 title = Google Public DNS - 2001:4860:4860::8844
 host = 2001:4860:4860::8844
 
-+++ comcastdns
++++ comcast-dns
 
-menu = Comcast.v6
+menu = Comcast DNS.v6
 title = Comcast Anycast DNS - 2001:558:FEED::1
 host = 2001:558:FEED::1
 
-+ DNS
++ Dig
 
 probe = DNS
 menu = DNS Latency
 title = DNS Latency
 
-++ redcables
-
-host = testing.redcables.wand.nz
-
 ++ amazon
 
-host = amazon.com
+menu = amazon.com
+title = amazon.com
+host = /Dig/google-public-dns-a/amazon /Dig/google-public-dns-b/amazon
 
 ++ google
 
-host = google.com
+menu = google.com
+title = google.com
+host = /Dig/google-public-dns-a/google /Dig/google-public-dns-b/google
 
 ++ gmail
 
-host = gmail.com
+menu = gmail.com
+title = gmail.com
+host = /Dig/google-public-dns-a/gmail /Dig/google-public-dns-b/gmail
 
 ++ youtube
 
-host = youtube.com
+menu = youtube.com
+title = youtube.com
+host = /Dig/google-public-dns-a/youtube /Dig/google-public-dns-b/youtube
 
 ++ bing
 
-host = bing.com
+menu = bing.com
+title = bing.com
+host = /Dig/google-public-dns-a/bing /Dig/google-public-dns-b/bing
 
 ++ outlook
 
-host = outlook.com
+menu = outlook.com
+title = outlook.com
+host = /Dig/google-public-dns-a/outlook /Dig/google-public-dns-b/outlook
 
 ++ facebook
 
-host = facebook.com
+menu = facebook.com
+title = facebook.com
+host = /Dig/google-public-dns-a/facebook /Dig/google-public-dns-b/facebook
 
 ++ twitter
 
-host = twitter.com
+menu = twitter.com
+title = twitter.com
+host = /Dig/google-public-dns-a/twitter /Dig/google-public-dns-b/twitter
+
+++ github
+
+menu = github.com
+title = github.com
+host = /Dig/google-public-dns-a/github /Dig/google-public-dns-b/github
 
 ++ netflix
 
-host = netflix.com
+menu = netflix.com
+title = netflix.com
+host = /Dig/google-public-dns-a/netflix /Dig/google-public-dns-b/netflix
 
 ++ reddit
 
-host = reddit.com
+menu = reddit.com
+title = reddit.com
+host = /Dig/google-public-dns-a/reddit /Dig/google-public-dns-b/reddit
 
 ++ radionz
 
-host = radionz.co.nz
+menu = radionz.co.nz
+title = radionz.co.nz
+host = /Dig/google-public-dns-a/radionz /Dig/google-public-dns-b/radionz
 
 ++ metservice
+
+menu = metservice.com
+title = metservice.com
+host = /Dig/google-public-dns-a/metservice /Dig/google-public-dns-b/metservice
+
+++ google-public-dns-a
+
+server = 8.8.8.8
+menu = 8.8.8.8
+title = DNS Latency - 8.8.8.8
+
++++ amazon
+
+host = amazon.com
+
++++ google
+
+host = google.com
+
++++ gmail
+
+host = gmail.com
+
++++ youtube
+
+host = youtube.com
+
++++ bing
+
+host = bing.com
+
++++ outlook
+
+host = outlook.com
+
++++ facebook
+
+host = facebook.com
+
++++ twitter
+
+host = twitter.com
+
++++ github
+
+host = github.com
+
++++ netflix
+
+host = netflix.com
+
++++ reddit
+
+host = reddit.com
+
++++ radionz
+
+host = radionz.co.nz
+
++++ metservice
+
+host = metservice.com
+
+++ google-public-dns-b
+
+server = 8.8.4.4
+menu = 8.8.4.4
+title = DNS Latency - 8.8.8.8
+
++++ amazon
+
+host = amazon.com
+
++++ google
+
+host = google.com
+
++++ gmail
+
+host = gmail.com
+
++++ youtube
+
+host = youtube.com
+
++++ bing
+
+host = bing.com
+
++++ outlook
+
+host = outlook.com
+
++++ facebook
+
+host = facebook.com
+
++++ twitter
+
+host = twitter.com
+
++++ github
+
+host = github.com
+
++++ netflix
+
+host = netflix.com
+
++++ reddit
+
+host = reddit.com
+
++++ radionz
+
+host = radionz.co.nz
+
++++ metservice
 
 host = metservice.com
 
@@ -1106,10 +2702,6 @@ probe = CurlHTTPS
 menu = TCP Latency
 title = TCP Latency
 
-++ redcables
-
-host = testing.redcables.wand.nz
-
 ++ amazon
 
 host = amazon.com
@@ -1141,6 +2733,10 @@ host = facebook.com
 ++ twitter
 
 host = twitter.com
+
+++ github
+
+host = github.com
 
 ++ netflix
 
