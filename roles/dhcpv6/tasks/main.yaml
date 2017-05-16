@@ -5,28 +5,9 @@
     name: isc-dhcp-server
     state: present
 
-- name: Create dhcpd group
-  group:
-    name: dhcpd
-    system: yes
-    state: present
-
-- name: Create dhcpd user
-  user:
-    name: dhcpd
-    group: dhcpd
-    createhome: no
-    system: yes
-    state: present
-
-- name: Add isc-dhcp-server6 systemd unit
-  copy:
-    src: isc-dhcp-server6.service
-    dest: /etc/systemd/system/
-
-- name: Enable isc-dhcp-server6 systemd unit
-  systemd:
-    name: isc-dhcp-server6
+- name: Enable isc-dhcp-server systemd unit
+  service:
+    name: isc-dhcp-server
     daemon_reload: yes
     masked: no
     state: started
@@ -35,4 +16,4 @@
   copy:
     src: "dhcpv6/{{ inventory_hostname }}/dhcpd6.conf"
     dest: /etc/dhcp/
-  notify: restart isc-dhcp-server6
+  notify: restart isc-dhcp-server
