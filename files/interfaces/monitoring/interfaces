@@ -13,6 +13,14 @@ iface ens3 inet static
   address 192.168.122.6
   netmask 255.255.255.0
 
-allow-hotplug ens4
-iface ens4 inet dhcp
+auto ens4
+iface ens4 inet static
+  address 172.16.0.201
+  netmask 255.255.255.0
+  dns-search management.testing.redcables.wand.nz
   up ethtool -K ens4 tx off
+
+auto ens5
+allow-hotplug ens5
+iface ens5 inet dhcp
+  up ethtool -K ens5 tx off
