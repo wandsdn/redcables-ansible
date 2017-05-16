@@ -1,0 +1,27 @@
+---
+- name: Install apache
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apache2
+
+- name: Enable apache modules
+  apache2_module:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - rewrite
+    - headers
+    - proxy
+    - proxy_http
+    - deflate
+    - proxy_html
+    - proxy_connect
+    - xml2enc
+
+- name: Configure apache
+  copy:
+    src: apache/000-default.conf
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: restart apache

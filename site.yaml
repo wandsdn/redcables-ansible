@@ -27,6 +27,7 @@
     - role: gauge
     - role: smokeping
     - role: prometheus
+    - role: apache
 - hosts: unifi
   roles:
     - role: common
