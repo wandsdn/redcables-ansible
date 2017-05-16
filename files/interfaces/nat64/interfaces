@@ -15,12 +15,12 @@ iface ens3 inet static
 
 auto ens4
 iface ens4 inet static
-  address 163.7.139.252
+  address 163.7.137.252
   netmask 255.255.252.0
-  gateway 163.7.139.254
+  gateway 163.7.137.254
   up ethtool --offload ens4 gro off
   dns-search testing.redcables.wand.nz
-  dns-nameserver 163.7.139.253
+  dns-nameserver 163.7.137.253
 iface ens4 inet6 static
   address 2404:138:39:120::3
   netmask 112
