@@ -12,6 +12,6 @@
 
 - name: Configure unbound
   copy:
-    src: "{{ inventory_hostname }}/"
+    src: "unbound/{{ inventory_hostname }}/"
     dest: /etc/unbound/unbound.conf.d/
   notify: restart unbound

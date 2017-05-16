@@ -78,27 +78,8 @@
     masked: no
     state: started
 
-- name: Add acls-common.yaml
+- name: Add faucet configuration
   copy:
-    src: acls-common.yaml
+    src: faucet/
     dest: /etc/ryu/faucet/
   notify: reload faucet
-
-- name: Add vlans-common.yaml
-  copy:
-    src: vlans-common.yaml
-    dest: /etc/ryu/faucet/
-  notify: reload faucet
-
-- name: Add faucet.yaml
-  copy:
-    src: faucet.yaml
-    dest: /etc/ryu/faucet/
-  notify: reload faucet
-
-
-- name: Add faucet-at.yaml
-  copy:
-    src: faucet-at.yaml
-    dest: /etc/ryu/faucet/
-  notify: reload faucet-at

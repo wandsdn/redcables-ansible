@@ -33,6 +33,6 @@
 
 - name: Configure isc-dhcp-server
   copy:
-    src: "{{ inventory_hostname }}/dhcpd.conf"
+    src: "dhcp/{{ inventory_hostname }}/dhcpd.conf"
     dest: /etc/dhcp/
   notify: restart isc-dhcp-server

@@ -12,7 +12,7 @@
 
 - name: Configure network interfaces
   copy:
-    src: "{{ inventory_hostname }}/interfaces"
+    src: "interfaces/{{ inventory_hostname }}/interfaces"
     dest: /etc/network/interfaces
   notify: restart networking
 

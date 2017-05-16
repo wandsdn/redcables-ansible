@@ -6,7 +6,7 @@
 
 - name: Configure smokeping
   copy:
-    src: config.d/
+    src: smokeping/
     dest: /etc/smokeping/config.d/
   notify: restart smokeping
 
