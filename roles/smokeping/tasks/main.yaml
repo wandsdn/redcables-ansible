@@ -1,8 +1,11 @@
 ---
 - name: Install smokeping
   apt:
-    name: smokeping
+    name: "{{ item }}"
     state: present
+  with_items:
+    - curl
+    - smokeping
 
 - name: Configure smokeping
   copy:
@@ -22,8 +25,7 @@
     state: present
 
 - name: Configure apache
-  file:
+  copy:
     src: 000-default.conf
     dest: /etc/apache2/sites-available/000-default.conf
-    state: file
   notify: restart apache
