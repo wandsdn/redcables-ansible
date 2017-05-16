@@ -4,6 +4,7 @@
     name: "{{ item }}"
     state: installed
   with_items:
+    - git
     - python-pip
     - python-dev
 
@@ -34,6 +35,14 @@
     src: default
     dest: /etc/default/gauge
 
+- name: Create faucet config directory
+  file:
+    path: /etc/ryu/faucet/
+    owner: root
+    group: root
+    recurse: yes
+    state: directory
+
 - name: Configure ryu
   copy:
     src: ryu.conf
@@ -63,4 +72,10 @@
   template:
     src: gauge.yaml.j2
     dest: /etc/ryu/faucet/gauge.yaml
+  notify: restart gauge
+
+- name: Add faucet configuration
+  copy:
+    src: faucet/
+    dest: /etc/ryu/faucet/
   notify: restart gauge

@@ -41,6 +41,14 @@
     src: default-at
     dest: /etc/default/faucet-at
 
+- name: Create faucet config directory
+  file:
+    path: /etc/ryu/faucet/
+    owner: root
+    group: root
+    recurse: yes
+    state: directory
+
 - name: Configure ryu
   copy:
     src: ryu.conf
