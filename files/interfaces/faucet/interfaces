@@ -30,7 +30,7 @@ iface ens5 inet static
   dns-search testing.redcables.wand.nz
 iface ens5 inet6 static
   address 2404:138:39:120::2
-  netmask 124
+  netmask 112
   up ip -6 address add 2404:138:4011:4000::fffe/64 dev ens5
   down ip -6 address del 2404:138:4011:4000::fffe/64 dev ens5 || true
   up ip -6 route add default via 2404:138:4011:4000::ffff
