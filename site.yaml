@@ -13,7 +13,6 @@
     - role: freeradius
     - role: unbound
     - role: faucet
-    - role: gauge
 - hosts: nat64
   roles:
     - role: common
@@ -25,6 +24,7 @@
 - hosts: monitoring
   roles:
     - role: common
+    - role: gauge
     - role: smokeping
     - role: prometheus
 - hosts: unifi
