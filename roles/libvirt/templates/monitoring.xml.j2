@@ -44,11 +44,18 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
     <interface type='ethernet'>
+      <mac address='52:54:00:11:24:88'/>
+      <script path='/etc/qemu-ifup-redcables'/>
+      <target dev='mon-cpn'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+    </interface>
+    <interface type='ethernet'>
       <mac address='52:54:00:11:61:f0'/>
       <script path='/etc/qemu-ifup-redcables'/>
       <target dev='mon-redcables'/>
       <model type='virtio'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </interface>
     <serial type='pty'>
       <target port='0'/>
@@ -63,10 +70,10 @@ or other application using the libvirt API.
     </graphics>
     <video>
       <model type='cirrus' vram='16384' heads='1' primary='yes'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
     </video>
     <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </memballoon>
   </devices>
 </domain>
