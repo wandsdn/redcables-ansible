@@ -4,6 +4,13 @@
     name: prometheus
     state: present
 
+- name: Enable prometheus systemd unit
+  systemd:
+    name: prometheus
+    daemon_reload: yes
+    masked: no
+    state: started
+
 - name: Configure prometheus
   copy:
     src: prometheus/prometheus.yml
