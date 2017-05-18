@@ -26,10 +26,17 @@
 - name: Install ryu
   pip:
     name: git+https://github.com/osrg/ryu#egg=ryu
+    editable: false
+    state: present
 
 - name: Install faucet
   pip:
     name: git+https://github.com/reannz/faucet#egg=faucet
+    editable: false
+    state: latest
+  notify:
+    - restart faucet
+    - restart faucet-at
 
 - name: Add faucet defaults file
   copy:
@@ -90,4 +97,6 @@
   copy:
     src: faucet/
     dest: /etc/ryu/faucet/
-  notify: reload faucet
+  notify:
+    - reload faucet
+    - reload faucet-at

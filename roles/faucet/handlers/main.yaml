@@ -8,3 +8,13 @@
   service:
     name: faucet-at
     state: reloaded
+
+- name: restart faucet
+  service:
+    name: faucet
+    state: restarted
+
+- name: restart faucet-at
+  service:
+    name: faucet-at
+    state: restarted
