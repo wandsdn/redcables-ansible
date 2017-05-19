@@ -100,3 +100,9 @@
   notify:
     - reload faucet
     - reload faucet-at
+
+- name: Check faucet config
+  shell: check_faucet_config /etc/ryu/faucet/faucet.yaml
+
+- name: Check faucet-at config
+  shell: check_faucet_config /etc/ryu/faucet/faucet-at.yaml
