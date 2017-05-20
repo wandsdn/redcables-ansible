@@ -1,0 +1,26 @@
+on_startup
+
+policy in ACCEPT --protocol tcp --destination-port ssh
+policy in ACCEPT -s 210.7.38.88/29 --protocol tcp --destination-port bgp
+policy in ACCEPT -s 2404:138:39:120::/112 --protocol tcp --destination-port bgp
+policy in ACCEPT -s 163.7.136.0/23 --protocol tcp --destination-port domain
+policy in ACCEPT -s 2404:138:4011::/48 --protocol tcp --destination-port domain
+policy in ACCEPT -s 163.7.136.0/23 --protocol udp --destination-port domain
+policy in ACCEPT -s 2404:138:4011::/48 --protocol udp --destination-port domain
+policy in ACCEPT --protocol udp --destination-port bootps
+policy in ACCEPT --protocol udp --destination-port dhcpv6-server
+policy in tcp-strict
+policy in udp-strict
+policy in icmp-trust
+policy out ACCEPT
+
+if_feature disable_ipv6 0
+if_feature autoconf 1
+if_feature rp_filter 1
+if_feature accept_redirects 0
+if_feature accept_source_route 0
+if_feature bootp_relay 0
+if_feature accept_ra 1
+if_feature forwarding 0
+if_feature log_martians 0
+if_feature send_redirects 0

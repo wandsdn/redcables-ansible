@@ -1,0 +1,21 @@
+---
+- name: Import bearwall packaging GPG signing key
+  apt_key:
+    url: https://packages.bearwall.org/keyring.gpg
+    state: present
+
+- name: Add wand repository
+  apt_repository:
+    repo: "deb https://packages.bearwall.org {{ansible_distribution_release}} main"
+    state: present
+
+- name: Install bearwall
+  apt:
+    name: bearwall
+    state: installed
+
+- name: Configure bearwall
+  copy:
+    src: "bearwall/{{ inventory_hostname }}/"
+    dest: /etc/bearwall/
+  notify: restart bearwall

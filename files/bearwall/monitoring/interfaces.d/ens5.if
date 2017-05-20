@@ -1,0 +1,20 @@
+on_startup
+
+policy in ACCEPT --protocol tcp --destination-port ssh
+policy in ACCEPT --protocol tcp --destination-port http
+policy in ACCEPT --protocol tcp --destination-port https
+policy in tcp-strict
+policy in udp-strict
+policy in icmp-trust
+policy out ACCEPT
+
+if_feature disable_ipv6 0
+if_feature autoconf 1
+if_feature rp_filter 1
+if_feature accept_redirects 0
+if_feature accept_source_route 0
+if_feature bootp_relay 0
+if_feature accept_ra 1
+if_feature forwarding 0
+if_feature log_martians 0
+if_feature send_redirects 0

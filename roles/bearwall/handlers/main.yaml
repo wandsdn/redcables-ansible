@@ -1,0 +1,5 @@
+---
+- name: restart bearwall
+  service:
+    name: bearwall
+    state: restarted
