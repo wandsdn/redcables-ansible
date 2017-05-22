@@ -19,6 +19,11 @@
     dest: /etc/apache2/sites-available/default-ssl.conf
   notify: restart apache
 
+- name: Add html files
+  copy:
+    src: apache/html/
+    dest: /var/www/html/
+
 - name: Enable apache modules
   apache2_module:
     name: "{{ item }}"
