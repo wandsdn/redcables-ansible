@@ -18,8 +18,8 @@ documentation, they explain how each file is used and how inventory and roles wo
 ### Customisation
 
 To customise how the network is deployed you can modify the roles assigned to
-each VM in the **site.yaml** file, or modify the configs individually in the various
-**roles/\*/files** directories.
+each VM in the **site.yaml** file, you will also want to modify the user-customisable
+configurations in the [files](files) directory.
 
 The **production** file is your inventory file that tells ansible how to login
 to each machine via SSH for deploys.
