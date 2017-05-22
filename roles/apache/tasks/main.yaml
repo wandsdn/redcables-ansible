@@ -7,6 +7,18 @@
     - apache2
     - python-certbot-apache
 
+- name: Configure apache (non-ssl)
+  copy:
+    src: apache/000-default.conf
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: restart apache
+
+- name: Configure apache (ssl)
+  copy:
+    src: apache/default-ssl.conf
+    dest: /etc/apache2/sites-available/default-ssl.conf
+  notify: restart apache
+
 - name: Enable apache modules
   apache2_module:
     name: "{{ item }}"
@@ -21,18 +33,6 @@
     - proxy_html
     - proxy_connect
     - xml2enc
-
-- name: Configure apache (non-ssl)
-  copy:
-    src: apache/000-default.conf
-    dest: /etc/apache2/sites-available/000-default.conf
-  notify: restart apache
-
-- name: Configure apache (ssl)
-  copy:
-    src: apache/default-ssl.conf
-    dest: /etc/apache2/sites-available/default-ssl.conf
-  notify: restart apache
 
 - file:
     src: /etc/apache2/sites-available/default-ssl.conf
