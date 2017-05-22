@@ -3,6 +3,7 @@ on_startup
 policy in ACCEPT --protocol tcp --destination-port ssh
 policy in ACCEPT --protocol tcp --destination-port http
 policy in ACCEPT --protocol tcp --destination-port https
+policy in ACCEPT --protocol tcp --destination-port 6654
 policy in tcp-strict
 policy in udp-strict
 policy in icmp-trust
