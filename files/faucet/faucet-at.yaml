@@ -57,6 +57,7 @@ dps:
                 tagged_vlans: [redcables]
                 name: "port1.0.22"
                 description: "redcables-core-sw trunk"
+                acl_in: protect_from_access
             23:
                 tagged_vlans: [redcables6]
                 name: "port1.0.23"
