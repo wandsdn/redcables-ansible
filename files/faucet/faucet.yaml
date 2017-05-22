@@ -10,6 +10,7 @@ vlans:
         name: "redcables-l3"
         description: "redcables ipv4/ipv6 vlan"
         vid: 250
+        max_hosts: 255
         faucet_vips: [
             '163.7.137.254/24', '2404:138:4011:3e8::ffff/64',
             '210.7.38.91/29', '2404:138:39:120::f/112'
@@ -44,6 +45,7 @@ dps:
                 native_vlan: redcables-l3
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
+                permanent_learn: True
                 acl_in: protect_from_core
             4:
                 tagged_vlans: [redcables-l3,control]
@@ -57,26 +59,31 @@ dps:
                 native_vlan: redcables-l3
                 name: 'reannz'
                 description: "reannz peering"
+                permanent_learn: True
                 acl_in: protect_from_edge
             8:
                 native_vlan: redcables-l3
                 name: 'unifi'
                 description: "unifi controller vm"
+                permanent_learn: True
                 acl_in: protect_from_access
             9:
                 native_vlan: redcables-l3
                 name: 'monitoring'
                 description: "monitoring vm"
+                permanent_learn: True
                 acl_in: protect_from_access
             10:
                 native_vlan: redcables-l3
                 name: 'awdy'
                 description: "awdy vm"
+                permanent_learn: True
                 acl_in: protect_from_access
             20:
                 native_vlan: control
                 name: "vhost-faucet-cpn"
                 description: "faucet vm control plane network"
+                permanent_learn: True
                 acl_in: protect_from_control
             21:
                 native_vlan: control
@@ -87,11 +94,13 @@ dps:
                 native_vlan: control
                 name: "mon-cpn"
                 description: "monitoring vm control plane network"
+                permanent_learn: True
                 acl_in: protect_from_control
             23:
                 native_vlan: control
                 name: "unifi"
                 description: "unifi controller vm"
+                permanent_learn: True
                 acl_in: protect_from_control
     ovs-redcables6:
         dp_id: 0x6
