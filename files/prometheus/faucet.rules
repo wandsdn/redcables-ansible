@@ -1,0 +1,2 @@
+instance_dpid:of_packet_ins:rate1m = rate(of_packet_ins[1m])
+instance_dpid:of_flowmsgs_sent:rate1m = rate(of_flowmsgs_sent[1m])

@@ -13,6 +13,6 @@
 
 - name: Configure prometheus
   copy:
-    src: prometheus/prometheus.yml
+    src: prometheus/
     dest: /etc/prometheus/
   notify: restart prometheus
