@@ -2,8 +2,8 @@
 version: 2
 
 include:
-    - acls-common.yaml
-    - vlans-common.yaml
+    - common/acls.yaml
+    - common/vlans.yaml
 
 vlans:
     redcables-l3:

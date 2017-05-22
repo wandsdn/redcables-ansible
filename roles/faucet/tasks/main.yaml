@@ -93,12 +93,26 @@
     masked: no
     state: started
 
+- name: Add common faucet configuration
+  copy:
+    src: faucet/common/
+    dest: /etc/ryu/faucet/common/
+  notify:
+    - reload faucet
+    - reload faucet-at
+
 - name: Add faucet configuration
   copy:
-    src: faucet/
+    src: faucet/faucet.yaml
     dest: /etc/ryu/faucet/
   notify:
     - reload faucet
+
+- name: Add faucet-at configuration
+  copy:
+    src: faucet/faucet-at.yaml
+    dest: /etc/ryu/faucet/
+  notify:
     - reload faucet-at
 
 - name: Check faucet config

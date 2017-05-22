@@ -2,8 +2,8 @@
 version: 2
 
 include:
-    - acls-common.yaml
-    - vlans-common.yaml
+    - common/acls.yaml
+    - common/vlans.yaml
 
 dps:
     at-x930-1:
