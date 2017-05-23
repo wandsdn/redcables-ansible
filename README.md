@@ -1,11 +1,12 @@
-### NZNOG Network Ansible Playbooks
+### Redcables Network Ansible Playbooks
 
-This repo contains a set of ansible playbooks and roles for deploying your own
-SDN/NFV conference network in a box. This repo was used to deploy the conference
-wifi for the [NZNOG17](http://www.nznog.org/) conference.
+This repo contains the set of ansible playbooks and roles for managing
+the Redcables network, at the University of Waikato.
 
-For a high level overview of the architecture of this network and a set of
-hardware requirements see our [conference-sdn-nfv-network](https://github.com/wandsdn/conference-sdn-nfv-network) repo.
+It was originally based on a deployment at wifi for the
+[NZNOG17](http://www.nznog.org/) conference. You can find out
+more about that deployment at
+[conference-sdn-nfv-network](https://github.com/wandsdn/conference-sdn-nfv-network) repo.
 
 To learn how ansible works the [Ansible Getting Started](https://docs.ansible.com/ansible/intro_getting_started.html)
 guide is a good place to start.
