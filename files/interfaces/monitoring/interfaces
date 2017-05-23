@@ -24,3 +24,7 @@ auto ens5
 allow-hotplug ens5
 iface ens5 inet dhcp
   up ethtool -K ens5 tx off
+iface ens5 inet6 static
+  address 2404:138:4011:3e8::100
+  netmask 64
+  gateway 2404:138:4011:3e8::ffff
