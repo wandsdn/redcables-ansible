@@ -11,6 +11,12 @@ ovs-vsctl add-port br-redcables vhost-faucet-cpn -- \
 ovs-vsctl add-port br-redcables mon-redcables -- \
   set Interface mon-redcables ofport_request=9
 
+ovs-vsctl add-port br-redcables amp-redcables -- \
+  set Interface amp-redcables ofport_request=10
+
+ovs-vsctl add-port br-redcables awdy-redcables -- \
+  set Interface awdy-redcables ofport_request=11
+
 ovs-vsctl add-port br-redcables mon-cpn -- \
   set Interface mon-cpn type=dpdkvhostuser -- \
   set Interface mon-cpn ofport_request=22

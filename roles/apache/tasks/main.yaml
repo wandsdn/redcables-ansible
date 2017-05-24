@@ -9,19 +9,19 @@
 
 - name: Configure apache (non-ssl)
   copy:
-    src: apache/000-default.conf
+    src: "apache/{{ inventory_hostname }}/000-default.conf"
     dest: /etc/apache2/sites-available/000-default.conf
   notify: restart apache
 
 - name: Configure apache (ssl)
   copy:
-    src: apache/default-ssl.conf
+    src: "apache/{{ inventory_hostname }}/default-ssl.conf"
     dest: /etc/apache2/sites-available/default-ssl.conf
   notify: restart apache
 
 - name: Add html files
   copy:
-    src: apache/html/
+    src: "apache/{{ inventory_hostname }}/html/"
     dest: /var/www/html/
 
 - name: Enable apache modules

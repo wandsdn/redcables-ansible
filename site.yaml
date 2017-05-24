@@ -30,6 +30,11 @@
     - role: smokeping
     - role: prometheus
     - role: apache
+- hosts: amp
+  roles:
+    - role: common
+    - role: apache
+    - role: amp-server
 - hosts: unifi
   roles:
     - role: common

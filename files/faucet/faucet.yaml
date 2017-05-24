@@ -78,6 +78,12 @@ dps:
                 acl_in: protect_from_access
             10:
                 native_vlan: redcables-l3
+                name: 'amp'
+                description: "amp vm"
+                permanent_learn: True
+                acl_in: protect_from_access
+            11:
+                native_vlan: redcables-l3
                 name: 'awdy'
                 description: "awdy vm"
                 permanent_learn: True
