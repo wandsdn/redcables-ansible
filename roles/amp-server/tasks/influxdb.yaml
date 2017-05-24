@@ -1,0 +1,29 @@
+---
+- name: Install influxdb
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - influxdb
+    - influxdb-client
+  register: influxdb_install_result
+
+- name: Start influxdb
+  service:
+    name: influxdb
+    state: started
+  when: influxdb_install_result.changed
+
+- name: Create faucet influxdb user
+  command: influx -execute "CREATE USER {{influx_username}} WITH PASSWORD '{{influx_password}}' WITH ALL PRIVILEGES"
+  when: influxdb_install_result.changed
+
+- name: Create faucet influxdb database
+  command: influx -execute "CREATE DATABASE {{influx_database}}"
+  when: influxdb_install_result.changed
+
+- name: Configure influxdb
+  copy:
+    src: influxdb.conf
+    dest:  /etc/influxdb/
+  notify: restart influxdb

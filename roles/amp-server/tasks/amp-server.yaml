@@ -1,0 +1,74 @@
+---
+- name: Import AMP packaging GPG signing key
+  apt_key:
+    url: https://amp.wand.net.nz/debian/pubkey.gpg
+    state: present
+
+- name: Add AMP repository
+  apt_repository:
+    repo: "deb https://amp.wand.net.nz/debian/ xenial main"
+    state: present
+
+- name: Install pip
+  apt:
+    name: python-pip
+    state: installed
+
+- name: Install python dependancies
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - influxdb
+    - pyramid_assetviews
+    - pyramid_debugtoolbar
+    - pyramid_chameleon
+
+- name: Install AMP server
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - nntsc
+    - ampy
+    - amp-web
+    - amppki
+  register: amp_server_install_result
+
+- name: Generate AMP CA
+  command: ampca generate amp-server
+  when: amp_server_install_result.changed
+
+- name: Create rabbitmq keys directory
+  file:
+    path: /etc/rabbitmq/keys/
+    owner: root
+    group: root
+    state: directory
+
+- name: Copy amp-server certificate
+  command: cp /etc/amppki/certs/amp-server.03.pem /etc/rabbitmq/keys/
+  notify: restart rabbitmq
+  when: amp_server_install_result.changed
+
+- name: Copy amp-server private key
+  command: cp /etc/amppki/private/amp-server.pem /etc/rabbitmq/keys/
+  notify: restart rabbitmq
+  when: amp_server_install_result.changed
+
+- name: Change rabbitmq nntsc user password
+  command: rabbitmqctl change_password {{rabbitmq_username}} {{rabbitmq_password}}
+  notify: restart rabbitmq
+  when: amp_server_install_result.changed
+
+- name: Configure nntsc
+  template:
+    src: nntsc.conf.j2
+    dest: /etc/nntsc/nntsc.conf
+  notify: restart nntsc
+
+- name: Remove default ampweb config
+  file:
+    path: /etc/apache2/conf-enabled/ampweb.conf
+    state: absent
+  notify: restart apache

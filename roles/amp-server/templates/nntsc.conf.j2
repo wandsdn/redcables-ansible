@@ -1,0 +1,55 @@
+# These options describe where the collected data will be stored
+[database]
+host =
+database = nntsc
+username = cuz
+password =
+
+# Options for connection settings and database info of influxdb
+[influx]
+# If set to no, Influx will not be used at all
+useinflux = yes
+database = {{influx_database}}
+username = {{influx_username}}
+password = {{influx_password}}
+host = localhost
+# Make sure this matches the port that Influx is configured to listen on
+port = 8086
+# Time to keep raw unaggregated data for
+keepdata = 365d
+
+# Options governing the queue for exporting live data
+[liveexport]
+# String to append to the queue name that distinguishes this particular
+# NNTSC from others running on the same host. If you have two NNTSCs with the
+# same queueid, they will steal one another's live data!
+queueid = default
+# Port that the message broker is running on
+port = 5672
+# Username for connecting to the message broker
+username = {{rabbitmq_username}}
+# Password for connecting to the message broker
+password = {{rabbitmq_password}}
+
+# Dataparser modules to load
+[modules]
+amp = yes
+
+# These options pertain to the AMP data source
+[amp]
+# Username for connecting to AMP's message queue
+username = {{rabbitmq_username}}
+# Password for connecting to AMP's message queue
+password = {{rabbitmq_password}}
+# The host that is acting as the AMP message broker
+host = localhost
+# The port that the AMP message broker is running on
+port = 5672
+# If True, encrypt all exchanges using SSL. If False, just use plain-text.
+ssl = False
+# The name of the message queue to read AMP data from
+queue = ampqueue
+# The number of AMP messages to process before committing to the database.
+# A good value for this would be the number of AMP monitors that are reporting
+# to this collector.
+commitfreq = 1

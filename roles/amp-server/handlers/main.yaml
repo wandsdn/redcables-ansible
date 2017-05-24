@@ -1,0 +1,20 @@
+---
+- name: restart apache
+  service:
+    name: apache2
+    state: restarted
+
+- name: restart nntsc
+  service:
+    name: nntsc
+    state: restarted
+
+- name: restart influxdb
+  service:
+    name: influxdb
+    state: restarted
+
+- name: restart rabbitmq
+  service:
+    name: rabbitmq-server
+    state: restarted
