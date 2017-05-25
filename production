@@ -1,9 +1,11 @@
 [servers]
-allbirds
+allbirds.wand.net.nz
 
 [vms]
-faucet
-nat64
-monitoring
-amp
-unifi
+faucet.redcables.wand.nz ansible_host=192.168.122.2
+monitoring.redcables.wand.nz ansible_host=192.168.122.6
+amp.redcables.wand.nz ansible_host=192.168.122.7
+awdy.recables.wand.nz ansible_host=192.168.122.8
+
+[amplets]
+amp.redcables.wand.nz ansible_host=192.168.122.7

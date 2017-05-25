@@ -1,10 +1,10 @@
 ---
-- hosts: allbirds
+- hosts: allbirds.wand.net.nz
   roles:
     - role: common
     - role: libvirt
     - role: ovs-dpdk-switch
-- hosts: faucet
+- hosts: faucet.redcables.wand.nz
   roles:
     - role: bearwall
     - role: common
@@ -14,7 +14,7 @@
     - role: freeradius
     - role: unbound
     - role: faucet
-- hosts: nat64
+- hosts: nat64.redcables.wand.nz
   roles:
     - role: common
     - role: bird
@@ -22,7 +22,7 @@
     - role: unbound
     - role: jool
     - role: routing
-- hosts: monitoring
+- hosts: monitoring.redcables.wand.nz
   roles:
     - role: bearwall
     - role: common
@@ -30,7 +30,7 @@
     - role: smokeping
     - role: prometheus
     - role: apache
-- hosts: amp
+- hosts: amp.redcables.wand.nz
   roles:
     - role: common
     - role: apache
