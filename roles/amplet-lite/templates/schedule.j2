@@ -31,13 +31,21 @@ targets:
         www.googleapis.com, store.steampowered.com, www.google-analytics.com,
         appldnld.apple.com, secure-appldnld.apple.com]
 
+  aws: &aws [us-east-1.ec2.amazonaws.com, us-east-2.ec2.amazonaws.com,
+        us-west-1.ec2.amazonaws.com, us-west-2.ec2.amazonaws.com,
+        ca-central-1.ec2.amazonaws.com, eu-west-1.ec2.amazonaws.com,
+        eu-central-1.ec2.amazonaws.com, eu-west-2.ec2.amazonaws.com,
+        ap-northeast-1.ec2.amazonaws.com, ap-northeast-2.ec2.amazonaws.com,
+        ap-southeast-1.ec2.amazonaws.com, ap-southeast-2.ec2.amazonaws.com,
+        ap-south-1.ec2.amazonaws.com, sa-east-1.ec2.amazonaws.com]
+
   opendns: &opendns [google-public-dns-a.google.com,
         google-public-dns-b.google.com, resolver1.opendns.com,
         resolver2.opendns.com, a.resolvers.level3.net, b.resolvers.level3.net]
 
   intweb: &intweb [www.google.com, www.youtube.com, www.wikipedia.org,
         www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
-        www.tumblr.com, imgur.com, www.reddit.com]
+        www.tumblr.com, imgur.com, www.reddit.com, www.twitch.tv]
 
   australia: &australia [www.iinet.net.au, www.9news.com.au, www.smh.com.au,
         www.telstra.com.au, www.optus.com.au, www.gumtree.com.au,
@@ -73,9 +81,9 @@ targets:
         gcm.googleapis.com, www.microsoft.com, www.spark.co.nz,
         www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
         www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
-        www.tumblr.com, www.reddit.com, imgur.com, www.whirlpool.net.au,
-        www.iinet.net.au, www.telstra.com.au, cdn-fastly.deb.debian.org,
-        ftp.slingshot.co.nz]
+        www.tumblr.com, www.reddit.com, www.twitch.tv, imgur.com,
+        www.whirlpool.net.au, www.iinet.net.au, www.telstra.com.au,
+        cdn-fastly.deb.debian.org, ftp.slingshot.co.nz]
 
   ftp: &ftp [ftp.citylink.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
         ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz,
@@ -102,6 +110,7 @@ tests:
   - *nzdns
   - *nzmirror
   - *cdn
+  - *aws
   - *opendns
   - *intweb
   - *rootdns
@@ -124,6 +133,7 @@ tests:
   - *nzdns
   - *nzmirror
   - *cdn
+  - *aws
   - *opendns
   - *intweb
   - *rootdns
@@ -146,6 +156,7 @@ tests:
   - *nzdns
   - *nzmirror
   - *cdn
+  - *aws
   - *opendns
   - *intweb
   - *rootdns
@@ -194,7 +205,7 @@ tests:
   target:
   - *rootdns
 
-- args: -u http://wand.net.nz/
+- args: -u https://wand.net.nz/
   start: 35
   end: 86400
   frequency: 900
@@ -202,7 +213,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://secure.wand.net.nz/
+- args: -u http://www.radionz.co.nz/
   start: 45
   end: 86400
   frequency: 900
@@ -210,7 +221,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.amazon.com
+- args: -u http://www.nzherald.co.nz/
   start: 95
   end: 86400
   frequency: 900
@@ -218,7 +229,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.amazon.com
+- args: -u http://www.stuff.co.nz/
   start: 105
   end: 86400
   frequency: 900
@@ -226,7 +237,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.nzherald.co.nz
+- args: -u http://www.trademe.co.nz/
   start: 155
   end: 86400
   frequency: 900
@@ -234,7 +245,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.stuff.co.nz
+- args: -u http://www.metservice.com/national/home
   start: 165
   end: 86400
   frequency: 900
@@ -242,7 +253,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.trademe.co.nz
+- args: -u https://www.google.co.nz/
   start: 215
   end: 86400
   frequency: 900
@@ -250,7 +261,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.metservice.com/national/home/
+- args: -u https://twitter.com/
   start: 225
   end: 86400
   frequency: 900
@@ -258,7 +269,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.google.co.nz
+- args: -u https://www.facebook.com/
   start: 275
   end: 86400
   frequency: 900
@@ -266,7 +277,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.google.co.nz
+- args: -u https://www.bing.com/
   start: 285
   end: 86400
   frequency: 900
@@ -274,7 +285,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://twitter.com/
+- args: -u https://www.wikipedia.org/
   start: 335
   end: 86400
   frequency: 900
@@ -282,7 +293,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.facebook.com/
+- args: -u https://www.amazon.com/
   start: 345
   end: 86400
   frequency: 900
@@ -290,7 +301,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u http://www.bing.com/
+- args: -u https://www.twitch.tv/
   start: 395
   end: 86400
   frequency: 900
@@ -298,7 +309,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.bing.com/
+- args: -u https://www.netflix.com/
   start: 405
   end: 86400
   frequency: 900
@@ -306,7 +317,7 @@ tests:
   test: http
   target: localhost
 
-- args: -u https://www.wikipedia.org/
+- args: -u https://github.com/
   start: 455
   end: 86400
   frequency: 900
