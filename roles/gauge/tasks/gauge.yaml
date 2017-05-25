@@ -25,10 +25,14 @@
 - name: Install ryu
   pip:
     name: git+https://github.com/osrg/ryu#egg=ryu
+    editable: false
+    state: present
 
 - name: Install gauge
   pip:
     name: git+https://github.com/reannz/faucet#egg=faucet
+    editable: false
+    state: latest
 
 - name: Add gauge defaults file
   copy:
