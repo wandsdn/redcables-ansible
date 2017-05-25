@@ -1,0 +1,30 @@
+ampname = {{ ampname }}
+
+ssl {
+    waitforcert = true
+}
+
+collector {
+    vialocal = false
+    address = {{ ampcollector }}
+    vhost = /
+    exchange = amp_exchange
+    routingkey = amp
+    port = 5671
+    ssl = true
+}
+
+control {
+    enabled = true
+    acl server {
+        allow = all
+        deny = {}
+    }
+}
+
+remotesched {
+    fetch = true
+    url = https://{{ ampcollector }}/configs/
+    identify = true
+    frequency = 3600
+}

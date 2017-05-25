@@ -1,0 +1,77 @@
+---
+
+- name: Install amplet2-client default file
+  copy:
+    src: default
+    dest: /etc/default/amplet2-client
+  become: true
+- name: Install amplet2-client without debian-backports
+  apt:
+    name: amplet2-client
+    state: present
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release != "jessie"
+  become: true
+- name: Install amplet2-client with debian-backports
+  apt:
+    name: amplet2-client
+    default_release: "{{ansible_distribution_release}}-backports"
+    state: present
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release == "jessie"
+  become: true
+- name: Remove amplet2 default.conf
+  file:
+    path: "/etc/amplet2/clients/default.conf"
+    state: absent
+  become: true
+- name: Create amplet2 nametable directory
+  file:
+    path: "/etc/amplet2/nametables/{{ ampname }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+- name: Create amplet2 schedule directory
+  file:
+    path: "/etc/amplet2/schedules/{{ ampname }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+- name: Create amplet2 keys directory
+  file:
+    path: "/etc/amplet2/keys/{{ ampname }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+- name: Install amplet2 client configuration
+  template:
+    src: client.j2
+    dest: "/etc/amplet2/clients/{{ ampname }}.conf"
+  notify: restart amplet2-client
+  become: true
+- name: Install amplet2 nametable
+  template:
+    src: nametable.j2
+    dest: "/etc/amplet2/nametables/{{ ampname }}/ansible.name"
+  notify: restart amplet2-client
+  become: true
+- name: Install amplet2 schedule
+  template:
+    src: schedule.j2
+    dest: "/etc/amplet2/schedules/{{ ampname }}/ansible.sched"
+  notify: restart amplet2-client
+  become: true
+- name: Install amplet2 CA certificate
+  copy:
+    content: "{{ ampcacert }}"
+    dest: "/etc/amplet2/keys/{{ ampcollector }}.pem"
+  notify: restart amplet2-client
+  become: true

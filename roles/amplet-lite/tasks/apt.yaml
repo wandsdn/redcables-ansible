@@ -1,0 +1,20 @@
+---
+
+- name: Add debian-backports repo
+  apt_repository:
+    repo: deb http://mirror.byte.net.nz/debian/ {{ansible_distribution_release}}-backports main contrib
+    state: present
+  when:
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release == "jessie"
+  become: true
+- name: Add amplet2 repo
+  apt_repository:
+    repo: deb https://amp.wand.net.nz/debian/ {{ansible_distribution_release}} main
+    state: present
+  become: true
+- name: Add amplet2 key
+  apt_key:
+    url: https://amp.wand.net.nz/debian/keyring.gpg
+    state: present
+  become: true

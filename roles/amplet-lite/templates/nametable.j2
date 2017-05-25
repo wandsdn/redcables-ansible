@@ -1,0 +1,6 @@
+# This file is managed by Ansible.
+
+{% for nameserver in ampnameservers %}
+localdns {{ nameserver }}
+localdns{{ loop.index }} {{ nameserver }}
+{% endfor %}

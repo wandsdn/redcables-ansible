@@ -1,0 +1,3 @@
+---
+ampname: "{{ ansible_fqdn }}"
+ampnameservers: "{{ ansible_dns['nameservers'] }}"

@@ -1,0 +1,377 @@
+# This file is managed by Ansible.
+
+---
+targets:
+  nzweb: &nzweb [www.wand.net.nz, www.amp.wand.net.nz, www.nzherald.co.nz,
+        www.stuff.co.nz, www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz,
+        www.xero.com, www.mega.co.nz, www.quickflix.co.nz, nz.yahoo.com,
+        www.metservice.com, www.rnz.co.nz]
+
+  nzbanks: &nzbanks [www.anz.co.nz, www.westpac.co.nz, www.asb.co.nz,
+        www.kiwibank.co.nz, www.bnz.co.nz]
+
+  nzisp: &nzisp [www.callplus.co.nz, www.orcon.net.nz, www.iconz.net,
+        www.reannz.co.nz, www.fx.net.nz, www.vocus.co.nz, www.vodafone.co.nz,
+        www.voyager.co.nz, www.chorus.co.nz, www.ultrafastfibre.co.nz,
+        www.northpowerfibre.co.nz, www.enable.net.nz, www.2talk.co.nz,
+        www.lightwire.co.nz, www.2degreesmobile.co.nz, www.spark.co.nz]
+
+  nzdns: &nzdns [ns1.dns.net.nz, ns2.dns.net.nz, ns3.dns.net.nz,
+        ns4.dns.net.nz, ns5.dns.net.nz, ns6.dns.net.nz, ns7.dns.net.nz]
+
+  nzmirror: &nzmirror [cdn-fastly.deb.debian.org, ftp.citylink.co.nz,
+        mirror.akl.tmnetwork.co.nz, mirror.wlg.tmnetwork.co.nz,
+        ftp.slingshot.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
+        ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz,
+        nz.archive.ubuntu.com, ftp.nz.debian.org, mirror.auckland.ac.nz]
+
+  cdn: &cdn [download.microsoft.com, itunes.apple.com, www.cloudflare.com,
+        cachefly.cachefly.net, client.dropbox.com, v1.lscache1.c.youtube.com,
+        gcm.googleapis.com, a248.e.akamai.net, cloud.google.com,
+        www.googleapis.com, store.steampowered.com, www.google-analytics.com,
+        appldnld.apple.com, secure-appldnld.apple.com]
+
+  opendns: &opendns [google-public-dns-a.google.com,
+        google-public-dns-b.google.com, resolver1.opendns.com,
+        resolver2.opendns.com, a.resolvers.level3.net, b.resolvers.level3.net]
+
+  intweb: &intweb [www.google.com, www.youtube.com, www.wikipedia.org,
+        www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
+        www.tumblr.com, imgur.com, www.reddit.com]
+
+  australia: &australia [www.iinet.net.au, www.9news.com.au, www.smh.com.au,
+        www.telstra.com.au, www.optus.com.au, www.gumtree.com.au,
+        www.abc.net.au, www.commbank.com.au, www.nab.com.au,
+        www.westpac.com.au, www.whirlpool.net.au]
+
+  rootdns: &rootdns [a.root-servers.net, b.root-servers.net, c.root-servers.net,
+        d.root-servers.net, e.root-servers.net, f.root-servers.net,
+        g.root-servers.net, h.root-servers.net, i.root-servers.net,
+        j.root-servers.net, k.root-servers.net, l.root-servers.net,
+        m.root-servers.net]
+
+  rir: &rir [arin.net, afrinic.net, apnic.net, lacnic.net, ripe.net]
+
+  tcp80: &tcp80 [www.amp.wand.net.nz, www.metservice.com,
+        www.fx.net.nz, www.ultrafastfibre.co.nz, www.enable.net.nz,
+        appldnld.apple.com, www.9news.com.au, www.smh.com.au, www.abc.net.au,
+        www.gumtree.com.au, www.optus.com.au, www.vocus.co.nz,
+        www.northpowerfibre.co.nz]
+
+  tcp443: &tcp443 [www.wand.net.nz, www.nzherald.co.nz, www.stuff.co.nz,
+        www.trademe.co.nz, www.tvnz.co.nz, www.tv3.co.nz, www.xero.com,
+        www.mega.co.nz, www.quickflix.co.nz, nz.yahoo.com, www.reannz.co.nz,
+        www.callplus.co.nz, www.orcon.net.nz, www.iconz.net, www.chorus.co.nz,
+        www.2degreesmobile.co.nz, www.voyager.co.nz, www.2talk.co.nz,
+        itunes.apple.com, www.cloudflare.com, cachefly.cachefly.net,
+        client.dropbox.com, v1.lscache1.c.youtube.com, download.microsoft.com,
+        a248.e.akamai.net, cloud.google.com, www.google.com, www.youtube.com,
+        www.wikipedia.org, www.apple.com, www.espncricinfo.com,
+        www.netflix.com, www.facebook.com, www.bing.com, www.twitter.com,
+        www.google-analytics.com, www.bbc.co.uk, arin.net, afrinic.net,
+        apnic.net, lacnic.net, ripe.net, www.amazon.com, www.googleapis.com,
+        gcm.googleapis.com, www.microsoft.com, www.spark.co.nz,
+        www.vodafone.co.nz, store.steampowered.com, www.lightwire.co.nz,
+        www.imdb.com, www.ebay.com, instagram.com, secure-appldnld.apple.com,
+        www.tumblr.com, www.reddit.com, imgur.com, www.whirlpool.net.au,
+        www.iinet.net.au, www.telstra.com.au, cdn-fastly.deb.debian.org,
+        ftp.slingshot.co.nz]
+
+  ftp: &ftp [ftp.citylink.co.nz, mirror.catalyst.net.nz, mirror.inspire.net.nz,
+        ucmirror.canterbury.ac.nz, ftp.wicks.co.nz, mirror.xnet.co.nz,
+        nz.archive.ubuntu.com, ftp.nz.debian.org, mirror.auckland.ac.nz]
+
+  rsync: &rsync [mirror.akl.tmnetwork.co.nz, mirror.wlg.tmnetwork.co.nz]
+
+  mail: &mail [imap.gmail.com, outlook.office365.com]
+
+  localdns: &localdns [localdns]
+
+  localdns_split: &localdns_split [localdns1, localdns2]
+
+tests:
+- args: -s 84
+  start: 0
+  end: 86400
+  frequency: 60
+  period: day
+  test: icmp
+  target:
+  - *nzweb
+  - *nzisp
+  - *nzdns
+  - *nzmirror
+  - *cdn
+  - *opendns
+  - *intweb
+  - *rootdns
+  - *rir
+  - *australia
+  - *mail
+  - *localdns
+  - *localdns_split
+  - *nzbanks
+
+- args: -s 60 -a -b -f
+  start: 20
+  end: 86400
+  frequency: 120
+  period: day
+  test: traceroute
+  target:
+  - *nzweb
+  - *nzisp
+  - *nzdns
+  - *nzmirror
+  - *cdn
+  - *opendns
+  - *intweb
+  - *rootdns
+  - *rir
+  - *australia
+  - *mail
+  - *localdns
+  - *localdns_split
+  - *nzbanks
+
+- args: -s 60 -a -f
+  start: 80
+  end: 86400
+  frequency: 600
+  period: day
+  test: traceroute
+  target:
+  - *nzweb
+  - *nzisp
+  - *nzdns
+  - *nzmirror
+  - *cdn
+  - *opendns
+  - *intweb
+  - *rootdns
+  - *rir
+  - *australia
+  - *mail
+  - *localdns
+  - *localdns_split
+  - *nzbanks
+
+- args: -q google.com -r -t A
+  start: 2
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *opendns
+  - *localdns
+
+- args: -q example.org -r -t A
+  start: 4
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *opendns
+  - *localdns
+
+- args: -q dns.net.nz -t NS
+  start: 6
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *nzdns
+
+- args: -q example.com -t NS
+  start: 8
+  end: 86400
+  frequency: 300
+  period: day
+  test: dns
+  target:
+  - *rootdns
+
+- args: -u http://wand.net.nz/
+  start: 35
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://secure.wand.net.nz/
+  start: 45
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.amazon.com
+  start: 95
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://www.amazon.com
+  start: 105
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.nzherald.co.nz
+  start: 155
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.stuff.co.nz
+  start: 165
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.trademe.co.nz
+  start: 215
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.metservice.com/national/home/
+  start: 225
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.google.co.nz
+  start: 275
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://www.google.co.nz
+  start: 285
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://twitter.com/
+  start: 335
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://www.facebook.com/
+  start: 345
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u http://www.bing.com/
+  start: 395
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://www.bing.com/
+  start: 405
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -u https://www.wikipedia.org/
+  start: 455
+  end: 86400
+  frequency: 900
+  period: day
+  test: http
+  target: localhost
+
+- args: -P 53
+  start: 10
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *nzdns
+  - *rootdns
+  - *opendns
+  - *localdns
+  - *localdns_split
+
+- args: -P 80
+  start: 12
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *tcp80
+
+- args: -P 443
+  start: 14
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *tcp443
+  - *australia
+  - *nzbanks
+
+- args: -P 993
+  start: 16
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *mail
+
+- args: -P 21
+  start: 18
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *ftp
+
+- args: -P 873
+  start: 18
+  end: 86400
+  frequency: 60
+  period: day
+  test: tcpping
+  target:
+  - *rsync
+
+...

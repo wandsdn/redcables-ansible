@@ -36,6 +36,7 @@
     - role: common
     - role: apache
     - role: amp-server
+    - role: amplet-lite
 - hosts: unifi
   roles:
     - role: common
