@@ -6,7 +6,7 @@
 
 - name: Add AMP repository
   apt_repository:
-    repo: "deb https://amp.wand.net.nz/debian/ xenial main"
+    repo: "deb https://amp.wand.net.nz/debian/ {{ansible_distribution_release}} main"
     state: present
 
 - name: Install pip
@@ -35,10 +35,6 @@
     - amppki
   register: amp_server_install_result
 
-- name: Generate AMP CA
-  command: ampca generate amp-server
-  when: amp_server_install_result.changed
-
 - name: Create rabbitmq keys directory
   file:
     path: /etc/rabbitmq/keys/
@@ -46,13 +42,8 @@
     group: root
     state: directory
 
-- name: Copy amp-server certificate
-  command: cp /etc/amppki/certs/amp-server.03.pem /etc/rabbitmq/keys/
-  notify: restart rabbitmq
-  when: amp_server_install_result.changed
-
-- name: Copy amp-server private key
-  command: cp /etc/amppki/private/amp-server.pem /etc/rabbitmq/keys/
+- name: Copy amp private key
+  command: cp /etc/amppki/private/amppki-key.pem /etc/rabbitmq/keys/
   notify: restart rabbitmq
   when: amp_server_install_result.changed
 
@@ -61,11 +52,23 @@
   notify: restart rabbitmq
   when: amp_server_install_result.changed
 
+- name: Configure ampweb security
+  template:
+    src: security.py.j2
+    dest: /usr/lib/python2.7/dist-packages/ampweb/security.py
+  notify: restart apache
+
 - name: Configure nntsc
   template:
     src: nntsc.conf.j2
     dest: /etc/nntsc/nntsc.conf
   notify: restart nntsc
+
+- name: Configure rabbitmq
+  copy:
+    src: rabbitmq.config
+    dest:  /etc/rabbitmq/
+  notify: restart rabbitmq
 
 - name: Remove default ampweb config
   file:

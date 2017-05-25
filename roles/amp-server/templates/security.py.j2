@@ -1,0 +1,10 @@
+USERS = {
+    '{{ ampweb_username }}':'{{ ampweb_password }}',
+    }
+GROUPS = {
+    '{{ ampweb_username }}': ['admin'],
+    }
+
+def groupfinder(userid, request):
+    if userid in USERS:
+        return ['g:%s' % g for g in GROUPS.get(userid, [])]

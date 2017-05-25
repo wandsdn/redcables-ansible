@@ -4,3 +4,5 @@ influx_username: nntsc
 influx_password: nntsc
 rabbitmq_username: nntsc
 rabbitmq_password: nntsc
+ampweb_username: amp
+ampweb_password: amp
