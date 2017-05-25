@@ -32,6 +32,7 @@
     - role: apache
 - hosts: amp.redcables.wand.nz
   roles:
+    - role: bearwall
     - role: common
     - role: apache
     - role: amp-server
