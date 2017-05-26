@@ -18,7 +18,7 @@ iface ens4 inet static
   address 172.30.99.2
   netmask 255.255.255.0
   up ethtool -K ens4 tx off
-  dns-search management.testing.redcables.wand.nz
+  dns-search mgmt.wand.net.nz
   dns-nameserver 172.30.99.1
 
 allow-hotplug ens5

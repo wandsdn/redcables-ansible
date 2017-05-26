@@ -58,37 +58,37 @@ title = Internet Protocol Version 4
 probe = FPingGentle
 menu = faucet-vip-v4
 title = Faucet IPv4 Default Gateway
-host = faucet-vip-v4.testing.redcables.wand.nz
+host = faucet-vip-v4.redcables.wand.nz
 
 +++ faucet-vm
 
 menu = faucet-vm.v4
-title = faucet.testing.redcables.wand.nz
-host = faucet.testing.redcables.wand.nz
+title = faucet.redcables.wand.nz
+host = faucet.redcables.wand.nz
 
 +++ nat64-vm
 
 menu = nat64-vm.v4
-title = nat64.testing.redcables.wand.nz
+title = nat64.redcables.wand.nz
 host = 163.7.175.252
 
 +++ unifi-vm
 
 menu = unifi-vm.v4
-title = unifi.testing.redcables.wand.nz
-host = unifi.testing.redcables.wand.nz
+title = unifi.redcables.wand.nz
+host = unifi.redcables.wand.nz
 
 +++ monitoring-vm
 
 menu = monitoring-vm.v4
-title = monitoring.testing.redcables.wand.nz
-host = monitoring.testing.redcables.wand.nz
+title = monitoring.redcables.wand.nz
+host = monitoring.redcables.wand.nz
 
 +++ awdy-vm
 
 menu = awdy-vm.v4
-title = awdy.testing.redcables.wand.nz
-host = awdy.testing.redcables.wand.nz
+title = awdy.redcables.wand.nz
+host = awdy.redcables.wand.nz
 
 ++ IPv6
 
@@ -101,37 +101,37 @@ title = Internet Protocol Version 6
 probe = FPing6Gentle
 menu = faucet-vip-v6
 title = Faucet IPv6 Default Gateway
-host = faucet-vip-v6.testing.redcables.wand.nz
+host = faucet-vip-v6.redcables.wand.nz
 
 +++ faucet-vm
 
 menu = faucet-vm.v6
-title = faucet.testing.redcables.wand.nz
-host = faucet.testing.redcables.wand.nz
+title = faucet.redcables.wand.nz
+host = faucet.redcables.wand.nz
 
 +++ nat64-vm
 
 menu = nat64-vm.v6
-title = nat64.testing.redcables.wand.nz
-host = nat64.testing.redcables.wand.nz
+title = nat64.redcables.wand.nz
+host = nat64.redcables.wand.nz
 
 +++ unifi-vm
 
 menu = unifi-vm.v6
-title = unifi.testing.redcables.wand.nz
-host = unifi.testing.redcables.wand.nz
+title = unifi.redcables.wand.nz
+host = unifi.redcables.wand.nz
 
 +++ monitoring-vm
 
 menu = monitoring-vm.v6
-title = monitoring.testing.redcables.wand.nz
-host = monitoring.testing.redcables.wand.nz
+title = monitoring.redcables.wand.nz
+host = monitoring.redcables.wand.nz
 
 +++ awdy-vm
 
 menu = awdy-vm.v6
-title = awdy.testing.redcables.wand.nz
-host = awdy.testing.redcables.wand.nz
+title = awdy.redcables.wand.nz
+host = awdy.redcables.wand.nz
 
 + Waikato
 
