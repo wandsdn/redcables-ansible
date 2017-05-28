@@ -7,18 +7,6 @@
     - apache2
     - python-certbot-apache
 
-- name: Configure apache (non-ssl)
-  copy:
-    src: "apache/{{ inventory_hostname }}/000-default.conf"
-    dest: /etc/apache2/sites-available/000-default.conf
-  notify: restart apache
-
-- name: Configure apache (ssl)
-  copy:
-    src: "apache/{{ inventory_hostname }}/default-ssl.conf"
-    dest: /etc/apache2/sites-available/default-ssl.conf
-  notify: restart apache
-
 - name: Add html files
   copy:
     src: "apache/{{ inventory_hostname }}/html/"
@@ -38,6 +26,18 @@
     - proxy_html
     - proxy_connect
     - xml2enc
+
+- name: Configure apache (non-ssl)
+  copy:
+    src: "apache/{{ inventory_hostname }}/000-default.conf"
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: restart apache
+
+- name: Configure apache (ssl)
+  copy:
+    src: "apache/{{ inventory_hostname }}/default-ssl.conf"
+    dest: /etc/apache2/sites-available/default-ssl.conf
+  notify: restart apache
 
 - file:
     src: /etc/apache2/sites-available/default-ssl.conf
