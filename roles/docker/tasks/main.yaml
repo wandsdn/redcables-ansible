@@ -1,0 +1,29 @@
+---
+- name: Import docker GPG signing key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: Add docker repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ansible_distribution_release}} stable"
+    state: present
+
+- name: Install docker
+  apt:
+    name: docker-ce
+    state: installed
+
+- name: Install docker systemd drop-in
+  copy:
+    src: docker.service.d/
+    dest: /etc/systemd/system/docker.service.d/
+  notify:
+    - restart docker with daemon-reload
+
+- name: Install docker default file
+  copy:
+    src: default
+    dest: /etc/default/docker
+  notify:
+    - restart docker
