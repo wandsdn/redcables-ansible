@@ -1,3 +1,4 @@
 ---
 - include: influxdb.yaml
+- include: rabbitmq.yaml
 - include: amp-server.yaml

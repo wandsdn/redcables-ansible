@@ -64,12 +64,6 @@
     dest: /etc/nntsc/nntsc.conf
   notify: restart nntsc
 
-- name: Configure rabbitmq
-  copy:
-    src: rabbitmq.config
-    dest:  /etc/rabbitmq/
-  notify: restart rabbitmq
-
 - name: Remove default ampweb config
   file:
     path: /etc/apache2/conf-enabled/ampweb.conf
