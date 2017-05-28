@@ -30,6 +30,7 @@
     - role: smokeping
     - role: prometheus
     - role: apache
+    - role: docker
 - hosts: amp.redcables.wand.nz
   roles:
     - role: bearwall
