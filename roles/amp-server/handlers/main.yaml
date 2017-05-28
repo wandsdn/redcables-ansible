@@ -9,6 +9,11 @@
     name: nntsc
     state: restarted
 
+- name: restart netevmon
+  service:
+    name: netevmon
+    state: restarted
+
 - name: restart influxdb
   service:
     name: influxdb

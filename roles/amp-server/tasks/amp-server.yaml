@@ -33,6 +33,7 @@
     - ampy
     - amp-web
     - amppki
+    - netevmon
   register: amp_server_install_result
 
 - name: Create rabbitmq keys directory
@@ -63,6 +64,12 @@
     src: nntsc.conf.j2
     dest: /etc/nntsc/nntsc.conf
   notify: restart nntsc
+
+- name: Configure netevmon
+  copy:
+    src: netevmon.yaml
+    dest: /etc/netevmon/netevmon.yaml
+  notify: restart netevmon
 
 - name: Remove default ampweb config
   file:
