@@ -4,7 +4,7 @@
     url: https://packages.bearwall.org/keyring.gpg
     state: present
 
-- name: Add wand repository
+- name: Add bearwall repository
   apt_repository:
     repo: "deb https://packages.bearwall.org {{ansible_distribution_release}} main"
     state: present
