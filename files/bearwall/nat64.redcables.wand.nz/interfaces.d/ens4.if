@@ -1,0 +1,21 @@
+on_startup
+
+policy in ACCEPT --protocol tcp --destination-port ssh
+policy in ACCEPT -s 2404:138:39:120::/112 --protocol tcp --destination-port bgp
+policy in tcp-strict
+policy in udp-strict
+policy in icmp-trust
+policy out ACCEPT
+policy forward-in ACCEPT -o ens5
+policy forward-out ACCEPT -i ens5
+
+if_feature disable_ipv6 0
+if_feature autoconf 0
+if_feature rp_filter 1
+if_feature accept_redirects 0
+if_feature accept_source_route 0
+if_feature bootp_relay 0
+if_feature accept_ra 0
+if_feature forwarding 1
+if_feature log_martians 0
+if_feature send_redirects 0

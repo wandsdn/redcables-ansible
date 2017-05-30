@@ -58,24 +58,15 @@ dps:
                 name: "port1.0.21"
                 description: "campbell iot gateway"
                 acl_in: protect_from_access
-            22:
-                tagged_vlans: [redcables]
-                name: "port1.0.22"
+            23:
+                tagged_vlans: [redcables,redcables6]
+                name: "port1.0.23"
                 description: "redcables-core-sw trunk"
                 acl_in: protect_from_access
-            23:
-                tagged_vlans: [redcables6]
-                name: "port1.0.23"
-                description: "at-x930-1 redcables6 trunk"
             24:
-                tagged_vlans: [redcables,control]
+                tagged_vlans: [redcables,redcables6,control]
                 name: "port1.0.24"
                 description: "at-x930-1 redcables trunk"
-            25:
-                tagged_vlans: [redcables]
-                name: "port1.0.25"
-                description: "internet"
-                acl_in: protect_from_edge
     at-x930-2:
         dp_id: 0xeccd6def54ff
         description: "at-x930-2"
@@ -124,18 +115,10 @@ dps:
                 name: "port1.0.20"
                 description: "link022 wifi ap"
                 acl_in: protect_from_access
-            23:
-                tagged_vlans: [redcables6]
-                name: "port1.0.23"
-                description: "at-x930-2 redcables6 trunk"
             24:
-                tagged_vlans: [redcables,control]
+                tagged_vlans: [redcables,redcables6,control]
                 name: "port1.0.24"
                 description: "at-x930-2 redcables trunk"
-            25:
-                native_vlan: redcables
-                name: "port1.0.26"
-                description: "to redcables-core-sw 1/xg2"
     cisco-3850:
         dp_id: 0xABCDEF1234
         description: "cisco-3850"
@@ -175,15 +158,7 @@ dps:
                 tagged_vlans: [control,redcables]
                 name: "port1.0.20"
                 description: "link022 wifi ap"
-            23:
-                tagged_vlans: [redcables6]
-                name: "port1.0.23"
-                description: "at-x930-2 redcables6 trunk"
             24:
-                tagged_vlans: [redcables,control]
+                tagged_vlans: [redcables,redcables6,control]
                 name: "port1.0.24"
-                description: "at-x930-2 redcables trunk"
-            25:
-                native_vlan: redcables
-                name: "port1.0.26"
-                description: "to redcables-core-sw 1/xg2"
+                description: "cisco-3850 redcables trunk"

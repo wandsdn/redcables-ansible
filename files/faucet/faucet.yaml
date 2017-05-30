@@ -51,12 +51,18 @@ dps:
                 description: "faucet vm"
                 permanent_learn: True
                 acl_in: protect_from_core
+            3:
+                native_vlan: redcables6
+                name: 'vhost-nat64-redcables6'
+                description: "nat64 vm"
+                permanent_learn: True
+                acl_in: protect_from_core
             4:
-                tagged_vlans: [redcables-l3,control]
+                tagged_vlans: [redcables-l3,redcables6,control]
                 name: 'dpdk-at-x930-1'
                 description: "at-x930-1 redcables trunk"
             5:
-                tagged_vlans: [redcables-l3,control]
+                tagged_vlans: [redcables-l3,redcables6,control]
                 name: 'dpdk-cisco-3850'
                 description: "cisco-3850 redcables trunk"
             7:
@@ -112,28 +118,3 @@ dps:
                 description: "unifi controller vm"
                 permanent_learn: True
                 acl_in: protect_from_control
-    ovs-redcables6:
-        dp_id: 0x6
-        hardware: "Open vSwitch"
-        ignore_learn_ins: 10
-        arp_neighbor_timeout: 600
-        drop_spoofed_faucet_mac: False
-        interfaces:
-            1:
-                native_vlan: redcables6
-                name: 'vhost-nat64-redcables6'
-                description: "nat64 vm"
-                acl_in: protect_from_core
-            2:
-                native_vlan: redcables6
-                name: 'vhost-host-redcables6'
-                description: "host-redcables6 vm"
-                acl_in: protect_from_access
-            6:
-                tagged_vlans: [redcables6]
-                name: 'dpdk6'
-                description: "at-x930-1 redcables6 trunk"
-            7:
-                tagged_vlans: [redcables6]
-                name: 'dpdk7'
-                description: "at-x930-2 redcables6 trunk"

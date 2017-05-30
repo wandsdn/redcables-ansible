@@ -6,10 +6,3 @@ ovs-vsctl --may-exist add-br br-redcables -- \
     set bridge br-redcables fail_mode=secure -- \
     set bridge br-redcables other_config:datapath-id=0000000000000046 -- \
     set-controller br-redcables tcp:192.168.122.2:6653 tcp:192.168.122.6:6654
-
-ovs-vsctl --may-exist add-br br-redcables6 -- \
-    set bridge br-redcables6 datapath_type=netdev -- \
-    set bridge br-redcables6 other-config:disable-in-band=true -- \
-    set bridge br-redcables6 fail_mode=secure -- \
-    set bridge br-redcables6 other_config:datapath-id=0000000000000006 -- \
-    set-controller br-redcables6 tcp:192.168.122.2:6653 tcp:192.168.122.6:6654

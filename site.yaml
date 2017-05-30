@@ -16,12 +16,12 @@
     - role: faucet
 - hosts: nat64.redcables.wand.nz
   roles:
+    - role: bearwall
     - role: common
     - role: bird
     - role: dhcpv6
     - role: unbound
     - role: jool
-    - role: routing
 - hosts: monitoring.redcables.wand.nz
   roles:
     - role: bearwall
