@@ -10,3 +10,9 @@
     src: "dhcp/{{ inventory_hostname }}/dhcpd.conf"
     dest: /etc/dhcp/
   notify: restart isc-dhcp-server
+
+- name: Configure isc-dhcp-server default file
+  copy:
+    src: "dhcp/{{ inventory_hostname }}/default"
+    dest: /etc/default/isc-dhcp-server
+  notify: restart isc-dhcp-server
