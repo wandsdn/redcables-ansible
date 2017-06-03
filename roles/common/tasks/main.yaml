@@ -8,7 +8,7 @@
   lineinfile:
     dest: /etc/hosts
     regexp: "^127.0.1.1.+$"
-    line: "127.0.1.1	{{ ansible_fqdn }} {{ ansible_hostname }}"
+    line: "127.0.1.1    {{ ansible_fqdn }} {{ ansible_hostname }}"
 
 - name: Configure network interfaces
   copy:
