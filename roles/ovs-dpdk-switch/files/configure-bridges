@@ -6,3 +6,8 @@ ovs-vsctl --may-exist add-br br-redcables -- \
     set bridge br-redcables fail_mode=secure -- \
     set bridge br-redcables other_config:datapath-id=0000000000000046 -- \
     set-controller br-redcables tcp:192.168.122.2:6653 tcp:192.168.122.6:6654
+
+ovs-vsctl -- --id=@sflow create sflow agent=virbr0 \
+    target=\"192.168.122.8:6343\" header=128 \
+    sampling=32 polling=30 \
+      -- set bridge br-redcables sflow=@sflow

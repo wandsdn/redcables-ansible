@@ -1,0 +1,15 @@
+on_startup
+
+policy in ACCEPT
+policy out ACCEPT
+polite_reject forward-in
+polite_reject forward-out
+
+if_feature rp_filter 1
+if_feature accept_redirects 0
+if_feature accept_source_route 0
+if_feature bootp_relay 0
+if_feature accept_ra 0
+if_feature forwarding 0
+if_feature log_martians 0
+if_feature send_redirects 0
