@@ -23,30 +23,24 @@
     system: yes
     state: present
 
-- name: Install ryu
-  pip:
-    name: git+https://github.com/osrg/ryu#egg=ryu
-    editable: false
-    state: present
-
 - name: Install faucet
   pip:
-    name: git+https://github.com/reannz/faucet@v1_5_0-rc1#egg=faucet
+    name: git+https://github.com/reannz/faucet@v1_5_0-rc2#egg=faucet
     editable: false
     state: latest
   notify:
     - restart faucet
-    - restart faucet-at
+    - restart faucet-l2
 
 - name: Add faucet defaults file
   copy:
     src: default
     dest: /etc/default/faucet
 
-- name: Add faucet-at defaults file
+- name: Add faucet-l2 defaults file
   copy:
-    src: default-at
-    dest: /etc/default/faucet-at
+    src: default-l2
+    dest: /etc/default/faucet-l2
 
 - name: Create faucet config directory
   file:
@@ -74,9 +68,9 @@
     src: faucet.service
     dest: /etc/systemd/system/
 
-- name: Add faucet-at systemd unit
+- name: Add faucet-l2 systemd unit
   copy:
-    src: faucet-at.service
+    src: faucet-l2.service
     dest: /etc/systemd/system/
 
 - name: Enable faucet systemd unit
@@ -86,9 +80,9 @@
     masked: no
     state: started
 
-- name: Enable faucet-at systemd unit
+- name: Enable faucet-l2 systemd unit
   systemd:
-    name: faucet-at
+    name: faucet-l2
     daemon_reload: yes
     masked: no
     state: started
@@ -99,7 +93,7 @@
     dest: /etc/ryu/faucet/common/
   notify:
     - reload faucet
-    - reload faucet-at
+    - reload faucet-l2
 
 - name: Add faucet configuration
   copy:
@@ -108,15 +102,15 @@
   notify:
     - reload faucet
 
-- name: Add faucet-at configuration
+- name: Add faucet-l2 configuration
   copy:
-    src: faucet/faucet-at.yaml
+    src: faucet/faucet-l2.yaml
     dest: /etc/ryu/faucet/
   notify:
-    - reload faucet-at
+    - reload faucet-l2
 
 - name: Check faucet config
   shell: check_faucet_config /etc/ryu/faucet/faucet.yaml
 
-- name: Check faucet-at config
-  shell: check_faucet_config /etc/ryu/faucet/faucet-at.yaml
+- name: Check faucet-l2 config
+  shell: check_faucet_config /etc/ryu/faucet/faucet-l2.yaml

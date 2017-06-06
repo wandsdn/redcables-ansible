@@ -41,80 +41,81 @@ dps:
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
-                native_vlan: redcables-l3
                 name: 'vhost-nat64-redcables'
                 description: "nat64 vm"
+                native_vlan: redcables-l3
                 acl_in: protect_from_access
             2:
-                native_vlan: redcables-l3
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
+                native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_core
             3:
-                native_vlan: redcables6
                 name: 'vhost-nat64-redcables6'
                 description: "nat64 vm"
+                native_vlan: redcables6
                 permanent_learn: True
                 acl_in: protect_from_core
             4:
-                tagged_vlans: [redcables-l3,redcables6,control]
                 name: 'dpdk-at-x930-1'
                 description: "at-x930-1 redcables trunk"
-            5:
                 tagged_vlans: [redcables-l3,redcables6,control]
+            5:
                 name: 'dpdk-cisco-3850'
                 description: "cisco-3850 redcables trunk"
+                tagged_vlans: [redcables-l3,redcables6,control]
+                acl_in: protect_from_access
             7:
-                native_vlan: redcables-l3
                 name: 'reannz'
                 description: "reannz peering"
+                native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_edge
             8:
-                native_vlan: redcables-l3
                 name: 'unifi'
                 description: "unifi controller vm"
+                native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             9:
-                native_vlan: redcables-l3
                 name: 'monitoring'
                 description: "monitoring vm"
+                native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             10:
-                native_vlan: redcables-l3
                 name: 'amp'
                 description: "amp vm"
+                native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             11:
-                native_vlan: redcables-l3
                 name: 'awdy'
                 description: "awdy vm"
+                native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             20:
-                native_vlan: control
                 name: "vhost-faucet-cpn"
                 description: "faucet vm control plane network"
+                native_vlan: control
                 permanent_learn: True
                 acl_in: protect_from_control
             21:
-                native_vlan: control
                 name: "dpdk-cpn"
                 description: "redcables control plane network"
+                native_vlan: control
                 acl_in: protect_from_control
             22:
-                native_vlan: control
                 name: "mon-cpn"
                 description: "monitoring vm control plane network"
+                native_vlan: control
                 permanent_learn: True
                 acl_in: protect_from_control
             23:
-                native_vlan: control
                 name: "unifi"
                 description: "unifi controller vm"
+                native_vlan: control
                 permanent_learn: True
                 acl_in: protect_from_control

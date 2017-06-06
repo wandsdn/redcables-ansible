@@ -18,6 +18,6 @@ scrape_configs:
   - job_name: 'faucet'
     static_configs:
       - targets: ['192.168.122.2:9244']
-  - job_name: 'faucet-at'
+  - job_name: 'faucet-l2'
     static_configs:
       - targets: ['192.168.122.2:9243']

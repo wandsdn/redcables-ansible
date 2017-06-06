@@ -4,9 +4,9 @@
     name: faucet
     state: reloaded
 
-- name: reload faucet-at
+- name: reload faucet-l2
   service:
-    name: faucet-at
+    name: faucet-l2
     state: reloaded
 
 - name: restart faucet
@@ -14,7 +14,7 @@
     name: faucet
     state: restarted
 
-- name: restart faucet-at
+- name: restart faucet-l2
   service:
-    name: faucet-at
+    name: faucet-l2
     state: restarted

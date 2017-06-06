@@ -2,17 +2,31 @@
 version: 2
 faucet_configs:
     - '/etc/ryu/faucet/faucet.yaml'
-    - '/etc/ryu/faucet/faucet-at.yaml'
+    - '/etc/ryu/faucet/faucet-l2.yaml'
 watchers:
     port_stats_poller:
         type: 'port_stats'
-        dps: ['ovs-redcables', 'at-x930-1', 'at-x930-2', 'cisco-3850']
+        dps:
+          - ovs-redcables
+          - at-x930-1
+          - at-x510-1
+          - at-x510-2
+          - at-x510-3
+          - at-x510-4
+          - cisco-3850
         interval: 10
         db: 'influx'
     flow_table_poller:
         type: 'flow_table'
         interval: 86400
-        dps: ['ovs-redcables', 'at-x930-1', 'at-x930-2', 'cisco-3850']
+        dps:
+          - ovs-redcables
+          - at-x930-1
+          - at-x510-1
+          - at-x510-2
+          - at-x510-3
+          - at-x510-4
+          - cisco-3850
         db: 'ft_file'
 dbs:
     influx:
