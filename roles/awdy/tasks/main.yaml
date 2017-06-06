@@ -1,0 +1,36 @@
+---
+
+- name: Install dependancies
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - redis-server
+    - python-pip
+    - python-virtualenv
+    - supervisor
+
+- name: Create awdy user
+  user:
+    name: django-site-awdy
+    group: www-data
+    createhome: no
+    system: yes
+    state: present
+
+- name: Install python dependancies in virtualenv
+  pip:
+    requirements: /var/www/django/awdy/current/requirements.txt
+    virtualenv: /var/www/django/awdy/current/venv
+
+- name: Configure supervisor
+  copy:
+    src: supervisor/
+    dest: /etc/supervisor/conf.d/
+  notify: restart supervisor
+
+- name: Configure awdy
+  copy:
+    src: awdy.ini
+    dest: /var/www/django/awdy/current/
+  notify: restart supervisor
