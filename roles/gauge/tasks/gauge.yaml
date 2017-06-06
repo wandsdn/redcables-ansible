@@ -22,17 +22,12 @@
     system: yes
     state: present
 
-- name: Install ryu
-  pip:
-    name: git+https://github.com/osrg/ryu#egg=ryu
-    editable: false
-    state: present
-
 - name: Install gauge
   pip:
-    name: git+https://github.com/reannz/faucet#egg=faucet
+    name: git+https://github.com/reannz/faucet@v1_5_0-rc2#egg=faucet
     editable: false
     state: latest
+  notify: restart gauge
 
 - name: Add gauge defaults file
   copy:
