@@ -38,6 +38,12 @@
     - role: apache
     - role: amp-server
     - role: amplet-lite
+- hosts: awdy.redcables.wand.nz
+  roles:
+    - role: bearwall
+    - role: common
+    - role: apache
+    - role: awdy
 - hosts: unifi
   roles:
     - role: common

@@ -31,6 +31,6 @@
 
 - name: Configure awdy
   copy:
-    src: awdy.ini
+    src: awdy/awdy.ini
     dest: /var/www/django/awdy/current/
   notify: restart supervisor
