@@ -25,8 +25,7 @@
 
 - name: Install faucet
   pip:
-    name: git+https://github.com/reannz/faucet@v1_5_0-rc2#egg=faucet
-    editable: false
+    name: faucet
     state: latest
   notify:
     - restart faucet
