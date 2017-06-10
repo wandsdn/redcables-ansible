@@ -29,6 +29,7 @@
   systemd:
     name: grafana-server
     daemon_reload: yes
+    enabled: yes
     masked: no
     state: started
 

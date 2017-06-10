@@ -4,6 +4,11 @@
     name: openvswitch-switch
     state: restarted
 
+- name: restart dpdk
+  service:
+    name: dpdk
+    state: restarted
+
 - name: restart openvswitch with daemon-reload
   systemd:
     name: openvswitch-switch

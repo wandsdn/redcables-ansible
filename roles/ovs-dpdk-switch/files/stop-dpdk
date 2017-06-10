@@ -1,4 +1,0 @@
-#!/bin/bash
-
-/usr/local/bin/remap-dpdk-interfaces vfio-pci igb
-/usr/local/bin/remap-dpdk-interfaces vfio-pci ixgbe

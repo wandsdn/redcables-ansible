@@ -76,6 +76,7 @@
   systemd:
     name: faucet
     daemon_reload: yes
+    enabled: yes
     masked: no
     state: started
 
@@ -83,6 +84,7 @@
   systemd:
     name: faucet-l2
     daemon_reload: yes
+    enabled: yes
     masked: no
     state: started
 

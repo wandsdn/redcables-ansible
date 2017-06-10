@@ -63,6 +63,7 @@
   systemd:
     name: gauge
     daemon_reload: yes
+    enabled: yes
     masked: no
     state: started
 
