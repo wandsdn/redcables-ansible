@@ -8,12 +8,15 @@ watchers:
         type: 'port_stats'
         dps:
           - ovs-redcables
+          - at-tq4600-1
           - at-x930-1
           - at-x510-1
           - at-x510-2
           - at-x510-3
           - at-x510-4
           - cisco-3850
+          - aruba-2930
+          - pica-3780
         interval: 10
         db: 'influx'
     flow_table_poller:
@@ -21,12 +24,15 @@ watchers:
         interval: 86400
         dps:
           - ovs-redcables
+          - at-tq4600-1
           - at-x930-1
           - at-x510-1
           - at-x510-2
           - at-x510-3
           - at-x510-4
           - cisco-3850
+          - aruba-2930
+          - pica-3780
         db: 'ft_file'
 dbs:
     influx:
