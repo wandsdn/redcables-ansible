@@ -67,8 +67,7 @@ dps:
                 acl_in: protect_from_access
             14:
                 name: "port1.0.14"
-                description: "aruba-2930 trunk"
-                tagged_vlans: [redcables,redcables6]
+                native_vlan: redcables
                 acl_in: protect_from_access
             15:
                 name: "port1.0.15"
