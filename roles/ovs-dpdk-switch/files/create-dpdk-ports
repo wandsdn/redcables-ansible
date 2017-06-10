@@ -1,15 +1,19 @@
 ovs-vsctl add-port br-redcables dpdk-reannz -- \
-  set Interface dpdk-reannz type=dpdk options:dpdk-devargs=0000:0d:00.3 -- \
+  set Interface dpdk-reannz type=dpdk options:dpdk-devargs=0000:0e:00.3 -- \
   set Interface dpdk-reannz ofport_request=7
 
 ovs-vsctl add-port br-redcables dpdk-cisco-3850 -- \
-  set Interface dpdk-cisco-3850 type=dpdk options:dpdk-devargs=0000:0d:00.2 -- \
+  set Interface dpdk-cisco-3850 type=dpdk options:dpdk-devargs=0000:0e:00.2 -- \
   set Interface dpdk-cisco-3850 ofport_request=5
 
 ovs-vsctl add-port br-redcables dpdk-at-x930-1 -- \
-  set Interface dpdk-at-x930-1 type=dpdk options:dpdk-devargs=0000:0d:00.1 -- \
+  set Interface dpdk-at-x930-1 type=dpdk options:dpdk-devargs=0000:0e:00.1 -- \
   set Interface dpdk-at-x930-1 ofport_request=4
 
+ovs-vsctl add-port br-redcables dpdk-aruba-2930 -- \
+  set Interface dpdk-aruba-2930 type=dpdk options:dpdk-devargs=0000:0e:00.0 -- \
+  set Interface dpdk-aruba-2930 ofport_request=6
+
 ovs-vsctl add-port br-redcables dpdk-cpn -- \
-  set Interface dpdk-cpn type=dpdk options:dpdk-devargs=0000:0d:00.0 -- \
+  set Interface dpdk-cpn type=dpdk options:dpdk-devargs=0000:04:00.0 -- \
   set Interface dpdk-cpn ofport_request=21
