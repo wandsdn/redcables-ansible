@@ -14,10 +14,35 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['monitoring.int.redcables.wand.nz:9090']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: (.*)\.int\.redcables\.wand\.nz:(.*)
+        replacement: ${1}.redcables.wand.nz
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['allbirds.int.redcables.wand.nz:9100']
+      - targets: ['faucet.int.redcables.wand.nz:9100']
+      - targets: ['nat64.int.redcables.wand.nz:9100']
+      - targets: ['monitoring.int.redcables.wand.nz:9100']
+      - targets: ['amp.int.redcables.wand.nz:9100']
+      - targets: ['awdy.int.redcables.wand.nz:9100']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: (.*)\.int\.redcables\.wand\.nz:(.*)
+        replacement: ${1}.redcables.wand.nz
   - job_name: 'faucet'
     static_configs:
-      - targets: ['192.168.122.2:9244']
-  - job_name: 'faucet-l2'
-    static_configs:
-      - targets: ['192.168.122.2:9243']
+      - targets: ['faucet.int.redcables.wand.nz:9244']
+      - targets: ['faucet.int.redcables.wand.nz:9243']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: (.*)\.int\.redcables\.wand\.nz:9244
+        replacement: ${1}
+      - source_labels: [__address__]
+        target_label: instance
+        regex: (.*)\.int\.redcables\.wand\.nz:9243
+        replacement: ${1}-l2
