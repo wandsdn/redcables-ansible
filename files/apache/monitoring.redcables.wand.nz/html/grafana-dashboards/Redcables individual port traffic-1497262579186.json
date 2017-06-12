@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.1"
+      "version": "4.3.2"
     },
     {
       "type": "panel",
@@ -901,7 +901,9 @@
   ],
   "schemaVersion": 14,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "FAUCET"
+  ],
   "templating": {
     "list": [
       {
@@ -977,5 +979,5 @@
   },
   "timezone": "browser",
   "title": "Redcables individual port traffic",
-  "version": 7
+  "version": 8
 }

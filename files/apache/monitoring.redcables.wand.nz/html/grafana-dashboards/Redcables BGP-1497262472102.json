@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.1"
+      "version": "4.3.2"
     },
     {
       "type": "panel",
@@ -38,10 +38,11 @@
   "hideControls": false,
   "id": null,
   "links": [],
+  "refresh": "5s",
   "rows": [
     {
       "collapse": false,
-      "height": 748,
+      "height": 411,
       "panels": [
         {
           "aliasColors": {},
@@ -50,7 +51,7 @@
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
-          "id": 1,
+          "id": 2,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -77,7 +78,8 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "vlan_hosts_learned",
+              "expr": "bgp_neighbor_routes",
+              "format": "time_series",
               "groupBy": [
                 {
                   "params": [
@@ -93,7 +95,8 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "dpid={{dpid}} job={{job}} vlan={{vlan}}",
+              "legendFormat": "{{instance}} dpid={{dpid}} vlan={{vlan}} neighbor={{neighbor}} family={{ipv}}",
+              "metric": "bgp_neighbor_routes",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -111,14 +114,14 @@
                   }
                 ]
               ],
-              "step": 20,
+              "step": 2,
               "tags": []
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "vlan_hosts_learned",
+          "title": "BGP Routes",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -158,16 +161,141 @@
       "showTitle": false,
       "title": "Dashboard Row",
       "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 297,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "fill": 1,
+          "id": 1,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "dsType": "influxdb",
+              "expr": "bgp_neighbor_uptime",
+              "format": "time_series",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "{{instance}} dpid={{dpid}} vlan={{vlan}} neighbor={{neighbor}}",
+              "metric": "bgp_neighbor_uptime",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "step": 2,
+              "tags": []
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "BGP Uptime",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "dtdurations",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
     }
   ],
   "schemaVersion": 14,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "FAUCET"
+  ],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -196,6 +324,6 @@
     ]
   },
   "timezone": "browser",
-  "title": "Redcables vlan_hosts_learned",
-  "version": 5
+  "title": "Redcables BGP",
+  "version": 18
 }

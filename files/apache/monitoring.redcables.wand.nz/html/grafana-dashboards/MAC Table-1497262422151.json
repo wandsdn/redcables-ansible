@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.1"
+      "version": "4.3.2"
     },
     {
       "type": "datasource",
@@ -120,6 +120,21 @@
               "decimals": 2,
               "pattern": "instance",
               "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "alias": "",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "job",
+              "thresholds": [],
               "type": "hidden",
               "unit": "short"
             }
@@ -184,7 +199,9 @@
   ],
   "schemaVersion": 14,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "FAUCET"
+  ],
   "templating": {
     "list": [
       {
@@ -260,5 +277,5 @@
   },
   "timezone": "browser",
   "title": "MAC Table",
-  "version": 9
+  "version": 14
 }
