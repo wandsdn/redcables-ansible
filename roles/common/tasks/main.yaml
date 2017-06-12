@@ -46,3 +46,9 @@
     enabled: yes
     masked: no
     state: started
+
+- name: Configure prometheus-node-exporter
+  template:
+    src: prometheus-node-exporter.j2
+    dest: /etc/default/prometheus-node-exporter
+  notify: restart prometheus-node-exporter
