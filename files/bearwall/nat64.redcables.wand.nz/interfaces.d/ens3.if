@@ -1,6 +1,7 @@
 on_startup
 
 policy in ACCEPT --protocol tcp --destination-port ssh
+policy in ACCEPT -s 192.168.122.0/24 --protocol tcp --destination-port 9100
 policy in tcp-strict
 policy in udp-strict
 policy in icmp-trust

@@ -37,3 +37,12 @@
     - tcpdump
     - vim
     - screen
+    - prometheus-node-exporter
+
+- name: Enable prometheus-node-exporter systemd unit
+  systemd:
+    name: prometheus-node-exporter
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: started
