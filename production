@@ -2,11 +2,11 @@
 allbirds.wand.net.nz
 
 [vms]
-faucet.redcables.wand.nz ansible_host=192.168.122.2
-nat64.redcables.wand.nz ansible_host=192.168.122.3
-monitoring.redcables.wand.nz ansible_host=192.168.122.6
-amp.redcables.wand.nz ansible_host=192.168.122.7
-awdy.redcables.wand.nz ansible_host=192.168.122.8
+faucet.redcables.wand.nz ansible_host=faucet.int.redcables.wand.nz
+nat64.redcables.wand.nz ansible_host=nat64.int.redcables.wand.nz
+monitoring.redcables.wand.nz ansible_host=monitoring.int.redcables.wand.nz
+amp.redcables.wand.nz ansible_host=amp.int.redcables.wand.nz
+awdy.redcables.wand.nz ansible_host=awdy.int.redcables.wand.nz
 
 [amplets]
-amp.redcables.wand.nz ansible_host=192.168.122.7
+amp.redcables.wand.nz ansible_host=amp.int.redcables.wand.nz
