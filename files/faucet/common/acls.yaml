@@ -385,3 +385,15 @@ acls:
         - rule:
             actions:
                 allow: 1
+
+    # ACL rule for dropping protocols other than IPv6
+    ipv6_only:
+        # Allow IPv6 traffic
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            actions:
+                allow: 1                 # allow
+        # Drop other protocols
+        - rule:
+            actions:
+                allow: 0                 # drop

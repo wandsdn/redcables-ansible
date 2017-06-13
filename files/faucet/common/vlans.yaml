@@ -12,6 +12,7 @@ vlans:
         description: "redcables ipv6 vlan"
         vid: 251
         max_hosts: 255
+        acl_in: ipv6_only
     control:
         name: "control"
         description: "openflow control vlan"
