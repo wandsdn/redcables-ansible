@@ -25,6 +25,7 @@
 - name: Install gauge
   pip:
     name: faucet
+    version: "{{ gauge_version }}"
     state: present
   notify: restart gauge
 

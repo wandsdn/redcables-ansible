@@ -26,6 +26,7 @@
 - name: Install faucet
   pip:
     name: faucet
+    version: "{{ faucet_version }}"
     state: present
   notify:
     - restart faucet
