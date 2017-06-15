@@ -26,7 +26,7 @@
 - name: Install faucet
   pip:
     name: faucet
-    state: latest
+    state: present
   notify:
     - restart faucet
     - restart faucet-l2
