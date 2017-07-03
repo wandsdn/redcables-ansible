@@ -24,18 +24,6 @@
     system: yes
     state: present
 
-- name: Remove faucet from python2
-  pip:
-    name: faucet
-    executable: pip
-    state: absent
-
-- name: Remove ryu from python2
-  pip:
-    name: ryu
-    executable: pip
-    state: absent
-
 - name: Install faucet
   pip:
     name: faucet
