@@ -5,8 +5,10 @@
     state: installed
   with_items:
     - git
-    - python-pip
-    - python-dev
+    - python3
+    - python3-pip
+    - python3-dev
+    - python3-pbr
 
 - name: Create faucet group
   group:
@@ -22,9 +24,22 @@
     system: yes
     state: present
 
+- name: Remove faucet from python2
+  pip:
+    name: faucet
+    executable: pip
+    state: absent
+
+- name: Remove ryu from python2
+  pip:
+    name: ryu
+    executable: pip
+    state: absent
+
 - name: Install gauge
   pip:
     name: faucet
+    executable: pip3
     version: "{{ gauge_version }}"
     state: present
   notify: restart gauge
