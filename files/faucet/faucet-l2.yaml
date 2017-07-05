@@ -12,6 +12,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
@@ -121,6 +122,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
@@ -406,6 +408,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
@@ -618,6 +621,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
@@ -830,6 +834,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
@@ -946,6 +951,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
@@ -1062,6 +1068,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "port1.0.1"
