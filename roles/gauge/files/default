@@ -1,3 +1,4 @@
+WSAPI_LISTEN_HOST=localhost
 GAUGE_RYU_CONF=/etc/ryu/ryu.conf
 GAUGE_LISTEN_PORT=6654
 GAUGE_CONFIG=/etc/ryu/faucet/gauge.yaml
