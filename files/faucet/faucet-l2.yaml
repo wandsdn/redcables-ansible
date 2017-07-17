@@ -213,7 +213,7 @@ dps:
     cisco-3850:
         dp_id: 0x285261a18100
         description: "cisco-3850"
-        hardware: "Open vSwitch"
+        hardware: "GenericTFM"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         interfaces:
