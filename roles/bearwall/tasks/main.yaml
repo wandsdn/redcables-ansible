@@ -4,6 +4,11 @@
     url: https://packages.bearwall.org/keyring.gpg
     state: present
 
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: installed
+
 - name: Add bearwall repository
   apt_repository:
     repo: "deb https://packages.bearwall.org {{ansible_distribution_release}} main"
