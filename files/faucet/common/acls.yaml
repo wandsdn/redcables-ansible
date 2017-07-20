@@ -127,6 +127,30 @@ acls:
         - rule:
             dl_type: 0x800   # ipv4
             nw_proto: 6      # tcp
+            tcp_dst: 3389    # ms-wbt-server
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 3389    # ms-wbt-server
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            udp_dst: 3389    # ms-wbt-server
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            udp_dst: 3389    # ms-wbt-server
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
             tcp_dst: 16992   # intel-amt-http
             actions:
                 allow: 0     # drop
