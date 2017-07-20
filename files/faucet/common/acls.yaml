@@ -197,6 +197,11 @@ acls:
             actions:
                 allow: 0     # drop
         - rule:
+            dl_type: 0x800   # ipv4
+            ipv4_dst: 163.7.137.250/32 # cisco-wism-controller
+            actions:
+                allow: 0     # drop
+        - rule:
             actions:
                 allow: 1
 
