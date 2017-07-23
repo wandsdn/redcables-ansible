@@ -9,12 +9,14 @@
     dest: /etc/hosts
     regexp: "^127.0.1.1.+$"
     line: "127.0.1.1    {{ ansible_fqdn }} {{ ansible_hostname }}"
+  when: ansible_connection != 'docker'
 
 - name: Configure network interfaces
   copy:
     src: "interfaces/{{ inventory_hostname }}/interfaces"
     dest: /etc/network/interfaces
   notify: restart networking
+  when: ansible_connection != 'docker'
 
 - name: Disable ssh password authentication
   lineinfile:
@@ -24,6 +26,7 @@
     backrefs: yes
     state: present
   notify: restart ssh
+  when: ansible_connection != 'docker'
 
 - name: Install useful packages
   apt:
@@ -46,6 +49,7 @@
     enabled: yes
     masked: no
     state: started
+  when: ansible_connection != 'docker'
 
 - name: Configure prometheus-node-exporter
   template:

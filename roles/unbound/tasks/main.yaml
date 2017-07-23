@@ -4,6 +4,7 @@
     name: systemd-resolved
     masked: yes
     state: stopped
+  when: ansible_connection != 'docker'
 
 - name: Install unbound
   apt:
@@ -12,6 +13,6 @@
 
 - name: Configure unbound
   copy:
-    src: "unbound/{{ inventory_hostname }}/"
+    src: "../../files/unbound/{{ inventory_hostname }}/"
     dest: /etc/unbound/unbound.conf.d/
   notify: restart unbound

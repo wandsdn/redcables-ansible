@@ -7,12 +7,14 @@
 
 - name: Configure isc-dhcp-server
   copy:
-    src: "dhcp/{{ inventory_hostname }}/dhcpd.conf"
+    src: "../../files/dhcp/{{ inventory_hostname }}/dhcpd.conf"
     dest: /etc/dhcp/
   notify: restart isc-dhcp-server
+  when: ansible_connection != 'docker'
 
 - name: Configure isc-dhcp-server default file
   copy:
-    src: "dhcp/{{ inventory_hostname }}/default"
+    src: "../../files/dhcp/{{ inventory_hostname }}/default"
     dest: /etc/default/isc-dhcp-server
   notify: restart isc-dhcp-server
+  when: ansible_connection != 'docker'

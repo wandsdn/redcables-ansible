@@ -3,3 +3,4 @@
   service:
     name: unbound
     state: restarted
+  when: ansible_connection != 'docker'

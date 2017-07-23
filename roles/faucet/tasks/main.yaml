@@ -82,6 +82,7 @@
     enabled: yes
     masked: no
     state: started
+  when: ansible_connection != 'docker'
 
 - name: Enable faucet-l2 systemd unit
   systemd:
@@ -90,10 +91,11 @@
     enabled: yes
     masked: no
     state: started
+  when: ansible_connection != 'docker'
 
 - name: Add common faucet configuration
   copy:
-    src: faucet/common/
+    src: ../../files/faucet/common/
     dest: /etc/ryu/faucet/common/
   notify:
     - reload faucet
@@ -101,28 +103,28 @@
 
 - name: Add govhack configuration
   copy:
-    src: faucet/govhack.yaml
+    src: ../../files/faucet/govhack.yaml
     dest: /etc/ryu/faucet/
   notify:
     - reload faucet-l2
 
 - name: Add faucet configuration
   copy:
-    src: faucet/faucet.yaml
+    src: ../../files/faucet/faucet.yaml
     dest: /etc/ryu/faucet/
   notify:
     - reload faucet
 
 - name: Add faucet-l2 configuration
   copy:
-    src: faucet/faucet-l2.yaml
+    src: ../../files/faucet/faucet-l2.yaml
     dest: /etc/ryu/faucet/
   notify:
     - reload faucet-l2
 
 - name: Add faucet-l2 TFM configuration
   copy:
-    src: faucet/tfm/
+    src: ../../files/faucet/tfm/
     dest: /etc/ryu/faucet/
   notify:
     - restart faucet-l2

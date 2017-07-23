@@ -3,18 +3,22 @@
   service:
     name: faucet
     state: reloaded
+  when: ansible_connection != 'docker'
 
 - name: reload faucet-l2
   service:
     name: faucet-l2
     state: reloaded
+  when: ansible_connection != 'docker'
 
 - name: restart faucet
   service:
     name: faucet
     state: restarted
+  when: ansible_connection != 'docker'
 
 - name: restart faucet-l2
   service:
     name: faucet-l2
     state: restarted
+  when: ansible_connection != 'docker'
