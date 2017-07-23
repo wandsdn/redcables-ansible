@@ -1,0 +1,34 @@
+version: "2"
+settings:
+  conductor_base: gizmoguy/debian:stretch
+services:
+  faucet.redcables.wand.nz:
+    from: gizmoguy/debian:stretch
+    roles:
+      - common
+      - faucet
+      - bird
+    ports:
+      - '6653:6653'
+      - '9244:9244'
+      - '6652:6652'
+      - '9243:9243'
+    volumes:
+      - '$PWD/files/supervisor/faucet.redcables.wand.nz:/etc/supervisor/conf.d'
+    command: ['/usr/bin/supervisord', '-c', '/etc/supervisor/supervisord.conf']
+  mininet.redcables.wand.nz:
+    from: iwaseyusuke/mininet
+    privileged: True
+    roles:
+      - common
+    links:
+      - faucet.redcables.wand.nz
+    volumes:
+      - '/lib/modules:/lib/modules'
+      - '$PWD/files/mininet/virtual-redcables.sh:/usr/local/bin/virtual-redcables.sh'
+      - '$PWD/files/mininet/redcables-topo.py:/usr/local/bin/redcables-topo.py'
+    entrypoint: ['/usr/local/bin/virtual-redcables.sh']
+volumes:
+  static:
+    docker: {}
+registries: {}
