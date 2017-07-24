@@ -1,13 +1,13 @@
 # Set the command-line arguments to pass to the server.
 ARGS="-collector.diskstats.ignored-devices=^(ram|loop|fd)\d+$ \
       -collector.filesystem.ignored-mount-points=^/(sys|proc|dev|run)($|/) \
-      -collector.textfile.directory=/var/lib/prometheus/node-exporter" \
+      -collector.textfile.directory=/var/lib/prometheus/node-exporter \
 {% for ip in ansible_all_ipv4_addresses -%}
 {% if '192.168.122.' in ip -%}
       -web.listen-address={{ ip }}:9100 \
 {% endif -%}
 {% endfor %}
-      -collectors.enabled=conntrack,diskstats,entropy,filefd,filesystem,hwmon,loadavg,mdadm,meminfo,netdev,netstat,sockstat,stat,systemd,textfile,time,uname,vmstat
+      -collectors.enabled=conntrack,diskstats,entropy,filefd,filesystem,hwmon,loadavg,mdadm,meminfo,netdev,netstat,sockstat,stat,systemd,textfile,time,uname,vmstat"
 
 # Prometheus-node-exporter supports the following options:
 #
