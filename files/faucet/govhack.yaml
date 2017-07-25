@@ -76,11 +76,13 @@ dps:
                 acl_in: protect_from_access
             17:
                 name: "port1.0.17"
+                description: "aruba-2930-2 redcables"
                 native_vlan: redcables
                 acl_in: protect_from_access
             18:
                 name: "port1.0.18"
-                native_vlan: redcables
+                description: "aruba-2930-2 control"
+                native_vlan: control
                 acl_in: protect_from_access
             19:
                 name: "port1.0.19"
@@ -286,5 +288,48 @@ dps:
                 acl_in: protect_from_access_without_bcp38
             10:
                 name: "port1.0.10"
+                tagged_vlans: [redcables]
+                acl_in: protect_from_core
+    aruba-2930-2:
+        dp_id: 0x1f4034307e590
+        description: "aruba-2930-2"
+        hardware: "Aruba"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "port1.0.1"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            2:
+                name: "port1.0.2"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            3:
+                name: "port1.0.3"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            4:
+                name: "port1.0.4"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            5:
+                name: "port1.0.5"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            6:
+                name: "port1.0.6"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            7:
+                name: "port1.0.7"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            8:
+                name: "port1.0.8"
+                native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
+            9:
+                name: "port1.0.9"
                 tagged_vlans: [redcables]
                 acl_in: protect_from_core
