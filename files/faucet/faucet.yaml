@@ -48,7 +48,7 @@ dps:
             2:
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
-                native_vlan: redcables-l3
+                tagged_vlans: [redcables-l3]
                 permanent_learn: True
                 acl_in: protect_from_core
             3:
