@@ -156,9 +156,9 @@ dps:
                 name: "Gi1/0/24"
                 description: "cisco-3850 trunk"
                 tagged_vlans: [redcables,redcables6,control]
-    aruba-2930:
+    aruba-2930-1:
         dp_id: 0x19cdc7192a6c0
-        description: "aruba-2930"
+        description: "aruba-2930-1"
         hardware: "Aruba"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
