@@ -1,0 +1,40 @@
+---
+version: 2
+
+dps:
+    at-tq4600-1:
+        dp_id: 0xe01aea0fb4a0
+        description: "at-tq4600-1"
+        hardware: "Allied-Telesis"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "port1.0.1"
+                tagged_vlans: [redcables,control]
+            2:
+                name: "port1.0.2"
+                native_vlan: redcables
+                hairpin: True
+            3:
+                name: "port1.0.3"
+                native_vlan: redcables
+                hairpin: True
+    at-tq4600-2:
+        dp_id: 0xeccd6df2df80
+        description: "at-tq4600-2"
+        hardware: "Allied-Telesis"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "port1.0.1"
+                tagged_vlans: [redcables,redcables6,control]
+            2:
+                name: "port1.0.2"
+                native_vlan: redcables
+                hairpin: True
+            3:
+                name: "port1.0.3"
+                native_vlan: redcables
+                hairpin: True

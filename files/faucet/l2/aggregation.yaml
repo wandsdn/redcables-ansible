@@ -1,0 +1,307 @@
+---
+version: 2
+
+dps:
+    at-x930-1:
+        dp_id: 0xeccd6df7d4aa
+        description: "at-x930-1"
+        hardware: "Allied-Telesis"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        group_table: True
+        interfaces:
+            1:
+                name: "port1.0.1"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            2:
+                name: "port1.0.2"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            3:
+                name: "port1.0.3"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            4:
+                name: "port1.0.4"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            5:
+                name: "port1.0.5"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            6:
+                name: "port1.0.6"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            7:
+                name: "port1.0.7"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            8:
+                name: "port1.0.8"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            9:
+                name: "port1.0.9"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            10:
+                name: "port1.0.10"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            11:
+                name: "port1.0.11"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            12:
+                name: "port1.0.12"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            13:
+                name: "port1.0.13"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            14:
+                name: "port1.0.14"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            15:
+                name: "port1.0.15"
+                description: "endace dag"
+            16:
+                name: "port1.0.16"
+                description: "ITS control link VLAN776"
+                native_vlan: control
+                acl_in: protect_from_access
+            17:
+                name: "port1.0.17"
+                description: "temporary trunk"
+                tagged_vlans: [redcables,redcables6,control]
+                acl_in: protect_from_access
+            18:
+                name: "port1.0.18"
+                description: "at-x230-4 trunk"
+                tagged_vlans: [redcables,redcables6,control]
+                acl_in: protect_from_access
+            19:
+                name: "port1.0.19"
+                description: "campbell iot gateway"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            20:
+                name: "port1.0.20"
+                description: "ITS redcables link VLAN779"
+                native_vlan: redcables
+                acl_in: protect_from_access
+            21:
+                name: "port1.0.21"
+                description: "at-x510-3 trunk"
+                tagged_vlans: [redcables,redcables6]
+                acl_in: protect_from_access
+            22:
+                name: "port1.0.22"
+                description: "at-x510-4 trunk"
+                tagged_vlans: [redcables,redcables6]
+                acl_in: protect_from_access
+            23:
+                name: "port1.0.23"
+                description: "redcables-core-sw trunk"
+                tagged_vlans: [redcables,redcables6]
+                acl_in: protect_from_access
+            24:
+                name: "port1.0.24"
+                description: "at-x930-1 trunk"
+                tagged_vlans: [redcables,redcables6,control]
+    cisco-3850:
+        dp_id: 0x285261a18100
+        description: "cisco-3850"
+        hardware: "GenericTFM"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "Gi1/0/1"
+                native_vlan: redcables
+            2:
+                name: "Gi1/0/2"
+                native_vlan: redcables
+            3:
+                name: "Gi1/0/3"
+                native_vlan: redcables
+            4:
+                name: "Gi1/0/4"
+                native_vlan: redcables
+            5:
+                name: "Gi1/0/5"
+                native_vlan: redcables
+            6:
+                name: "Gi1/0/6"
+                native_vlan: redcables
+            7:
+                name: "Gi1/0/7"
+                native_vlan: redcables
+            8:
+                name: "Gi1/0/8"
+                native_vlan: redcables
+            21:
+                name: "Gi1/0/21"
+                description: "at-x510-1 trunk"
+                tagged_vlans: [redcables,redcables6]
+            22:
+                name: "Gi1/0/22"
+                description: "at-x510-2 trunk"
+                tagged_vlans: [redcables,redcables6]
+            24:
+                name: "Gi1/0/24"
+                description: "cisco-3850 trunk"
+                tagged_vlans: [redcables,redcables6,control]
+    aruba-2930-1:
+        dp_id: 0x19cdc7192a6c0
+        description: "aruba-2930-1"
+        hardware: "Aruba"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "1"
+                native_vlan: redcables
+            2:
+                name: "2"
+                native_vlan: redcables
+            3:
+                name: "3"
+                native_vlan: redcables
+            4:
+                name: "4"
+                native_vlan: redcables
+            5:
+                name: "5"
+                native_vlan: redcables
+            6:
+                name: "6"
+                native_vlan: redcables
+            7:
+                name: "7"
+                native_vlan: redcables
+            8:
+                name: "8"
+                native_vlan: redcables
+            9:
+                name: "9"
+                native_vlan: redcables
+            10:
+                name: "10"
+                native_vlan: redcables
+            11:
+                name: "11"
+                native_vlan: redcables
+            12:
+                name: "12"
+                native_vlan: redcables
+            13:
+                name: "13"
+                native_vlan: redcables
+            14:
+                name: "14"
+                native_vlan: redcables
+            15:
+                name: "15"
+                native_vlan: redcables
+            16:
+                name: "16"
+                native_vlan: redcables
+            17:
+                name: "17"
+                native_vlan: redcables
+            18:
+                name: "18"
+                native_vlan: redcables
+            19:
+                name: "19"
+                native_vlan: redcables
+            20:
+                name: "20"
+                native_vlan: redcables
+            21:
+                name: "21"
+                native_vlan: redcables
+            22:
+                name: "22"
+                native_vlan: redcables
+            23:
+                name: "23"
+                native_vlan: redcables
+            24:
+                name: "24"
+                native_vlan: redcables
+            25:
+                name: "25"
+                native_vlan: redcables
+            26:
+                name: "26"
+                native_vlan: redcables
+            27:
+                name: "27"
+                native_vlan: redcables
+            28:
+                name: "28"
+                native_vlan: redcables
+            29:
+                name: "29"
+                native_vlan: redcables
+            30:
+                name: "30"
+                native_vlan: redcables
+            31:
+                name: "31"
+                native_vlan: redcables
+            32:
+                name: "32"
+                native_vlan: redcables
+            33:
+                name: "33"
+                native_vlan: redcables
+            34:
+                name: "34"
+                native_vlan: redcables
+            35:
+                name: "35"
+                native_vlan: redcables
+            36:
+                name: "36"
+                native_vlan: redcables
+            37:
+                name: "37"
+                native_vlan: redcables
+            38:
+                name: "38"
+                native_vlan: redcables
+            39:
+                name: "39"
+                native_vlan: redcables
+            40:
+                name: "40"
+                native_vlan: redcables
+            41:
+                name: "41"
+                native_vlan: redcables
+            42:
+                name: "42"
+                native_vlan: redcables
+            43:
+                name: "43"
+                native_vlan: redcables
+            44:
+                name: "44"
+                native_vlan: redcables
+            45:
+                name: "45"
+                native_vlan: redcables
+            46:
+                name: "46"
+                native_vlan: redcables
+            47:
+                name: "47"
+                description: "aruba-2930 trunk"
+                tagged_vlans: [redcables,redcables6,control]
