@@ -99,10 +99,10 @@
     - reload faucet
     - reload faucet-l2
 
-- name: Add govhack configuration
+- name: Add l2 configuration
   copy:
-    src: faucet/govhack.yaml
-    dest: /etc/ryu/faucet/
+    src: faucet/l2/
+    dest: /etc/ryu/faucet/l2/
   notify:
     - reload faucet-l2
 
