@@ -5,6 +5,11 @@
     name: isc-dhcp-server
     state: present
 
+- name: Install dhcpd-pools
+  apt:
+    name: dhcpd-pools
+    state: present
+
 - name: Configure isc-dhcp-server
   copy:
     src: "dhcp/{{ inventory_hostname }}/dhcpd.conf"
