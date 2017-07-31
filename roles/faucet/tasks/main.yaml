@@ -65,6 +65,11 @@
     recurse: yes
     state: directory
 
+- name: Add faucet logrotate config
+  copy:
+    src: logrotate
+    dest: /etc/logrotate.d/faucet
+
 - name: Add faucet systemd unit
   copy:
     src: faucet.service

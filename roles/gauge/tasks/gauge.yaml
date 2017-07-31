@@ -58,6 +58,11 @@
     recurse: yes
     state: directory
 
+- name: Add gauge logrotate config
+  copy:
+    src: logrotate
+    dest: /etc/logrotate.d/gauge
+
 - name: Add gauge systemd unit
   copy:
     src: gauge.service

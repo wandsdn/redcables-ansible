@@ -25,9 +25,8 @@ watchers:
           - pica-3780
         interval: 10
         db: 'influx'
-    flow_table_poller:
-        type: 'flow_table'
-        interval: 86400
+    port_state_poller:
+        type: 'port_state'
         dps:
           - ovs-redcables
           - at-tq4600-1
@@ -45,7 +44,29 @@ watchers:
           - aruba-2930-1
           - aruba-2930-2
           - pica-3780
-        db: 'ft_file'
+        interval: 10
+        db: 'influx'
+    flow_table_poller:
+        type: 'flow_table'
+        interval: 60
+        dps:
+          - ovs-redcables
+          - at-tq4600-1
+          - at-x930-1
+          - at-x930-2
+          - at-x510-1
+          - at-x510-2
+          - at-x510-3
+          - at-x510-4
+          - at-x230-1
+          - at-x230-2
+          - at-x230-3
+          - at-x230-4
+          - cisco-3850
+          - aruba-2930-1
+          - aruba-2930-2
+          - pica-3780
+        db: 'influx'
 dbs:
     influx:
         type: 'influx'
@@ -55,6 +76,3 @@ dbs:
         influx_user: '{{influx_username}}'
         influx_pwd: '{{influx_password}}'
         influx_timeout: 10
-    ft_file:
-        type: 'text'
-        file: '/var/log/ryu/faucet/flow_table.json'
