@@ -34,3 +34,11 @@ iface ens5.250 inet6 static
   down ip -6 address del 2404:138:4011:3e8::fffe/64 dev ens5.250 || true
   up ip -6 route add default via 2404:138:4011:3e8::ffff
   down ip -6 route del default via 2404:138:4011:3e8::ffff || true
+
+auto ens5.252
+iface ens5.252 inet static
+  address 163.7.136.253
+  netmask 255.255.255.128
+iface ens5.252 inet6 static
+  address 2404:138:4011:3d0::fffe
+  netmask 64

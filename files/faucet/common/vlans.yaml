@@ -13,6 +13,11 @@ vlans:
         vid: 251
         max_hosts: 255
         acl_in: ipv6_only
+    events:
+        name: "events"
+        description: "events ipv4/ipv6 vlan"
+        vid: 252
+        max_hosts: 255
     control:
         name: "control"
         description: "openflow control vlan"

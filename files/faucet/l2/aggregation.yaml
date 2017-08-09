@@ -82,7 +82,7 @@ dps:
             18:
                 name: "port1.0.18"
                 description: "at-x230-4 trunk"
-                tagged_vlans: [redcables,redcables6,control]
+                tagged_vlans: [redcables,redcables6,events,control]
                 acl_in: protect_from_access
             19:
                 name: "port1.0.19"
@@ -112,7 +112,7 @@ dps:
             24:
                 name: "port1.0.24"
                 description: "at-x930-1 trunk"
-                tagged_vlans: [redcables,redcables6,control]
+                tagged_vlans: [redcables,redcables6,events,control]
     cisco-3850:
         dp_id: 0x285261a18100
         description: "cisco-3850"

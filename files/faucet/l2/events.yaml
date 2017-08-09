@@ -12,74 +12,74 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             3:
                 name: "port1.0.3"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             4:
                 name: "port1.0.4"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             5:
                 name: "port1.0.5"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             6:
                 name: "port1.0.6"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             7:
                 name: "port1.0.7"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             8:
                 name: "port1.0.8"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             9:
                 name: "port1.0.9"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             10:
                 name: "port1.0.10"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             11:
                 name: "port1.0.11"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             12:
                 name: "port1.0.12"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             13:
                 name: "port1.0.13"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             14:
                 name: "port1.0.14"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access
             15:
                 name: "port1.0.15"
-                description: "at-tq4600-1 redcables"
-                tagged_vlans: [control, redcables]
+                description: "at-tq4600-1 events"
+                tagged_vlans: [control, events]
                 acl_in: protect_from_access
             16:
                 name: "port1.0.16"
-                description: "at-tq4600-2 redcables"
-                tagged_vlans: [control, redcables]
+                description: "at-tq4600-2 events"
+                tagged_vlans: [control, events]
                 acl_in: protect_from_access
             17:
                 name: "port1.0.17"
-                description: "aruba-2930-2 redcables"
-                tagged_vlans: [redcables]
+                description: "aruba-2930-2 events"
+                tagged_vlans: [events]
                 acl_in: protect_from_access
             18:
                 name: "port1.0.18"
@@ -89,27 +89,27 @@ dps:
             19:
                 name: "port1.0.19"
                 description: "at-x230-1 trunk"
-                tagged_vlans: [control, redcables]
+                tagged_vlans: [control, events]
                 acl_in: protect_from_access
             20:
                 name: "port1.0.20"
                 description: "at-x230-2 trunk"
-                tagged_vlans: [control, redcables]
+                tagged_vlans: [control, events]
                 acl_in: protect_from_access
             21:
                 name: "port1.0.21"
                 description: "at-x230-3 trunk"
-                tagged_vlans: [control, redcables]
+                tagged_vlans: [control, events]
                 acl_in: protect_from_access
             22:
                 name: "port1.0.22"
                 description: "at-x230-4 trunk"
-                tagged_vlans: [control, redcables]
+                tagged_vlans: [control, events]
                 acl_in: protect_from_access
             23:
                 name: "port1.0.23"
-                description: "ITS redcables link VLAN779"
-                native_vlan: redcables
+                description: "ITS events link VLAN779"
+                native_vlan: events
                 acl_in: protect_from_core
             24:
                 name: "port1.0.24"
@@ -126,39 +126,39 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             3:
                 name: "port1.0.3"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             4:
                 name: "port1.0.4"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             5:
                 name: "port1.0.5"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             6:
                 name: "port1.0.6"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             7:
                 name: "port1.0.7"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             8:
                 name: "port1.0.8"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             10:
                 name: "port1.0.10"
-                tagged_vlans: [redcables]
+                tagged_vlans: [events]
                 acl_in: protect_from_core
     at-x230-2:
         dp_id: 0x1aeb95bb31
@@ -170,39 +170,39 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             3:
                 name: "port1.0.3"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             4:
                 name: "port1.0.4"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             5:
                 name: "port1.0.5"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             6:
                 name: "port1.0.6"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             7:
                 name: "port1.0.7"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             8:
                 name: "port1.0.8"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             10:
                 name: "port1.0.10"
-                tagged_vlans: [redcables]
+                tagged_vlans: [events]
                 acl_in: protect_from_core
     at-x230-3:
         dp_id: 0x1aeb95baa3
@@ -214,39 +214,39 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             3:
                 name: "port1.0.3"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             4:
                 name: "port1.0.4"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             5:
                 name: "port1.0.5"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             6:
                 name: "port1.0.6"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             7:
                 name: "port1.0.7"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             8:
                 name: "port1.0.8"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             10:
                 name: "port1.0.10"
-                tagged_vlans: [redcables]
+                tagged_vlans: [events]
                 acl_in: protect_from_core
     at-x230-4:
         dp_id: 0x1aeb95bafd
@@ -258,39 +258,39 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             3:
                 name: "port1.0.3"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             4:
                 name: "port1.0.4"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             5:
                 name: "port1.0.5"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             6:
                 name: "port1.0.6"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             7:
                 name: "port1.0.7"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             8:
                 name: "port1.0.8"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             10:
                 name: "port1.0.10"
-                tagged_vlans: [redcables]
+                tagged_vlans: [events]
                 acl_in: protect_from_core
     aruba-2930-2:
         dp_id: 0x1f4034307e590
@@ -301,37 +301,37 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             3:
                 name: "port1.0.3"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             4:
                 name: "port1.0.4"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             5:
                 name: "port1.0.5"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             6:
                 name: "port1.0.6"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             7:
                 name: "port1.0.7"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             8:
                 name: "port1.0.8"
-                native_vlan: redcables
+                native_vlan: events
                 acl_in: protect_from_access_without_bcp38
             9:
                 name: "port1.0.9"
-                tagged_vlans: [redcables]
+                tagged_vlans: [events]
                 acl_in: protect_from_core

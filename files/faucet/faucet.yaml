@@ -5,12 +5,17 @@ include:
     - common/acls.yaml
     - common/vlans.yaml
 
+routers:
+    router-redcables-events:
+        vlans: [redcables-l3, events-l3]
+
 vlans:
     redcables-l3:
         name: "redcables-l3"
         description: "redcables ipv4/ipv6 vlan"
         vid: 250
         max_hosts: 255
+        faucet_mac: "0e:00:00:00:00:01"
         faucet_vips: [
             'fe80::c00:ff:fe00:1/64',                         # ipv6 link-local
             '163.7.137.254/24', '2404:138:4011:3e8::ffff/64', # gateway addresses
@@ -31,6 +36,16 @@ vlans:
             - route:
                 ip_dst: '163.7.136.0/25'
                 ip_gw: '163.7.137.252'
+    events-l3:
+        name: "events-l3"
+        description: "events ipv4/ipv6 vlan"
+        vid: 252
+        max_hosts: 255
+        faucet_mac: "0e:00:00:00:02:52"
+        faucet_vips: [
+            'fe80::c00:00ff:fe00:0252/64',                    # ipv6 link-local
+            '163.7.136.254/25', '2404:138:4011:3d0::ffff/64', # gateway addresses
+            ]
 
 dps:
     ovs-redcables:
@@ -48,7 +63,7 @@ dps:
             2:
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
-                tagged_vlans: [redcables-l3]
+                tagged_vlans: [redcables-l3,events-l3]
                 permanent_learn: True
                 acl_in: protect_from_core
             3:
@@ -60,7 +75,7 @@ dps:
             4:
                 name: 'dpdk-at-x930-1'
                 description: "at-x930-1 redcables trunk"
-                tagged_vlans: [redcables-l3,redcables6,control]
+                tagged_vlans: [redcables-l3,redcables6,events-l3,control]
                 acl_in: protect_from_access
             5:
                 name: 'dpdk-cisco-3850'
