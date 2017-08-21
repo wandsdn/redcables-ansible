@@ -49,7 +49,7 @@
 
 - name: Install faucet-zof
   pip:
-    name: git+https://github.com/byllyfish/faucet@port5
+    name: git+https://github.com/byllyfish/faucet@port5#egg=faucet
     editable: false
     executable: pip3
     state: latest
@@ -131,9 +131,3 @@
     dest: /etc/ryu/faucet/
   notify:
     - restart faucet-l2
-
-- name: Check faucet config
-  shell: check_faucet_config /etc/ryu/faucet/faucet.yaml
-
-- name: Check faucet-l2 config
-  shell: check_faucet_config /etc/ryu/faucet/faucet-l2.yaml
