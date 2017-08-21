@@ -24,6 +24,7 @@ scrape_configs:
     static_configs:
       - targets: ['allbirds.int.redcables.wand.nz:9100']
       - targets: ['faucet.int.redcables.wand.nz:9100']
+      - targets: ['faucet-zof.int.redcables.wand.nz:9100']
       - targets: ['nat64.int.redcables.wand.nz:9100']
       - targets: ['monitoring.int.redcables.wand.nz:9100']
       - targets: ['amp.int.redcables.wand.nz:9100']
@@ -37,6 +38,7 @@ scrape_configs:
     static_configs:
       - targets: ['faucet.int.redcables.wand.nz:9244']
       - targets: ['faucet.int.redcables.wand.nz:9243']
+      - targets: ['faucet-zof.int.redcables.wand.nz:9243']
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance
