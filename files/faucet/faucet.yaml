@@ -98,7 +98,7 @@ dps:
             7:
                 name: 'reannz'
                 description: "reannz peering"
-                native_vlan: reannz-l3
+                tagged_vlans: [reannz-l3]
                 permanent_learn: True
                 acl_in: protect_from_edge
             8:
