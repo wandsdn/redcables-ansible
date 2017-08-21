@@ -135,8 +135,8 @@ dps:
                 permanent_learn: True
                 acl_in: protect_from_control
             23:
-                name: "unifi"
-                description: "unifi controller vm"
+                name: "vhost-faucet-zof-cpn"
+                description: "faucet zof control plane network"
                 native_vlan: control
                 permanent_learn: True
                 acl_in: protect_from_control

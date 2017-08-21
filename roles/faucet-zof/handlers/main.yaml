@@ -1,0 +1,20 @@
+---
+- name: reload faucet
+  service:
+    name: faucet
+    state: reloaded
+
+- name: reload faucet-l2
+  service:
+    name: faucet-l2
+    state: reloaded
+
+- name: restart faucet
+  service:
+    name: faucet
+    state: restarted
+
+- name: restart faucet-l2
+  service:
+    name: faucet-l2
+    state: restarted

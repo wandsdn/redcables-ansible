@@ -1,0 +1,15 @@
+[Unit]
+Description="Faucet ZOF OpenFlow switch controller"
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/faucet-l2
+User=faucet
+Group=faucet
+ExecStart=/usr/bin/python3 /usr/local/lib/python3.5/dist-packages/faucet/zof_faucet.py --ofp-tcp-listen-port=${FAUCET_LISTEN_PORT}
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

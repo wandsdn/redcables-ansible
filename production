@@ -3,6 +3,7 @@ allbirds.wand.net.nz
 
 [vms]
 faucet.redcables.wand.nz ansible_host=faucet.int.redcables.wand.nz
+faucet-zof.redcables.wand.nz ansible_host=faucet-zof.redcables.wand.nz
 nat64.redcables.wand.nz ansible_host=nat64.int.redcables.wand.nz
 monitoring.redcables.wand.nz ansible_host=monitoring.int.redcables.wand.nz
 amp.redcables.wand.nz ansible_host=amp.int.redcables.wand.nz

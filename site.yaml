@@ -14,6 +14,11 @@
     - role: freeradius
     - role: unbound
     - role: faucet
+- hosts: faucet-zof.redcables.wand.nz
+  roles:
+    - role: bearwall
+    - role: common
+    - role: faucet-zof
 - hosts: nat64.redcables.wand.nz
   roles:
     - role: bearwall
