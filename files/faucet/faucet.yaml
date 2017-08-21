@@ -24,10 +24,6 @@ vlans:
         bgp_routerid: '127.0.0.2'
         bgp_neighbor_addresses: ['127.0.0.1', '::1']
         bgp_neighbor_as: 134227
-        routes:
-            - route:
-                ip_dst: '2404:138:4011::/64'
-                ip_gw: '2404:138:39:120::3'
     redcables-l3:
         name: "redcables-l3"
         description: "redcables ipv4/ipv6 vlan"
@@ -39,6 +35,9 @@ vlans:
             '163.7.137.254/24', '2404:138:4011:3e8::ffff/64', # gateway addresses
             ]
         routes:
+            - route:
+                ip_dst: '2404:138:4011::/64'
+                ip_gw: '2404:138:4011:3e8::fffd'
             - route:
                 ip_dst: '2404:138:4011:10::/64'
                 ip_gw: '2404:138:4011:3e8::10'

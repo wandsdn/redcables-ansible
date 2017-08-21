@@ -22,8 +22,8 @@ iface ens4 inet static
   dns-search redcables.wand.nz
   dns-nameserver 163.7.137.253
 iface ens4 inet6 static
-  address 2404:138:39:120::3
-  netmask 112
+  address 2404:138:4011:3e8::fffd
+  netmask 64
 
 auto ens5
 iface ens5 inet6 static

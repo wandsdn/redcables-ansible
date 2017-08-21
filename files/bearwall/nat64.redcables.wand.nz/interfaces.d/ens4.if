@@ -1,7 +1,7 @@
 on_startup
 
 policy in ACCEPT --protocol tcp --destination-port ssh
-policy in ACCEPT -s 2404:138:39:120::/112 --protocol tcp --destination-port bgp
+policy in ACCEPT -s 2404:138:4011:3e8::fffe --protocol tcp --destination-port bgp
 policy in tcp-strict
 policy in udp-strict
 policy in icmp-trust
