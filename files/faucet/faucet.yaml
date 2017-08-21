@@ -6,19 +6,17 @@ include:
     - common/vlans.yaml
 
 routers:
-    router-redcables-events:
-        vlans: [redcables-l3, events-l3]
+    router-reannz:
+        vlans: [reannz-l3, redcables-l3, events-l3]
 
 vlans:
-    redcables-l3:
-        name: "redcables-l3"
-        description: "redcables ipv4/ipv6 vlan"
-        vid: 250
-        max_hosts: 255
-        faucet_mac: "0e:00:00:00:00:01"
+    reannz-l3:
+        name: "reannz-l3"
+        description: "reannz peering vlan"
+        vid: 2406
+        max_hosts: 10
+        faucet_mac: "0e:00:00:00:24:06"
         faucet_vips: [
-            'fe80::c00:ff:fe00:1/64',                         # ipv6 link-local
-            '163.7.137.254/24', '2404:138:4011:3e8::ffff/64', # gateway addresses
             '210.7.38.91/29', '2404:138:39:120::f/112'        # peering link-net
             ]
         bgp_port: 9179
@@ -30,6 +28,17 @@ vlans:
             - route:
                 ip_dst: '2404:138:4011::/64'
                 ip_gw: '2404:138:39:120::3'
+    redcables-l3:
+        name: "redcables-l3"
+        description: "redcables ipv4/ipv6 vlan"
+        vid: 250
+        max_hosts: 255
+        faucet_mac: "0e:00:00:00:00:01"
+        faucet_vips: [
+            'fe80::c00:ff:fe00:1/64',                         # ipv6 link-local
+            '163.7.137.254/24', '2404:138:4011:3e8::ffff/64', # gateway addresses
+            ]
+        routes:
             - route:
                 ip_dst: '2404:138:4011:10::/64'
                 ip_gw: '2404:138:4011:3e8::10'
@@ -63,7 +72,7 @@ dps:
             2:
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
-                tagged_vlans: [redcables-l3,events-l3]
+                tagged_vlans: [reannz-l3,redcables-l3,events-l3]
                 permanent_learn: True
                 acl_in: protect_from_core
             3:
@@ -90,7 +99,7 @@ dps:
             7:
                 name: 'reannz'
                 description: "reannz peering"
-                native_vlan: redcables-l3
+                native_vlan: reannz-l3
                 permanent_learn: True
                 acl_in: protect_from_edge
             8:

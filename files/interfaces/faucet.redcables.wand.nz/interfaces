@@ -24,16 +24,11 @@ iface ens5.250 inet static
   address 163.7.137.253
   netmask 255.255.255.0
   gateway 163.7.137.254
-  up ip address add 210.7.38.90/29 dev ens5.250
-  down ip address del 210.7.38.90/29 dev ens5.250 || true
   dns-search redcables.wand.nz
 iface ens5.250 inet6 static
-  address 2404:138:39:120::2
-  netmask 112
-  up ip -6 address add 2404:138:4011:3e8::fffe/64 dev ens5.250
-  down ip -6 address del 2404:138:4011:3e8::fffe/64 dev ens5.250 || true
-  up ip -6 route add default via 2404:138:4011:3e8::ffff
-  down ip -6 route del default via 2404:138:4011:3e8::ffff || true
+  address 2404:138:4011:3e8::fffe
+  netmask 64
+  gateway 2404:138:4011:3e8::ffff
 
 auto ens5.252
 iface ens5.252 inet static
@@ -42,3 +37,11 @@ iface ens5.252 inet static
 iface ens5.252 inet6 static
   address 2404:138:4011:3d0::fffe
   netmask 64
+
+auto ens5.2406
+iface ens5.2406 inet static
+  address 210.7.38.90
+  netmask 255.255.255.248
+iface ens5.2406 inet6 static
+  address 2404:138:39:120::2
+  netmask 112
