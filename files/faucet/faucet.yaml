@@ -14,7 +14,7 @@ vlans:
         name: "reannz-l3"
         description: "reannz peering vlan"
         vid: 2406
-        max_hosts: 10
+        max_hosts: 2
         faucet_mac: "0e:00:00:00:24:06"
         faucet_vips: [
             '210.7.38.91/29', '2404:138:39:120::f/112'        # peering link-net
