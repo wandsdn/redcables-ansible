@@ -151,49 +151,13 @@ acls:
         - rule:
             dl_type: 0x800   # ipv4
             nw_proto: 6      # tcp
-            tcp_dst: 16992   # intel-amt-http
+            tcp_dst: 16992/0x7FFC   # intel-amt-http, intel-amt-https, intel-amt-redirection
             actions:
                 allow: 0     # drop
         - rule:
             dl_type: 0x86dd  # ipv6
             nw_proto: 6      # tcp
-            tcp_dst: 16992   # intel-amt-http
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16993   # intel-amt-https
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16993   # intel-amt-https
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16994   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16994   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16995   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16995   # intel-amt-redirection
+            tcp_dst: 16992/0x7FFC   # intel-amt-http, intel-amt-https, intel-amt-redirection
             actions:
                 allow: 0     # drop
         - rule:
