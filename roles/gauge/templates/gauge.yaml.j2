@@ -24,7 +24,7 @@ watchers:
           - aruba-2930-2
           - pica-3780
         interval: 10
-        db: 'influx'
+        db: 'prometheus'
     port_state_poller:
         type: 'port_state'
         dps:
@@ -76,3 +76,7 @@ dbs:
         influx_user: '{{influx_username}}'
         influx_pwd: '{{influx_password}}'
         influx_timeout: 10
+    prometheus:
+        type: 'prometheus'
+        prometheus_port: 9303
+        prometheus_addr: '192.168.122.6'

@@ -36,15 +36,23 @@ scrape_configs:
         replacement: ${1}.redcables.wand.nz
   - job_name: 'faucet'
     static_configs:
-      - targets: ['faucet.int.redcables.wand.nz:9244']
-      - targets: ['faucet.int.redcables.wand.nz:9243']
-      - targets: ['faucet-zof.int.redcables.wand.nz:9243']
+      - targets: ['faucet.int.redcables.wand.nz:9302']
+      - targets: ['faucet.int.redcables.wand.nz:9301']
+      - targets: ['faucet-zof.int.redcables.wand.nz:9301']
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance
-        regex: (.*)\.int\.redcables\.wand\.nz:9244
+        regex: (.*)\.int\.redcables\.wand\.nz:9301
         replacement: ${1}
       - source_labels: [__address__]
         target_label: instance
-        regex: (.*)\.int\.redcables\.wand\.nz:9243
+        regex: (.*)\.int\.redcables\.wand\.nz:9302
         replacement: ${1}-l2
+  - job_name: 'gauge'
+    static_configs:
+      - targets: ['monitoring.int.redcables.wand.nz:9303']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: (.*)\.int\.redcables\.wand\.nz:9303
+        replacement: ${1}
