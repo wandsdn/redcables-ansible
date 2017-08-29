@@ -37,6 +37,7 @@
     - tcpdump
     - vim
     - screen
+    - mtr-tiny
     - prometheus-node-exporter
 
 - name: Enable prometheus-node-exporter systemd unit
