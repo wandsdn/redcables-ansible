@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.2"
+      "version": "4.4.3"
     },
     {
       "type": "panel",
@@ -32,14 +32,13 @@
   "annotations": {
     "list": []
   },
-  "description": "",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": false,
   "id": null,
   "links": [],
-  "refresh": "5s",
+  "refresh": "10s",
   "rows": [
     {
       "collapse": false,
@@ -47,23 +46,24 @@
       "panels": [
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 1,
           "legend": {
-            "alignAsTable": true,
-            "avg": true,
+            "alignAsTable": false,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
+            "rightSide": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
@@ -73,13 +73,13 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "instance_dpid:of_flowmsgs_sent:rate1m",
+              "expr": "sum(instance_port:of_port_rx_bits:rate1m) by (dp_id)",
               "format": "time_series",
               "groupBy": [
                 {
@@ -95,10 +95,10 @@
                   "type": "fill"
                 }
               ],
-              "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} dpid={{dpid}}",
-              "metric": "instance_dpid:of_flowmsgs_sent:rate1m",
+              "legendFormat": "{{dp_id}} in",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -118,12 +118,20 @@
               ],
               "step": 2,
               "tags": []
+            },
+            {
+              "expr": "sum(instance_port:of_port_tx_bits:rate1m) by (dp_id) * -1",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} out",
+              "refId": "B",
+              "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "of_flowmsgs_sent",
+          "title": "Bits in/out per second",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -139,7 +147,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "bps",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -155,39 +163,27 @@
               "show": true
             }
           ]
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
+        },
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 2,
           "legend": {
-            "alignAsTable": true,
-            "avg": true,
+            "alignAsTable": false,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "rightSide": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
@@ -197,13 +193,13 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "instance_dpid:of_packet_ins:rate1m",
+              "expr": "sum(instance_port:of_port_rx_packets:rate1m) by (dp_id)",
               "format": "time_series",
               "groupBy": [
                 {
@@ -220,8 +216,9 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} dpid={{dpid}}",
-              "metric": "instance_dpid:of_packet_ins:rate1m",
+              "legendFormat": "{{dp_id}} in",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -241,12 +238,20 @@
               ],
               "step": 2,
               "tags": []
+            },
+            {
+              "expr": "sum(instance_port:of_port_tx_packets:rate1m) by (dp_id) * -1",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} out",
+              "refId": "B",
+              "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "of_packet_ins",
+          "title": "Packets in/out per second",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -262,7 +267,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "pps",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -284,7 +289,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": false,
-      "title": "Dashboard Row",
+      "title": "Throughput",
       "titleSize": "h6"
     },
     {
@@ -293,23 +298,24 @@
       "panels": [
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 3,
           "legend": {
-            "alignAsTable": true,
-            "avg": true,
+            "alignAsTable": false,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
+            "rightSide": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
@@ -319,13 +325,13 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "of_errors",
+              "expr": "sum(instance_port:of_port_rx_dropped:rate1m) by (dp_id)",
               "format": "time_series",
               "groupBy": [
                 {
@@ -342,8 +348,129 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} dpid={{dpid}}",
-              "metric": "of_errors",
+              "legendFormat": "{{dp_id}} in",
+              "metric": "",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "step": 2,
+              "tags": []
+            },
+            {
+              "expr": "sum(instance_port:of_port_tx_dropped:rate1m) by (dp_id) * -1",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} out",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Dropped in/out per second",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "pps",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": true,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "fill": 1,
+          "id": 4,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": false,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "dsType": "influxdb",
+              "expr": "sum(instance_port:of_port_rx_errors:rate1m) by (dp_id)",
+              "format": "time_series",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}}",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -368,7 +495,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "of_errors",
+          "title": "Errors per second",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -384,7 +511,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "pps",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -406,7 +533,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": false,
-      "title": "Dashboard Row",
+      "title": "Errors/Discards",
       "titleSize": "h6"
     }
   ],
@@ -419,7 +546,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -447,7 +574,7 @@
       "30d"
     ]
   },
-  "timezone": "browser",
-  "title": "Redcables OpenFlow statistics",
-  "version": 13
+  "timezone": "",
+  "title": "Datapath Statistics",
+  "version": 3
 }

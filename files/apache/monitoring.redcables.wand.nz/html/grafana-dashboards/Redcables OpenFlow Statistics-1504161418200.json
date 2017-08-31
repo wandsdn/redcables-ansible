@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.2"
+      "version": "4.4.3"
     },
     {
       "type": "panel",
@@ -32,6 +32,7 @@
   "annotations": {
     "list": []
   },
+  "description": "",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
@@ -42,7 +43,7 @@
   "rows": [
     {
       "collapse": false,
-      "height": 411,
+      "height": "250px",
       "panels": [
         {
           "aliasColors": {},
@@ -51,7 +52,7 @@
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
-          "id": 2,
+          "id": 1,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -78,7 +79,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "bgp_neighbor_routes",
+              "expr": "instance_dpid:of_flowmsgs_sent:rate1m",
               "format": "time_series",
               "groupBy": [
                 {
@@ -94,9 +95,10 @@
                   "type": "fill"
                 }
               ],
+              "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} dpid={{dpid}} vlan={{vlan}} neighbor={{neighbor}} family={{ipv}}",
-              "metric": "bgp_neighbor_routes",
+              "legendFormat": "{{instance}} dpid={{dp_id}}",
+              "metric": "instance_dpid:of_flowmsgs_sent:rate1m",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -121,7 +123,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "BGP Routes",
+          "title": "of_flowmsgs_sent",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -164,7 +166,7 @@
     },
     {
       "collapse": false,
-      "height": 297,
+      "height": 250,
       "panels": [
         {
           "aliasColors": {},
@@ -173,7 +175,130 @@
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
-          "id": 1,
+          "id": 2,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "dsType": "influxdb",
+              "expr": "instance_dpid:of_packet_ins:rate1m",
+              "format": "time_series",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "intervalFactor": 2,
+              "legendFormat": "{{instance}} dpid={{dp_id}}",
+              "metric": "instance_dpid:of_packet_ins:rate1m",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "step": 2,
+              "tags": []
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "of_packet_ins",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "fill": 1,
+          "id": 3,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -200,7 +325,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "bgp_neighbor_uptime",
+              "expr": "of_errors",
               "format": "time_series",
               "groupBy": [
                 {
@@ -216,10 +341,9 @@
                   "type": "fill"
                 }
               ],
-              "hide": false,
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} dpid={{dpid}} vlan={{vlan}} neighbor={{neighbor}}",
-              "metric": "bgp_neighbor_uptime",
+              "legendFormat": "{{instance}} dpid={{dp_id}}",
+              "metric": "of_errors",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -244,7 +368,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "BGP Uptime",
+          "title": "of_errors",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -260,7 +384,7 @@
           },
           "yaxes": [
             {
-              "format": "dtdurations",
+              "format": "short",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -324,6 +448,6 @@
     ]
   },
   "timezone": "browser",
-  "title": "Redcables BGP",
-  "version": 18
+  "title": "Redcables OpenFlow Statistics",
+  "version": 15
 }

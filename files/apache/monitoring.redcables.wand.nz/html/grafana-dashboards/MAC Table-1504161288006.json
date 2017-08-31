@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.2"
+      "version": "4.4.3"
     },
     {
       "type": "datasource",
@@ -142,7 +142,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "learned_macs{dpid=\"[[dpid]]\", vlan=\"[[vlan]]\"} != 0",
+              "expr": "learned_macs{dp_id=\"[[dpid]]\", vlan=\"[[vlan]]\"} != 0",
               "format": "table",
               "groupBy": [
                 {
@@ -179,11 +179,11 @@
                   }
                 ]
               ],
-              "step": 30,
+              "step": 2,
               "tags": []
             }
           ],
-          "timeFrom": null,
+          "timeFrom": "1s",
           "title": "Learned MAC Addresses",
           "transform": "table",
           "type": "table"
@@ -247,7 +247,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -277,5 +277,5 @@
   },
   "timezone": "browser",
   "title": "MAC Table",
-  "version": 14
+  "version": 15
 }

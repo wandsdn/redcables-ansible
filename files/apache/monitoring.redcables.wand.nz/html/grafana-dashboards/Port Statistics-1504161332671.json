@@ -1,12 +1,12 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB",
-      "label": "InfluxDB",
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
       "description": "",
       "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
     }
   ],
   "__requires": [
@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.3.2"
+      "version": "4.4.3"
     },
     {
       "type": "panel",
@@ -24,40 +24,41 @@
     },
     {
       "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
+      "id": "prometheus",
+      "name": "Prometheus",
       "version": "1.0.0"
     }
   ],
   "annotations": {
     "list": []
   },
-  "description": "",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": false,
   "id": null,
   "links": [],
-  "refresh": "5s",
+  "refresh": "10s",
   "rows": [
     {
       "collapse": false,
-      "height": 250,
+      "height": "250px",
       "panels": [
         {
           "aliasColors": {},
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 1,
           "legend": {
+            "alignAsTable": false,
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": false
@@ -72,13 +73,14 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "alias": "$tag_dp_name $tag_port_name in",
               "dsType": "influxdb",
+              "expr": "instance_port:of_port_rx_bits:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"}",
+              "format": "time_series",
               "groupBy": [
                 {
                   "params": [
@@ -88,24 +90,15 @@
                 },
                 {
                   "params": [
-                    "dp_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "port_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
                     "null"
                   ],
                   "type": "fill"
                 }
               ],
-              "measurement": "bytes_in",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} in",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -120,108 +113,19 @@
                   {
                     "params": [],
                     "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "1s"
-                    ],
-                    "type": "derivative"
-                  },
-                  {
-                    "params": [
-                      "*8"
-                    ],
-                    "type": "math"
                   }
                 ]
               ],
-              "tags": [
-                {
-                  "key": "dp_name",
-                  "operator": "=~",
-                  "value": "/^$dp_name$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "port_name",
-                  "operator": "=~",
-                  "value": "/^$port_name$/"
-                }
-              ]
+              "step": 2,
+              "tags": []
             },
             {
-              "alias": "$tag_dp_name $tag_port_name out",
-              "dsType": "influxdb",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "dp_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "port_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": false,
-              "measurement": "bytes_out",
-              "policy": "default",
+              "expr": "instance_port:of_port_tx_bits:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"} * -1",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} out",
               "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "1s"
-                    ],
-                    "type": "derivative"
-                  },
-                  {
-                    "params": [
-                      "*-8"
-                    ],
-                    "type": "math"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "dp_name",
-                  "operator": "=~",
-                  "value": "/^$dp_name$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "port_name",
-                  "operator": "=~",
-                  "value": "/^$port_name$/"
-                }
-              ]
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -259,32 +163,22 @@
               "show": true
             }
           ]
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
+        },
         {
           "aliasColors": {},
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
-          "id": 5,
+          "id": 2,
           "legend": {
+            "alignAsTable": false,
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": false
@@ -299,13 +193,14 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "alias": "$tag_dp_name $tag_port_name in",
               "dsType": "influxdb",
+              "expr": "instance_port:of_port_rx_packets:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"}",
+              "format": "time_series",
               "groupBy": [
                 {
                   "params": [
@@ -315,25 +210,15 @@
                 },
                 {
                   "params": [
-                    "dp_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "port_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
                     "null"
                   ],
                   "type": "fill"
                 }
               ],
-              "hide": false,
-              "measurement": "packets_in",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} in",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -348,102 +233,19 @@
                   {
                     "params": [],
                     "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "1s"
-                    ],
-                    "type": "derivative"
                   }
                 ]
               ],
-              "tags": [
-                {
-                  "key": "dp_name",
-                  "operator": "=~",
-                  "value": "/^$dp_name$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "port_name",
-                  "operator": "=~",
-                  "value": "/^$port_name$/"
-                }
-              ]
+              "step": 2,
+              "tags": []
             },
             {
-              "alias": "$tag_dp_name $tag_port_name out",
-              "dsType": "influxdb",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "dp_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "port_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": false,
-              "measurement": "packets_out",
-              "policy": "default",
+              "expr": "instance_port:of_port_tx_packets:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"} * -1",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} out",
               "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "1s"
-                    ],
-                    "type": "derivative"
-                  },
-                  {
-                    "params": [
-                      "*-1"
-                    ],
-                    "type": "math"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "dp_name",
-                  "operator": "=~",
-                  "value": "/^$dp_name$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "port_name",
-                  "operator": "=~",
-                  "value": "/^$port_name$/"
-                }
-              ]
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -487,7 +289,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": false,
-      "title": "Dashboard Row",
+      "title": "Throughput",
       "titleSize": "h6"
     },
     {
@@ -496,22 +298,24 @@
       "panels": [
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 3,
           "legend": {
+            "alignAsTable": false,
             "avg": false,
             "current": false,
             "max": false,
             "min": false,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": false
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
@@ -521,13 +325,14 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "alias": "$tag_dp_name $tag_port_name in",
               "dsType": "influxdb",
+              "expr": "instance_port:of_port_rx_dropped:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"}",
+              "format": "time_series",
               "groupBy": [
                 {
                   "params": [
@@ -537,24 +342,15 @@
                 },
                 {
                   "params": [
-                    "dp_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "port_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
                     "null"
                   ],
                   "type": "fill"
                 }
               ],
-              "measurement": "dropped_in",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} in",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -569,32 +365,94 @@
                   {
                     "params": [],
                     "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "1s"
-                    ],
-                    "type": "derivative"
                   }
                 ]
               ],
-              "tags": [
-                {
-                  "key": "dp_name",
-                  "operator": "=~",
-                  "value": "/^$dp_name$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "port_name",
-                  "operator": "=~",
-                  "value": "/^$port_name$/"
-                }
-              ]
+              "step": 2,
+              "tags": []
             },
             {
-              "alias": "$tag_dp_name $tag_port_name out",
+              "expr": "instance_port:of_port_tx_dropped:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"} * -1",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} out",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Dropped in/out per second",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "pps",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": true,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "fill": 1,
+          "id": 4,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": false,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
               "dsType": "influxdb",
+              "expr": "instance_port:of_port_rx_errors:rate1m{dp_id=~\"[[dp_id]]\", port_name=~\"[[port_name]]\"}",
+              "format": "time_series",
               "groupBy": [
                 {
                   "params": [
@@ -604,26 +462,17 @@
                 },
                 {
                   "params": [
-                    "dp_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "port_name"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
                     "null"
                   ],
                   "type": "fill"
                 }
               ],
-              "measurement": "dropped_out",
+              "intervalFactor": 2,
+              "legendFormat": "{{dp_id}} {{port_name}} in",
+              "metric": "",
+              "orderByTime": "ASC",
               "policy": "default",
-              "refId": "B",
+              "refId": "A",
               "resultFormat": "time_series",
               "select": [
                 [
@@ -636,40 +485,17 @@
                   {
                     "params": [],
                     "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "1s"
-                    ],
-                    "type": "derivative"
-                  },
-                  {
-                    "params": [
-                      "*-1"
-                    ],
-                    "type": "math"
                   }
                 ]
               ],
-              "tags": [
-                {
-                  "key": "dp_name",
-                  "operator": "=~",
-                  "value": "/^$dp_name$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "port_name",
-                  "operator": "=~",
-                  "value": "/^$port_name$/"
-                }
-              ]
+              "step": 2,
+              "tags": []
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Dropped  packets in/out per second",
+          "title": "Errors per second",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -707,7 +533,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": false,
-      "title": "Dashboard Row",
+      "title": "Errors/Discards",
       "titleSize": "h6"
     }
   ],
@@ -721,37 +547,37 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_INFLUXDB}",
+        "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
-        "includeAll": false,
-        "label": null,
-        "multi": false,
-        "name": "dp_name",
+        "includeAll": true,
+        "label": "Datapath ID",
+        "multi": true,
+        "name": "dp_id",
         "options": [],
-        "query": "SHOW TAG VALUES WITH KEY = \"dp_name\"",
+        "query": "label_values(of_port_rx_bytes, dp_id)",
         "refresh": 1,
         "regex": "",
-        "sort": 0,
+        "sort": 2,
         "tagValuesQuery": "",
         "tags": [],
-        "tagsQuery": "",
+        "tagsQuery": "label_values(faucet_config_dp_name, name)",
         "type": "query",
         "useTags": false
       },
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_INFLUXDB}",
+        "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
         "includeAll": true,
-        "label": null,
+        "label": "Port",
         "multi": true,
         "name": "port_name",
         "options": [],
-        "query": "SHOW TAG VALUES WITH KEY = \"port_name\"  WHERE dp_name =~ /$dp_name/",
+        "query": "query_result(of_port_rx_bytes{dp_id =~ \"$dp_id\"})",
         "refresh": 1,
-        "regex": "",
-        "sort": 0,
+        "regex": "/port_name=\"(.*)\"/",
+        "sort": 3,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -761,7 +587,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -789,7 +615,7 @@
       "30d"
     ]
   },
-  "timezone": "browser",
-  "title": "Redcables individual port traffic (combined)",
-  "version": 9
+  "timezone": "",
+  "title": "Port Statistics",
+  "version": 5
 }
