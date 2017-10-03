@@ -89,19 +89,19 @@ dps:
                 acl_in: protect_from_access
             20:
                 name: "port1.0.20"
-                description: "ITS redcables link VLAN779"
-                native_vlan: redcables
+                description: "at-x510-3 trunk"
+                tagged_vlans: [redcables,redcables6]
                 acl_in: protect_from_access
             21:
                 name: "port1.0.21"
-                description: "at-x510-3 trunk"
+                description: "at-x510-4 trunk"
                 tagged_vlans: [redcables,redcables6]
                 acl_in: protect_from_access
             22:
                 name: "port1.0.22"
-                description: "at-x510-4 trunk"
-                tagged_vlans: [redcables,redcables6]
-                acl_in: protect_from_access
+                description: "redcables-core-sw lacp test"
+                lacp: True
+                native_vlan: lacp-test
             23:
                 name: "port1.0.23"
                 description: "redcables-core-sw trunk"

@@ -23,3 +23,8 @@ vlans:
         description: "openflow control vlan"
         vid: 99
         max_hosts: 255
+    lacp-test:
+        name: "lacp-test"
+        description: "lacp-test vlan"
+        vid: 98
+        max_hosts: 1
