@@ -71,6 +71,7 @@ dps:
                 description: "endace dag"
             16:
                 name: "port1.0.16"
+                description: "ITS VLAN821"
                 native_vlan: redcables
                 acl_in: protect_from_access
             17:
