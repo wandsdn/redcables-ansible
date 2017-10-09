@@ -29,6 +29,7 @@ scrape_configs:
       - targets: ['monitoring.int.redcables.wand.nz:9100']
       - targets: ['amp.int.redcables.wand.nz:9100']
       - targets: ['awdy.int.redcables.wand.nz:9100']
+      - targets: ['builder-1.int.redcables.wand.nz:9100']
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance

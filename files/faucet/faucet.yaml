@@ -125,6 +125,12 @@ dps:
                 native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
+            14:
+                name: 'builder-1'
+                description: "builder-1 vm"
+                native_vlan: redcables-l3
+                permanent_learn: True
+                acl_in: protect_from_access
             20:
                 name: "vhost-faucet-cpn"
                 description: "faucet vm control plane network"

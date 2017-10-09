@@ -49,6 +49,11 @@
     - role: common
     - role: apache
     - role: awdy
+- hosts: builder-1.redcables.wand.nz
+  roles:
+    - role: bearwall
+    - role: common
+    - role: apache
 - hosts: unifi
   roles:
     - role: common

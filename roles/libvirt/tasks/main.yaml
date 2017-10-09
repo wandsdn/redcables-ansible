@@ -90,3 +90,11 @@
     xml: "{{ lookup('template', 'amp.xml.j2') }}"
     uri: 'qemu:///system'
   when: libvirt_install_result.changed
+
+- name: Define builder-1 VM
+  virt:
+    name: builder-1
+    command: define
+    xml: "{{ lookup('template', 'builder-1.xml.j2') }}"
+    uri: 'qemu:///system'
+  when: libvirt_install_result.changed
