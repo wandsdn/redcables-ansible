@@ -56,7 +56,8 @@ dps:
                 acl_in: protect_from_access
             12:
                 name: "port1.0.12"
-                native_vlan: redcables
+                description: "at-tq4600-2"
+                tagged_vlans: [control, redcables, redcables6]
                 acl_in: protect_from_access
             13:
                 name: "port1.0.13"
