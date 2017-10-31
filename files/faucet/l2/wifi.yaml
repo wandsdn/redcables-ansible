@@ -10,15 +10,23 @@ dps:
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
-                name: "port1.0.1"
-                tagged_vlans: [redcables,control]
+                name: "eth0"
+                tagged_vlans: [redcables,redcables6,control]
             2:
-                name: "port1.0.2"
+                name: "wlan0"
                 native_vlan: redcables
                 hairpin: True
             3:
-                name: "port1.0.3"
+                name: "wlan1"
                 native_vlan: redcables
+                hairpin: True
+            4:
+                name: "wlan0:vap0"
+                native_vlan: redcables6
+                hairpin: True
+            5:
+                name: "wlan1:vap1"
+                native_vlan: redcables6
                 hairpin: True
     at-tq4600-2:
         dp_id: 0xeccd6df2df80
