@@ -58,7 +58,7 @@ title = Internet Protocol Version 4
 probe = FPingGentle
 menu = faucet-vip-v4
 title = Faucet IPv4 Default Gateway
-host = faucet-vip-v4.redcables.wand.nz
+host = faucet-vip.redcables.wand.nz
 
 +++ faucet-vm
 
@@ -101,7 +101,7 @@ title = Internet Protocol Version 6
 probe = FPing6Gentle
 menu = faucet-vip-v6
 title = Faucet IPv6 Default Gateway
-host = faucet-vip-v6.redcables.wand.nz
+host = faucet-vip.redcables.wand.nz
 
 +++ faucet-vm
 
