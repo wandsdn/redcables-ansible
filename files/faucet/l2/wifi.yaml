@@ -54,3 +54,29 @@ dps:
                 name: "wlan1:vap1"
                 native_vlan: redcables6
                 hairpin: True
+    at-tq4600-3:
+        dp_id: 0xe01aea0fb500
+        description: "at-tq4600-3"
+        hardware: "Allied-Telesis"
+        ignore_learn_ins: 50
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "eth0"
+                tagged_vlans: [redcables,redcables6,control]
+            2:
+                name: "wlan0"
+                native_vlan: redcables
+                hairpin: True
+            3:
+                name: "wlan1"
+                native_vlan: redcables
+                hairpin: True
+            4:
+                name: "wlan0:vap0"
+                native_vlan: redcables6
+                hairpin: True
+            5:
+                name: "wlan1:vap1"
+                native_vlan: redcables6
+                hairpin: True
