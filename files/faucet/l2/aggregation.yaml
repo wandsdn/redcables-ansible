@@ -73,6 +73,7 @@ dps:
             15:
                 name: "port1.0.15"
                 description: "endace dag"
+                native_vlan: endace-mirror
             16:
                 name: "port1.0.16"
                 description: "ITS VLAN821"
