@@ -1,0 +1,65 @@
+---
+
+- name: Uninstall prometheus-node-exporter package
+  apt:
+    name: prometheus-node-exporter
+    purge: yes
+    state: absent
+
+- name: Create prometheus group
+  group:
+    name: prometheus
+    system: yes
+    state: present
+
+- name: Create prometheus user
+  user:
+    name: prometheus
+    group: prometheus
+    createhome: no
+    system: yes
+    state: present
+
+- name: Create prometheus-node-exporter install directory
+  file:
+    path: /opt/prometheus/node_exporter
+    owner: prometheus
+    group: prometheus
+    recurse: yes
+    state: directory
+
+- name: Create prometheus-node-exporter lib directory
+  file:
+    path: /var/lib/prometheus/node-exporter/
+    owner: prometheus
+    group: prometheus
+    recurse: yes
+    state: directory
+
+- name: Configure prometheus-node-exporter
+  template:
+    src: prometheus-node-exporter.j2
+    dest: /etc/default/prometheus-node-exporter
+  notify: restart prometheus-node-exporter
+
+- name: Install prometheus-node-exporter
+  unarchive:
+    src: "https://github.com/prometheus/node_exporter/releases/download/v{{ prometheus_node_exporter_version }}/node_exporter-{{ prometheus_node_exporter_version }}.linux-amd64.tar.gz"
+    dest: "/opt/prometheus/node_exporter"
+    extra_opts: "--strip-components=1"
+    owner: prometheus
+    group: prometheus
+    remote_src: yes
+
+- name: Add prometheus-node-exporter systemd unit
+  copy:
+    src: prometheus-node-exporter.service
+    dest: /etc/systemd/system/
+
+- name: Enable prometheus-node-exporter systemd unit
+  systemd:
+    name: prometheus-node-exporter
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: started

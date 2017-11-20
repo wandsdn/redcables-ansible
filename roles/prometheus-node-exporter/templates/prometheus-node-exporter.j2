@@ -1,0 +1,8 @@
+# Set the command-line arguments to pass to the server.
+ARGS="--collector.textfile.directory=/var/lib/prometheus/node-exporter \
+{% for ip in ansible_all_ipv4_addresses -%}
+{% if '192.168.122.' in ip %}
+      --web.listen-address={{ ip }}:9100 \
+{% endif -%}
+{% endfor %}
+"

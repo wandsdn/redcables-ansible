@@ -1,7 +1,8 @@
 ---
-- name: Uninstall prometheus package
+
+- name: Uninstall prometheus-pushgateway package
   apt:
-    name: prometheus
+    name: prometheus-pushgateway
     purge: yes
     state: absent
 
@@ -19,9 +20,9 @@
     system: yes
     state: present
 
-- name: Create prometheus install directory
+- name: Create prometheus-pushgateway install directory
   file:
-    path: /opt/prometheus/prometheus
+    path: /opt/prometheus/pushgateway
     owner: prometheus
     group: prometheus
     recurse: yes
@@ -29,41 +30,35 @@
 
 - name: Create prometheus lib directory
   file:
-    path: /var/lib/prometheus/metrics
+    path: /var/lib/prometheus/
     owner: prometheus
     group: prometheus
     recurse: yes
     state: directory
 
-- name: Configure prometheus
+- name: Configure prometheus-pushgateway
   copy:
     src: default
-    dest: /etc/default/prometheus
-  notify: restart prometheus
+    dest: /etc/default/prometheus-pushgateway
+  notify: restart prometheus-pushgateway
 
-- name: Add prometheus configuration
-  copy:
-    src: prometheus/
-    dest: /etc/prometheus/
-  notify: restart prometheus
-
-- name: Install prometheus
+- name: Install prometheus-pushgateway
   unarchive:
-    src: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
-    dest: "/opt/prometheus/prometheus"
+    src: "https://github.com/prometheus/pushgateway/releases/download/v{{ prometheus_pushgateway_version }}/pushgateway-{{ prometheus_pushgateway_version }}.linux-amd64.tar.gz"
+    dest: "/opt/prometheus/pushgateway"
     extra_opts: "--strip-components=1"
     owner: prometheus
     group: prometheus
     remote_src: yes
 
-- name: Add prometheus systemd unit
+- name: Add prometheus-pushgateway systemd unit
   copy:
-    src: prometheus.service
+    src: prometheus-pushgateway.service
     dest: /etc/systemd/system/
 
-- name: Enable prometheus systemd unit
+- name: Enable prometheus-pushgateway systemd unit
   systemd:
-    name: prometheus
+    name: prometheus-pushgateway
     daemon_reload: yes
     enabled: yes
     masked: no
