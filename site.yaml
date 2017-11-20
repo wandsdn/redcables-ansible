@@ -11,22 +11,25 @@
     - role: bird
     - role: dhcp
     - role: dhcpv6
-    - role: freeradius
-    - role: unbound
     - role: faucet
+    - role: freeradius
+    - role: prometheus-node-exporter
+    - role: unbound
 - hosts: faucet-zof.redcables.wand.nz
   roles:
     - role: bearwall
     - role: common
     - role: faucet-zof
+    - role: prometheus-node-exporter
 - hosts: nat64.redcables.wand.nz
   roles:
     - role: bearwall
     - role: common
     - role: bird
     - role: dhcpv6
-    - role: unbound
     - role: jool
+    - role: prometheus-node-exporter
+    - role: unbound
 - hosts: monitoring.redcables.wand.nz
   roles:
     - role: bearwall
@@ -34,6 +37,8 @@
     - role: gauge
     - role: smokeping
     - role: prometheus
+    - role: prometheus-node-exporter
+    - role: prometheus-pushgateway
     - role: apache
     - role: docker
 - hosts: amp.redcables.wand.nz
@@ -43,18 +48,27 @@
     - role: apache
     - role: amp-server
     - role: amplet-lite
+    - role: prometheus-node-exporter
 - hosts: awdy.redcables.wand.nz
   roles:
     - role: bearwall
     - role: common
     - role: apache
     - role: awdy
+    - role: prometheus-node-exporter
+- hosts: speedtest1.redcables.wand.nz
+  roles:
+    - role: bearwall
+    - role: common
+    - role: prometheus-node-exporter
+- hosts: speedtest2.redcables.wand.nz
+  roles:
+    - role: bearwall
+    - role: common
+    - role: prometheus-node-exporter
 - hosts: builder-1.redcables.wand.nz
   roles:
     - role: bearwall
     - role: common
     - role: apache
-- hosts: unifi
-  roles:
-    - role: common
-    - role: unifi
+    - role: prometheus-node-exporter
