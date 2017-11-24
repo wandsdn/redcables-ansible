@@ -1,0 +1,10 @@
+---
+version: 2
+
+acls:
+    # ACL rule for inspecting all traffic
+    mirror_all:
+        - rule:
+            actions:
+                mirror: dag
+                allow: 1
