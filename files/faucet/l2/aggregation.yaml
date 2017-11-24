@@ -67,16 +67,18 @@ dps:
                 native_vlan: redcables
                 acl_in: protect_from_access
             14:
-                name: "port1.0.14"
-                native_vlan: redcables
+                name: "dag"
+                description: "endace dag"
+                native_vlan: endace-mirror
                 acl_in: protect_from_access
             15:
                 name: "port1.0.15"
-                description: "endace dag"
-                native_vlan: endace-mirror
+                description: "ITS VLAN820 handover"
+                native_vlan: control
+                acl_in: protect_from_access
             16:
                 name: "port1.0.16"
-                description: "ITS VLAN821"
+                description: "ITS VLAN821 handover"
                 native_vlan: redcables
                 acl_in: protect_from_access
             17:
