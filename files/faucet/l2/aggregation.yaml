@@ -129,12 +129,12 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
-                acl_in: protect_from_access
+                description: "openstack-dev"
+                native_vlan: openstack-private
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
-                acl_in: protect_from_access
+                description: "openstack-prod"
+                native_vlan: openstack-private
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
@@ -223,6 +223,11 @@ dps:
                 name: "port1.0.24"
                 description: "at-x930-1 trunk"
                 tagged_vlans: [redcables,redcables6,events,control]
+            25:
+                name: "port1.0.25"
+                description: "openstack-dev br-ex"
+                native_vlan: redcables
+                acl_in: protect_from_access
     cisco-3850:
         dp_id: 0x285261a18100
         description: "cisco-3850"

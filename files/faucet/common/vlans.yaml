@@ -23,6 +23,11 @@ vlans:
         description: "openflow control vlan"
         vid: 99
         max_hosts: 255
+    openstack-private:
+        name: "openstack-private"
+        description: "openstack private network"
+        vid: 98
+        max_hosts: 10
     endace-mirror:
         name: "endace-mirror"
         description: "output-only vlan for traffic mirrored to endace dag"
