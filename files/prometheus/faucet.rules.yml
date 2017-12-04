@@ -16,8 +16,8 @@ groups:
 
   # Sum hosts learned on ports
   - record: dpid_port_vlan:learned_macs:sum
-    expr: count(count_values("mac", learned_macs != 0) BY (dp_id, port, vlan)) BY
-      (dp_id, port, vlan)
+    expr: count(count_values("mac", learned_macs != 0) BY (dp_id, dp_name, port, vlan))
+      BY (dp_id, dp_name, port, vlan)
 
   # Convert Port stats to rates
   - record: instance_port:of_port_rx_packets:rate1m
