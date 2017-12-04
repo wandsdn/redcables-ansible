@@ -53,11 +53,11 @@ scrape_configs:
       - source_labels: [__address__]
         target_label: instance
         regex: (.*)\.int\.redcables\.wand\.nz:9301
-        replacement: ${1}
+        replacement: ${1}-l2
       - source_labels: [__address__]
         target_label: instance
         regex: (.*)\.int\.redcables\.wand\.nz:9302
-        replacement: ${1}-l2
+        replacement: ${1}
   - job_name: 'gauge'
     static_configs:
       - targets: ['monitoring.int.redcables.wand.nz:9303']
