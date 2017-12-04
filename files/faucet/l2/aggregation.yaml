@@ -217,12 +217,12 @@ dps:
                 acl_in: protect_from_access
             23:
                 name: "port1.0.23"
-                native_vlan: redcables
+                native_vlan: control
                 acl_in: protect_from_access
             24:
                 name: "port1.0.24"
-                description: "at-x930-1 trunk"
-                tagged_vlans: [redcables,redcables6,events,control]
+                native_vlan: redcables
+                acl_in: protect_from_access
             25:
                 name: "port1.0.25"
                 description: "openstack-dev br-ex"
