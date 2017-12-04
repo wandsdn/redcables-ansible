@@ -60,7 +60,6 @@ dps:
         dp_id: 0x46
         hardware: "Open vSwitch"
         ignore_learn_ins: 10
-        arp_neighbor_timeout: 600
         drop_spoofed_faucet_mac: False
         interfaces:
             1:

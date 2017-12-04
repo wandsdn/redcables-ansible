@@ -3,7 +3,6 @@ version: 2
 
 include:
     - common/acls.yaml
-    - common/mirror.yaml
     - common/vlans.yaml
     - l2/aggregation.yaml
     - l2/access.yaml
