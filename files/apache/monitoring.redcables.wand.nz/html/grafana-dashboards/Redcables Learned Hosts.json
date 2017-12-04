@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.4.3"
+      "version": "4.6.2"
     },
     {
       "type": "panel",
@@ -36,7 +36,17 @@
     }
   ],
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
   "description": "",
   "editable": true,
@@ -909,7 +919,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "vlan_hosts_learned \n != 0",
+              "expr": "vlan_hosts_learned != 0",
               "format": "time_series",
               "groupBy": [
                 {
@@ -926,7 +936,7 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} dpid={{dp_id}} vlan={{vlan}}",
+              "legendFormat": "{{instance}} {{dp_name}} vlan={{vlan}}",
               "metric": "vlan_hosts_learned",
               "policy": "default",
               "refId": "A",
@@ -1048,7 +1058,7 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "dpid={{dp_id}} port={{port}} vlan={{vlan}}",
+              "legendFormat": "{{dp_name}} port={{port}} vlan={{vlan}}",
               "metric": "dpid_port_vlan:learned_macs:sum",
               "orderByTime": "ASC",
               "policy": "default",
@@ -1156,5 +1166,5 @@
   },
   "timezone": "browser",
   "title": "Redcables Learned Hosts",
-  "version": 33
+  "version": 34
 }
