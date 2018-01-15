@@ -19,6 +19,7 @@ vlans:
         faucet_vips: [
             '210.7.38.91/29', '2404:138:39:120::f/112'        # peering link-net
             ]
+        targeted_gw_resolution: True
         bgp_port: 9179
         bgp_as: 134227
         bgp_routerid: '127.0.0.2'
@@ -34,6 +35,7 @@ vlans:
             'fe80::c00:ff:fe00:1/64',                         # ipv6 link-local
             '163.7.137.254/24', '2404:138:4011:3e8::ffff/64', # gateway addresses
             ]
+        targeted_gw_resolution: True
         routes:
             - route:
                 ip_dst: '2404:138:4011::/64'
@@ -54,6 +56,7 @@ vlans:
             'fe80::c00:00ff:fe00:0252/64',                    # ipv6 link-local
             '163.7.136.254/25', '2404:138:4011:3d0::ffff/64', # gateway addresses
             ]
+        targeted_gw_resolution: True
 
 dps:
     ovs-redcables:
