@@ -3,7 +3,7 @@ version: 2
 
 dps:
     at-x930-1:
-        dp_id: 0xeccd6df7d4aa
+        dp_id: 0xeccd6df7d4a9
         description: "at-x930-1"
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
