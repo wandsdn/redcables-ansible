@@ -165,6 +165,18 @@ acls:
             ipv4_dst: 163.7.137.250/32 # cisco-wism-controller
             actions:
                 allow: 0     # drop
+        # Drop unicast ipv4 claiming to be from 163.7.136.0/23
+        - rule:
+            dl_type: 0x800               # ipv4
+            ipv4_src: 163.7.136.0/23    # assigned netblock
+            actions:
+                allow: 0                 # drop
+        # Drop unicast ipv6 claiming to be from 2404:138:4011::/48
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            ipv6_src: 2404:138:4011::/48  # assigned netblock
+            actions:
+                allow: 0                 # drop
         - rule:
             actions:
                 allow: 1
