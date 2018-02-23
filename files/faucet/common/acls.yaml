@@ -177,6 +177,12 @@ acls:
             ipv6_src: 2404:138:4011::/48  # assigned netblock
             actions:
                 allow: 0                 # drop
+        # Drop ULA IPv6 on ingress
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            ipv6_src: fc00::/7           # RFC4193
+            actions:
+                allow: 0                 # drop
         - rule:
             actions:
                 allow: 1
