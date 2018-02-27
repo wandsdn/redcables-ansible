@@ -6,7 +6,7 @@
 
 - name: Add wand repository
   apt_repository:
-    repo: "deb https://packages.wand.net.nz {{ansible_distribution_release}} ovs-2.7"
+    repo: "deb https://packages.wand.net.nz {{ansible_distribution_release}} ovs-2.9"
     state: present
 
 - name: Install openvswitch-dpdk
