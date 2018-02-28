@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.2"
+      "version": "4.6.3"
     },
     {
       "type": "panel",
@@ -55,6 +55,7 @@
   "hideControls": false,
   "id": null,
   "links": [],
+  "refresh": "10s",
   "rows": [
     {
       "collapse": false,
@@ -597,7 +598,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -627,5 +628,5 @@
   },
   "timezone": "browser",
   "title": "Systemd Service Dashboard",
-  "version": 3
+  "version": 5
 }
