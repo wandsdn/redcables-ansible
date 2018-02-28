@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.2"
+      "version": "4.6.3"
     },
     {
       "type": "panel",
@@ -912,7 +912,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -944,5 +944,5 @@
   },
   "timezone": "browser",
   "title": "Prometheus Stats",
-  "version": 2
+  "version": 3
 }

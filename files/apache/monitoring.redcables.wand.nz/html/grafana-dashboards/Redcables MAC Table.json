@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.2"
+      "version": "4.6.3"
     },
     {
       "type": "datasource",
@@ -75,7 +75,7 @@
               "type": "hidden"
             },
             {
-              "alias": "",
+              "alias": "MAC Address",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -119,7 +119,7 @@
               "unit": "short"
             },
             {
-              "alias": "",
+              "alias": "Instance",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -147,12 +147,72 @@
               "thresholds": [],
               "type": "hidden",
               "unit": "short"
+            },
+            {
+              "alias": "Datapath ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "dp_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Datapath Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "dp_name",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Port",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "port",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "VLAN",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "vlan",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
             }
           ],
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "learned_macs{dp_id=\"[[dpid]]\", vlan=\"[[vlan]]\"} != 0",
+              "expr": "learned_macs{dp_name=\"[[dp_name]]\", vlan=\"[[vlan]]\"} != 0",
               "format": "table",
               "groupBy": [
                 {
@@ -222,9 +282,9 @@
         "includeAll": false,
         "label": null,
         "multi": false,
-        "name": "dpid",
+        "name": "dp_name",
         "options": [],
-        "query": "label_values(learned_macs, dpid)",
+        "query": "label_values(learned_macs, dp_name)",
         "refresh": 1,
         "regex": "",
         "sort": 1,
@@ -257,7 +317,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -286,6 +346,6 @@
     ]
   },
   "timezone": "browser",
-  "title": "MAC Table",
-  "version": 15
+  "title": "Redcables MAC Table",
+  "version": 18
 }

@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.2"
+      "version": "4.6.3"
     },
     {
       "type": "panel",
@@ -27,6 +27,12 @@
       "id": "prometheus",
       "name": "Prometheus",
       "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
     }
   ],
   "annotations": {
@@ -48,48 +54,146 @@
   "hideControls": false,
   "id": null,
   "links": [],
-  "refresh": "5s",
+  "refresh": "10s",
   "rows": [
     {
       "collapse": false,
-      "height": 411,
+      "height": 460,
       "panels": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
+          "columns": [],
           "datasource": "${DS_PROMETHEUS}",
-          "fill": 1,
+          "fontSize": "100%",
           "id": 2,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": false,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
+          "pageSize": null,
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 6,
+            "desc": false
+          },
           "span": 12,
-          "stack": false,
-          "steppedLine": false,
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "Time",
+              "type": "hidden"
+            },
+            {
+              "alias": "",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "__name__",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "alias": "Datapath ID",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "dp_id",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "cell",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "pattern": "Value",
+              "thresholds": [
+                "0",
+                "1"
+              ],
+              "type": "number",
+              "unit": "none"
+            },
+            {
+              "alias": "Instance",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "instance",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "alias": "Job",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "job",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "alias": "Datapath Name",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "dp_name",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "bgp_neighbor_routes",
-              "format": "time_series",
+              "expr": "dp_status",
+              "format": "table",
               "groupBy": [
                 {
                   "params": [
@@ -105,8 +209,9 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} {{dp_name}} vlan={{vlan}} neighbor={{neighbor}} family={{ipv}}",
-              "metric": "bgp_neighbor_routes",
+              "legendFormat": "",
+              "metric": "dp_status",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -128,41 +233,11 @@
               "tags": []
             }
           ],
-          "thresholds": [],
-          "timeFrom": null,
+          "timeFrom": "1s",
           "timeShift": null,
-          "title": "BGP Routes",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ]
+          "title": "Datapath Status",
+          "transform": "table",
+          "type": "table"
         }
       ],
       "repeat": null,
@@ -174,7 +249,7 @@
     },
     {
       "collapse": false,
-      "height": 297,
+      "height": 335,
       "panels": [
         {
           "aliasColors": {},
@@ -185,14 +260,13 @@
           "fill": 1,
           "id": 1,
           "legend": {
-            "alignAsTable": true,
-            "avg": true,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -210,7 +284,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "bgp_neighbor_uptime",
+              "expr": "abs(dp_status - 1)",
               "format": "time_series",
               "groupBy": [
                 {
@@ -226,10 +300,10 @@
                   "type": "fill"
                 }
               ],
-              "hide": false,
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} {{dp_name}} vlan={{vlan}} neighbor={{neighbor}}",
-              "metric": "bgp_neighbor_uptime",
+              "legendFormat": "{{dp_name}} ({{instance}})",
+              "metric": "dp_status",
+              "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -254,7 +328,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "BGP Uptime",
+          "title": "Datapath Downtime",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -270,8 +344,8 @@
           },
           "yaxes": [
             {
-              "format": "dtdurations",
-              "label": null,
+              "format": "percentunit",
+              "label": "",
               "logBase": 1,
               "max": null,
               "min": null,
@@ -333,7 +407,7 @@
       "30d"
     ]
   },
-  "timezone": "browser",
-  "title": "Redcables BGP",
-  "version": 24
+  "timezone": "",
+  "title": "Redcables Datapath Status",
+  "version": 8
 }

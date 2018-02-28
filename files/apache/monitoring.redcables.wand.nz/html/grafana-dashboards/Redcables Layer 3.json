@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "4.6.2"
+      "version": "4.6.3"
     },
     {
       "type": "panel",
@@ -27,6 +27,12 @@
       "id": "prometheus",
       "name": "Prometheus",
       "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
     }
   ],
   "annotations": {
@@ -48,48 +54,70 @@
   "hideControls": false,
   "id": null,
   "links": [],
-  "refresh": false,
+  "refresh": "10s",
   "rows": [
     {
       "collapse": false,
-      "height": "250px",
+      "height": 137,
       "panels": [
         {
-          "aliasColors": {},
-          "bars": true,
-          "dashLength": 10,
-          "dashes": false,
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
           "datasource": "${DS_PROMETHEUS}",
-          "fill": 1,
-          "id": 1,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": false
+          "format": "dtdurations",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
-          "lines": false,
-          "linewidth": 1,
+          "id": 4,
+          "interval": null,
           "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "instance_port:of_port_rx_bits:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"}",
+              "expr": "bgp_neighbor_uptime{dp_id=\"0x46\",dp_name=\"ovs-redcables\",instance=\"faucet\",job=\"faucet\",neighbor=\"127.0.0.1\",vlan=\"2406\"}",
               "format": "time_series",
               "groupBy": [
                 {
@@ -106,8 +134,7 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} in",
-              "metric": "",
+              "legendFormat": "",
               "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
@@ -126,74 +153,162 @@
                   }
                 ]
               ],
-              "step": 2,
               "tags": []
-            },
-            {
-              "expr": "instance_port:of_port_tx_bits:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"} * -1",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} out",
-              "refId": "B",
-              "step": 2
             }
           ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Bits in/out per second",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
+          "thresholds": "",
+          "title": "Bird BGP Uptime",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
             {
-              "format": "bps",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
             }
-          ]
+          ],
+          "valueName": "avg"
         },
         {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "${DS_PROMETHEUS}",
+          "format": "dtdurations",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 5,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "dsType": "influxdb",
+              "expr": "bgp_neighbor_uptime{dp_id=\"0x46\",dp_name=\"ovs-redcables\",instance=\"faucet\",job=\"faucet\",neighbor=\"::1\",vlan=\"2406\"}",
+              "format": "time_series",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "intervalFactor": 2,
+              "legendFormat": "",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "Bird6 BGP Uptime",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 503,
+      "panels": [
+        {
           "aliasColors": {},
-          "bars": true,
+          "bars": false,
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
           "id": 2,
           "legend": {
-            "alignAsTable": false,
-            "avg": false,
+            "alignAsTable": true,
+            "avg": true,
             "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
+            "max": true,
+            "min": true,
             "show": true,
             "total": false,
-            "values": false
+            "values": true
           },
-          "lines": false,
+          "lines": true,
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
@@ -209,7 +324,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "instance_port:of_port_rx_packets:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"}",
+              "expr": "bgp_neighbor_routes",
               "format": "time_series",
               "groupBy": [
                 {
@@ -226,9 +341,8 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} in",
-              "metric": "",
-              "orderByTime": "ASC",
+              "legendFormat": "{{dp_name}} ({{instance}}) vlan={{vlan}} neighbor={{neighbor}} family={{ipv}}",
+              "metric": "bgp_neighbor_routes",
               "policy": "default",
               "refId": "A",
               "resultFormat": "time_series",
@@ -248,20 +362,12 @@
               ],
               "step": 2,
               "tags": []
-            },
-            {
-              "expr": "instance_port:of_port_tx_packets:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"} * -1",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} out",
-              "refId": "B",
-              "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Packets in/out per second",
+          "title": "BGP Routes",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -276,140 +382,8 @@
             "values": []
           },
           "yaxes": [
-            {
-              "format": "pps",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
             {
               "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Throughput",
-      "titleSize": "h6"
-    },
-    {
-      "collapse": false,
-      "height": 250,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": true,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "fill": 1,
-          "id": 3,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": false,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "dsType": "influxdb",
-              "expr": "instance_port:of_port_rx_dropped:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"}",
-              "format": "time_series",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} in",
-              "metric": "",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "step": 2,
-              "tags": []
-            },
-            {
-              "expr": "instance_port:of_port_tx_dropped:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"} * -1",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} out",
-              "refId": "B",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Dropped in/out per second",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "pps",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -428,24 +402,23 @@
         },
         {
           "aliasColors": {},
-          "bars": true,
+          "bars": false,
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_PROMETHEUS}",
           "fill": 1,
-          "id": 4,
+          "id": 3,
           "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
             "show": true,
             "total": false,
-            "values": false
+            "values": true
           },
-          "lines": false,
+          "lines": true,
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
@@ -461,7 +434,7 @@
           "targets": [
             {
               "dsType": "influxdb",
-              "expr": "instance_port:of_port_rx_errors:rate1m{dp_name=~\"[[dp_name]]\", port_name=~\"[[port_name]]\"}",
+              "expr": "vlan_neighbors",
               "format": "time_series",
               "groupBy": [
                 {
@@ -478,8 +451,7 @@
                 }
               ],
               "intervalFactor": 2,
-              "legendFormat": "{{dp_name}} {{port_name}} in",
-              "metric": "",
+              "legendFormat": "{{dp_name}} ({{instance}}) vlan={{vlan}} family={{ipv}}",
               "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
@@ -498,14 +470,13 @@
                   }
                 ]
               ],
-              "step": 2,
               "tags": []
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Errors per second",
+          "title": "L3 Neighbours",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -521,7 +492,7 @@
           },
           "yaxes": [
             {
-              "format": "pps",
+              "format": "short",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -543,7 +514,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": false,
-      "title": "Errors/Discards",
+      "title": "Dashboard Row",
       "titleSize": "h6"
     }
   ],
@@ -553,52 +524,11 @@
     "FAUCET"
   ],
   "templating": {
-    "list": [
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Datapath Name",
-        "multi": true,
-        "name": "dp_name",
-        "options": [],
-        "query": "label_values(of_port_rx_bytes, dp_name)",
-        "refresh": 1,
-        "regex": "",
-        "sort": 2,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "label_values(faucet_config_dp_name, name)",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Port",
-        "multi": true,
-        "name": "port_name",
-        "options": [],
-        "query": "query_result(of_port_rx_bytes{dp_name =~ \"$dp_name\"})",
-        "refresh": 1,
-        "regex": "/port_name=\"(.*)\"/",
-        "sort": 3,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      }
-    ]
+    "list": []
   },
   "time": {
-    "from": "2017-12-04T03:32:23.973Z",
-    "to": "2017-12-04T04:02:23.973Z"
+    "from": "now-1h",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -625,7 +555,7 @@
       "30d"
     ]
   },
-  "timezone": "",
-  "title": "Port Statistics",
-  "version": 8
+  "timezone": "browser",
+  "title": "Redcables Layer 3",
+  "version": 30
 }
