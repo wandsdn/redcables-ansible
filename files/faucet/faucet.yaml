@@ -24,6 +24,7 @@ vlans:
         bgp_as: 134227
         bgp_routerid: '127.0.0.2'
         bgp_neighbor_addresses: ['127.0.0.1', '::1']
+        bgp_connect_mode: active
         bgp_neighbor_as: 134227
     redcables-l3:
         name: "redcables-l3"
