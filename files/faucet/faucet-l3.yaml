@@ -63,7 +63,7 @@ dps:
     ovs-redcables:
         dp_id: 0x46
         hardware: "Open vSwitch"
-        ignore_learn_ins: 10
+        ignore_learn_ins: 0
         drop_spoofed_faucet_mac: False
         interfaces:
             1:
