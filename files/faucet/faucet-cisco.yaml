@@ -1,0 +1,79 @@
+---
+version: 2
+
+acls:
+    # ACL rule for dropping protocols other than IPv6
+    ipv6_only:
+        # Allow IPv6 traffic
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            actions:
+                allow: 1                 # allow
+        # Drop other protocols
+        - rule:
+            actions:
+                allow: 0                 # drop
+
+vlans:
+    redcables:
+        name: "redcables"
+        description: "redcables ipv4/ipv6 vlan"
+        vid: 250
+        max_hosts: 255
+    redcables6:
+        name: "redcables6"
+        description: "redcables ipv6 vlan"
+        vid: 251
+        max_hosts: 255
+        acl_in: ipv6_only
+    control:
+        name: "control"
+        description: "openflow control vlan"
+        vid: 99
+        max_hosts: 255
+
+dps:
+    cisco-9300:
+        dp_id: 0x701f53017300
+        description: "cisco-9300"
+        hardware: "GenericTFM"
+        ignore_learn_ins: 0
+        group_table: True
+        drop_spoofed_faucet_mac: False
+        interfaces:
+            1:
+                name: "Gi1/0/1"
+                native_vlan: redcables
+            2:
+                name: "Gi1/0/2"
+                native_vlan: redcables
+            3:
+                name: "Gi1/0/3"
+                native_vlan: redcables
+            4:
+                name: "Gi1/0/4"
+                native_vlan: redcables
+            5:
+                name: "Gi1/0/5"
+                native_vlan: redcables
+            6:
+                name: "Gi1/0/6"
+                native_vlan: redcables
+            7:
+                name: "Gi1/0/7"
+                native_vlan: redcables
+            8:
+                name: "Gi1/0/8"
+                native_vlan: redcables
+            21:
+                name: "Gi1/0/21"
+                description: "at-x510-1 trunk"
+                tagged_vlans: [redcables,redcables6]
+            22:
+                name: "Gi1/0/22"
+                description: "at-x510-2 trunk"
+                tagged_vlans: [redcables,redcables6]
+            24:
+                name: "Gi1/0/24"
+                description: "cisco-9300 trunk"
+                tagged_vlans: [redcables,redcables6,control]

@@ -1,0 +1,6 @@
+FAUCET_RYU_CONF=/etc/faucet/ryu.conf
+FAUCET_LISTEN_PORT=6651
+FAUCET_PROMETHEUS_PORT=9300
+FAUCET_CONFIG=/etc/faucet/faucet-cisco.yaml
+FAUCET_LOG=/var/log/faucet/faucet-cisco.log
+FAUCET_EXCEPTION_LOG=/var/log/faucet/faucet-cisco_exception.log

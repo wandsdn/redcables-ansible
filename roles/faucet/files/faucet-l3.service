@@ -1,10 +1,10 @@
 [Unit]
-Description="Faucet OpenFlow switch controller for layer 2"
+Description="Faucet OpenFlow switch controller for layer 3"
 After=network-online.target
 Wants=network-online.target
 
 [Service]
-EnvironmentFile=/etc/default/faucet-l2
+EnvironmentFile=/etc/default/faucet-l3
 User=faucet
 Group=faucet
 ExecStart=/usr/local/bin/faucet --ryu-config-file=${FAUCET_RYU_CONF} --ryu-ofp-tcp-listen-port=${FAUCET_LISTEN_PORT}

@@ -31,22 +31,28 @@
     version: "{{ faucet_version }}"
     state: present
   notify:
-    - restart faucet
+    - restart faucet-l3
     - restart faucet-l2
+    - restart faucet-cisco
 
-- name: Add faucet defaults file
+- name: Add faucet-l3 defaults file
   copy:
-    src: default
-    dest: /etc/default/faucet
+    src: default-l3
+    dest: /etc/default/faucet-l3
 
 - name: Add faucet-l2 defaults file
   copy:
     src: default-l2
     dest: /etc/default/faucet-l2
 
+- name: Add faucet-cisco defaults file
+  copy:
+    src: default-cisco
+    dest: /etc/default/faucet-cisco
+
 - name: Create faucet config directory
   file:
-    path: /etc/ryu/faucet/
+    path: /etc/faucet/
     owner: root
     group: root
     recurse: yes
@@ -55,11 +61,11 @@
 - name: Configure ryu
   copy:
     src: ryu.conf
-    dest: /etc/ryu/
+    dest: /etc/faucet/
 
 - name: Create faucet log directory
   file:
-    path: /var/log/ryu/faucet/
+    path: /var/log/faucet/
     owner: faucet
     group: faucet
     recurse: yes
@@ -72,7 +78,7 @@
 
 - name: Add faucet systemd unit
   copy:
-    src: faucet.service
+    src: faucet-l3.service
     dest: /etc/systemd/system/
 
 - name: Add faucet-l2 systemd unit
@@ -80,9 +86,14 @@
     src: faucet-l2.service
     dest: /etc/systemd/system/
 
+- name: Add faucet-cisco systemd unit
+  copy:
+    src: faucet-cisco.service
+    dest: /etc/systemd/system/
+
 - name: Enable faucet systemd unit
   systemd:
-    name: faucet
+    name: faucet-l3
     daemon_reload: yes
     enabled: yes
     masked: no
@@ -96,44 +107,63 @@
     masked: no
     state: started
 
+- name: Enable faucet-cisco systemd unit
+  systemd:
+    name: faucet-cisco
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: started
+
 - name: Add common faucet configuration
   copy:
     src: faucet/common/
-    dest: /etc/ryu/faucet/common/
+    dest: /etc/faucet/common/
   notify:
-    - reload faucet
+    - reload faucet-l3
     - reload faucet-l2
 
 - name: Add l2 configuration
   copy:
     src: faucet/l2/
-    dest: /etc/ryu/faucet/l2/
+    dest: /etc/faucet/l2/
   notify:
     - reload faucet-l2
 
-- name: Add faucet configuration
+- name: Add faucet-l3 configuration
   copy:
-    src: faucet/faucet.yaml
-    dest: /etc/ryu/faucet/
+    src: faucet/faucet-l3.yaml
+    dest: /etc/faucet/
   notify:
-    - reload faucet
+    - reload faucet-l3
 
 - name: Add faucet-l2 configuration
   copy:
     src: faucet/faucet-l2.yaml
-    dest: /etc/ryu/faucet/
+    dest: /etc/faucet/
   notify:
     - reload faucet-l2
+
+- name: Add faucet-cisco configuration
+  copy:
+    src: faucet/faucet-cisco.yaml
+    dest: /etc/faucet/
+  notify:
+    - reload faucet-cisco
 
 - name: Add faucet-l2 TFM configuration
   copy:
     src: faucet/tfm/
-    dest: /etc/ryu/faucet/
+    dest: /etc/faucet/
   notify:
     - restart faucet-l2
+    - restart faucet-cisco
 
-- name: Check faucet config
-  shell: check_faucet_config /etc/ryu/faucet/faucet.yaml
+- name: Check faucet-l3 config
+  shell: check_faucet_config /etc/faucet/faucet-l3.yaml
 
 - name: Check faucet-l2 config
-  shell: check_faucet_config /etc/ryu/faucet/faucet-l2.yaml
+  shell: check_faucet_config /etc/faucet/faucet-l2.yaml
+
+- name: Check faucet-cisco config
+  shell: check_faucet_config /etc/faucet/faucet-cisco.yaml

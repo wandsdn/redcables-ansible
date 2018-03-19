@@ -1,8 +1,9 @@
 ---
 version: 2
 faucet_configs:
-    - '/etc/ryu/faucet/faucet.yaml'
-    - '/etc/ryu/faucet/faucet-l2.yaml'
+    - '/etc/faucet/faucet-l3.yaml'
+    - '/etc/faucet/faucet-l2.yaml'
+    - '/etc/faucet/faucet-cisco.yaml'
 watchers:
     port_stats_poller:
         type: 'port_stats'

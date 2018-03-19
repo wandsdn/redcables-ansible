@@ -39,7 +39,7 @@
 
 - name: Create faucet config directory
   file:
-    path: /etc/ryu/faucet/
+    path: /etc/faucet/
     owner: root
     group: root
     recurse: yes
@@ -48,11 +48,11 @@
 - name: Configure ryu
   copy:
     src: ryu.conf
-    dest: /etc/ryu/
+    dest: /etc/faucet/
 
 - name: Create gauge log directory
   file:
-    path: /var/log/ryu/faucet/
+    path: /var/log/faucet/
     owner: faucet
     group: faucet
     recurse: yes
@@ -79,11 +79,11 @@
 - name: Configure gauge
   template:
     src: gauge.yaml.j2
-    dest: /etc/ryu/faucet/gauge.yaml
+    dest: /etc/faucet/gauge.yaml
   notify: restart gauge
 
 - name: Add faucet configuration
   copy:
     src: faucet/
-    dest: /etc/ryu/faucet/
+    dest: /etc/faucet/
   notify: restart gauge
