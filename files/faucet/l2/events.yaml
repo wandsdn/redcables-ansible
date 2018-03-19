@@ -184,6 +184,7 @@ dps:
         hardware: "Aruba"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        combinatorial_port_flood: False
         interfaces:
             1:
                 name: "port1.0.1"
