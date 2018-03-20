@@ -65,6 +65,7 @@ dps:
         hardware: "Open vSwitch"
         ignore_learn_ins: 0
         drop_spoofed_faucet_mac: False
+        combinatorial_port_flood: False
         interfaces:
             1:
                 name: 'vhost-nat64-redcables'
