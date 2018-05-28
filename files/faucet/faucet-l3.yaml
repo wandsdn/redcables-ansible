@@ -24,6 +24,7 @@ vlans:
         bgp_as: 134227
         bgp_routerid: '127.0.0.2'
         bgp_neighbor_addresses: ['127.0.0.1', '::1']
+        bgp_server_addresses: ["127.0.0.2", "::1"]
         bgp_connect_mode: active
         bgp_neighbor_as: 134227
     redcables-l3:
@@ -31,6 +32,7 @@ vlans:
         description: "redcables ipv4/ipv6 vlan"
         vid: 250
         max_hosts: 255
+        proactive_nd_limit: 4096
         faucet_mac: "0e:00:00:00:00:01"
         faucet_vips: [
             'fe80::c00:ff:fe00:1/64',                         # ipv6 link-local
@@ -52,6 +54,7 @@ vlans:
         description: "events ipv4/ipv6 vlan"
         vid: 252
         max_hosts: 255
+        proactive_nd_limit: 4096
         faucet_mac: "0e:00:00:00:02:52"
         faucet_vips: [
             'fe80::c00:00ff:fe00:0252/64',                    # ipv6 link-local
