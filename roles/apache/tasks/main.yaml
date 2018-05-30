@@ -5,7 +5,21 @@
     state: present
   with_items:
     - apache2
-    - python-certbot-apache
+
+- name: Add backports repository
+  apt_repository:
+    repo: "deb http://ftp.nz.debian.org/debian {{ ansible_distribution_release }}-backports main"
+    state: present
+
+- name: Install certbot from backports
+  apt:
+    name: "{{ item }}"
+    state: installed
+    default_release: "{{ ansible_distribution_release }}-backports"
+  with_items:
+    - certbot
+    - python3-certbot
+    - python3-certbot-apache
 
 - name: Add html files
   copy:
