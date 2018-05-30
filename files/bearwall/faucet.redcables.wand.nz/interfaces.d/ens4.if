@@ -1,5 +1,6 @@
 on_startup
 
+policy in ACCEPT -s 172.16.0.0/24 --protocol tcp --destination-port 6651
 policy in ACCEPT -s 172.16.0.0/24 --protocol tcp --destination-port 6652
 policy in ACCEPT -s 172.16.0.0/24 --protocol tcp --destination-port 6653
 policy in tcp-strict
