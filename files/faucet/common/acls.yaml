@@ -2,6 +2,26 @@
 version: 2
 
 acls:
+    drop_unused_access_vlans:
+        - rule:
+            dl_vlan: 99
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_vlan: 248
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_vlan: 251
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_vlan: 252
+            actions:
+                allow: 0     # drop
+        - rule:
+            actions:
+                allow: 1
     # ACL zone for incoming packets at the edge of our network
     protect_from_edge:
         - rule:
