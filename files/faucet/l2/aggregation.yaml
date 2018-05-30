@@ -228,12 +228,13 @@ dps:
                 description: "openstack-dev br-ex"
                 native_vlan: redcables
                 acl_in: protect_from_access
-    cisco-3850:
-        dp_id: 0x285261a18100
-        description: "cisco-3850"
+    cisco-9300:
+        dp_id: 0x701f53017300
+        description: "cisco-9300"
         hardware: "GenericTFM"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        group_table: True
         interfaces:
             1:
                 name: "Gi1/0/1"
@@ -259,6 +260,42 @@ dps:
             8:
                 name: "Gi1/0/8"
                 native_vlan: redcables
+            9:
+                name: "Gi1/0/9"
+                native_vlan: redcables
+            10:
+                name: "Gi1/0/10"
+                native_vlan: redcables
+            11:
+                name: "Gi1/0/11"
+                native_vlan: redcables
+            12:
+                name: "Gi1/0/12"
+                native_vlan: redcables
+            13:
+                name: "Gi1/0/13"
+                native_vlan: redcables
+            14:
+                name: "Gi1/0/14"
+                native_vlan: redcables
+            15:
+                name: "Gi1/0/15"
+                native_vlan: redcables
+            16:
+                name: "Gi1/0/16"
+                native_vlan: redcables
+            17:
+                name: "Gi1/0/17"
+                native_vlan: redcables
+            18:
+                name: "Gi1/0/18"
+                native_vlan: redcables
+            19:
+                name: "Gi1/0/19"
+                native_vlan: redcables
+            20:
+                name: "Gi1/0/20"
+                native_vlan: redcables
             21:
                 name: "Gi1/0/21"
                 description: "at-x510-1 trunk"
@@ -269,7 +306,7 @@ dps:
                 tagged_vlans: [redcables,redcables6]
             24:
                 name: "Gi1/0/24"
-                description: "cisco-3850 trunk"
+                description: "cisco-9300 trunk"
                 tagged_vlans: [redcables,redcables6,control]
     aruba-2930-1:
         dp_id: 0x19cdc7192a6c0

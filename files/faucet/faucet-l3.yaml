@@ -93,8 +93,8 @@ dps:
                 tagged_vlans: [redcables-l3,redcables6,events-l3,control]
                 acl_in: protect_from_access
             5:
-                name: 'dpdk-cisco-3850'
-                description: "cisco-3850 redcables trunk"
+                name: 'dpdk-cisco-9300'
+                description: "cisco-9300 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,control]
                 acl_in: protect_from_access
             6:
