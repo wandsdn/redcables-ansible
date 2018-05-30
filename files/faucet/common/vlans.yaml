@@ -2,6 +2,11 @@
 version: 2
 
 vlans:
+    fcms-staff:
+        name: "fcms-staff"
+        description: "fcms staff vlan"
+        vid: 248
+        max_hosts: 255
     redcables:
         name: "redcables"
         description: "redcables ipv4/ipv6 vlan"
