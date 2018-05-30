@@ -555,3 +555,9 @@ acls:
         - rule:
             actions:
                 allow: 0                 # drop
+
+    # Drop all
+    drop_all:
+        - rule:
+            actions:
+                allow: 0                 # drop
