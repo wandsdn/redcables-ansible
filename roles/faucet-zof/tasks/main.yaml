@@ -54,7 +54,6 @@
     executable: pip3
     state: latest
   notify:
-    - restart faucet
     - restart faucet-l2
 
 - name: Add faucet-l2 defaults file
@@ -101,7 +100,6 @@
     src: faucet/common/
     dest: /etc/ryu/faucet/common/
   notify:
-    - reload faucet
     - reload faucet-l2
 
 - name: Add l2 configuration
@@ -110,13 +108,6 @@
     dest: /etc/ryu/faucet/l2/
   notify:
     - reload faucet-l2
-
-- name: Add faucet configuration
-  copy:
-    src: faucet/faucet.yaml
-    dest: /etc/ryu/faucet/
-  notify:
-    - reload faucet
 
 - name: Add faucet-l2 configuration
   copy:
