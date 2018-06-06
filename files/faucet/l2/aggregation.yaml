@@ -105,12 +105,14 @@ dps:
                 acl_in: protect_from_access
             19:
                 name: "port1.0.19"
-                description: "campbell iot gateway"
-                native_vlan: redcables
+                description: "at-x510-3 trunk-b"
+                stack:
+                    dp: at-x510-3
+                    port: 22
                 acl_in: protect_from_access
             20:
                 name: "port1.0.20"
-                description: "at-x510-3 trunk"
+                description: "at-x510-3 trunk-a"
                 stack:
                     dp: at-x510-3
                     port: 23

@@ -526,11 +526,14 @@ dps:
                 acl_in: protect_from_access
             22:
                 name: "port1.0.22"
-                native_vlan: redcables
-                acl_in: protect_from_access
+                description: "at-x510-3 trunk-b"
+                stack:
+                    dp: at-x930-1
+                    port: 19
+                acl_in: protect_from_core
             23:
                 name: "port1.0.23"
-                description: "at-x510-3 trunk"
+                description: "at-x510-3 trunk-a"
                 stack:
                     dp: at-x930-1
                     port: 20
