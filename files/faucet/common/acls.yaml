@@ -328,9 +328,19 @@ acls:
             icmpv6_type: 134 # router advertisement
             actions:
                 allow: 0     # drop
-        # Allow broadcast/multicast traffic
+        # Allow v4 multicast
         - rule:
-            eth_dst: 01:00:00:00:00:00/01:00:00:00:00:00 # broadcast & multicast
+            eth_dst: 01:00:5E:00:00:00/ff:ff:ff:00:00:00 # IPv4 multicast
+            actions:
+                allow: 1                 # allow
+        # Allow v6 multicast
+        - rule:
+            eth_dst: 33:33:00:00:00:00/ff:ff:00:00:00:00 # IPv6 multicast
+            actions:
+                allow: 1                 # allow
+        # Allow broadcast
+        - rule:
+            eth_dst: ff:ff:ff:ff:ff:ff # broadcast
             actions:
                 allow: 1                 # allow
         # Allow control traffic to pass
