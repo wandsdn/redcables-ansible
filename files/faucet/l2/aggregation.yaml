@@ -11,6 +11,9 @@ dps:
         group_table: True
         stack:
             priority: 1
+        lldp_beacon:
+            send_interval: 5
+            max_per_interval: 5
         interfaces:
             1:
                 name: "port1.0.1"
@@ -39,17 +42,23 @@ dps:
             7:
                 name: "port1.0.7"
                 description: "at-x510-1 trunk"
+                receive_lldp: True
+                lldp_beacon:
+                    enable: True
                 stack:
                     dp: at-x510-1
                     port: 47
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access]
             8:
                 name: "port1.0.8"
                 description: "at-x510-2 trunk"
+                receive_lldp: True
+                lldp_beacon:
+                    enable: True
                 stack:
                     dp: at-x510-2
                     port: 47
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access]
             9:
                 name: "port1.0.9"
                 description: "at-tq4600-1"
@@ -100,24 +109,33 @@ dps:
             19:
                 name: "port1.0.19"
                 description: "at-x510-3 trunk-b"
+                receive_lldp: True
+                lldp_beacon:
+                    enable: True
                 stack:
                     dp: at-x510-3
                     port: 22
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access]
             20:
                 name: "port1.0.20"
                 description: "at-x510-3 trunk-a"
+                receive_lldp: True
+                lldp_beacon:
+                    enable: True
                 stack:
                     dp: at-x510-3
                     port: 23
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access]
             21:
                 name: "port1.0.21"
                 description: "at-x510-4 trunk"
+                receive_lldp: True
+                lldp_beacon:
+                    enable: True
                 stack:
                     dp: at-x510-4
                     port: 23
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access]
             22:
                 name: "port1.0.22"
                 description: "redcables-core-sw lacp test"
