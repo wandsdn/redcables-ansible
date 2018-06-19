@@ -566,6 +566,13 @@ acls:
             actions:
                 allow: 0                 # drop
 
+    # LLDP allow for stack ports
+    lldp_allow:
+        - rule:
+            eth_dst: 01:80:c2:00:00:00/ff:ff:ff:00:00:00 # LLDP
+            actions:
+                allow: 1                 # allow
+
     # Drop all
     drop_all:
         - rule:
