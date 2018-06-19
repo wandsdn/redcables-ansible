@@ -53,23 +53,17 @@ dps:
             9:
                 name: "port1.0.9"
                 description: "at-tq4600-1"
-                stack:
-                    dp: at-tq4600-1
-                    port: 1
+                tagged_vlans: [control, redcables, redcables6]
                 acl_in: protect_from_access
             10:
                 name: "port1.0.10"
                 description: "at-tq4600-2"
-                stack:
-                    dp: at-tq4600-2
-                    port: 1
+                tagged_vlans: [control, redcables, redcables6]
                 acl_in: protect_from_access
             11:
                 name: "port1.0.11"
                 description: "at-tq4600-3"
-                stack:
-                    dp: at-tq4600-3
-                    port: 1
+                tagged_vlans: [control, redcables, redcables6]
                 acl_in: protect_from_access
             12:
                 name: "port1.0.12"

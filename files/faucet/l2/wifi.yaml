@@ -12,9 +12,7 @@ dps:
         interfaces:
             1:
                 name: "eth0"
-                stack:
-                    dp: at-x930-1
-                    port: 9
+                tagged_vlans: [redcables,redcables6,control]
             2:
                 name: "wlan0"
                 native_vlan: redcables
@@ -41,9 +39,7 @@ dps:
         interfaces:
             1:
                 name: "eth0"
-                stack:
-                    dp: at-x930-1
-                    port: 10
+                tagged_vlans: [redcables,redcables6,control]
             2:
                 name: "wlan0"
                 native_vlan: redcables
@@ -70,9 +66,7 @@ dps:
         interfaces:
             1:
                 name: "eth0"
-                stack:
-                    dp: at-x930-1
-                    port: 11
+                tagged_vlans: [redcables,redcables6,control]
             2:
                 name: "wlan0"
                 native_vlan: redcables
