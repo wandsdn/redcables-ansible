@@ -15,5 +15,5 @@ ovs-vsctl add-port br-redcables dpdk-aruba-2930 -- \
   set Interface dpdk-aruba-2930 ofport_request=6
 
 ovs-vsctl add-port br-redcables dpdk-cpn -- \
-  set Interface dpdk-cpn type=dpdk options:dpdk-devargs=0000:04:00.0 -- \
+  set Interface dpdk-cpn type=dpdk options:dpdk-devargs=0000:06:00.0 -- \
   set Interface dpdk-cpn ofport_request=21

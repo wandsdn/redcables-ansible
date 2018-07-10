@@ -17,4 +17,4 @@ pci	0000:0e:00.0	vfio-pci
 pci	0000:0e:00.1	vfio-pci
 pci	0000:0e:00.2	vfio-pci
 pci	0000:0e:00.3	vfio-pci
-pci	0000:04:00.0	vfio-pci
+pci	0000:06:00.0	vfio-pci
