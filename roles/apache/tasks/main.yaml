@@ -8,7 +8,7 @@
 
 - name: Add backports repository
   apt_repository:
-    repo: "deb http://ftp.nz.debian.org/debian {{ ansible_distribution_release }}-backports main"
+    repo: "deb http://mirror.fsmg.org.nz/debian {{ ansible_distribution_release }}-backports main"
     state: present
 
 - name: Install certbot from backports
