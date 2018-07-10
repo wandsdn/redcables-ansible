@@ -55,6 +55,7 @@
     owner: prometheus
     group: prometheus
     remote_src: yes
+  notify: restart prometheus
 
 - name: Add prometheus systemd unit
   copy:
