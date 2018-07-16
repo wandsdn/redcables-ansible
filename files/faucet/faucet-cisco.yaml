@@ -33,10 +33,10 @@ vlans:
         max_hosts: 255
 
 dps:
-    cisco-9300:
+    cisco-9300-1:
         dp_id: 0x701f53017300
-        description: "cisco-9300"
-        hardware: "GenericTFM"
+        description: "cisco-9300-1"
+        hardware: "CiscoC9K"
         ignore_learn_ins: 0
         group_table: True
         drop_spoofed_faucet_mac: False

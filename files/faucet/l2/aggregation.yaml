@@ -259,10 +259,10 @@ dps:
                 description: "openstack-dev br-ex"
                 native_vlan: redcables
                 acl_in: protect_from_access
-    cisco-9300:
+    cisco-9300-1:
         dp_id: 0x701f53017300
-        description: "cisco-9300"
-        hardware: "GenericTFM"
+        description: "cisco-9300-1"
+        hardware: "CiscoC9K"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: True
