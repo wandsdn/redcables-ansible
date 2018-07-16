@@ -90,13 +90,13 @@ dps:
                 tagged_vlans: [redcables-l3,redcables6,events-l3,control]
                 acl_in: protect_from_access
             5:
-                name: 'dpdk-cisco-9300'
-                description: "cisco-9300 redcables trunk"
+                name: 'dpdk-cisco-9300-1'
+                description: "cisco-9300-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,control]
                 acl_in: protect_from_access
             6:
-                name: 'dpdk-aruba-2930'
-                description: "aruba-2930 redcables trunk"
+                name: 'dpdk-aruba-2930f-1'
+                description: "aruba-2930f-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,control]
                 acl_in: protect_from_access
             7:
