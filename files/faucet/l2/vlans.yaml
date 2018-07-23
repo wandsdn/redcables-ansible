@@ -1,0 +1,14 @@
+---
+version: 2
+
+vlans:
+    redcables:
+        name: "redcables"
+        description: "redcables ipv4/ipv6 vlan"
+        vid: 250
+        max_hosts: 255
+    events:
+        name: "events"
+        description: "events ipv4/ipv6 vlan"
+        vid: 252
+        max_hosts: 255
