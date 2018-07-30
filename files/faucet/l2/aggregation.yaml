@@ -87,12 +87,19 @@ dps:
                 acl_in: protect_from_access
             17:
                 name: "port1.0.17"
-                native_vlan: redcables
+                description: "ex4300-stack trunk-a"
+                lacp: 2
+                lldp_beacon:
+                    enable: True
+                tagged_vlans: [redcables,redcables6]
                 acl_in: protect_from_access
             18:
                 name: "port1.0.18"
-                description: "at-x230-4 trunk"
-                tagged_vlans: [redcables,redcables6,events,control]
+                description: "ex4300-stack trunk-b"
+                tagged_vlans: [redcables,redcables6]
+                lacp: 2
+                lldp_beacon:
+                    enable: True
                 acl_in: protect_from_access
             19:
                 name: "port1.0.19"
