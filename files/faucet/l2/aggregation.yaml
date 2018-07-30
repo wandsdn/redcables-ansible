@@ -341,63 +341,83 @@ dps:
             1:
                 name: "1"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             2:
                 name: "2"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             3:
                 name: "3"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             4:
                 name: "4"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             5:
                 name: "5"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             6:
                 name: "6"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             7:
                 name: "7"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             8:
                 name: "8"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             9:
                 name: "9"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             10:
                 name: "10"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             11:
                 name: "11"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             12:
                 name: "12"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             13:
                 name: "13"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             14:
                 name: "14"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             15:
                 name: "15"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             16:
                 name: "16"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             17:
                 name: "17"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             18:
                 name: "18"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             19:
                 name: "19"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             20:
                 name: "20"
                 native_vlan: redcables
+                acl_in: protect_from_access_without_bcp38
             21:
                 name: "21"
                 description: "at-x510-1 trunk"
