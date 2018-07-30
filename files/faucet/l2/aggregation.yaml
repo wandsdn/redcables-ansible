@@ -127,7 +127,7 @@ dps:
             22:
                 name: "port1.0.22"
                 description: "redcables-core-sw lacp test"
-                lacp: True
+                lacp: 1
                 native_vlan: lacp-test
             23:
                 name: "port1.0.23"
