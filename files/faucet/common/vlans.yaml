@@ -31,5 +31,5 @@ vlans:
     lacp-test:
         name: "lacp-test"
         description: "lacp-test vlan"
-        vid: 98
+        vid: 97
         max_hosts: 1
