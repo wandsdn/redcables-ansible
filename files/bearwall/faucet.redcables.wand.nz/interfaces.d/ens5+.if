@@ -3,6 +3,8 @@ on_startup
 policy in ACCEPT --protocol tcp --destination-port ssh
 policy in ACCEPT -s 210.7.38.88/29 --protocol tcp --destination-port bgp
 policy in ACCEPT -s 2404:138:39:120::/112 --protocol tcp --destination-port bgp
+policy in ACCEPT -s 163.7.136.128/27 --protocol tcp --destination-port bgp
+policy in ACCEPT -s 2404:138:4011:9d04::/64 --protocol tcp --destination-port bgp
 policy in ACCEPT -s 163.7.136.0/23 --protocol tcp --destination-port domain
 policy in ACCEPT -s 2404:138:4011::/48 --protocol tcp --destination-port domain
 policy in ACCEPT -s 2404:138:4011:3e8::fffd/128 --protocol tcp --destination-port domain

@@ -7,7 +7,7 @@ include:
 
 routers:
     router-reannz:
-        vlans: [reannz-l3, redcables-l3, events-l3]
+        vlans: [reannz-l3, redcables-l3, events-l3, ggc-l3]
 
 vlans:
     reannz-l3:
@@ -58,6 +58,18 @@ vlans:
             '163.7.136.254/26', '2404:138:4011:3d0::ffff/64', # gateway addresses
             ]
         targeted_gw_resolution: True
+    ggc-l3:
+        name: "ggc-l3"
+        description: "ggc ipv4/ipv6 vlan"
+        vid: 253
+        max_hosts: 255
+        proactive_nd_limit: 4096
+        faucet_mac: "0e:00:00:00:02:53"
+        faucet_vips: [
+            'fe80::c00:00ff:fe00:0253/64',                    # ipv6 link-local
+            '163.7.136.129/27', '2404:138:4011:9d04::1/64',   # gateway addresses
+            ]
+        targeted_gw_resolution: True
 
 dps:
     ovs-redcables:
@@ -75,7 +87,7 @@ dps:
             2:
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
-                tagged_vlans: [reannz-l3,redcables-l3,events-l3]
+                tagged_vlans: [reannz-l3,redcables-l3,events-l3,ggc-l3]
                 permanent_learn: True
                 acl_in: protect_from_core
             3:
@@ -87,7 +99,7 @@ dps:
             4:
                 name: 'dpdk-at-x930-1'
                 description: "at-x930-1 redcables trunk"
-                tagged_vlans: [redcables-l3,redcables6,events-l3,control]
+                tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 acl_in: protect_from_access
             5:
                 name: 'dpdk-cisco-9300-1'
@@ -97,7 +109,7 @@ dps:
             6:
                 name: 'dpdk-aruba-2930f-1'
                 description: "aruba-2930f-1 redcables trunk"
-                tagged_vlans: [redcables-l3,redcables6,control]
+                tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 acl_in: protect_from_access
             7:
                 name: 'reannz'

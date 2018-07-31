@@ -12,3 +12,8 @@ vlans:
         description: "events ipv4/ipv6 vlan"
         vid: 252
         max_hosts: 255
+    ggc:
+        name: "ggc"
+        description: "ggc ipv4/ipv6 vlan"
+        vid: 253
+        max_hosts: 255

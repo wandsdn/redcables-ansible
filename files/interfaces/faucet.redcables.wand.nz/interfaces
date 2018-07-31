@@ -41,6 +41,15 @@ iface ens5.252 inet6 static
   address 2404:138:4011:3d0::fffe
   netmask 64
 
+# ggc
+auto ens5.253
+iface ens5.253 inet static
+  address 163.7.136.130
+  netmask 255.255.255.224
+iface ens5.253 inet6 static
+  address 2404:138:4011:9d04::2
+  netmask 64
+
 # reannz
 auto ens5.2406
 iface ens5.2406 inet static

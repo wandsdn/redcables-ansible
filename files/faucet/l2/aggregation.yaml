@@ -17,12 +17,14 @@ dps:
         interfaces:
             1:
                 name: "port1.0.1"
-                native_vlan: redcables
-                acl_in: protect_from_access
+                description: "ggc1-a"
+                native_vlan: ggc
+                lacp: 3
             2:
                 name: "port1.0.2"
-                native_vlan: redcables
-                acl_in: protect_from_access
+                description: "ggc1-b"
+                native_vlan: ggc
+                lacp: 3
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
@@ -144,7 +146,7 @@ dps:
             24:
                 name: "port1.0.24"
                 description: "at-x930-1 trunk"
-                tagged_vlans: [redcables,redcables6,events,control]
+                tagged_vlans: [redcables,redcables6,events,ggc,control]
     at-x930-2:
         dp_id: 0xeccd6def54fe
         description: "at-x930-2"
@@ -347,12 +349,14 @@ dps:
         interfaces:
             1:
                 name: "1"
-                native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                description: "ggc2-a"
+                native_vlan: ggc
+                lacp: 4
             2:
                 name: "2"
-                native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                description: "ggc2-b"
+                native_vlan: ggc
+                lacp: 4
             3:
                 name: "3"
                 native_vlan: redcables
@@ -440,4 +444,4 @@ dps:
             23:
                 name: "23"
                 description: "aruba-2930f-1 trunk"
-                tagged_vlans: [redcables,redcables6,control]
+                tagged_vlans: [redcables,redcables6,events,ggc,control]
