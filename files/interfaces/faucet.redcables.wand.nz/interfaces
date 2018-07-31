@@ -13,12 +13,14 @@ iface ens3 inet static
   address 192.168.122.2
   netmask 255.255.255.0
 
+# cpn
 auto ens4
 iface ens4 inet static
   address 172.16.0.200
   netmask 255.255.255.0
   dns-search mgmt.wand.net.nz
 
+# redcables
 auto ens5.250
 iface ens5.250 inet static
   address 163.7.137.253
@@ -30,14 +32,16 @@ iface ens5.250 inet6 static
   netmask 64
   gateway 2404:138:4011:3e8::ffff
 
+# events
 auto ens5.252
 iface ens5.252 inet static
   address 163.7.136.253
-  netmask 255.255.255.128
+  netmask 255.255.255.192
 iface ens5.252 inet6 static
   address 2404:138:4011:3d0::fffe
   netmask 64
 
+# reannz
 auto ens5.2406
 iface ens5.2406 inet static
   address 210.7.38.90

@@ -55,7 +55,7 @@ vlans:
         faucet_mac: "0e:00:00:00:02:52"
         faucet_vips: [
             'fe80::c00:00ff:fe00:0252/64',                    # ipv6 link-local
-            '163.7.136.254/25', '2404:138:4011:3d0::ffff/64', # gateway addresses
+            '163.7.136.254/26', '2404:138:4011:3d0::ffff/64', # gateway addresses
             ]
         targeted_gw_resolution: True
 
