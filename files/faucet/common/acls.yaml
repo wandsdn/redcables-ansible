@@ -576,6 +576,7 @@ acls:
     sniff:
         - rule:
             actions:
+                allow: 1                 # allow
                 output:
                     port: dag
         - rule:
