@@ -23,11 +23,6 @@ vlans:
         description: "openstack private network"
         vid: 98
         max_hosts: 10
-    endace-mirror:
-        name: "endace-mirror"
-        description: "output-only vlan for traffic mirrored to endace dag"
-        vid: 4080
-        max_hosts: 0
     lacp-test:
         name: "lacp-test"
         description: "lacp-test vlan"

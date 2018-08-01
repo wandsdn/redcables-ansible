@@ -75,8 +75,7 @@ dps:
             14:
                 name: "dag"
                 description: "endace dag"
-                native_vlan: endace-mirror
-                acl_in: protect_from_access
+                output_only: True
             15:
                 name: "port1.0.15"
                 description: "ITS VLAN820 handover"

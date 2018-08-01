@@ -573,6 +573,15 @@ acls:
             actions:
                 allow: 1                 # allow
 
+    sniff:
+        - rule:
+            actions:
+                output:
+                    port: dag
+        - rule:
+            actions:
+                allow: 1                 # allow
+
     # Drop all
     drop_all:
         - rule:
