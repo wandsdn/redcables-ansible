@@ -1,5 +1,5 @@
 ---
-gauge_version: 1.8.11
+gauge_version: 1.8.12
 influx_database: faucet
 influx_username: faucet
 influx_password: faucet

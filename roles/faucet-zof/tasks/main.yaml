@@ -115,10 +115,3 @@
     dest: /etc/ryu/faucet/
   notify:
     - reload faucet-l2
-
-- name: Add faucet-l2 TFM configuration
-  copy:
-    src: faucet/tfm/
-    dest: /etc/ryu/faucet/
-  notify:
-    - restart faucet-l2

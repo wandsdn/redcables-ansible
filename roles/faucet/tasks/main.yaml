@@ -151,14 +151,6 @@
   notify:
     - reload faucet-cisco
 
-- name: Add faucet-l2 TFM configuration
-  copy:
-    src: faucet/tfm/
-    dest: /etc/faucet/
-  notify:
-    - restart faucet-l2
-    - restart faucet-cisco
-
 - name: Check faucet-l3 config
   shell: check_faucet_config /etc/faucet/faucet-l3.yaml
 
