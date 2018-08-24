@@ -694,28 +694,27 @@ dps:
                 name: "port1.0.28"
                 native_vlan: redcables
                 acl_in: protect_from_access
-    pica-3780:
-        dp_id: 0xe6a9e89a8fbe0c32
-        description: "pica-3780"
+    zodiacgx:
+        dp_id: 0x44d1fa62913a
+        description: "zodiacGX"
         hardware: "Open vSwitch"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
-        group_table: True
+        group_table: False
         interfaces:
             1:
-                name: "port1.0.1"
+                name: "eth0.1"
                 native_vlan: redcables
                 acl_in: protect_from_access
             2:
-                name: "port1.0.2"
+                name: "eth0.2"
                 native_vlan: redcables
                 acl_in: protect_from_access
             3:
-                name: "port1.0.3"
+                name: "eth0.3"
                 native_vlan: redcables
                 acl_in: protect_from_access
             4:
-                name: "port1.0.4"
-                description: "pica-3780 trunk"
-                tagged_vlans: [redcables,redcables6]
+                name: "eth0.4"
+                native_vlan: redcables
                 acl_in: protect_from_core
