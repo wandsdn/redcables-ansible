@@ -178,9 +178,9 @@ dps:
                 name: "port1.0.10"
                 tagged_vlans: [events]
                 acl_in: protect_from_core
-    aruba-2930f-2:
+    aruba-2930f-3:
         dp_id: 0x1f4034307e590
-        description: "aruba-2930f-2"
+        description: "aruba-2930f-3"
         hardware: "Aruba"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
