@@ -9,9 +9,9 @@
     name: faucet-l2
     state: reloaded
 
-- name: reload faucet-cisco
+- name: reload faucet-l2-secondary
   service:
-    name: faucet-cisco
+    name: faucet-l2-secondary
     state: reloaded
 
 - name: restart faucet-l3
@@ -24,7 +24,7 @@
     name: faucet-l2
     state: restarted
 
-- name: restart faucet-cisco
+- name: restart faucet-l2-secondary
   service:
-    name: faucet-cisco
+    name: faucet-l2-secondary
     state: restarted

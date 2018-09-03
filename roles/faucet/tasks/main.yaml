@@ -33,7 +33,7 @@
   notify:
     - restart faucet-l3
     - restart faucet-l2
-    - restart faucet-cisco
+    - restart faucet-l2-secondary
 
 - name: Add faucet-l3 defaults file
   copy:
@@ -45,10 +45,10 @@
     src: default-l2
     dest: /etc/default/faucet-l2
 
-- name: Add faucet-cisco defaults file
+- name: Add faucet-l2-secondary defaults file
   copy:
-    src: default-cisco
-    dest: /etc/default/faucet-cisco
+    src: default-l2-secondary
+    dest: /etc/default/faucet-l2-secondary
 
 - name: Create faucet config directory
   file:
@@ -86,9 +86,9 @@
     src: faucet-l2.service
     dest: /etc/systemd/system/
 
-- name: Add faucet-cisco systemd unit
+- name: Add faucet-l2-secondary systemd unit
   copy:
-    src: faucet-cisco.service
+    src: faucet-l2-secondary.service
     dest: /etc/systemd/system/
 
 - name: Enable faucet systemd unit
@@ -107,9 +107,9 @@
     masked: no
     state: started
 
-- name: Enable faucet-cisco systemd unit
+- name: Enable faucet-l2-secondary systemd unit
   systemd:
-    name: faucet-cisco
+    name: faucet-l2-secondary
     daemon_reload: yes
     enabled: yes
     masked: no
@@ -144,18 +144,8 @@
   notify:
     - reload faucet-l2
 
-- name: Add faucet-cisco configuration
-  copy:
-    src: faucet/faucet-cisco.yaml
-    dest: /etc/faucet/
-  notify:
-    - reload faucet-cisco
-
 - name: Check faucet-l3 config
   shell: check_faucet_config /etc/faucet/faucet-l3.yaml
 
 - name: Check faucet-l2 config
   shell: check_faucet_config /etc/faucet/faucet-l2.yaml
-
-- name: Check faucet-cisco config
-  shell: check_faucet_config /etc/faucet/faucet-cisco.yaml
