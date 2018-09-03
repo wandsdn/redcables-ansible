@@ -104,7 +104,7 @@ dps:
             5:
                 name: 'dpdk-cisco-9300-1'
                 description: "cisco-9300-1 redcables trunk"
-                tagged_vlans: [redcables-l3,redcables6,control]
+                tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 acl_in: protect_from_access
             6:
                 name: 'dpdk-aruba-2930f-1'
