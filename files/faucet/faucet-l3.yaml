@@ -75,6 +75,7 @@ dps:
     ovs-redcables:
         dp_id: 0x46
         hardware: "Open vSwitch"
+        global_vlan: 2000
         ignore_learn_ins: 0
         drop_spoofed_faucet_mac: False
         combinatorial_port_flood: False
