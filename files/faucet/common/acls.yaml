@@ -573,6 +573,16 @@ acls:
             actions:
                 allow: 1                 # allow
 
+    # Cleanup some junk we receive from the ITS network
+    cleanup_its_junk:
+        - rule:
+            dl_src: 35:03:00:00:00:00/ff:ff:ff:ff:00:00
+            actions:
+                allow: 0     # drop
+        - rule:
+            actions:
+                allow: 1                 # allow
+
     sniff:
         - rule:
             actions:

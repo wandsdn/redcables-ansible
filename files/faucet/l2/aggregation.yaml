@@ -80,12 +80,12 @@ dps:
                 name: "port1.0.15"
                 description: "ITS VLAN820 handover"
                 native_vlan: control
-                acl_in: protect_from_access
+                acls_in: [cleanup_its_junk, protect_from_access]
             16:
                 name: "port1.0.16"
                 description: "ITS VLAN821 handover"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [cleanup_its_junk, protect_from_access]
             17:
                 name: "port1.0.17"
                 description: "ex4300-stack trunk-a"
