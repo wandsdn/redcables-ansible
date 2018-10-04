@@ -30,6 +30,54 @@ acls:
                 allow: 0     # drop
         - rule:
             dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            udp_dst: 111     # portmapper
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
+            tcp_dst: 111     # portmapper
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            udp_dst: 111     # portmapper
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 111     # portmapper
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 17     # udp
+            udp_dst: 123     # ntp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
+            nw_proto: 6      # tcp
+            tcp_dst: 123     # ntp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 17     # udp
+            udp_dst: 123     # ntp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x86dd  # ipv6
+            nw_proto: 6      # tcp
+            tcp_dst: 123     # ntp
+            actions:
+                allow: 0     # drop
+        - rule:
+            dl_type: 0x800   # ipv4
             nw_proto: 6      # tcp
             tcp_dst: 445     # microsoft-ds
             actions:
