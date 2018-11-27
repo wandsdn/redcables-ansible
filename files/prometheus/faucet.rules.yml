@@ -7,10 +7,16 @@ groups:
     expr: rate(of_packet_ins[1m])
   - record: instance_dpid:ignored_packet_ins:rate1m
     expr: rate(of_ignored_packet_ins[1m])
+  - record: instance_dpid:of_unexpected_packet_ins:rate1m
+    expr: rate(of_unexpected_packet_ins[1m])
   - record: instance_dpid:of_flowmsgs_sent:rate1m
     expr: rate(of_flowmsgs_sent[1m])
 
   # Sum hosts learned on VLANs
+  - record: instance_vlan:vlan_hosts_learned:sum
+    expr: sum(vlan_hosts_learned) BY (instance, vlan)
+  - record: instance_vlan_dpid:vlan_hosts_learned:sum
+    expr: sum(vlan_hosts_learned) BY (instance, vlan, dp_id, dp_name)
   - record: instance_vlan:vlan_hosts_learned:sum
     expr: sum(vlan_hosts_learned) BY (instance, vlan)
   - record: instance_vlan:learned_macs:sum
