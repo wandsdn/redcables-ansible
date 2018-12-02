@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.2.4"
+      "version": "5.3.4"
     },
     {
       "type": "panel",
@@ -97,7 +97,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -110,15 +110,15 @@
       ],
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": true,
+        "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum{vlan=\"250\"}",
+          "expr": "instance_vlan:vlan_hosts_learned:sum{vlan=\"250\",instance=\"faucet-l3\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -163,7 +163,7 @@
       "thresholds": "",
       "title": "Redcables Dual-stack",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -215,7 +215,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -230,13 +230,13 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum{vlan=\"251\"}",
+          "expr": "instance_vlan:vlan_hosts_learned:sum{vlan=\"251\",instance=\"faucet-l3\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -281,7 +281,7 @@
       "thresholds": "",
       "title": "Redcables IPv6-only",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -334,7 +334,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -349,13 +349,13 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum{vlan=\"252\"}",
+          "expr": "instance_vlan:vlan_hosts_learned:sum{vlan=\"252\",instance=\"faucet-l3\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -400,7 +400,7 @@
       "thresholds": "",
       "title": "Events Network",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -453,7 +453,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -468,13 +468,13 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum{vlan=\"99\"}",
+          "expr": "instance_vlan:vlan_hosts_learned:sum{vlan=\"99\",instance=\"faucet-l3\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -519,7 +519,7 @@
       "thresholds": "",
       "title": "Control Plane Network",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -572,7 +572,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -587,13 +587,13 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum{vlan=\"2406\"}",
+          "expr": "instance_vlan:vlan_hosts_learned:sum{vlan=\"2406\",instance=\"faucet-l3\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -638,7 +638,7 @@
       "thresholds": "",
       "title": "REANNZ Peering VLAN",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -691,7 +691,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -706,13 +706,13 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum{vlan=\"254\"}",
+          "expr": "instance_vlan:vlan_hosts_learned:sum{vlan=\"254\",instance=\"faucet-l3\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -757,7 +757,7 @@
       "thresholds": "",
       "title": "SCALE TEST VLAN",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -770,6 +770,8 @@
     {
       "cacheTimeout": null,
       "colorBackground": false,
+      "colorPostfix": false,
+      "colorPrefix": false,
       "colorValue": false,
       "colors": [
         "rgba(245, 54, 54, 0.9)",
@@ -810,7 +812,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "postfix": "",
+      "postfix": "hosts",
       "postfixFontSize": "50%",
       "prefix": "",
       "prefixFontSize": "50%",
@@ -825,13 +827,13 @@
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
         "lineColor": "rgb(31, 120, 193)",
-        "show": false
+        "show": true
       },
       "tableColumn": "",
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "sum(instance_vlan:learned_macs:sum{})",
+          "expr": "sum(instance_vlan:vlan_hosts_learned:sum{instance=\"faucet-l3\"})",
           "format": "time_series",
           "groupBy": [
             {
@@ -876,7 +878,7 @@
       "thresholds": "",
       "title": "Total MACs Learned",
       "type": "singlestat",
-      "valueFontSize": "200%",
+      "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
@@ -894,13 +896,14 @@
       "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 0,
         "y": 4
       },
-      "id": 6,
+      "id": 7,
       "legend": {
+        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
@@ -924,7 +927,7 @@
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "instance_vlan:learned_macs:sum",
+          "expr": "port_vlan_dpid:port_vlan_hosts_learned:sum",
           "format": "time_series",
           "groupBy": [
             {
@@ -941,8 +944,8 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "vlan={{vlan}}",
-          "metric": "instance_vlan:learned_macs:sum",
+          "legendFormat": "{{dp_name}} port={{port}} vlan={{vlan}}",
+          "metric": "dpid_port_vlan:learned_macs:sum",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -968,7 +971,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Hosts learned per VLAN",
+      "title": "Hosts learned per VLAN across ports",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -1013,7 +1016,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 12,
         "y": 4
@@ -1135,246 +1138,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 12
-      },
-      "id": 7,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "dsType": "influxdb",
-          "expr": "dpid_port_vlan:learned_macs:sum",
-          "format": "time_series",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "intervalFactor": 2,
-          "legendFormat": "{{dp_name}} port={{port}} vlan={{vlan}}",
-          "metric": "dpid_port_vlan:learned_macs:sum",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "step": 2,
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Hosts learned per VLAN across ports",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
-      "fill": 1,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 12
-      },
-      "id": 11,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "dsType": "influxdb",
-          "expr": "instance_vlan_dpid:vlan_hosts_learned:sum",
-          "format": "time_series",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "intervalFactor": 2,
-          "legendFormat": "{{instance}} dpid={{dp_name}} vlan={{vlan}}",
-          "metric": "instance_vlan:vlan_hosts_learned:sum",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "step": 2,
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Hosts learned per VLAN across instances and datapaths",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
-      "fill": 1,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 21
+        "y": 13
       },
       "id": 1,
       "legend": {
@@ -1481,6 +1245,125 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "dsType": "influxdb",
+          "expr": "instance_vlan_dpid:vlan_hosts_learned:sum",
+          "format": "time_series",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "intervalFactor": 2,
+          "legendFormat": "{{instance}} dpid={{dp_name}} vlan={{vlan}}",
+          "metric": "instance_vlan:vlan_hosts_learned:sum",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "step": 2,
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Hosts learned per VLAN across instances and datapaths",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "10s",
@@ -1524,5 +1407,5 @@
   "timezone": "browser",
   "title": "Redcables Learned Hosts",
   "uid": "000000004",
-  "version": 43
+  "version": 44
 }

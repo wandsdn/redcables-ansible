@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.2.4"
+      "version": "5.3.4"
     },
     {
       "type": "datasource",
@@ -46,7 +46,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1538598892979,
+  "iteration": 1543786611281,
   "links": [],
   "panels": [
     {
@@ -281,6 +281,7 @@
         "query": "label_values(learned_macs, dp_name)",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
@@ -301,6 +302,7 @@
         "query": "label_values(learned_macs, vlan)",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 3,
         "tagValuesQuery": "",
         "tags": [],

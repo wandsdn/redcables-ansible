@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.2.4"
+      "version": "5.3.4"
     },
     {
       "type": "datasource",
@@ -285,7 +285,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
-        "h": 7,
+        "h": 17,
         "w": 12,
         "x": 0,
         "y": 4
@@ -461,7 +461,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "fontSize": "100%",
       "gridPos": {
-        "h": 7,
+        "h": 17,
         "w": 12,
         "x": 12,
         "y": 4
@@ -673,5 +673,5 @@
   "timezone": "",
   "title": "Redcables Routing Tables",
   "uid": "000000022",
-  "version": 8
+  "version": 9
 }
