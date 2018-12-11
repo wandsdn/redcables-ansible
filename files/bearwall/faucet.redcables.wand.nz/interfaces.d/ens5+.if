@@ -11,6 +11,7 @@ policy in ACCEPT -s 2404:138:4011:3e8::fffd/128 --protocol tcp --destination-por
 policy in ACCEPT -s 163.7.136.0/23 --protocol udp --destination-port domain
 policy in ACCEPT -s 2404:138:4011::/48 --protocol udp --destination-port domain
 policy in ACCEPT -s 2404:138:39:120::3/128 --protocol udp --destination-port domain
+policy in ACCEPT -s 163.7.136.0/23 --protocol udp --destination-port tftp
 policy in ACCEPT --protocol udp --destination-port bootps
 policy in ACCEPT --protocol udp --destination-port dhcpv6-server
 policy in tcp-strict
