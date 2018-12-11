@@ -6,20 +6,17 @@ faucet_configs:
 watchers:
     port_stats_poller:
         type: 'port_stats'
-        dps: []
         all_dps: True
         interval: 10
         db: 'prometheus'
     port_state_poller:
         type: 'port_state'
-        dps: []
         all_dps: True
         interval: 10
-        db: 'influx'
+        db: 'prometheus'
     flow_table_poller:
         type: 'flow_table'
         interval: 60
-        dps: []
         all_dps: True
         db: 'prometheus'
 dbs:
