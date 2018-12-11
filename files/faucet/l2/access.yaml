@@ -701,7 +701,7 @@ dps:
     zodiacgx:
         dp_id: 0x44d1fa62913a
         description: "zodiacGX"
-        hardware: "Open vSwitch"
+        hardware: "ZodiacGX"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: False
@@ -721,5 +721,5 @@ dps:
                 acl_in: protect_from_access
             4:
                 name: "eth0.4"
-                native_vlan: redcables
+                tagged_vlans: [redcables]
                 acl_in: protect_from_core
