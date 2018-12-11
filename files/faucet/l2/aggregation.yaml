@@ -267,6 +267,8 @@ dps:
         metrics_rate_limit_sec: 5
         table_sizes:
             port_acl: 512
+            eth_src: 1024
+            eth_dst: 1024
         interfaces:
             1:
                 name: "Gi1/0/1"
@@ -379,6 +381,9 @@ dps:
         lldp_beacon:
             send_interval: 5
             max_per_interval: 5
+        table_sizes:
+            eth_src: 700
+            eth_dst: 700
         interfaces:
             1:
                 name: "1"
