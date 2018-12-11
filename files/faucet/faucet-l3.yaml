@@ -79,6 +79,7 @@ dps:
         ignore_learn_ins: 0
         drop_spoofed_faucet_mac: False
         combinatorial_port_flood: False
+        metrics_rate_limit_sec: 5
         interfaces:
             1:
                 name: 'vhost-nat64-redcables'

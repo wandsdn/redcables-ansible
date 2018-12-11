@@ -9,6 +9,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: True
+        metrics_rate_limit_sec: 5
         lldp_beacon:
             send_interval: 5
             max_per_interval: 5
@@ -227,6 +228,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: True
+        metrics_rate_limit_sec: 5
         lldp_beacon:
             send_interval: 5
             max_per_interval: 5
@@ -444,6 +446,7 @@ dps:
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
+        metrics_rate_limit_sec: 5
         group_table: True
         lldp_beacon:
             send_interval: 5
@@ -576,6 +579,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: True
+        metrics_rate_limit_sec: 5
         lldp_beacon:
             send_interval: 5
             max_per_interval: 5
@@ -701,6 +705,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: False
+        metrics_rate_limit_sec: 5
         interfaces:
             1:
                 name: "eth0.1"

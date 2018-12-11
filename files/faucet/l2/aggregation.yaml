@@ -9,6 +9,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: True
+        metrics_rate_limit_sec: 5
         stack:
             priority: 1
         lldp_beacon:
@@ -153,6 +154,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: True
+        metrics_rate_limit_sec: 5
         interfaces:
             1:
                 name: "port1.0.1"
@@ -262,6 +264,7 @@ dps:
         ignore_learn_ins: 50
         drop_spoofed_faucet_mac: False
         group_table: False
+        metrics_rate_limit_sec: 5
         table_sizes:
             port_acl: 512
         interfaces:
