@@ -122,12 +122,6 @@ dps:
                 tagged_vlans: [reannz-l3]
                 permanent_learn: True
                 acl_in: protect_from_edge
-            8:
-                name: 'unifi'
-                description: "unifi controller vm"
-                native_vlan: redcables-l3
-                permanent_learn: True
-                acl_in: protect_from_access
             9:
                 name: 'mon-redcables'
                 description: "monitoring vm"
