@@ -102,16 +102,19 @@ dps:
                 name: 'dpdk-at-x930-1'
                 description: "at-x930-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
+                hairpin_unicast: True
                 acl_in: protect_from_access
             5:
                 name: 'dpdk-cisco-9300-1'
                 description: "cisco-9300-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
+                hairpin_unicast: True
                 acl_in: protect_from_access
             6:
                 name: 'dpdk-aruba-2930f-1'
                 description: "aruba-2930f-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
+                hairpin_unicast: True
                 acl_in: protect_from_access
             7:
                 name: 'dpdk-reannz'
