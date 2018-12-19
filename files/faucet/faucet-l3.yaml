@@ -114,7 +114,7 @@ dps:
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 acl_in: protect_from_access
             7:
-                name: 'reannz'
+                name: 'dpdk-reannz'
                 description: "reannz peering"
                 tagged_vlans: [reannz-l3]
                 permanent_learn: True
@@ -126,25 +126,25 @@ dps:
                 permanent_learn: True
                 acl_in: protect_from_access
             9:
-                name: 'monitoring'
+                name: 'mon-redcables'
                 description: "monitoring vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             10:
-                name: 'amp'
+                name: 'amp-redcables'
                 description: "amp vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             11:
-                name: 'awdy'
+                name: 'awdy-redcables'
                 description: "awdy vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
                 acl_in: protect_from_access
             14:
-                name: 'builder-1'
+                name: 'builder1-redcables'
                 description: "builder-1 vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
