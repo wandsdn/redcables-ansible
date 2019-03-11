@@ -33,3 +33,22 @@
     notifempty
     missingok
 }
+
+
+/var/log/faucet/faucet-l2-secondary.log {
+    weekly
+    rotate 14
+    compress
+    delaycompress
+    notifempty
+    missingok
+}
+
+/var/log/faucet/faucet-l2-secondary_exception.log {
+    weekly
+    rotate 14
+    compress
+    delaycompress
+    notifempty
+    missingok
+}
