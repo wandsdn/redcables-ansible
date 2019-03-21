@@ -30,12 +30,6 @@ menu = nat64-vm
 title = nat64 vm
 host = /Core/IPv4/nat64-vm /Core/IPv6/nat64-vm
 
-++ unifi-vm
-
-menu = unifi-vm
-title = unifi vm
-host = /Core/IPv4/unifi-vm /Core/IPv6/unifi-vm
-
 ++ monitoring-vm
 
 menu = monitoring-vm
@@ -71,12 +65,6 @@ host = faucet.redcables.wand.nz
 menu = nat64-vm.v4
 title = nat64.redcables.wand.nz
 host = 163.7.175.252
-
-+++ unifi-vm
-
-menu = unifi-vm.v4
-title = unifi.redcables.wand.nz
-host = unifi.redcables.wand.nz
 
 +++ monitoring-vm
 
@@ -114,12 +102,6 @@ host = faucet.redcables.wand.nz
 menu = nat64-vm.v6
 title = nat64.redcables.wand.nz
 host = nat64.redcables.wand.nz
-
-+++ unifi-vm
-
-menu = unifi-vm.v6
-title = unifi.redcables.wand.nz
-host = unifi.redcables.wand.nz
 
 +++ monitoring-vm
 

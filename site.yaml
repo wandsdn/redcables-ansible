@@ -56,16 +56,6 @@
     - role: apache
     - role: awdy
     - role: prometheus-node-exporter
-- hosts: speedtest1.redcables.wand.nz
-  roles:
-    - role: bearwall
-    - role: common
-    - role: prometheus-node-exporter
-- hosts: speedtest2.redcables.wand.nz
-  roles:
-    - role: bearwall
-    - role: common
-    - role: prometheus-node-exporter
 - hosts: builder-1.redcables.wand.nz
   roles:
     - role: bearwall
