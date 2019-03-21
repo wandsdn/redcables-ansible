@@ -6,8 +6,18 @@ include:
     - common/vlans.yaml
 
 routers:
-    router-reannz:
-        vlans: [reannz-l3, redcables-l3, events-l3, ggc-l3]
+    vlan-router:
+        vlans: [reannz-l3, redcables-l3, events-l3, ggc-l3, scale-test-l3]
+    bgp-router:
+        bgp:
+            vlan: reannz-l3
+            connect_mode: passive
+            routerid: '127.0.0.2'
+            server_addresses: ['127.0.0.2', '::1']
+            port: 9179
+            as: 134227
+            neighbor_addresses: ['127.0.0.1', '::1']
+            neighbor_as: 134227
 
 vlans:
     reannz-l3:
@@ -20,13 +30,6 @@ vlans:
             '210.7.38.91/29', '2404:138:39:120::f/112'        # peering link-net
             ]
         targeted_gw_resolution: True
-        bgp_port: 9179
-        bgp_as: 134227
-        bgp_routerid: '127.0.0.2'
-        bgp_neighbor_addresses: ['127.0.0.1', '::1']
-        bgp_server_addresses: ["127.0.0.2", "::1"]
-        bgp_connect_mode: passive
-        bgp_neighbor_as: 134227
     redcables-l3:
         name: "redcables-l3"
         description: "redcables ipv4/ipv6 vlan"
