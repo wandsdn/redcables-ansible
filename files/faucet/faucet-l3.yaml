@@ -29,6 +29,7 @@ vlans:
         faucet_vips: [
             '210.7.38.91/29', '2404:138:39:120::f/112'        # peering link-net
             ]
+        acls_out: [egress_to_reannz, default_allow]
         targeted_gw_resolution: True
     redcables-l3:
         name: "redcables-l3"
@@ -88,87 +89,87 @@ dps:
                 name: 'vhost-nat64-redcables'
                 description: "nat64 vm"
                 native_vlan: redcables-l3
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             2:
                 name: 'vhost-faucet-redcables'
                 description: "faucet vm"
                 tagged_vlans: [reannz-l3,redcables-l3,events-l3,ggc-l3]
                 permanent_learn: True
-                acl_in: protect_from_core
+                acls_in: [protect_from_core, default_allow]
             3:
                 name: 'vhost-nat64-redcables6'
                 description: "nat64 vm"
                 native_vlan: redcables6
                 permanent_learn: True
-                acl_in: protect_from_core
+                acls_in: [protect_from_core, default_allow]
             4:
                 name: 'dpdk-at-x930-1'
                 description: "at-x930-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 hairpin_unicast: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: 'dpdk-cisco-9300-1'
                 description: "cisco-9300-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 hairpin_unicast: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: 'dpdk-aruba-2930f-1'
                 description: "aruba-2930f-1 redcables trunk"
                 tagged_vlans: [redcables-l3,redcables6,events-l3,ggc-l3,control]
                 hairpin_unicast: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: 'dpdk-reannz'
                 description: "reannz peering"
                 tagged_vlans: [reannz-l3]
                 permanent_learn: True
-                acl_in: protect_from_edge
+                acls_in: [protect_from_edge, default_allow]
             9:
                 name: 'mon-redcables'
                 description: "monitoring vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: 'amp-redcables'
                 description: "amp vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: 'awdy-redcables'
                 description: "awdy vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: 'builder1-redcables'
                 description: "builder-1 vm"
                 native_vlan: redcables-l3
                 permanent_learn: True
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "vhost-faucet-cpn"
                 description: "faucet vm control plane network"
                 native_vlan: control
                 permanent_learn: True
-                acl_in: protect_from_control
+                acls_in: [protect_from_control, default_allow]
             21:
                 name: "dpdk-cpn"
                 description: "redcables control plane network"
                 native_vlan: control
-                acl_in: protect_from_control
+                acls_in: [protect_from_control, default_allow]
             22:
                 name: "mon-cpn"
                 description: "monitoring vm control plane network"
                 native_vlan: control
                 permanent_learn: True
-                acl_in: protect_from_control
+                acls_in: [protect_from_control, default_allow]
             23:
                 name: "vhost-faucet-zof-cpn"
                 description: "faucet zof control plane network"
                 native_vlan: control
                 permanent_learn: True
-                acl_in: protect_from_control
+                acls_in: [protect_from_control, default_allow]

@@ -216,7 +216,7 @@ acls:
         # Drop unicast ipv4 claiming to be from 163.7.136.0/23
         - rule:
             dl_type: 0x800               # ipv4
-            ipv4_src: 163.7.136.0/23    # assigned netblock
+            ipv4_src: 163.7.136.0/23     # assigned netblock
             actions:
                 allow: 0                 # drop
         # Drop unicast ipv6 claiming to be from 2404:138:4011::/48
@@ -231,9 +231,6 @@ acls:
             ipv6_src: fc00::/7           # RFC4193
             actions:
                 allow: 0                 # drop
-        - rule:
-            actions:
-                allow: 1
 
     # ACL zone for incoming packets from clients
     protect_from_access:
@@ -376,28 +373,46 @@ acls:
             icmpv6_type: 134 # router advertisement
             actions:
                 allow: 0     # drop
-        # Allow v4 multicast
+
+    # ACL zone for incoming packets from core devices
+    protect_from_core:
+        # Allow all
         - rule:
-            eth_dst: 01:00:5E:00:00:00/ff:ff:ff:00:00:00 # IPv4 multicast
             actions:
                 allow: 1                 # allow
-        # Allow v6 multicast
-        - rule:
-            eth_dst: 33:33:00:00:00:00/ff:ff:00:00:00:00 # IPv6 multicast
-            actions:
-                allow: 1                 # allow
-        # Allow broadcast
-        - rule:
-            eth_dst: ff:ff:ff:ff:ff:ff # broadcast
-            actions:
-                allow: 1                 # allow
-        # Allow control traffic to pass
+
+    # ACL zone for incoming packets from control/management devices
+    protect_from_control:
+        # Allow unicast ipv4 from 169.254.0.0/16
         - rule:
             dl_type: 0x800               # ipv4
-            ipv4_src: 172.16.0.0/24      # management network
-            ipv4_dst: 172.16.0.0/24      # management network
+            ipv4_src: 169.254.0.0/16     # link local
             actions:
-                allow: 1
+                allow: 1                 # allow
+        # Allow unicast ipv6 from fe80::/64
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            ipv6_src: fe80::/64          # link local
+            actions:
+                allow: 1                 # allow
+        # Allow unicast ipv4 from 172.16.0.0/24
+        - rule:
+            dl_type: 0x800               # ipv4
+            ipv4_src: 172.16.0.0/24      # cpn network
+            actions:
+                allow: 1                 # allow
+        # Drop other IP traffic
+        - rule:
+            dl_type: 0x800               # ipv4
+            actions:
+                allow: 0                 # drop
+        # Drop other IPv6 traffic
+        - rule:
+            dl_type: 0x86dd              # ipv6
+            actions:
+                allow: 0                 # drop
+
+    egress_to_reannz:
         # Allow unicast ipv4 from 169.254.0.0/16
         - rule:
             dl_type: 0x800               # ipv4
@@ -413,7 +428,13 @@ acls:
         # Allow unicast ipv4 from 163.7.136.0/23
         - rule:
             dl_type: 0x800               # ipv4
-            ipv4_src: 163.7.136.0/23    # assigned netblock
+            ipv4_src: 163.7.136.0/23     # assigned netblock
+            actions:
+                allow: 1                 # allow
+        # Allow unicast ipv4 from 210.7.38.88/29
+        - rule:
+            dl_type: 0x800               # ipv4
+            ipv4_src: 210.7.38.88/29     # assigned link-net
             actions:
                 allow: 1                 # allow
         # Allow unicast ipv6 from 2404:138:39:120::/112
@@ -438,169 +459,6 @@ acls:
             dl_type: 0x86dd              # ipv6
             actions:
                 allow: 0                 # drop
-        # Allow other protocols
-        - rule:
-            actions:
-                allow: 1
-
-    # ACL zone for incoming packets from clients
-    # connected with at-x230 switches
-    protect_from_access_without_bcp38:
-        # Faucet antispoof protection
-        - rule:
-            dl_src: 0e:00:00:00:00:01 # FAUCET_MAC
-            actions:
-                allow: 0     # drop
-        # Drop plain ipv4 smtp
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 25      # smtp
-            actions:
-                allow: 0     # drop
-        # Drop plain ipv6 smtp
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 25      # smtp
-            actions:
-                allow: 0     # drop
-        # Drop Intel AMT
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 623     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 623     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 17     # udp
-            udp_dst: 623     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 17     # udp
-            udp_dst: 623     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 664     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 664     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 17     # udp
-            udp_dst: 664     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 17     # udp
-            udp_dst: 664     # asf-rmcp
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16992   # intel-amt-http
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16992   # intel-amt-http
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16993   # intel-amt-https
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16993   # intel-amt-https
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16994   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16994   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 6      # tcp
-            tcp_dst: 16995   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 6      # tcp
-            tcp_dst: 16995   # intel-amt-redirection
-            actions:
-                allow: 0     # drop
-        # Drop dhcp server traffic
-        - rule:
-            dl_type: 0x800   # ipv4
-            nw_proto: 17     # udp
-            udp_src: 67      # bootps
-            udp_dst: 68      # bootpc
-            actions:
-                allow: 0     # drop
-        # Drop dhcpv6 server traffic
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 17     # udp
-            udp_src: 547     # dhcpv6-server
-            udp_dst: 546     # dhcpv6-client
-            actions:
-                allow: 0     # drop
-        # Drop icmpv6 router advertisements
-        - rule:
-            dl_type: 0x86dd  # ipv6
-            nw_proto: 58     # icmpv6
-            icmpv6_type: 134 # router advertisement
-            actions:
-                allow: 0     # drop
-        # Allow the rest
-        - rule:
-            actions:
-                allow: 1
-
-    # ACL zone for incoming packets from core devices
-    protect_from_core:
-        - rule:
-            actions:
-                allow: 1
-
-    # ACL zone for incoming packets from control/management devices
-    protect_from_control:
-        - rule:
-            actions:
-                allow: 1
 
     # ACL rule for dropping protocols other than IPv6
     ipv6_only:
@@ -621,15 +479,17 @@ acls:
             actions:
                 allow: 1                 # allow
 
+
     # Cleanup some junk we receive from the ITS network
     cleanup_its_junk:
         - rule:
             dl_src: 35:03:00:00:00:00/ff:ff:ff:ff:00:00
             actions:
-                allow: 0     # drop
+              allow: 0
         - rule:
+            dl_src: 01:00:0c:cc:cc:cc/ff:ff:ff:ff:ff:ff
             actions:
-                allow: 1                 # allow
+              allow: 0
 
     sniff:
         - rule:
@@ -637,12 +497,15 @@ acls:
                 allow: 1                 # allow
                 output:
                     port: dag
+
+    # Default allow
+    default_allow:
         - rule:
             actions:
                 allow: 1                 # allow
 
-    # Drop all
-    drop_all:
+    # Default drop
+    default_drop:
         - rule:
             actions:
                 allow: 0                 # drop

@@ -17,210 +17,210 @@ dps:
             1:
                 name: "port1.0.1"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             2:
                 name: "port1.0.2"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "port1.0.4"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: "port1.0.5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "port1.0.6"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "port1.0.7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "port1.0.8"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "port1.0.9"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "port1.0.10"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "port1.0.11"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "port1.0.12"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "port1.0.14"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "port1.0.15"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "port1.0.16"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "port1.0.17"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "port1.0.18"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "port1.0.21"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             23:
                 name: "port1.0.23"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             24:
                 name: "port1.0.24"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             25:
                 name: "port1.0.25"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             26:
                 name: "port1.0.26"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             27:
                 name: "port1.0.27"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             28:
                 name: "port1.0.28"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             29:
                 name: "port1.0.29"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             30:
                 name: "port1.0.30"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             31:
                 name: "port1.0.31"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             32:
                 name: "port1.0.32"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             33:
                 name: "port1.0.33"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             34:
                 name: "port1.0.34"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             35:
                 name: "port1.0.35"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             36:
                 name: "port1.0.36"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             37:
                 name: "port1.0.37"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             38:
                 name: "port1.0.38"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             39:
                 name: "port1.0.39"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             40:
                 name: "port1.0.40"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             41:
                 name: "port1.0.41"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             42:
                 name: "port1.0.42"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             43:
                 name: "port1.0.43"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             44:
                 name: "port1.0.44"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             45:
                 name: "port1.0.45"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             46:
                 name: "port1.0.46"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             47:
                 name: "port1.0.47"
                 description: "at-x510-1 trunk"
                 lldp_beacon:
                     enable: True
-                acls_in: [lldp_allow, protect_from_core]
-                tagged_vlans: [redcables,redcables6]
+                acls_in: [lldp_allow, protect_from_core, default_allow]
+                tagged_vlans: [redcables, redcables6]
             49:
                 name: "port1.0.49"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             50:
                 name: "port1.0.50"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             51:
                 name: "port1.0.51"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             52:
                 name: "port1.0.52"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
     at-x510-2:
         dp_id: 0xe01aea0ce23a
         description: "at-x510-2"
@@ -236,210 +236,210 @@ dps:
             1:
                 name: "port1.0.1"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             2:
                 name: "port1.0.2"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "port1.0.4"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: "port1.0.5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "port1.0.6"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "port1.0.7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "port1.0.8"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "port1.0.9"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "port1.0.10"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "port1.0.11"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "port1.0.12"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "port1.0.14"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "port1.0.15"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "port1.0.16"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "port1.0.17"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "port1.0.18"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "port1.0.21"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             23:
                 name: "port1.0.23"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             24:
                 name: "port1.0.24"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             25:
                 name: "port1.0.25"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             26:
                 name: "port1.0.26"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             27:
                 name: "port1.0.27"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             28:
                 name: "port1.0.28"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             29:
                 name: "port1.0.29"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             30:
                 name: "port1.0.30"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             31:
                 name: "port1.0.31"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             32:
                 name: "port1.0.32"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             33:
                 name: "port1.0.33"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             34:
                 name: "port1.0.34"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             35:
                 name: "port1.0.35"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             36:
                 name: "port1.0.36"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             37:
                 name: "port1.0.37"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             38:
                 name: "port1.0.38"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             39:
                 name: "port1.0.39"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             40:
                 name: "port1.0.40"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             41:
                 name: "port1.0.41"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             42:
                 name: "port1.0.42"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             43:
                 name: "port1.0.43"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             44:
                 name: "port1.0.44"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             45:
                 name: "port1.0.45"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             46:
                 name: "port1.0.46"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             47:
                 name: "port1.0.47"
                 description: "at-x510-2 trunk"
                 lldp_beacon:
                     enable: True
-                acls_in: [lldp_allow, protect_from_core]
-                tagged_vlans: [redcables,redcables6]
+                acls_in: [lldp_allow, protect_from_core, default_allow]
+                tagged_vlans: [redcables, redcables6]
             49:
                 name: "port1.0.49"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             50:
                 name: "port1.0.50"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             51:
                 name: "port1.0.51"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             52:
                 name: "port1.0.52"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
     at-x510-3:
         dp_id: 0xeccd6dfba4bb
         description: "at-x510-3"
@@ -455,87 +455,87 @@ dps:
             1:
                 name: "port1.0.1"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             2:
                 name: "port1.0.2"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "port1.0.4"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: "port1.0.5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "port1.0.6"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "port1.0.7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "port1.0.8"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "port1.0.9"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "port1.0.10"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "port1.0.11"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "port1.0.12"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "port1.0.14"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "port1.0.15"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "port1.0.16"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "port1.0.17"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "port1.0.18"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "port1.0.21"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
                 description: "at-x510-3 trunk-b"
@@ -545,7 +545,7 @@ dps:
                 stack:
                     dp: at-x930-1
                     port: 19
-                acls_in: [lldp_allow, protect_from_core]
+                acls_in: [lldp_allow, protect_from_core, default_allow]
             23:
                 name: "port1.0.23"
                 description: "at-x510-3 trunk-a"
@@ -555,23 +555,23 @@ dps:
                 stack:
                     dp: at-x930-1
                     port: 20
-                acls_in: [lldp_allow, protect_from_core]
+                acls_in: [lldp_allow, protect_from_core, default_allow]
             25:
                 name: "port1.0.25"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             26:
                 name: "port1.0.26"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             27:
                 name: "port1.0.27"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             28:
                 name: "port1.0.28"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
     at-x510-4:
         dp_id: 0xeccd6dfba4d0
         description: "at-x510-4"
@@ -587,91 +587,91 @@ dps:
             1:
                 name: "port1.0.1"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             2:
                 name: "port1.0.2"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "port1.0.4"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: "port1.0.5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "port1.0.6"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "port1.0.7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "port1.0.8"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "port1.0.9"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "port1.0.10"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "port1.0.11"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "port1.0.12"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "port1.0.14"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "port1.0.15"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "port1.0.16"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "port1.0.17"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "port1.0.18"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "port1.0.21"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             23:
                 name: "port1.0.23"
                 description: "at-x510-4 trunk"
@@ -681,23 +681,23 @@ dps:
                 stack:
                     dp: at-x930-1
                     port: 21
-                acls_in: [lldp_allow, protect_from_core]
+                acls_in: [lldp_allow, protect_from_core, default_allow]
             25:
                 name: "port1.0.25"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             26:
                 name: "port1.0.26"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             27:
                 name: "port1.0.27"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             28:
                 name: "port1.0.28"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
     zodiacgx:
         dp_id: 0x44d1fa62913a
         description: "zodiacGX"
@@ -710,16 +710,16 @@ dps:
             1:
                 name: "eth0.1"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             2:
                 name: "eth0.2"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             3:
                 name: "eth0.3"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "eth0.4"
                 tagged_vlans: [redcables]
-                acl_in: protect_from_core
+                acls_in: [protect_from_core, default_allow]

@@ -37,44 +37,44 @@ dps:
             5:
                 name: "port1.0.5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "port1.0.6"
                 native_vlan: fcms-staff
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "port1.0.7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "port1.0.8"
                 description: "sorcerer"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "port1.0.9"
                 description: "at-tq4600-1"
                 tagged_vlans: [control, redcables, redcables6]
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "port1.0.10"
                 description: "at-tq4600-2"
                 tagged_vlans: [control, redcables, redcables6]
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "port1.0.11"
                 description: "at-tq4600-3"
                 tagged_vlans: [control, redcables, redcables6]
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "port1.0.12"
-                acl_in: protect_from_access
                 description: "ZodiacGX"
                 tagged_vlans: [redcables]
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "dag"
                 description: "endace dag"
@@ -83,12 +83,12 @@ dps:
                 name: "port1.0.15"
                 description: "ITS VLAN820 handover"
                 native_vlan: control
-                acls_in: [cleanup_its_junk, protect_from_access]
+                acls_in: [cleanup_its_junk, protect_from_access, default_allow]
             16:
                 name: "port1.0.16"
                 description: "ITS VLAN821 handover"
                 native_vlan: redcables
-                acls_in: [cleanup_its_junk, protect_from_access]
+                acls_in: [cleanup_its_junk, protect_from_access, default_allow]
             17:
                 name: "port1.0.17"
                 description: "ex4300-stack trunk-a"
@@ -96,7 +96,7 @@ dps:
                 lldp_beacon:
                     enable: True
                 tagged_vlans: [redcables,redcables6]
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             18:
                 name: "port1.0.18"
                 description: "ex4300-stack trunk-b"
@@ -104,7 +104,7 @@ dps:
                 lacp: 2
                 lldp_beacon:
                     enable: True
-                acl_in: protect_from_access
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
                 description: "at-x510-3 trunk-b"
@@ -114,7 +114,7 @@ dps:
                 stack:
                     dp: at-x510-3
                     port: 22
-                acls_in: [lldp_allow, protect_from_access]
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
                 description: "at-x510-3 trunk-a"
@@ -124,7 +124,7 @@ dps:
                 stack:
                     dp: at-x510-3
                     port: 23
-                acls_in: [lldp_allow, protect_from_access]
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             21:
                 name: "port1.0.21"
                 description: "at-x510-4 trunk"
@@ -134,7 +134,7 @@ dps:
                 stack:
                     dp: at-x510-4
                     port: 23
-                acls_in: [lldp_allow, protect_from_access]
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
                 description: "redcables-core-sw lacp test"
@@ -144,7 +144,7 @@ dps:
                 name: "port1.0.23"
                 description: "redcables-core-sw trunk"
                 tagged_vlans: [redcables,redcables6]
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             24:
                 name: "port1.0.24"
                 description: "at-x930-1 trunk"
@@ -169,96 +169,96 @@ dps:
             3:
                 name: "port1.0.3"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "port1.0.4"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: "port1.0.5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "port1.0.6"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "port1.0.7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "port1.0.8"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "port1.0.9"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "port1.0.10"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "port1.0.11"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "port1.0.12"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "port1.0.14"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "port1.0.15"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "port1.0.16"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "port1.0.17"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "port1.0.18"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "port1.0.21"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             23:
                 name: "port1.0.23"
                 native_vlan: control
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             24:
                 name: "port1.0.24"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             25:
                 name: "port1.0.25"
                 description: "openstack-dev br-ex"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
     cisco-9300-1:
         dp_id: 0x701f53017300
         description: "cisco-9300-1"
@@ -291,76 +291,76 @@ dps:
                 name: "Gi1/0/4"
                 description: "ex4300-stack trunk-b"
                 tagged_vlans: [redcables,redcables6]
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
                 lacp: 8
             5:
                 name: "Gi1/0/5"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "Gi1/0/6"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "Gi1/0/7"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "Gi1/0/8"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "Gi1/0/9"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "Gi1/0/10"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "Gi1/0/11"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "Gi1/0/12"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "Gi1/0/13"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "Gi1/0/14"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "Gi1/0/15"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "Gi1/0/16"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "Gi1/0/17"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "Gi1/0/18"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "Gi1/0/19"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "Gi1/0/20"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "Gi1/0/21"
                 native_vlan: redcables
-                acl_in: protect_from_access
+                acls_in: [protect_from_access, default_allow]
             22:
                 name: "Gi1/0/22"
                 description: "at-x510-1 trunk"
@@ -400,87 +400,89 @@ dps:
             3:
                 name: "3"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             4:
                 name: "4"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             5:
                 name: "5"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             6:
                 name: "6"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             7:
                 name: "7"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             8:
                 name: "8"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             9:
                 name: "9"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             10:
                 name: "10"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             11:
                 name: "11"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             12:
                 name: "12"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             13:
                 name: "13"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             14:
                 name: "14"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             15:
                 name: "15"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             16:
                 name: "16"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             17:
                 name: "17"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             18:
                 name: "18"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             19:
                 name: "19"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             20:
                 name: "20"
                 native_vlan: redcables
-                acl_in: protect_from_access_without_bcp38
+                acls_in: [protect_from_access, default_allow]
             21:
                 name: "21"
                 description: "at-x510-1 trunk"
                 lldp_beacon:
                     enable: True
                 tagged_vlans: [redcables,redcables6]
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             22:
                 name: "22"
                 description: "at-x510-2 trunk"
                 lldp_beacon:
                     enable: True
                 tagged_vlans: [redcables,redcables6]
+                acls_in: [lldp_allow, protect_from_access, default_allow]
             23:
                 name: "23"
                 description: "aruba-2930f-1 trunk"
