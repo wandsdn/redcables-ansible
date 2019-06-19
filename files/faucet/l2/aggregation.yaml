@@ -48,6 +48,7 @@ dps:
                 acl_in: protect_from_access
             8:
                 name: "port1.0.8"
+                description: "sorcerer"
                 native_vlan: redcables
                 acl_in: protect_from_access
             9:
@@ -67,8 +68,9 @@ dps:
                 acl_in: protect_from_access
             12:
                 name: "port1.0.12"
-                native_vlan: redcables
                 acl_in: protect_from_access
+                description: "ZodiacGX"
+                tagged_vlans: [redcables]
             13:
                 name: "port1.0.13"
                 native_vlan: redcables
