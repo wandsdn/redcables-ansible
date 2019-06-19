@@ -9,7 +9,7 @@
 
 - name: Download jool source
   unarchive:
-    src: https://github.com/NICMx/releases/raw/master/Jool/Jool-{{jool_version}}.zip
+    src: https://github.com/NICMx/Jool/releases/download/v{{jool_version}}/Jool-{{jool_version}}.zip
     dest: /usr/local/src/
     creates: /usr/local/src/Jool-{{jool_version}}/
     remote_src: True
@@ -33,3 +33,21 @@
   modprobe:
     name: jool
     state: present
+
+- name: Configure jool userspace
+  command: ./configure
+  args:
+    chdir: /usr/local/src/Jool-{{jool_version}}/usr
+  when: unarchive_result.changed
+
+- name: Build jool userspace
+  command: make
+  args:
+    chdir: /usr/local/src/Jool-{{jool_version}}/usr
+  when: unarchive_result.changed
+
+- name: Install jool userspace
+  command: make install
+  args:
+    chdir: /usr/local/src/Jool-{{jool_version}}/usr
+  when: unarchive_result.changed
