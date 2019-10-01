@@ -108,9 +108,6 @@ dps:
             19:
                 name: "port1.0.19"
                 description: "at-x510-3 trunk-b"
-                receive_lldp: True
-                lldp_beacon:
-                    enable: True
                 stack:
                     dp: at-x510-3
                     port: 22
@@ -118,9 +115,6 @@ dps:
             20:
                 name: "port1.0.20"
                 description: "at-x510-3 trunk-a"
-                receive_lldp: True
-                lldp_beacon:
-                    enable: True
                 stack:
                     dp: at-x510-3
                     port: 23
@@ -128,9 +122,6 @@ dps:
             21:
                 name: "port1.0.21"
                 description: "at-x510-4 trunk"
-                receive_lldp: True
-                lldp_beacon:
-                    enable: True
                 stack:
                     dp: at-x510-4
                     port: 23
@@ -472,15 +463,11 @@ dps:
             21:
                 name: "21"
                 description: "at-x510-1 trunk"
-                lldp_beacon:
-                    enable: True
                 tagged_vlans: [redcables,redcables6]
                 acls_in: [lldp_allow, protect_from_access, default_allow]
             22:
                 name: "22"
                 description: "at-x510-2 trunk"
-                lldp_beacon:
-                    enable: True
                 tagged_vlans: [redcables,redcables6]
                 acls_in: [lldp_allow, protect_from_access, default_allow]
             23:
