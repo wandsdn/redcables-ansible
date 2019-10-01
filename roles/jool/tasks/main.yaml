@@ -5,49 +5,53 @@
     state: installed
   with_items:
     - dkms
-    - unzip
+    - build-essential
+    - pkg-config
+    - libnl-genl-3-dev
+    - libxtables-dev
 
 - name: Download jool source
   unarchive:
-    src: https://github.com/NICMx/Jool/releases/download/v{{jool_version}}/Jool-{{jool_version}}.zip
+    src: https://github.com/NICMx/Jool/releases/download/v{{jool_version}}/jool-{{jool_version}}.tar.gz
     dest: /usr/local/src/
-    creates: /usr/local/src/Jool-{{jool_version}}/
+    creates: /usr/local/src/jool-{{jool_version}}/
     remote_src: True
   register: unarchive_result
 
 - name: Build jool kernel module
-  command: dkms install /usr/local/src/Jool-{{jool_version}}
+  command: dkms install /usr/local/src/jool-{{jool_version}}
   when: unarchive_result.changed
-
-- name: Persist jool module on boot
-  lineinfile:
-    dest: /etc/modules
-    line: "jool"
-
-- name: Configure jool
-  copy:
-    src: "jool/jool.conf"
-    dest: /etc/modprobe.d/jool.conf
-
-- name: Modprobe jool
-  modprobe:
-    name: jool
-    state: present
 
 - name: Configure jool userspace
   command: ./configure
   args:
-    chdir: /usr/local/src/Jool-{{jool_version}}/usr
+    chdir: /usr/local/src/jool-{{jool_version}}/
   when: unarchive_result.changed
 
 - name: Build jool userspace
   command: make
   args:
-    chdir: /usr/local/src/Jool-{{jool_version}}/usr
+    chdir: /usr/local/src/jool-{{jool_version}}/
   when: unarchive_result.changed
 
 - name: Install jool userspace
   command: make install
   args:
-    chdir: /usr/local/src/Jool-{{jool_version}}/usr
+    chdir: /usr/local/src/jool-{{jool_version}}/
+  when: unarchive_result.changed
+
+- name: Add default jool instance
+  command: jool instance add --netfilter --pool6 64:ff9b::/96
+  when: unarchive_result.changed
+
+- name: Configure TCP pool4 for default jool instance
+  command: jool pool4 add {{ jool_pool4 }} --tcp 1-65535
+  when: unarchive_result.changed
+
+- name: Configure UDP pool4 for default jool instance
+  command: jool pool4 add {{ jool_pool4 }} --udp 1-65535
+  when: unarchive_result.changed
+
+- name: Configure ICMP pool4 for default jool instance
+  command: jool pool4 add {{ jool_pool4 }} --icmp 1-65535
   when: unarchive_result.changed
