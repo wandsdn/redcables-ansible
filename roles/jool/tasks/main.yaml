@@ -40,18 +40,29 @@
     chdir: /usr/local/src/jool-{{jool_version}}/
   when: unarchive_result.changed
 
-- name: Add default jool instance
-  command: jool instance add --netfilter --pool6 64:ff9b::/96
-  when: unarchive_result.changed
+- name: Add jool systemd unit
+  copy:
+    src: jool.service
+    dest: /etc/systemd/system/
 
-- name: Configure TCP pool4 for default jool instance
-  command: jool pool4 add {{ jool_pool4 }} --tcp 1-65535
-  when: unarchive_result.changed
+- name: Enable jool systemd unit
+  systemd:
+    name: jool
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: started
 
-- name: Configure UDP pool4 for default jool instance
-  command: jool pool4 add {{ jool_pool4 }} --udp 1-65535
-  when: unarchive_result.changed
+- name: Create jool config directory
+  file:
+    path: /etc/jool/
+    owner: root
+    group: root
+    recurse: yes
+    state: directory
 
-- name: Configure ICMP pool4 for default jool instance
-  command: jool pool4 add {{ jool_pool4 }} --icmp 1-65535
-  when: unarchive_result.changed
+- name: Configure jool
+  template:
+    src: jool.conf
+    dest: /etc/jool/jool.conf
+  notify: restart jool
