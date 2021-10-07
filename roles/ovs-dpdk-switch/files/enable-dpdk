@@ -3,4 +3,3 @@
 ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true
 ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=1024,0
 ovs-vsctl --no-wait set Open_vSwitch . other_config:pmd-cpu-mask=0x100
-ovs-vsctl --no-wait set Open_vSwitch . "other_config:dpdk-extra=--vhost-owner libvirt-qemu:kvm --vhost-perm 0660"

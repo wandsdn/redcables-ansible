@@ -6,7 +6,7 @@
 
 - name: Add wand repository
   apt_repository:
-    repo: "deb https://packages.wand.net.nz {{ansible_distribution_release}} ovs-2.9"
+    repo: "deb https://packages.wand.net.nz {{ansible_distribution_release}} ovs-2.12"
     state: present
 
 - name: Install openvswitch-dpdk
@@ -67,3 +67,14 @@
     src: openvswitch-nonetwork.service.d/10-depend_on_dpdk.conf
     dest: /etc/systemd/system/openvswitch-nonetwork.service.d/
   notify: restart openvswitch with daemon-reload
+
+- name: Set libvirt/qemu to run VMs as root so vhostuser ports work
+  lineinfile:
+    dest: /etc/libvirt/qemu.conf
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items:
+    - regexp: '^user.*='
+      line: 'user = "root"'
+    - regexp: '^group.*='
+      line: 'group = "root"'
