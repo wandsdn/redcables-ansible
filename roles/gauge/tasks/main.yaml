@@ -1,4 +1,3 @@
 ---
-- include: influxdb.yaml
 - include: grafana.yaml
 - include: gauge.yaml

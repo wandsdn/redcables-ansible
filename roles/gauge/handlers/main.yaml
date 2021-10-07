@@ -4,11 +4,6 @@
     name: gauge
     state: restarted
 
-- name: restart influxdb
-  service:
-    name: influxdb
-    state: restarted
-
 - name: restart grafana
   service:
     name: grafana-server
