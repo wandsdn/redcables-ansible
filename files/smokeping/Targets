@@ -36,12 +36,6 @@ menu = monitoring-vm
 title = monitoring vm
 host = /Core/IPv4/monitoring-vm /Core/IPv6/monitoring-vm
 
-++ awdy-vm
-
-menu = awdy-vm
-title = awdy vm
-host = /Core/IPv4/awdy-vm /Core/IPv6/awdy-vm
-
 ++ IPv4
 
 menu = IPv4
@@ -71,12 +65,6 @@ host = 163.7.175.252
 menu = monitoring-vm.v4
 title = monitoring.redcables.wand.nz
 host = monitoring.redcables.wand.nz
-
-+++ awdy-vm
-
-menu = awdy-vm.v4
-title = awdy.redcables.wand.nz
-host = awdy.redcables.wand.nz
 
 ++ IPv6
 
@@ -108,12 +96,6 @@ host = nat64.redcables.wand.nz
 menu = monitoring-vm.v6
 title = monitoring.redcables.wand.nz
 host = monitoring.redcables.wand.nz
-
-+++ awdy-vm
-
-menu = awdy-vm.v6
-title = awdy.redcables.wand.nz
-host = awdy.redcables.wand.nz
 
 + Waikato
 

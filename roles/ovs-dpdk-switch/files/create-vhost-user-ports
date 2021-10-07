@@ -14,23 +14,10 @@ ovs-vsctl add-port br-redcables vhost-faucet-cpn -- \
   set Interface vhost-faucet-cpn type=dpdkvhostuser -- \
   set Interface vhost-faucet-cpn ofport_request=20
 
-ovs-vsctl add-port br-redcables vhost-faucet-zof-cpn -- \
-  set Interface vhost-faucet-zof-cpn type=dpdkvhostuser -- \
-  set Interface vhost-faucet-zof-cpn ofport_request=23
-
 # These are our regular VM ports - not as performant as vhost-user ports
 
 ovs-vsctl add-port br-redcables mon-redcables -- \
   set Interface mon-redcables ofport_request=9
-
-ovs-vsctl add-port br-redcables amp-redcables -- \
-  set Interface amp-redcables ofport_request=10
-
-ovs-vsctl add-port br-redcables awdy-redcables -- \
-  set Interface awdy-redcables ofport_request=11
-
-ovs-vsctl add-port br-redcables b1-redcables -- \
-  set Interface b1-redcables ofport_request=14
 
 ovs-vsctl add-port br-redcables mon-cpn -- \
   set Interface mon-cpn type=dpdkvhostuser -- \
