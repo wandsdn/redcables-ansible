@@ -1,0 +1,4 @@
+# Set the command-line arguments to pass to the server.
+ARGS="--config.file=/etc/prometheus/prometheus.yml \
+      --storage.tsdb.path=/var/lib/prometheus/metrics \
+      --storage.tsdb.retention.size={{ prometheus_retention_size }}"
