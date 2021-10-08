@@ -3,7 +3,7 @@ version: 2
 
 dps:
     at-x510-1:
-        dp_id: 0xe01aea0ce49e
+        dp_id: 0xeccd6d826c96
         description: "at-x510-1"
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
@@ -195,14 +195,19 @@ dps:
                 native_vlan: redcables
                 acls_in: [protect_from_access, default_allow]
             46:
-                name: "port1.0.46"
-                native_vlan: redcables
-                acls_in: [protect_from_access, default_allow]
-            47:
-                name: "port1.0.47"
-                description: "at-x510-1 trunk"
+                name: "port1.0.22"
+                description: "at-x510-1 trunk-b"
+                stack:
+                    dp: at-x930-1
+                    port: 19
                 acls_in: [lldp_allow, protect_from_core, default_allow]
-                tagged_vlans: [redcables, redcables6]
+            47:
+                name: "port1.0.23"
+                description: "at-x510-1 trunk-a"
+                stack:
+                    dp: at-x930-1
+                    port: 20
+                acls_in: [lldp_allow, protect_from_core, default_allow]
             49:
                 name: "port1.0.49"
                 native_vlan: redcables
@@ -220,7 +225,7 @@ dps:
                 native_vlan: redcables
                 acls_in: [protect_from_access, default_allow]
     at-x510-2:
-        dp_id: 0xe01aea0ce23a
+        dp_id: 0xeccd6d826c89
         description: "at-x510-2"
         hardware: "Allied-Telesis"
         ignore_learn_ins: 50
@@ -418,8 +423,8 @@ dps:
             47:
                 name: "port1.0.47"
                 description: "at-x510-2 trunk"
+                tagged_vlans: [redcables,redcables6]
                 acls_in: [lldp_allow, protect_from_core, default_allow]
-                tagged_vlans: [redcables, redcables6]
             49:
                 name: "port1.0.49"
                 native_vlan: redcables
