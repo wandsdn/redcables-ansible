@@ -1,0 +1,4 @@
+#jinja2: trim_blocks: "false", lstrip_blocks: "true"
+# {{ ansible_managed }}
+
+{{ item['policies'] }}

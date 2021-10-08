@@ -1,0 +1,118 @@
+---
+bearwall2_classes:
+  - name: loopback
+    policies: |
+      policy inout accept
+    if_features:
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+  - name: docker
+    policies: |
+      policy inout accept
+      policy forward accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 1
+      log_martians: 0
+      send_redirects: 0
+  - name: internal
+    policies: |
+      policy in tcp dport {ssh} accept comment \"machine management\"
+      policy in ip saddr {192.168.122.0/24} tcp dport {9100} accept comment \"node-exporter\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+  - name: management
+    policies: |
+      policy in ip saddr {172.16.0.0/24} tcp dport {6651} accept comment \"faucet-l2-secondary\"
+      policy in ip saddr {172.16.0.0/24} tcp dport {6652} accept comment \"faucet-l2\"
+      policy in ip saddr {172.16.0.0/24} tcp dport {6653} accept comment \"faucet-l3\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+  - name: redcables
+    policies: |
+      policy in tcp dport {ssh} accept comment \"machine management\"
+      policy in ip6 saddr {2404:138:4011:3e8::fffe/128} tcp dport {bgp} accept comment \"faucet bgp\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+      policy forward-in oifname ens5 accept
+      policy forward-out iifname ens5 accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 1
+      log_martians: 0
+      send_redirects: 0
+  - name: redcables6
+    policies: |
+      policy in tcp dport {ssh} accept comment \"machine management\"
+      policy in ip6 saddr {2404:138:4011::/64} tcp dport {domain} accept comment \"dns\"
+      policy in ip6 saddr {2404:138:4011::/64} udp dport {domain} accept comment \"dns\"
+      policy in udp dport {dhcpv6-server} accept comment \"dhcpv6\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+      policy forward-in oifname ens4 accept
+      policy forward-out iifname ens4 accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 1
+      log_martians: 0
+      send_redirects: 0
+
+bearwall2_interfaces:
+  - name: lo
+    class: loopback
+  - name: ens3
+    class: internal
+  - name: ens4
+    class: redcables
+  - name: ens5
+    class: redcables6

@@ -6,7 +6,7 @@
     - role: ovs-dpdk-switch
 - hosts: faucet.redcables.wand.nz
   roles:
-    - role: bearwall
+    - role: bearwall2
     - role: common
     - role: bird
     - role: dhcp
@@ -23,7 +23,7 @@
     - role: prometheus-node-exporter
 - hosts: nat64.redcables.wand.nz
   roles:
-    - role: bearwall
+    - role: bearwall2
     - role: common
     - role: bird
     - role: dhcpv6
@@ -32,7 +32,7 @@
     - role: unbound
 - hosts: monitoring.redcables.wand.nz
   roles:
-    - role: bearwall
+    - role: bearwall2
     - role: common
     - role: gauge
     - role: smokeping

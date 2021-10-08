@@ -1,0 +1,7 @@
+---
+
+- name: Configure bearwall ruleset {{ item.name }}
+  template:
+    src: ruleset
+    dest: "/etc/bearwall2/rulesets.d/{{ item.name }}.rule"
+  notify: apply bearwall2

@@ -1,0 +1,7 @@
+---
+
+- name: Configure bearwall class {{ item.name }}
+  template:
+    src: if
+    dest: "/etc/bearwall2/classes.d/{{ item.name }}"
+  notify: apply bearwall2

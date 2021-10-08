@@ -1,0 +1,102 @@
+---
+
+- name: Gather package versions
+  package_facts:
+    manager: auto
+
+- name: Get dpkg host architecture
+  command: dpkg --print-architecture
+  changed_when: false
+  register: get_dpkg_host_architecture
+
+- name: Set dpkg host architecture fact
+  set_fact:
+    dpkg_host_architecture: "{{ get_dpkg_host_architecture.stdout }}"
+  when: get_dpkg_host_architecture.rc == 0
+
+- name: Enable debian backports on debian buster
+  apt_repository:
+    filename: "debian-backports"
+    repo: "deb {{ debian_mirror }} {{ debian_backports_components }}"
+    update_cache: yes
+    state: present
+  when:
+    - bearwall2_enable_backports
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release == "buster"
+
+- name: Backport kernel and nftables on debian buster
+  apt:
+    name:
+      - linux-image-{{ dpkg_host_architecture }}
+      - nftables
+    default_release: "{{ ansible_distribution_release }}-backports"
+    state: latest
+  when:
+    - bearwall2_backport_kernel_nftables
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release == "buster"
+
+- name: Remove bearwall2 bintray repository
+  apt_repository:
+    repo: "deb https://dl.bintray.com/bearwall/bearwall2 {{ ansible_distribution_release }} main"
+    state: absent
+
+- name: Remove bearwall2 bintray GPG signing key
+  apt_key:
+    id: "6ABA09963E518866C29FA6C10F0921E4A2D0D6AE"
+    state: absent
+
+- name: Import bearwall2 cloudsmith GPG signing key
+  apt_key:
+    id: "C704B6DE77346EBAE0D229DA26EA35E7A5ED1FFE"
+    url: "https://dl.cloudsmith.io/public/bearwall/bearwall2/gpg.26EA35E7A5ED1FFE.key"
+    state: present
+
+- name: Add bearwall2 cloudsmith repository
+  apt_repository:
+    repo: "deb https://dl.cloudsmith.io/public/bearwall/bearwall2/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} main"
+    state: present
+
+- name: Install packages
+  apt:
+    name:
+      - bearwall2
+      - ulogd2
+    state: present
+
+- name: Check kernel version
+  fail:
+      msg: "Warning: kernel version should be >= 5.2 for nat to work, detected version: {{ ansible_kernel }}"
+  ignore_errors: yes
+  when: ansible_kernel is version('5.2', '<')
+
+- name: Check nftables version
+  fail:
+      msg: "Warning: nftables version should be >= 0.9.1 for nat to work, detected version: {{ ansible_facts.packages['nftables'][0]['version'] }}"
+  ignore_errors: yes
+  when: ansible_facts.packages['nftables'][0]['version'] is version('0.9.1', '<')
+
+- name: Configure ulogd2
+  template:
+    src: "ulogd.conf"
+    dest: "/etc/ulogd.conf"
+  notify: restart ulogd2
+
+- name: Configure bearwall2
+  template:
+    src: "bearwall2.conf"
+    dest: "/etc/bearwall2/bearwall2.conf"
+  notify: apply bearwall2
+
+- name: Configure bearwall2 rulesets
+  include_tasks: configure-ruleset.yml
+  with_items: "{{ bearwall2_rulesets }}"
+
+- name: Configure bearwall2 classes
+  include_tasks: configure-class.yml
+  with_items: "{{ bearwall2_classes }}"
+
+- name: Configure bearwall2 interfaces
+  include_tasks: configure-interface.yml
+  with_items: "{{ bearwall2_interfaces }}"

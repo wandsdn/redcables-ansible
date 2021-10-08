@@ -1,0 +1,27 @@
+---
+
+- name: dry-run bearwall2
+  command: "bearwall2 dry-run"
+  when: bearwall2_dry_run
+  listen: "apply bearwall2"
+
+- name: try bearwall2
+  command: "bearwall2 try"
+  notify: "test connectivity bearwall2"
+  when: not bearwall2_dry_run
+  listen: "apply bearwall2"
+
+- name: test connectivity bearwall2
+  wait_for_connection:
+    delay: 2
+    timeout: 15
+  changed_when: True
+  notify: commit bearwall2
+
+- name: commit bearwall2
+  command: "bearwall2 commit"
+
+- name: restart ulogd2
+  service:
+    name: ulogd2
+    state: restarted

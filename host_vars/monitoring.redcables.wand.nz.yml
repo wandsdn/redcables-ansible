@@ -1,0 +1,79 @@
+---
+bearwall2_classes:
+  - name: loopback
+    policies: |
+      policy inout accept
+    if_features:
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+  - name: internal
+    policies: |
+      policy in tcp dport {ssh} accept comment \"machine management\"
+      policy in tcp dport {http, https} accept comment \"www\"
+      policy in ip saddr {192.168.122.0/24} tcp dport {6654} accept comment \"gauge\"
+      policy in ip saddr {192.168.122.0/24} tcp dport {9100} accept comment \"node-exporter\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+  - name: management
+    policies: |
+      policy in ip saddr {172.16.0.0/24} tcp dport {6654} accept comment \"gauge\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+  - name: external
+    policies: |
+      policy in tcp dport {ssh} accept comment \"machine management\"
+      policy in tcp dport {http, https} accept comment \"www\"
+      policy in ICMP-SAFE
+      policy in STATEFUL
+      policy out accept
+    if_features:
+      disable_ipv6: 0
+      autoconf: 0
+      rp_filter: 1
+      accept_redirects: 0
+      accept_source_route: 0
+      bootp_relay: 0
+      accept_ra: 0
+      forwarding: 0
+      log_martians: 0
+      send_redirects: 0
+
+bearwall2_interfaces:
+  - name: lo
+    class: loopback
+  - name: ens3
+    class: internal
+  - name: ens4
+    class: management
+  - name: ens5
+    class: external

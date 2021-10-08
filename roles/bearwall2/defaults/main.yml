@@ -1,0 +1,18 @@
+---
+bearwall2_rulesets: []
+bearwall2_classes: []
+bearwall2_interfaces: []
+
+bearwall2_options:
+  logging: "nflog"
+  conntrack: "stateful"
+  missing: "withhold"
+  rollback_delay: "30"
+  always_ifname: "ppp"
+
+bearwall2_enable_backports: false
+bearwall2_backport_kernel_nftables: false
+bearwall2_dry_run: false
+
+debian_mirror: "https://mirror.fsmg.org.nz/debian/"
+debian_backports_components: "{{ ansible_distribution_release }}-backports main contrib non-free"

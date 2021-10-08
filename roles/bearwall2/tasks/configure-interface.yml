@@ -1,0 +1,16 @@
+---
+
+- name: Configure bearwall interface {{ item.name }} as class {{ item.class }}
+  file:
+    src: "/etc/bearwall2/classes.d/{{ item.class }}"
+    dest: "/etc/bearwall2/interfaces.d/{{ item.name }}.if"
+    state: link
+  when: "'class' in item"
+  notify: apply bearwall2
+
+- name: Configure bearwall interface {{ item.name }}
+  template:
+    src: if
+    dest: "/etc/bearwall2/interfaces.d/{{ item.name }}.if"
+  when: "'class' not in item"
+  notify: apply bearwall2

@@ -1,0 +1,12 @@
+#jinja2: trim_blocks: "false", lstrip_blocks: "true"
+# {{ ansible_managed }}
+
+{% if 'policies' in item %}
+{{ item['policies'] }}
+{% endif -%}
+
+{% if 'if_features' in item and item['if_features'] is iterable %}
+  {% for if_feature, value in item['if_features'] | dictsort %}
+if_feature {{ if_feature }} {{ value }}
+  {% endfor %}
+{% endif %}
