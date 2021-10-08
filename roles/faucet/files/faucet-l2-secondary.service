@@ -1,0 +1,16 @@
+[Unit]
+Description="Faucet OpenFlow switch controller for layer 2 secondary"
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/faucet-l2-secondary
+User=faucet
+Group=faucet
+Environment="PATH=/opt/faucet/venv/bin/"
+ExecStart=/opt/faucet/venv/bin/faucet --ryu-config-file=${FAUCET_RYU_CONF} --ryu-ofp-tcp-listen-port=${FAUCET_LISTEN_PORT}
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
