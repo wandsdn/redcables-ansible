@@ -107,24 +107,17 @@ dps:
                 acls_in: [lldp_allow, protect_from_access, default_allow]
             19:
                 name: "port1.0.19"
-                description: "at-x510-3 trunk-b"
+                description: "at-x510-1 trunk-b"
                 stack:
-                    dp: at-x510-3
-                    port: 22
+                    dp: at-x510-1
+                    port: 46
                 acls_in: [lldp_allow, protect_from_access, default_allow]
             20:
                 name: "port1.0.20"
-                description: "at-x510-3 trunk-a"
+                description: "at-x510-1 trunk-a"
                 stack:
-                    dp: at-x510-3
-                    port: 23
-                acls_in: [lldp_allow, protect_from_access, default_allow]
-            21:
-                name: "port1.0.21"
-                description: "at-x510-4 trunk"
-                stack:
-                    dp: at-x510-4
-                    port: 23
+                    dp: at-x510-1
+                    port: 47
                 acls_in: [lldp_allow, protect_from_access, default_allow]
             22:
                 name: "port1.0.22"
