@@ -40,7 +40,6 @@
     - role: prometheus-node-exporter
     - role: prometheus-pushgateway
     - role: apache
-    - role: docker
 - hosts: amp.redcables.wand.nz
   roles:
     - role: bearwall
