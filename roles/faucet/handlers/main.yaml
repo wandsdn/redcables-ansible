@@ -8,6 +8,12 @@
   service:
     name: faucet-l2
     state: reloaded
+  notify: delay before reload faucet-l2-secondary
+
+- name: delay before reload faucet-l2-secondary
+  pause:
+    seconds: 10
+  notify: reload faucet-l2-secondary
 
 - name: reload faucet-l2-secondary
   service:
@@ -23,6 +29,13 @@
   service:
     name: faucet-l2
     state: restarted
+  notify: delay before restart faucet-l2-secondary
+
+- name: delay before restart faucet-l2-secondary
+  pause:
+    seconds: 10
+  changed_when: true
+  notify: restart faucet-l2-secondary
 
 - name: restart faucet-l2-secondary
   service:

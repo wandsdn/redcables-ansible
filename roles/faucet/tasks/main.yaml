@@ -33,7 +33,6 @@
   notify:
     - restart faucet-l3
     - restart faucet-l2
-    - restart faucet-l2-secondary
 
 - name: Add faucet-l3 defaults file
   copy:
@@ -122,7 +121,6 @@
   notify:
     - reload faucet-l3
     - reload faucet-l2
-    - reload faucet-l2-secondary
 
 - name: Add l2 configuration
   copy:
@@ -130,7 +128,6 @@
     dest: /etc/faucet/l2/
   notify:
     - reload faucet-l2
-    - reload faucet-l2-secondary
 
 - name: Add faucet-l3 configuration
   copy:
@@ -145,7 +142,6 @@
     dest: /etc/faucet/
   notify:
     - reload faucet-l2
-    - reload faucet-l2-secondary
 
 - name: Check faucet-l3 config
   shell: check_faucet_config /etc/faucet/faucet-l3.yaml
