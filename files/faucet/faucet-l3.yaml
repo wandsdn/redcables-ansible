@@ -132,24 +132,6 @@ dps:
                 native_vlan: redcables-l3
                 permanent_learn: True
                 acls_in: [protect_from_access, default_allow]
-            10:
-                name: 'amp-redcables'
-                description: "amp vm"
-                native_vlan: redcables-l3
-                permanent_learn: True
-                acls_in: [protect_from_access, default_allow]
-            11:
-                name: 'awdy-redcables'
-                description: "awdy vm"
-                native_vlan: redcables-l3
-                permanent_learn: True
-                acls_in: [protect_from_access, default_allow]
-            14:
-                name: 'builder1-redcables'
-                description: "builder-1 vm"
-                native_vlan: redcables-l3
-                permanent_learn: True
-                acls_in: [protect_from_access, default_allow]
             20:
                 name: "vhost-faucet-cpn"
                 description: "faucet vm control plane network"
@@ -164,12 +146,6 @@ dps:
             22:
                 name: "mon-cpn"
                 description: "monitoring vm control plane network"
-                native_vlan: control
-                permanent_learn: True
-                acls_in: [protect_from_control, default_allow]
-            23:
-                name: "vhost-faucet-zof-cpn"
-                description: "faucet zof control plane network"
                 native_vlan: control
                 permanent_learn: True
                 acls_in: [protect_from_control, default_allow]
