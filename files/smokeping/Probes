@@ -13,7 +13,7 @@ pings = 5
 
 + FPing6
 
-binary = /usr/bin/fping6
+binary = /usr/bin/fping
 blazemode = true
 step = 60
 
